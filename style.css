@@ -466,46 +466,45 @@ a.card:hover {
 
 .secret {
 
-    animation: glitchGlow 1.2s infinite;
+    animation: secretShift 2s infinite alternate;
 
 }
 
 
-
-@keyframes glitchGlow {
+@keyframes secretShift {
 
     0% {
 
-        text-shadow:
-        3px 0 #ff0000,
-        -3px 0 #00ffff;
-
-    }
-
-
-    25% {
-
-        text-shadow:
-        -3px 0 #ff0000,
-        3px 0 #00ffff;
+        background:
+        linear-gradient(
+            45deg,
+            #220000,
+            #660000
+        );
 
     }
 
 
     50% {
 
-        text-shadow:
-        2px 2px #ff0000,
-        -2px -2px #00ffff;
+        background:
+        linear-gradient(
+            45deg,
+            #001122,
+            #440044
+        );
 
     }
 
 
     100% {
 
-        text-shadow:
-        3px 0 #ff0000,
-        -3px 0 #00ffff;
+        background:
+        linear-gradient(
+            45deg,
+            #330000,
+            #000033
+        );
 
     }
 
