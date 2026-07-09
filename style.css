@@ -185,28 +185,45 @@ a.card:hover {
 
 
 
-.rarity-title {
+.rarity-section {
 
+    width: 100%;
 
     grid-column: 1 / -1;
 
+    margin-bottom: 40px;
 
-    font-family:
-
-    "Orbitron", sans-serif;
-
-
-    text-transform:
-
-    uppercase;
+}
 
 
-    letter-spacing:
 
-    4px;
+.rarity-title {
+
+    text-align: center;
+
+    font-family: "Orbitron", sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+
+}
 
 
-    margin-top:40px;
+
+.fish-grid {
+
+
+    display: grid;
+
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+
+    gap: 20px;
 
 
 }
