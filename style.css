@@ -749,3 +749,53 @@ a.card:hover {
     margin-bottom: 25px;
 
 }
+
+.back-button {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    border-radius: 15px;
+
+
+    background:
+    rgba(255,255,255,0.12);
+
+
+    border:
+    1px solid rgba(255,255,255,0.25);
+
+
+    color: white;
+
+    text-decoration: none;
+
+
+    font-family: "Poppins", sans-serif;
+
+
+    backdrop-filter: blur(10px);
+
+
+    transition: 0.25s;
+
+}
+
+
+
+.back-button:hover {
+
+    transform: translateY(-5px);
+
+
+    background:
+    rgba(255,255,255,0.25);
+
+
+    box-shadow:
+    0 0 15px rgba(125,211,255,0.5);
+
+}
