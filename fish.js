@@ -146,6 +146,39 @@ const fishTable = {
     ]
 };
 
+function formatCoins(amount) {
+
+    if (amount >= 1000000000000) {
+
+        return (amount / 1000000000000).toFixed(1).replace(".0", "") + "T";
+
+    }
+
+    if (amount >= 1000000000) {
+
+        return (amount / 1000000000).toFixed(1).replace(".0", "") + "B";
+
+    }
+
+
+    if (amount >= 1000000) {
+
+        return (amount / 1000000).toFixed(1).replace(".0", "") + "M";
+
+    }
+
+
+    if (amount >= 1000) {
+
+        return (amount / 1000).toFixed(1).replace(".0", "") + "K";
+
+    }
+
+
+    return amount;
+
+}
+
 const container = document.getElementById("fish-container");
 
 
@@ -188,7 +221,8 @@ for (let rarity in fishTable) {
 
 
                 <p>
-                    💰 Value: ${fish[1]} coins
+                💰 Value: ${fish[1]} coins
+                ${fish[1] >= 1000 ? `(${formatCoins(fish[1])})` : ""}
                 </p>
 
             </div>
