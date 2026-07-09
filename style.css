@@ -419,11 +419,9 @@ a.card:hover {
 
     color: #ff3333;
 
-    text-shadow:
-    0 0 20px #ff3333;
+    animation: glitchGlow 1.2s infinite;
 
 }
-
 
 
 .rarity-godly {
@@ -492,45 +490,57 @@ a.card:hover {
 
 .rarity-secret {
 
-    animation: secretShift 2s infinite alternate;
+    color: #ff3333;
+
+    animation: glitchGlow 1.2s infinite;
 
 }
 
 
-@keyframes secretShift {
+
+@keyframes glitchGlow {
 
     0% {
 
-        background:
-        linear-gradient(
-            45deg,
-            #220000,
-            #660000
-        );
+        text-shadow:
+        3px 0 #ff0000,
+        -3px 0 #00ffff;
+
+    }
+
+
+    25% {
+
+        text-shadow:
+        -3px 0 #ff0000,
+        3px 0 #00ffff;
 
     }
 
 
     50% {
 
-        background:
-        linear-gradient(
-            45deg,
-            #001122,
-            #440044
-        );
+        text-shadow:
+        2px 2px #ff0000,
+        -2px -2px #00ffff;
+
+    }
+
+
+    75% {
+
+        text-shadow:
+        -2px 1px #ff0000,
+        2px -1px #00ffff;
 
     }
 
 
     100% {
 
-        background:
-        linear-gradient(
-            45deg,
-            #330000,
-            #000033
-        );
+        text-shadow:
+        3px 0 #ff0000,
+        -3px 0 #00ffff;
 
     }
 
