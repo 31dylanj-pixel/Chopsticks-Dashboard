@@ -808,3 +808,98 @@ a.card:hover {
     filter: grayscale(0%);
 
 }
+
+/* ==========================
+   COMMAND STATUS BADGES
+   ========================== */
+
+
+.command-card span {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-family: "Poppins", sans-serif;
+
+    width: fit-content;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+
+/* AVAILABLE */
+
+.available {
+
+    color: #55ff88;
+
+    background:
+    rgba(85,255,136,0.15);
+
+    border:
+    1px solid rgba(85,255,136,0.4);
+
+    box-shadow:
+
+    0 0 12px rgba(85,255,136,0.4);
+
+}
+
+
+
+/* COMING SOON */
+
+.coming-soon {
+
+    color: #ffaa55;
+
+    background:
+    rgba(255,170,85,0.15);
+
+    border:
+    1px solid rgba(255,170,85,0.4);
+
+    box-shadow:
+
+    0 0 12px rgba(255,170,85,0.4);
+
+}
+
+
+
+/* DISABLED */
+
+.disabled {
+
+    color: #ff5555;
+
+    background:
+    rgba(255,85,85,0.15);
+
+    border:
+    1px solid rgba(255,85,85,0.4);
+
+    box-shadow:
+
+    0 0 12px rgba(255,85,85,0.4);
+
+}
+
+.command-card {
+
+    min-height: 180px;
+
+}
