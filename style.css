@@ -1,56 +1,152 @@
+/* Import Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background: #111827;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        180deg,
+        #07111f,
+        #0b2545
+    );
+
     color: white;
+    min-height: 100vh;
 }
+
+
+/* Titles */
+
+h1, h2, h3 {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-weight: 700;
+
+}
+
+
+/* Header */
 
 header {
+
     text-align: center;
-    padding: 30px;
-    background: #1f2937;
+
+    padding: 40px 20px;
+
 }
 
-h1 {
-    margin: 0;
+
+header h1 {
+
+    font-size: 46px;
+
+    letter-spacing: 1px;
+
 }
+
+
+header p {
+
+    color: #b8d8ff;
+
+    font-size: 18px;
+
+}
+
+
+/* Card layout */
 
 .container {
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 25px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
 }
 
-.card {
-    background: #1f2937;
-    padding: 20px;
-    border-radius: 12px;
-}
 
-.card h2 {
-    margin-top: 0;
-}
+/* Clickable cards */
 
-button {
-    background: #2563eb;
-    border: none;
-    padding: 10px;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-}
+a.card {
 
-a {
     text-decoration: none;
+
     color: white;
+
+    background:
+
+        rgba(255,255,255,0.12);
+
+
+    border:
+
+        1px solid rgba(255,255,255,0.25);
+
+
+    border-radius: 18px;
+
+
+    padding: 25px;
+
+
+    text-align: center;
+
+
+    backdrop-filter: blur(10px);
+
+
+    transition:
+
+        transform 0.25s,
+
+        background 0.25s,
+
+        box-shadow 0.25s;
+
 }
+
+
+/* Hover effect */
+
+a.card:hover {
+
+    transform: translateY(-8px);
+
+
+    background:
+
+        rgba(255,255,255,0.22);
+
+
+    box-shadow:
+
+        0 10px 35px rgba(0,150,255,0.4);
+
+}
+
+
+/* Normal cards (fish entries etc.) */
 
 .card {
-    transition: transform 0.2s;
-    cursor: pointer;
-}
 
-.card:hover {
-    transform: scale(1.05);
+    background:
+
+        rgba(255,255,255,0.08);
+
+
+    border-radius: 18px;
+
+    padding: 20px;
+
 }
