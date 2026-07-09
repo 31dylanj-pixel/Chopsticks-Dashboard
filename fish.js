@@ -100,6 +100,50 @@ const fishTable = {
         ["💎 Crystal Seraph Fish", 8000],
         ["🥢 Chopsticks Fish", 20000]
     ],
+
+
+     secret: [
+        ["👑 King Salmon", 30000],
+        ["🧿 Memory Eater", 60000],
+        ["👁 Abyss Watcher", 50000],
+        ["🌑 Lost Depth Hydra", 90000],
+        ["🌀 Forgotten Leviathan", 75000],
+        ["🌌 Void Serpent", 100000],
+        ["🌌 Reminisce Fish", 1000000],
+        ["🕳 Void Whale", 10000000],
+        ["🌠 Celestial Koi", 25000000],
+        ["👁 Eye of the Abyss", 40000000]
+    ],
+
+
+    godly: [
+        ["⚡ Eternal Seraph", 50000000],
+        ["⚡ Reality Breaker Fish", 75000000],
+        ["👑 Crowned Leviathan", 10000000],
+        ["🌌 Astral Emperor Eel", 200000000],
+        ["🌌 Godfish of Reality", 1000000000],
+        ["🌌 Cosmic Remnant", 10000000000],
+        ["🌀 Chronofish", 25000000000],
+        ["🌠 Starborn Leviathan", 50000000000],
+        ["♾ Infinite Angler", 100000000000]
+    ],
+
+
+    divine: [
+        ["🌌 Divine Reminiscence", 1000000000000],
+        ["⚡ Eternal Creator", 2500000000000],
+        ["👑 Throne of Oceans", 5000000000000],
+        ["🌠 Celestial Founder", 10000000000000],
+        ["♾ Origin of Reality", 25000000000000],
+        ["🌀 The Big Bang", 50000000000000],
+        ["🌊 Waves of Creation", 60000000000000],
+        ["🕰 Ancient Reminiscence", 70000000000000],
+        ["⚜ Crown of Creation", 80000000000000],
+        ["🌌 Cosmic Genesis", 90000000000000],
+        ["✨ Divine Leviathan", 100000000000000],
+        ["🌠 Singularity Fish", 120000000000000],
+        ["🌀 Void Architect", 150000000000000]
+    ]
 };
 
 const container = document.getElementById("fish-container");
