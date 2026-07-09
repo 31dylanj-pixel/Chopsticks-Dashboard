@@ -120,17 +120,17 @@ for (let rarity in cards) {
 
 const searchBar = document.getElementById("card-search");
 
-searchBar.addEventListener("input", function () {
+searchBar.addEventListener("input", () => {
 
     const search = searchBar.value.toLowerCase();
 
     document.querySelectorAll(".card").forEach(card => {
 
-        const name =
-            card.querySelector("h2").textContent.toLowerCase();
+        const name = card.querySelector("h2").textContent.toLowerCase();
 
-        card.style.display =
-            name.includes(search) ? "flex" : "none";
+        card.style.display = name.includes(search)
+            ? "flex"
+            : "none";
 
     });
 
