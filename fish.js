@@ -188,18 +188,18 @@ for (let rarity in fishTable) {
     container.innerHTML += `
 
         <div class="rarity-section">
-
+    
             <h1 class="rarity-title ${rarity}">
                 ${rarity}
             </h1>
-
-
+    
+    
             <div class="fish-grid">
-
+    
             </div>
-
+    
         </div>
-
+    
     `;
 
 
