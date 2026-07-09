@@ -307,7 +307,7 @@ for (let category in commands) {
             ?
 
             `<span class="coming-soon">
-            🚧 Coming Soon
+            🟡 Coming Soon
             </span>`
 
             :
