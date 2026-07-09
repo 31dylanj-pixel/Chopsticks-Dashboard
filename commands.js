@@ -259,7 +259,11 @@ for (let category in commands) {
             ${category}
         </h1>
 
-        <div class="fish-grid"></div>
+
+        <div class="fish-grid">
+
+        </div>
+
 
     </div>
 
@@ -276,7 +280,9 @@ for (let category in commands) {
 
         section.innerHTML += `
 
+
         <div class="card command-card"
+
         data-search="
         ${command.name}
         ${command.usage}
@@ -291,12 +297,12 @@ for (let category in commands) {
             </h2>
 
 
-            <p>
+            <p class="usage">
                 ${command.usage}
             </p>
 
 
-            <p>
+            <p class="description">
                 ${command.description}
             </p>
 
@@ -307,7 +313,7 @@ for (let category in commands) {
             ?
 
             `<span class="coming-soon">
-            🟡 Coming Soon
+            🚧 Coming Soon
             </span>`
 
             :
@@ -321,48 +327,11 @@ for (let category in commands) {
 
         </div>
 
+
         `;
 
 
     });
 
+
 }
-
-const search =
-document.getElementById("command-search");
-
-
-search.addEventListener("input", ()=>{
-
-
-    let value =
-    search.value.toLowerCase();
-
-
-
-    document.querySelectorAll(".command-card")
-    .forEach(card=>{
-
-
-        let keywords =
-        card.dataset.search.toLowerCase();
-
-
-
-        if(keywords.includes(value)){
-
-            card.style.display="flex";
-
-        }
-
-        else {
-
-            card.style.display="none";
-
-        }
-
-
-    });
-
-
-});
