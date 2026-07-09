@@ -190,12 +190,13 @@ a.card:hover {
 
 .card:hover {
 
-    transform: translateY(-8px) scale(1.03);
+    transform:
+    translateY(-8px)
+    scale(1.04);
 
-    background: rgba(255,255,255,0.15);
 
-    box-shadow:
-        0 0 20px rgba(255,255,255,0.15);
+    background:
+    rgba(255,255,255,0.18);
 
 }
 
@@ -541,5 +542,105 @@ a.card:hover {
         0 0 100px #aa00ff;
 
     }
+
+}
+
+/* =====================
+   FISH CARD RARITY GLOW
+   ===================== */
+
+
+.card.common {
+
+    border-color: #aaaaaa;
+
+}
+
+
+
+.card.uncommon {
+
+    border-color: #55ff55;
+
+    box-shadow:
+    0 0 10px #55ff55;
+
+}
+
+
+
+.card.rare {
+
+    border-color: #55aaff;
+
+    box-shadow:
+    0 0 10px #55aaff;
+
+}
+
+
+
+.card.epic {
+
+    border-color: #bb55ff;
+
+    box-shadow:
+    0 0 12px #bb55ff;
+
+}
+
+
+
+.card.legendary {
+
+    border-color: gold;
+
+    box-shadow:
+    0 0 15px gold;
+
+}
+
+
+
+.card.mythic {
+
+    border-color: #ff66ff;
+
+    box-shadow:
+    0 0 15px #ff66ff;
+
+}
+
+
+
+.card.secret {
+
+    border-color: red;
+
+    box-shadow:
+    0 0 15px red;
+
+}
+
+
+
+.card.godly {
+
+    border-color: yellow;
+
+    box-shadow:
+    0 0 20px yellow;
+
+}
+
+
+
+.card.divine {
+
+    border-color: white;
+
+    box-shadow:
+    0 0 20px white,
+    0 0 40px cyan;
 
 }
