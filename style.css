@@ -336,3 +336,180 @@ a.card:hover {
     0 0 50px #aa00ff;
 
 }
+
+/* ==========================
+   SPECIAL RARITY EFFECTS
+   ========================== */
+
+
+/* MYTHIC - Galaxy Glow */
+
+.mythic {
+
+    animation: galaxyGlow 3s infinite alternate;
+
+}
+
+
+@keyframes galaxyGlow {
+
+    from {
+
+        text-shadow:
+        0 0 10px #ff66ff,
+        0 0 25px #9933ff;
+
+    }
+
+
+    to {
+
+        text-shadow:
+        0 0 20px #00ffff,
+        0 0 45px #ff66ff,
+        0 0 70px #9933ff;
+
+    }
+
+}
+
+
+
+
+
+/* SECRET - Glitch Glow */
+
+.secret {
+
+    animation: glitchGlow 1.2s infinite;
+
+}
+
+
+
+@keyframes glitchGlow {
+
+    0% {
+
+        text-shadow:
+        3px 0 #ff0000,
+        -3px 0 #00ffff;
+
+    }
+
+
+    25% {
+
+        text-shadow:
+        -3px 0 #ff0000,
+        3px 0 #00ffff;
+
+    }
+
+
+    50% {
+
+        text-shadow:
+        2px 2px #ff0000,
+        -2px -2px #00ffff;
+
+    }
+
+
+    100% {
+
+        text-shadow:
+        3px 0 #ff0000,
+        -3px 0 #00ffff;
+
+    }
+
+}
+
+
+
+
+
+/* GODLY - Lightning Flicker */
+
+.godly {
+
+    animation: lightning 1.5s infinite;
+
+}
+
+
+
+@keyframes lightning {
+
+    0%, 90%, 100% {
+
+        text-shadow:
+        0 0 10px #ffff00;
+
+    }
+
+
+    92% {
+
+        text-shadow:
+        0 0 30px white,
+        0 0 60px #ffff00;
+
+    }
+
+
+    94% {
+
+        text-shadow:
+        0 0 5px #ffff00;
+
+    }
+
+
+    96% {
+
+        text-shadow:
+        0 0 40px white,
+        0 0 80px #ffff00;
+
+    }
+
+}
+
+
+
+
+
+/* DIVINE - Cosmic Pulse */
+
+.divine {
+
+    animation: divinePulse 2.5s infinite alternate;
+
+}
+
+
+
+@keyframes divinePulse {
+
+    from {
+
+        text-shadow:
+        0 0 15px white,
+        0 0 30px #00ffff,
+        0 0 50px #aa00ff;
+
+    }
+
+
+    to {
+
+        text-shadow:
+        0 0 30px white,
+        0 0 60px #00ffff,
+        0 0 100px #aa00ff;
+
+    }
+
+}
