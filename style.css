@@ -669,14 +669,29 @@ a.card:hover {
 
 .card.secret {
 
-    border: 1px solid #ff3333;
-
-    box-shadow:
-    0 0 15px #ff3333,
-    0 0 30px #990000;
+    animation: secretCardShift 3s infinite alternate;
 
 }
 
+
+@keyframes secretCardShift {
+
+    from {
+
+        box-shadow:
+        0 0 15px red;
+
+    }
+
+
+    to {
+
+        box-shadow:
+        0 0 30px purple;
+
+    }
+
+}
 
 
 .card.godly {
