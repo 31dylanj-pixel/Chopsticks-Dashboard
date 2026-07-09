@@ -726,3 +726,26 @@ a.card:hover {
     0 0 60px #aa00ff;
 
 }
+
+.release-section {
+
+    width: 100%;
+
+    grid-column: 1 / -1;
+
+    margin-bottom: 50px;
+
+}
+
+
+.release-title {
+
+    text-align: center;
+
+    font-family: "Orbitron", sans-serif;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+
+}
