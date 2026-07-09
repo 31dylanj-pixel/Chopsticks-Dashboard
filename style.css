@@ -217,6 +217,59 @@ a.card:hover {
 
 }
 
+.search-box {
+
+    width: 90%;
+
+    max-width: 600px;
+
+    margin: 0 auto 40px;
+
+    text-align: center;
+
+}
+
+
+#fish-search {
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    background:
+    rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(10px);
+
+    color: white;
+
+    font-size: 18px;
+
+    font-family: "Poppins", sans-serif;
+
+    outline: none;
+
+}
+
+
+#fish-search::placeholder {
+
+    color: rgba(255,255,255,0.7);
+
+}
+
+
+#fish-search:focus {
+
+    box-shadow:
+    0 0 15px #7dd3ff;
+
+}
+
 .rarity-section {
 
     width: 100%;
