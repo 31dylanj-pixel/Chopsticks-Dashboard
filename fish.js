@@ -151,21 +151,52 @@ const container = document.getElementById("fish-container");
 
 for (let rarity in fishTable) {
 
+
     container.innerHTML += `
-        <h1>${rarity.toUpperCase()}</h1>
+
+        <div class="rarity-section">
+
+            <h1 class="rarity-title">
+                ${rarity}
+            </h1>
+
+
+            <div class="fish-grid">
+
+            </div>
+
+        </div>
+
     `;
+
+
+    let section =
+        container.lastElementChild.querySelector(".fish-grid");
+
 
 
     fishTable[rarity].forEach(fish => {
 
-        container.innerHTML += `
+
+        section.innerHTML += `
+
             <div class="card">
-                <h2>${fish[0]}</h2>
-                <p>⭐ Rarity: ${rarity}</p>
-                <p>💰 Value: ${fish[1]} coins</p>
+
+                <h2>
+                    ${fish[0]}
+                </h2>
+
+
+                <p>
+                    💰 Value: ${fish[1]} coins
+                </p>
+
             </div>
+
         `;
 
+
     });
+
 
 }
