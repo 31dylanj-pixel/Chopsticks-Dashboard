@@ -898,8 +898,35 @@ a.card:hover {
 
 }
 
+/* ==========================
+   COMMAND CARDS
+   ========================== */
+
+
 .command-card {
 
     min-height: 180px;
+
+}
+
+
+
+.command-card .usage {
+
+    color: #7dd3ff;
+
+    font-family: monospace;
+
+    font-size: 15px;
+
+}
+
+
+
+.command-card .description {
+
+    opacity: 0.85;
+
+    margin-top: 10px;
 
 }
