@@ -349,7 +349,7 @@ a.card:hover {
 /* Rarity Glow Effects */
 
 
-.common {
+.rarity-common {
 
     color: #c0c0c0;
 
@@ -360,7 +360,7 @@ a.card:hover {
 
 
 
-.uncommon {
+.rarity-uncommon {
 
     color: #55ff55;
 
@@ -371,7 +371,7 @@ a.card:hover {
 
 
 
-.rare {
+.rarity-rare {
 
     color: #55aaff;
 
@@ -382,7 +382,7 @@ a.card:hover {
 
 
 
-.epic {
+.rarity-epic {
 
     color: #bb55ff;
 
@@ -393,7 +393,7 @@ a.card:hover {
 
 
 
-.legendary {
+.rarity-legendary {
 
     color: #ffd700;
 
@@ -404,7 +404,7 @@ a.card:hover {
 
 
 
-.mythic {
+.rarity-mythic {
 
     color: #ff66ff;
 
@@ -415,7 +415,7 @@ a.card:hover {
 
 
 
-.secret {
+.rarity-secret {
 
     color: #ff3333;
 
@@ -426,7 +426,7 @@ a.card:hover {
 
 
 
-.godly {
+.rarity-godly {
 
     color: #ffff55;
 
@@ -437,7 +437,7 @@ a.card:hover {
 
 
 
-.divine {
+.rarity-divine {
 
     color: white;
 
@@ -455,7 +455,7 @@ a.card:hover {
 
 /* MYTHIC - Galaxy Glow */
 
-.mythic {
+.rarity-mythic {
 
     animation: galaxyGlow 3s infinite alternate;
 
@@ -490,7 +490,7 @@ a.card:hover {
 
 /* SECRET - Glitch Glow */
 
-.secret {
+.rarity-secret {
 
     animation: secretShift 2s infinite alternate;
 
@@ -542,7 +542,7 @@ a.card:hover {
 
 /* GODLY - Lightning Flicker */
 
-.godly {
+.rarity-godly {
 
     animation: lightning 1.5s infinite;
 
@@ -593,7 +593,7 @@ a.card:hover {
 
 /* DIVINE - Cosmic Pulse */
 
-.divine {
+.rarity-divine {
 
     animation: divinePulse 2.5s infinite alternate;
 
