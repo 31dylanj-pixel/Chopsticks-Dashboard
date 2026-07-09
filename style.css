@@ -809,3 +809,18 @@ a.card:hover {
     0 0 15px rgba(125,211,255,0.5);
 
 }
+
+.coming-soon {
+
+    opacity: 0.65;
+
+    filter: grayscale(40%);
+
+}
+
+
+.coming-soon:hover {
+
+    filter: grayscale(0%);
+
+}
