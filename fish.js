@@ -190,9 +190,6 @@ for (let rarity in fishTable) {
         <div class="rarity-section">
     
             <h1 class="rarity-title rarity-${rarity}">
-                ${rarity}
-            </h1>
-    
     
             <div class="fish-grid">
     
