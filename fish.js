@@ -234,3 +234,30 @@ for (let rarity in fishTable) {
 
 
 }
+
+const searchBar = document.getElementById("fish-search");
+
+
+searchBar.addEventListener("input", function() {
+
+    let search = searchBar.value.toLowerCase();
+
+
+    document.querySelectorAll(".card").forEach(card => {
+
+        let name = card.querySelector("h2").textContent.toLowerCase();
+
+
+        if (name.includes(search)) {
+
+            card.style.display = "flex";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
