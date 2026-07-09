@@ -40,3 +40,17 @@ button {
     border-radius: 8px;
     cursor: pointer;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.card {
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
