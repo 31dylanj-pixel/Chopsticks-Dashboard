@@ -189,7 +189,7 @@ for (let rarity in fishTable) {
 
         <div class="rarity-section">
 
-            <h1 class="rarity-title">
+            <h1 class="rarity-title ${rarity}">
                 ${rarity}
             </h1>
 
