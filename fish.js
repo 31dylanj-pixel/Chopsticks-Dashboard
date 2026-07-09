@@ -5,50 +5,63 @@ const fishTable = {
         ["🐟 Anchovy", 9],
         ["🐟 Minnow", 10],
         ["🐟 Guppy", 11],
-        ["🐠 Goldfish", 12]
+        ["🐠 Goldfish", 12],
+        ["🐟 Mud Minnow", 13],
+        ["🐠 Bluegill", 14],
+        ["🐠 Reef Guppy", 15],
+        ["🦀 Hermit Crab", 16],
+        ["🦀 Pebble Crab", 17],
+        ["🐡 Baby Blowfish", 18],
+        ["🐡 Small Blowfish", 19],
+        ["🦐 Shrimp", 20],
+        ["🦀 Crab", 22],
+        ["🐠 Clownfish", 24],
+        ["🐟 Sardine", 26],
+        ["🪼 Tiny Jelly", 28],
+        ["🐡 Pufferfish", 30],
+        ["🪸 Coral Shrimp", 32],
+        ["🪼 Jellyfish", 34]
     ],
+
 
     uncommon: [
         ["🐠 Silver Minnow", 35],
-        ["🐟 Stream Carp", 40]
+        ["🐟 Stream Carp", 40],
+        ["🐟 Emerald Carp", 42],
+        ["🦐 Lagoon Shrimp", 44],
+        ["🦑 Baby Squid", 46],
+        ["🐠 Coral Minnow", 48],
+        ["🦀 Tide Crab", 50],
+        ["🐠 Rainbow Guppy", 54],
+        ["🐟 Blue Tang", 58],
+        ["🦀 Rock Crab", 62],
+        ["🦀 Drift Crab", 65],
+        ["🐠 Amberstream Guppy", 68],
+        ["🦑 Spotted Puffer", 75],
+        ["🐡 Bubblefish", 85]
     ],
+
 
     rare: [
         ["🦑 Squid", 90],
         ["🐠 Neon Tetra", 95],
-        ["🐠 Angelfish", 100]
-    ],
-
-    epic: [
-        ["🦈 Shark", 220],
-        ["🐬 Dolphin", 260]
-    ],
-
-    legendary: [
-        ["🐉 Sea Serpent", 600],
-        ["👑 Golden Koi", 850]
-    ],
-
-    mythic: [
-        ["💎 Ocean Diamond", 1000],
-        ["🥢 Chopsticks Fish", 20000]
-    ],
-
-    secret: [
-        ["👑 King Salmon", 30000],
-        ["👁 Abyss Watcher", 50000]
-    ],
-
-    godly: [
-        ["⚡ Eternal Seraph", 50000000]
-    ],
-
-    divine: [
-        ["🌌 Divine Reminiscence", 1000000000000]
+        ["🐠 Angelfish", 100],
+        ["🦐 Glass Prawn", 105],
+        ["🐟 Deepwater Eel", 110],
+        ["🐡 Lionfish", 115],
+        ["🦞 Lobster", 120],
+        ["🦀 Razor Crab", 125],
+        ["🐠 Basslet", 130],
+        ["🐠 Prism Fish", 135],
+        ["🐟 Tuna", 140],
+        ["🦐 Crystal Shrimp", 155],
+        ["🦑 Cuttlefish", 150],
+        ["🐟 Swordfish", 165],
+        ["🦑 Electric Squid", 175],
+        ["🐠 Coral Angelfish", 180]
     ]
 
 };
-
 
 const container = document.getElementById("fish-container");
 
