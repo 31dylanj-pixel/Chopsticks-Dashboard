@@ -213,20 +213,20 @@ for (let rarity in fishTable) {
 
         section.innerHTML += `
 
-            <div class="card">
-
+            <div class="card ${rarity}">
+        
                 <h2>
                     ${fish[0]}
                 </h2>
-
-
+        
+        
                 <p>
-                💰 Value: ${fish[1]} coins
-                ${fish[1] >= 1000 ? `(${formatCoins(fish[1])})` : ""}
+                    💰 Value: ${fish[1]} coins
+                    ${fish[1] >= 1000 ? `(${formatCoins(fish[1])})` : ""}
                 </p>
-
+        
             </div>
-
+        
         `;
 
 
