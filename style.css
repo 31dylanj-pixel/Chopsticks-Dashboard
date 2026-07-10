@@ -794,15 +794,6 @@ a.card:hover {
 
 }
 
-.coming-soon {
-
-    opacity: 0.65;
-
-    filter: grayscale(40%);
-
-}
-
-
 .coming-soon:hover {
 
     filter: grayscale(0%);
@@ -899,16 +890,20 @@ a.card:hover {
 }
 
 /* ==========================
-   COMMAND CARDS
+   COMMAND PAGE FIXES
    ========================== */
 
 
 #commands-container {
 
-    grid-template-columns:
-    repeat(auto-fit, minmax(360px, 1fr));
+    width: 90%;
 
     max-width: 1200px;
+
+    margin: auto;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(360px, 1fr));
 
 }
 
@@ -953,8 +948,6 @@ a.card:hover {
     padding: 10px 14px;
 
     border-radius: 12px;
-
-    white-space: normal;
 
     overflow-wrap: anywhere;
 
