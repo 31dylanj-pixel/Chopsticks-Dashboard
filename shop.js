@@ -48,6 +48,38 @@ const shops = {
 
 };
 
+function formatCoins(amount) {
+
+    if (amount >= 1000000000000) {
+
+        return (amount / 1000000000000).toFixed(1).replace(".0", "") + "T";
+
+    }
+
+    if (amount >= 1000000000) {
+
+        return (amount / 1000000000).toFixed(1).replace(".0", "") + "B";
+
+    }
+
+
+    if (amount >= 1000000) {
+
+        return (amount / 1000000).toFixed(1).replace(".0", "") + "M";
+
+    }
+
+
+    if (amount >= 1000) {
+
+        return (amount / 1000).toFixed(1).replace(".0", "") + "K";
+
+    }
+
+
+    return amount;
+
+}
 
 
 const container = document.getElementById("shop-container");
@@ -94,7 +126,8 @@ for (let shop in shops) {
 
                 ${
                     typeof item[1] === "number"
-                    ? `💰 Cost: ${item[1].toLocaleString()} coins`
+                    ? `💰 Cost: ${item[1].toLocaleString()} coins
+                        (${formatCoins(item[1])})`
                     : item[1]
                 }
 
