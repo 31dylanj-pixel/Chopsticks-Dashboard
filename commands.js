@@ -127,7 +127,7 @@ const commands = {
     
     {
         name: "📈 Prestige Info",
-        usage: "prestigeinfo",
+        usage: "prestigeinfo <user>",
         description: "View your Prestige information.",
         status: "available"
     },
