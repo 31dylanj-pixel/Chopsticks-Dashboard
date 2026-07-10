@@ -158,6 +158,24 @@ async function loadLeaderboard() {
 
             </p>
 
+            <div class="player-details">
+
+                <p>
+                    🎣 Fish Caught:
+                    ${player.stats?.fish_caught ?? 0}
+                </p>
+            
+                <p>
+                    🎰 Slots Played:
+                    ${player.stats?.slots_played ?? 0}
+                </p>
+            
+                <p>
+                    💰 Coins Earned:
+                    ${formatCoins(player.stats?.coins_earned ?? 0)}
+                </p>
+            
+            </div>
 
         </div>
 
