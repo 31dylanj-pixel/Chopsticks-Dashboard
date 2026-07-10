@@ -917,12 +917,11 @@ a.card:hover {
 
     justify-content: flex-start;
 
-    text-align: left;
+    text-align: center;
 
     padding: 25px;
 
 }
-
 
 
 .command-card h2 {
@@ -951,7 +950,9 @@ a.card:hover {
 
     overflow-wrap: anywhere;
 
-    margin-top: 5px;
+    margin: 5px auto;
+
+    width: fit-content;
 
 }
 
