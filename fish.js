@@ -148,29 +148,25 @@ const fishTable = {
 
 function formatCoins(amount) {
 
-    if (amount >= 1000000000000) {
-
-        return (amount / 1000000000000).toFixed(1).replace(".0", "") + "T";
-
-    }
-
-    if (amount >= 1000000000) {
-
-        return (amount / 1000000000).toFixed(1).replace(".0", "") + "B";
-
-    }
+    const units = [
+        { value: 1e18, symbol: "Qi" }, // Quintillion
+        { value: 1e15, symbol: "Qa" }, // Quadrillion
+        { value: 1e12, symbol: "T" },  // Trillion
+        { value: 1e9, symbol: "B" },   // Billion
+        { value: 1e6, symbol: "M" },   // Million
+        { value: 1e3, symbol: "K" }    // Thousand
+    ];
 
 
-    if (amount >= 1000000) {
+    for (let unit of units) {
 
-        return (amount / 1000000).toFixed(1).replace(".0", "") + "M";
+        if (amount >= unit.value) {
 
-    }
+            return (amount / unit.value)
+                .toFixed(1)
+                .replace(".0", "") + unit.symbol;
 
-
-    if (amount >= 1000) {
-
-        return (amount / 1000).toFixed(1).replace(".0", "") + "K";
+        }
 
     }
 
