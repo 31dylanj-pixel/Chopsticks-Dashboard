@@ -4,61 +4,86 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
+function formatCoins(amount) {
 
-async function loadLeaderboard(){
+    const units = [
+        { value: 1e18, symbol: "Qi" },
+        { value: 1e15, symbol: "Qa" },
+        { value: 1e12, symbol: "T" },
+        { value: 1e9, symbol: "B" },
+        { value: 1e6, symbol: "M" },
+        { value: 1e3, symbol: "K" }
+    ];
+
+    for (const unit of units) {
+
+        if (amount >= unit.value) {
+
+            return (amount / unit.value)
+                .toFixed(1)
+                .replace(".0", "") + unit.symbol;
+
+        }
+
+    }
+
+    return amount.toString();
+
+}
+
+async function loadLeaderboard() {
 
     const response = await fetch(
         `${SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak&order=coins.desc&limit=10`,
         {
-            headers:{
+            headers: {
                 apikey: SUPABASE_KEY,
-                Authorization:
-                `Bearer ${SUPABASE_KEY}`
+                Authorization: `Bearer ${SUPABASE_KEY}`
             }
         }
     );
 
-
     const players = await response.json();
 
+    const container = document.getElementById("leaderboard");
 
-    const container =
-    document.getElementById(
-        "leaderboard-container"
-    );
+    // Clear old leaderboard before rebuilding it
+    container.innerHTML = "";
 
+    players.forEach((player, index) => {
 
-    players.forEach((player,index)=>{
+        let rank = `${index + 1}.`;
+
+        if (index === 0) rank = "🥇";
+        else if (index === 1) rank = "🥈";
+        else if (index === 2) rank = "🥉";
 
         container.innerHTML += `
 
-        <div class="card">
+            <div class="card">
 
-            <h2>
-            ${index + 1}.
-            ${player.username}
-            </h2>
+                <h2>
+                    ${rank} ${player.username}
+                </h2>
 
-            <p>
-            🏷 ${player.title}
-            </p>
+                <p>
+                    🏷 ${player.title}
+                </p>
 
-            <p>
-            💰 ${player.coins.toLocaleString()}
-            coins
-            </p>
+                <p>
+                    💰 ${player.coins.toLocaleString()} coins
+                    (${formatCoins(player.coins)})
+                </p>
 
-            <p>
-            ⭐ Prestige:
-            ${player.prestige}
-            </p>
+                <p>
+                    ⭐ Prestige: ${player.prestige}
+                </p>
 
-            <p>
-            🔥 Streak:
-            ${player.daily_streak}
-            </p>
+                <p>
+                    🔥 Streak: ${player.daily_streak}
+                </p>
 
-        </div>
+            </div>
 
         `;
 
@@ -66,5 +91,7 @@ async function loadLeaderboard(){
 
 }
 
-
 loadLeaderboard();
+
+// Refresh every 30 seconds
+setInterval(loadLeaderboard, 30000);
