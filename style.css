@@ -1037,7 +1037,32 @@ a.card:hover {
     text-align: left;
 }
 
+
 .leaderboard-card {
+
     text-align: left;
     margin-bottom: 15px;
+    position: relative;
+
+}
+
+
+.player-details {
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
+
+}
+
+
+.leaderboard-card:hover .player-details {
+
+    max-height: 250px;
+    opacity: 1;
+
 }
