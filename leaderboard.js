@@ -36,61 +36,62 @@ async function loadLeaderboard() {
     const response = await fetch(
         `${SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak&order=coins.desc&limit=10`,
         {
-            headers: {
+            headers:{
                 apikey: SUPABASE_KEY,
-                Authorization: `Bearer ${SUPABASE_KEY}`
+                Authorization:
+                `Bearer ${SUPABASE_KEY}`
             }
         }
     );
 
+    console.log("Status:", response.status);
+
     const players = await response.json();
+
+    console.log("Players:", players);
 
     const container = document.getElementById("leaderboard");
 
-    // Clear old leaderboard before rebuilding it
+    console.log("Container:", container);
+
     container.innerHTML = "";
 
-    players.forEach((player, index) => {
-
-        let rank = `${index + 1}.`;
-
-        if (index === 0) rank = "🥇";
-        else if (index === 1) rank = "🥈";
-        else if (index === 2) rank = "🥉";
+    players.forEach((player,index)=>{
 
         container.innerHTML += `
 
-            <div class="card">
+        <div class="card">
 
-                <h2>
-                    ${rank} ${player.username}
-                </h2>
+            <h2>
+            ${index + 1}.
+            ${player.username}
+            </h2>
 
-                <p>
-                    🏷 ${player.title}
-                </p>
+            <p>
+            🏷 ${player.title}
+            </p>
 
-                <p>
-                    💰 ${player.coins.toLocaleString()} coins
-                    (${formatCoins(player.coins)})
-                </p>
+            <p>
+            💰 ${player.coins.toLocaleString()} coins
+            </p>
 
-                <p>
-                    ⭐ Prestige: ${player.prestige}
-                </p>
+            <p>
+            ⭐ Prestige:
+            ${player.prestige}
+            </p>
 
-                <p>
-                    🔥 Streak: ${player.daily_streak}
-                </p>
+            <p>
+            🔥 Streak:
+            ${player.daily_streak}
+            </p>
 
-            </div>
+        </div>
 
         `;
 
     });
 
 }
-
 loadLeaderboard();
 
 // Refresh every 30 seconds
