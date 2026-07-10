@@ -1074,26 +1074,20 @@ a.card:hover {
 
 
 /* 🥇 1st place */
-.leaderboard-card:nth-child(1) {
-
-    box-shadow: 0 0 20px gold;
-
+.leaderboard-card.top-one {
+    box-shadow: 0 0 25px gold;
 }
 
 
 /* 🥈 2nd place */
-.leaderboard-card:nth-child(2) {
-
-    box-shadow: 0 0 20px silver;
-
+.leaderboard-card.top-two {
+    box-shadow: 0 0 25px silver;
 }
 
 
 /* 🥉 3rd place */
-.leaderboard-card:nth-child(3) {
-
-    box-shadow: 0 0 20px #cd7f32;
-
+.leaderboard-card.top-three {
+    box-shadow: 0 0 25px #cd7f32;
 }
 
 
