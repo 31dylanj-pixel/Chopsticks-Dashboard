@@ -905,7 +905,9 @@ a.card:hover {
 
 .command-card {
 
-    min-height: 180px;
+    min-height: 220px;
+
+    height: auto;
 
 }
 
@@ -913,11 +915,13 @@ a.card:hover {
 
 .command-card .usage {
 
-    color: #7dd3ff;
-
     font-family: monospace;
 
-    font-size: 15px;
+    color: #7dd3ff;
+
+    white-space: normal;
+
+    word-break: break-word;
 
 }
 
