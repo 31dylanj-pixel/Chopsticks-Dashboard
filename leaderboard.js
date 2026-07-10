@@ -43,7 +43,7 @@ async function loadLeaderboard() {
 
     const response = await fetch(
 
-        `${SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak&order=prestige.desc,coins.desc&limit=50`,
+        `${SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak,stats&order=prestige.desc,coins.desc&limit=50`,
 
         {
 
