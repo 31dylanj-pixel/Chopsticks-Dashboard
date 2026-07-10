@@ -918,19 +918,19 @@ a.card:hover {
 
 .command-card {
 
-    min-height: 260px;
+    min-height:260px;
 
-    height: 260px;
+    height:auto;
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    justify-content: space-between;
+    justify-content:flex-start;
 
-    text-align: center;
+    text-align:center;
 
-    overflow: visible;
+    overflow:visible;
 
 }
 
@@ -951,33 +951,26 @@ a.card:hover {
 
     font-family: Consolas, monospace;
 
-    color: #7dd3ff;
-
+    color:#7dd3ff;
 
     background:
-
     rgba(0,0,0,0.25);
 
+    padding:10px 15px;
 
-    padding: 10px 15px;
+    border-radius:12px;
 
-    border-radius: 12px;
+    margin:10px auto;
 
+    width:90%;
 
-    margin: 10px auto;
+    white-space:normal;
 
+    overflow-wrap:break-word;
 
-    width: 90%;
+    word-break:break-word;
 
-
-    white-space: normal;
-
-    overflow-wrap: anywhere;
-
-    word-break: normal;
-
-
-    text-align: center;
+    text-align:center;
 
 }
 
