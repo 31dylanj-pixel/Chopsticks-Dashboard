@@ -118,8 +118,12 @@ async function loadLeaderboard() {
         container.innerHTML += `
 
 
-        <div class="card leaderboard-card">
-
+        <div class="card leaderboard-card ${
+            index === 0 ? "top-one" :
+            index === 1 ? "top-two" :
+            index === 2 ? "top-three" :
+            ""
+        }">
 
             <h2>
 
