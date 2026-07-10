@@ -198,5 +198,5 @@ loadLeaderboard();
 
 setInterval(
     loadLeaderboard,
-    30000
+    10000
 );
