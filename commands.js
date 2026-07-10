@@ -1,171 +1,185 @@
 const commands = {
 
-    Games: [
+    games: [
 
-        {
-            name: "🎣 fish",
-            usage: "fish <user>",
-            description: "Catch fish and earn coins.",
-            status: "available"
-        },
-
-        {
-            name: "🎰 slot",
-            usage: "slot <user> <bet>",
-            description: "Spin the slot machine.",
-            status: "available"
-        },
-
-        {
-            name: "🪙 bet",
-            usage: "bet <user> coin <heads/tails> <bet>",
-            description: "Flip a coin and gamble your coins.",
-            status: "available"
-        },
-
-        {
-            name: "🎲 roll",
-            usage: "roll <faces>",
-            description: "Roll a custom die with your chosen number of faces.",
-            status: "available"
-        },
-
-        {
-            name: "☠️ Russian Roulette",
-            usage: "roulette <user>",
-            description: "Six chambers. One massive jackpot. Test your luck.",
-            status: "coming soon"
-        }
-
+    {
+        name: "🎣 Fish",
+        usage: "fish <user>",
+        description: "Catch fish and earn coins.",
+        status: "available"
+    },
+    
+    {
+        name: "🎰 Slot Machine",
+        usage: "slot <user> <bet>",
+        description: "Spin the slot machine.",
+        status: "available"
+    },
+    
+    {
+        name: "🪙 Coin Bet",
+        usage: "bet <user> coin <heads/tails> <bet>",
+        description: "Flip a coin.",
+        status: "available"
+    },
+    
+    {
+        name: "🎲 Roll",
+        usage: "roll <faces>",
+        description: "Roll a custom die with the specified number of faces.",
+        status: "available"
+    },
+    
+    {
+        name: "☠️ Russian Roulette",
+        usage: "roulette <user> <bet>",
+        description: "Russian Roulette. Six chambers. One bullet. One massive jackpot. Do you trust your luck?",
+        status: "coming soon"
+    }
+    
     ],
 
 
 
-    Social: [
+    social: [
 
-        {
-            name: "🏆 leaderboard",
-            usage: "leaderboard",
-            description: "View the richest players.",
-            status: "available"
-        },
-
-        {
-            name: "💰 give",
-            usage: "give <from> <to> <amount>",
-            description: "Give coins to another player.",
-            status: "coming soon"
-        }
-
+    {
+        name: "🏆 Leaderboard",
+        usage: "leaderboard",
+        description: "View the richest players.",
+        status: "available"
+    },
+    
+    {
+        name: "💰 Give",
+        usage: "give <from> <to> <amount>",
+        description: "Give coins to another player.",
+        status: "coming soon"
+    }
+    
     ],
 
 
 
-    Profile: [
+    profile: [
 
-        {
-            name: "💰 balance",
-            usage: "balance <user>",
-            description: "View your coin balance.",
-            status: "available"
-        },
-
-        {
-            name: "📖 collection",
-            usage: "collection <user>",
-            description: "View your fish collection.",
-            status: "available"
-        },
-
-        {
-            name: "🃏 cards",
-            usage: "cards <user>",
-            description: "View your card collection.",
-            status: "available"
-        },
-
-        {
-            name: "🎁 daily",
-            usage: "daily <user>",
-            description: "Claim your daily reward.",
-            status: "available"
-        },
-
-        {
-            name: "📜 quests",
-            usage: "quests <user>",
-            description: "View your daily quests.",
-            status: "coming soon"
-        },
-
-        {
-            name: "📊 stats",
-            usage: "stats <user>",
-            description: "View your statistics.",
-            status: "available"
-        }
-
+    {
+        name: "💰 Balance",
+        usage: "balance <user>",
+        description: "View your balance.",
+        status: "available"
+    },
+    
+    {
+        name: "📖 Collection",
+        usage: "collection <user>",
+        description: "View your fish collection.",
+        status: "available"
+    },
+    
+    {
+        name: "🃏 Cards",
+        usage: "cards <user>",
+        description: "View your card collection.",
+        status: "available"
+    },
+    
+    {
+        name: "🎁 Daily",
+        usage: "daily <user>",
+        description: "Claim today's reward.",
+        status: "available"
+    },
+    
+    {
+        name: "📜 Quests",
+        usage: "quests <user>",
+        description: "View your daily quests.",
+        status: "coming soon"
+    },
+    
+    {
+        name: "📊 Stats",
+        usage: "stats <user>",
+        description: "View your statistics.",
+        status: "available"
+    }
+    
     ],
 
 
 
-    Prestige: [
+    prestige: [
 
-        {
-            name: "⭐ prestige",
-            usage: "prestige <user>",
-            description: "Prestige to the next tier and gain prestige points.",
-            status: "available"
-        },
-
-        {
-            name: "🛒 prestigeshop",
-            usage: "prestigeshop <user>",
-            description: "View the Prestige Shop.",
-            status: "available"
-        },
-
-        {
-            name: "📈 prestigeinfo",
-            usage: "prestigeinfo <user>",
-            description: "View your current prestige information.",
-            status: "available"
-        },
-
-        {
-            name: "⬆ upgrade",
-            usage: "upgrade <user> <upgrade>",
-            description: "Purchase a prestige upgrade.",
-            status: "available"
-        }
-
+    {
+        name: "⭐ Prestige",
+        usage: "prestige <user>",
+        description: "Prestige to the next tier and gain Prestige Points.",
+        status: "available"
+    },
+    
+    {
+        name: "🛒 Prestige Shop",
+        usage: "prestigeshop <user>",
+        description: "View the Prestige Shop.",
+        status: "available"
+    },
+    
+    {
+        name: "📈 Prestige Info",
+        usage: "prestigeinfo",
+        description: "View your Prestige information.",
+        status: "available"
+    },
+    
+    {
+        name: "⬆ Upgrade",
+        usage: "upgrade <user> <upgrade>",
+        description: "Purchase a Prestige upgrade.",
+        status: "available"
+    }
+    
     ],
 
 
 
-    Titles: [
+    shops: [
 
-        {
-            name: "🏪 titleshop",
-            usage: "titleshop",
-            description: "View all available titles.",
-            status: "available"
-        },
-
-        {
-            name: "🛒 buytitle",
-            usage: "buytitle <user> <title>",
-            description: "Purchase a title from the Title Shop.",
-            status: "available"
-        },
-
-        {
-            name: "✨ usetitle",
-            usage: "usetitle <user> <title>",
-            description: "Equip one of your owned titles.",
-            status: "available"
-        }
-
+    {
+        name: "🏪 Title Shop",
+        usage: "titleshop",
+        description: "View all available titles.",
+        status: "available"
+    },
+    
+    {
+        name: "🛒 Buy Title",
+        usage: "buytitle <user> <title>",
+        description: "Purchase a title from the Title Shop.",
+        status: "available"
+    },
+    
+    {
+        name: "✨ Use Title",
+        usage: "usetitle <user> <title>",
+        description: "Equip one of your owned titles.",
+        status: "available"
+    },
+    
+    {
+        name: "🛒 Shop",
+        usage: "shop <user>",
+        description: "View the general shop.",
+        status: "available"
+    },
+    
+    {
+        name: "💰 Buy",
+        usage: "buy <user> <item>",
+        description: "Purchase an item from the shop.",
+        status: "available"
+    }
+    
     ],
 
 
