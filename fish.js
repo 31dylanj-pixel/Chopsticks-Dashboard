@@ -74,6 +74,7 @@ const fishTable = {
         ["🦈 Deep Sea Hunter", 470],
         ["🦈 Great White", 500],
         ["🐋 Whale", 550],
+        ["🦑 Giant Squid", 600],
         ["🐋 Blue Titan Whale", 650],
         ["🐙 Krakenling", 700]
     ],
@@ -81,6 +82,7 @@ const fishTable = {
     
     legendary: [
         ["🐉 Sea Serpent", 600],
+        ["🐙 Kraken", 750],
         ["🐉 Ember Serpent", 950],
         ["👑 Golden Koi", 850],
         ["🐉 Abyss Drakefish", 700],
