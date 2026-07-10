@@ -994,3 +994,41 @@ a.card:hover {
 
 }
 
+/* ==========================
+   SHOP PAGE
+   ========================== */
+
+.shop-section {
+
+    width: 100%;
+
+    grid-column: 1 / -1;
+
+    margin-bottom: 45px;
+
+}
+
+
+.shop-title {
+
+    text-align: center;
+
+    font-family: "Orbitron", sans-serif;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.shop-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+}
