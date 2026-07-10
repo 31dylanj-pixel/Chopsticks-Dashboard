@@ -124,13 +124,16 @@ async function loadLeaderboard() {
             <h2>
 
                 ${rank}
-
-                PRESTIGE ${player.prestige}
-
-                • ${player.title}
-
+            
+                ${player.prestige > 0 
+                    ? `PRESTIGE ${player.prestige} • `
+                    : ""
+                }
+            
+                ${player.title}
+            
                 • ${player.username}
-
+            
             </h2>
 
 
