@@ -1044,9 +1044,14 @@ a.card:hover {
     margin-bottom: 15px;
     position: relative;
 
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
 }
 
 
+/* Hover details */
 .player-details {
 
     max-height: 0;
@@ -1064,5 +1069,37 @@ a.card:hover {
 
     max-height: 250px;
     opacity: 1;
+
+}
+
+
+/* 🥇 1st place */
+.leaderboard-card:nth-child(1) {
+
+    box-shadow: 0 0 20px gold;
+
+}
+
+
+/* 🥈 2nd place */
+.leaderboard-card:nth-child(2) {
+
+    box-shadow: 0 0 20px silver;
+
+}
+
+
+/* 🥉 3rd place */
+.leaderboard-card:nth-child(3) {
+
+    box-shadow: 0 0 20px #cd7f32;
+
+}
+
+
+/* Hover zoom */
+.leaderboard-card:hover {
+
+    transform: scale(1.03);
 
 }
