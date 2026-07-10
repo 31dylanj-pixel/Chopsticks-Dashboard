@@ -102,7 +102,7 @@ for (let rarity in cards) {
 
                 <p>
                     💰 Sell Value:
-                    ${card[1]} coins
+                    ${card[1].toLocaleString()} coins
                     ${card[1] >= 1000
                         ? `(${formatCoins(card[1])})`
                         : ""}
