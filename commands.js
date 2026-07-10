@@ -272,34 +272,39 @@ for (let category in commands) {
     commands[category].forEach(command => {
 
 
+        const escapeHTML = (text) => {
+            return text
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;");
+        };
         section.innerHTML += `
 
 
         <div class="card command-card"
 
-        data-search="
-        ${command.name}
-        ${command.usage}
-        ${command.description}
-        ${command.status}
-        ${category}
-        ">
+        data-search="${escapeHTML(
+            `${command.name}
+            ${command.usage}
+            ${command.description}
+            ${command.status}
+            ${category}`
+        )}"
 
 
-            <h2>
-                ${command.name}
-            </h2>
-
-
-            <p class="usage">
-                ${command.usage}
-            </p>
-
-
-            <p class="description">
-                ${command.description}
-            </p>
-
+        <h2>
+            ${escapeHTML(command.name)}
+        </h2>
+        
+        
+        <p class="usage">
+            ${escapeHTML(command.usage)}
+        </p>
+        
+        
+        <p class="description">
+            ${escapeHTML(command.description)}
+        </p>
 
             ${
             command.status === "coming soon"
