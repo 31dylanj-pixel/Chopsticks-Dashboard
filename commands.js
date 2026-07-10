@@ -32,7 +32,7 @@ const commands = {
 
         {
             name: "☠️ Russian Roulette",
-            usage: "roulette",
+            usage: "roulette <user>",
             description: "Six chambers. One massive jackpot. Test your luck.",
             status: "coming soon"
         }
@@ -127,7 +127,7 @@ const commands = {
 
         {
             name: "📈 prestigeinfo",
-            usage: "prestigeinfo",
+            usage: "prestigeinfo <user>",
             description: "View your current prestige information.",
             status: "available"
         },
@@ -174,7 +174,7 @@ const commands = {
 
         {
             name: "🛒 shop",
-            usage: "shop",
+            usage: "shop <user>",
             description: "View the general shop.",
             status: "available"
         },
@@ -194,7 +194,7 @@ const commands = {
 
         {
             name: "🃏 openpack",
-            usage: "openpack <user> <pack>",
+            usage: "openpack <user> <basic/rare/epic/legendary/mythic>",
             description: "Open a card pack.",
             status: "available"
         },
@@ -313,7 +313,7 @@ for (let category in commands) {
             ?
 
             `<span class="coming-soon">
-            🚧 Coming Soon
+            🟡 Coming Soon
             </span>`
 
             :
