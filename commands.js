@@ -184,26 +184,6 @@ const commands = {
 
 
 
-    Shop: [
-
-        {
-            name: "🛒 shop",
-            usage: "shop <user>",
-            description: "View the general shop.",
-            status: "available"
-        },
-
-        {
-            name: "💰 buy",
-            usage: "buy <user> <item>",
-            description: "Purchase an item from the shop.",
-            status: "available"
-        }
-
-    ],
-
-
-
     Cards: [
 
         {
