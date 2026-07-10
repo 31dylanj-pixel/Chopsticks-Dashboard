@@ -184,7 +184,7 @@ const commands = {
 
 
 
-    Cards: [
+    cards: [
 
         {
             name: "🃏 openpack",
@@ -204,7 +204,7 @@ const commands = {
 
 
 
-    Utilities: [
+    utilities: [
 
         {
             name: "🌤 weather",
