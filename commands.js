@@ -329,3 +329,40 @@ for (let category in commands) {
 
 
 }
+
+const searchBar =
+document.getElementById("command-search");
+
+
+searchBar.addEventListener("input", () => {
+
+
+    const search =
+    searchBar.value.toLowerCase();
+
+
+    document.querySelectorAll(".command-card")
+    .forEach(card => {
+
+
+        const text =
+        card.dataset.search.toLowerCase();
+
+
+        if(text.includes(search)) {
+
+            card.style.display = "flex";
+
+        }
+
+        else {
+
+            card.style.display = "none";
+
+        }
+
+
+    });
+
+
+});
