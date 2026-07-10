@@ -1097,3 +1097,30 @@ a.card:hover {
     transform: scale(1.03);
 
 }
+
+.release-card {
+
+    position: relative;
+
+}
+
+
+.release-details {
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.4s ease;
+
+}
+
+
+.release-card:hover .release-details {
+
+    max-height: 500px;
+    opacity: 1;
+
+}
