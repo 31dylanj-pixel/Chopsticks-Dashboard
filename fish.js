@@ -216,7 +216,7 @@ for (let rarity in fishTable) {
         
         
                 <p>
-                    💰 Value: ${fish[1]} coins
+                    💰 Value: ${fish[1].toLocaleString()} coins
                     ${fish[1] >= 1000 ? `(${formatCoins(fish[1])})` : ""}
                 </p>
         
