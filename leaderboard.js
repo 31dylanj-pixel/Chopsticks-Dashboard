@@ -2,7 +2,7 @@ const SUPABASE_URL =
 "https://rualkoaojvjiqsudzgah.supabase.co";
 
 const SUPABASE_KEY =
-"YOUR_PUBLISHABLE_KEY";
+"sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
 
 async function loadLeaderboard(){
