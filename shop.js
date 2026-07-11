@@ -191,7 +191,7 @@ const shops = {
             name: "🪙 Lucky Wave Token",
             cost: 100000000000000,
             info: "Allows you to call a Lucky Wave for 1 minute<br>Max: 1",
-            status: "coming-soon"
+            status: "coming soon"
         }
 
     ],
