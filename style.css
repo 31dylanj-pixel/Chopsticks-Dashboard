@@ -810,7 +810,7 @@ a.card:hover {
    COMMAND STATUS BADGES
    ========================== */
 
-
+.shop-status,
 .command-card span {
 
     display: inline-block;
