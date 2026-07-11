@@ -1089,6 +1089,33 @@ a.card:hover {
 
 }
 
+.release-group summary {
+
+    list-style: none;
+    cursor: pointer;
+
+}
+
+
+.release-group summary::-webkit-details-marker {
+
+    display: none;
+
+}
+
+
+.release-group summary:hover {
+
+    transform: scale(1.03);
+
+}
+
+
+.release-child {
+
+    margin-top: 15px;
+
+}
 /* ==========================
    SHOP PAGE
    ========================== */
