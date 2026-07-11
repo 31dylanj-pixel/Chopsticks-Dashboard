@@ -304,18 +304,19 @@ for (let shop in shops) {
                 <p class="shop-info">
 
                 ${
-                    typeof item.cost === "number"
+                item.cost !== undefined
                 
-                    ? 
-                    `
-                    💰 Cost: ${item.cost.toLocaleString()} coins
-                    <br>
-                    (${formatCoins(item.cost)})
-                    `
+                ?
                 
-                    :
+                `
+                💰 Cost: ${item.cost.toLocaleString()} coins
+                <br>
+                (${formatCoins(item.cost)})
+                `
                 
-                    item.info
+                :
+                
+                item.info
                 
                 }
                 
