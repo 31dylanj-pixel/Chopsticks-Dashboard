@@ -301,18 +301,24 @@ for (let shop in shops) {
                     ${item.name}
                 </h2>
 
-                <p>
+                <p class="shop-info">
 
                 ${
                     typeof item.cost === "number"
-
-                    ? `💰 Cost: ${item.cost.toLocaleString()} coins
+                
+                    ? 
+                    `
+                    💰 Cost: ${item.cost.toLocaleString()} coins
                     <br>
-                    (${formatCoins(item.cost)})`
-
-                    : item.info
+                    (${formatCoins(item.cost)})
+                    `
+                
+                    :
+                
+                    item.info
+                
                 }
-
+                
                 </p>
 
                 ${
@@ -320,13 +326,13 @@ for (let shop in shops) {
 
                     ?
 
-                    `<span class="coming-soon">
+                    `<span class="shop-status coming-soon">
                     🟡 Coming Soon
                     </span>`
 
                     :
 
-                    `<span class="available">
+                    `<span class="shop-status available">
                     🟢 Available
                     </span>`
                 }
