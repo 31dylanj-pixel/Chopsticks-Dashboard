@@ -200,31 +200,31 @@ const shops = {
 
         {
             name: "💰 Coin Boost",
-            info: "Max: 10 Levels",
+            info: "+5% coin rewards per level<br>Max: 10 Levels",
             status: "available"
         },
 
         {
             name: "🎣 Fishing Luck",
-            info: "Max: 10 Levels",
+            info: "Better fishing rarity<br>Max: 10 Levels",
             status: "available"
         },
 
         {
             name: "🎰 Slot Luck",
-            info: "Max: 10 Levels",
+            info: "Better slot odds<br>Max: 10 Levels",
             status: "available"
         },
 
         {
             name: "📈 Cap Boost",
-            info: "Max: 10 Levels",
+            info: "+10% prestige cap per level<br>Max: 10 Levels",
             status: "available"
         },
 
         {
             name: "🏷 Custom Title",
-            info: "Max: 1 Level",
+            info: "Allows you to pick a custom reasonable title.<br>Max: 1 Level",
             status: "available"
         }
 
