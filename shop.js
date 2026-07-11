@@ -292,7 +292,8 @@ for (let shop in shops) {
         
             data-search="${`
             ${item.name}
-            ${typeof item.cost === "number" ? item.cost : item.info}
+            ${item.cost || ""}
+            ${item.info || ""}
             ${item.status}
             ${shop}
             `.toLowerCase()}">
@@ -312,11 +313,13 @@ for (let shop in shops) {
                 💰 Cost: ${item.cost.toLocaleString()} coins
                 <br>
                 (${formatCoins(item.cost)})
+                <br><br>
+                ${item.info || ""}
                 `
                 
                 :
                 
-                item.info
+                item.info || ""
                 
                 }
                 
