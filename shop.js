@@ -1,49 +1,233 @@
 const shops = {
 
     titles: [
-        ["🐟 Rookie 🐟", 100],
-        ["🌱 Novice 🌱", 200],
-        ["🧭 Wanderer 🧭", 300],
-        ["🎣 Fisherman 🎣", 500],
-        ["📖 Collector 📖", 750],
-        ["🧭 Adventurer 🧭", 750],
-        ["🎣 Angler 🎣", 1500],
-        ["⚔ Gladiator ⚔", 1500],
-        ["👑 King 👑", 2500],
-        ["💰 Merchant 💰", 5000],
-        ["🏹 Expert 🏹", 5000],
-        ["⚓ Captain ⚓", 15000],
-        ["🔥 Master 🔥", 15000],
-        ["🌊 Sea Emperor 🌊", 25000],
-        ["✨🔥 Mythic Lord 🔥✨", 50000],
-        ["💼 Tycoon 💼", 75000],
-        ["💎 Millionaire 💎", 1000000],
-        ["🌌 Reminisce 🌌", 2500000],
-        ["🕰 Nostalgia 🕰", 5000000000],
-        ["🌠 Celestial 🌠", 25000000000],
-        ["♾ Infinite ♾", 100000000000],
-        ["🌀 Transcendent 🌀", 500000000000],
-        ["🥢 GOD OF CHOPSTICKS 🥢", 1000000000000],
-        ["🌑 Unfathomable 🌑", 2500000000000],
-        ["👁 Omniscient 👁", 5000000000000],
-        ["🎰 Slot Addict 🎰", 7777777777777],
-        ["🐟 Fishillionaire 🐟", 9999999999999],
-        ["🏗 Architect of Reality 🏗", 10000000000000],
-        ["💸 Tax Evasion Expert 💸", 420000000000000000]
-    ],
 
+        {
+            name: "🐟 Rookie 🐟",
+            cost: 100,
+            status: "available"
+        },
+
+        {
+            name: "🌱 Novice 🌱",
+            cost: 200,
+            status: "available"
+        },
+
+        {
+            name: "🧭 Wanderer 🧭",
+            cost: 300,
+            status: "available"
+        },
+
+        {
+            name: "🎣 Fisherman 🎣",
+            cost: 500,
+            status: "available"
+        },
+
+        {
+            name: "📖 Collector 📖",
+            cost: 750,
+            status: "available"
+        },
+
+        {
+            name: "🧭 Adventurer 🧭",
+            cost: 750,
+            status: "available"
+        },
+
+        {
+            name: "🎣 Angler 🎣",
+            cost: 1500,
+            status: "available"
+        },
+
+        {
+            name: "⚔ Gladiator ⚔",
+            cost: 1500,
+            status: "available"
+        },
+
+        {
+            name: "👑 King 👑",
+            cost: 2500,
+            status: "available"
+        },
+
+        {
+            name: "💰 Merchant 💰",
+            cost: 5000,
+            status: "available"
+        },
+
+        {
+            name: "🏹 Expert 🏹",
+            cost: 5000,
+            status: "available"
+        },
+
+        {
+            name: "⚓ Captain ⚓",
+            cost: 15000,
+            status: "available"
+        },
+
+        {
+            name: "🔥 Master 🔥",
+            cost: 15000,
+            status: "available"
+        },
+
+        {
+            name: "🌊 Sea Emperor 🌊",
+            cost: 25000,
+            status: "available"
+        },
+
+        {
+            name: "✨🔥 Mythic Lord 🔥✨",
+            cost: 50000,
+            status: "available"
+        },
+
+        {
+            name: "💼 Tycoon 💼",
+            cost: 75000,
+            status: "available"
+        },
+
+        {
+            name: "💎 Millionaire 💎",
+            cost: 1000000,
+            status: "available"
+        },
+
+        {
+            name: "🌌 Reminisce 🌌",
+            cost: 2500000,
+            status: "available"
+        },
+
+        {
+            name: "🕰 Nostalgia 🕰",
+            cost: 5000000000,
+            status: "available"
+        },
+
+        {
+            name: "🌠 Celestial 🌠",
+            cost: 25000000000,
+            status: "available"
+        },
+
+        {
+            name: "♾ Infinite ♾",
+            cost: 100000000000,
+            status: "available"
+        },
+
+        {
+            name: "🌀 Transcendent 🌀",
+            cost: 500000000000,
+            status: "available"
+        },
+
+        {
+            name: "🥢 GOD OF CHOPSTICKS 🥢",
+            cost: 1000000000000,
+            status: "available"
+        },
+
+        {
+            name: "🌑 Unfathomable 🌑",
+            cost: 2500000000000,
+            status: "available"
+        },
+
+        {
+            name: "👁 Omniscient 👁",
+            cost: 5000000000000,
+            status: "available"
+        },
+
+        {
+            name: "🎰 Slot Addict 🎰",
+            cost: 7777777777777,
+            status: "available"
+        },
+
+        {
+            name: "🐟 Fishillionaire 🐟",
+            cost: 9999999999999,
+            status: "available"
+        },
+
+        {
+            name: "🏗 Architect of Reality 🏗",
+            cost: 10000000000000,
+            status: "available"
+        },
+
+        {
+            name: "💸 Tax Evasion Expert 💸",
+            cost: 420000000000000000,
+            status: "available"
+        }
+
+    ],
 
     general: [
-        ["🧊 Streak Freeze", 500000]
+
+        {
+            name: "🧊 Streak Freeze",
+            cost: 500000,
+            info: "Allows you to perserve your streak even if you miss 1 day<br>Max: 10",
+            status: "available"
+        },
+
+        {
+            name: "🪙 Lucky Wave Token",
+            cost: 100000000000000,
+            info: "Allows you to call a Lucky Wave for 1 minute<br>Max: 1",
+            status: "coming-soon"
+        }
+
     ],
 
-
     prestige: [
-        ["💰 Coin Boost", "Max: 10 Levels"],
-        ["🎣 Fishing Luck", "Max: 10 Levels"],
-        ["🎰 Slot Luck", "Max: 10 Levels"],
-        ["📈 Cap Boost", "Max: 10 Levels"],
-        ["🏷 Custom Title", "Max: 1 Level"]
+
+        {
+            name: "💰 Coin Boost",
+            info: "Max: 10 Levels",
+            status: "available"
+        },
+
+        {
+            name: "🎣 Fishing Luck",
+            info: "Max: 10 Levels",
+            status: "available"
+        },
+
+        {
+            name: "🎰 Slot Luck",
+            info: "Max: 10 Levels",
+            status: "available"
+        },
+
+        {
+            name: "📈 Cap Boost",
+            info: "Max: 10 Levels",
+            status: "available"
+        },
+
+        {
+            name: "🏷 Custom Title",
+            info: "Max: 1 Level",
+            status: "available"
+        }
+
     ]
 
 };
@@ -83,7 +267,6 @@ const container = document.getElementById("shop-container");
 
 for (let shop in shops) {
 
-
     container.innerHTML += `
 
         <div class="rarity-section">
@@ -98,47 +281,63 @@ for (let shop in shops) {
 
     `;
 
-
     const section =
         container.lastElementChild.querySelector(".fish-grid");
 
-
-
     shops[shop].forEach(item => {
-
 
         section.innerHTML += `
 
-            <div class="card">
-
-
+            <div class="card shop-card"
+        
+            data-search="${`
+            ${item.name}
+            ${typeof item.cost === "number" ? item.cost : item.info}
+            ${item.status}
+            ${shop}
+            `.toLowerCase()}">
+        
                 <h2>
-                    ${item[0]}
+                    ${item.name}
                 </h2>
-
 
                 <p>
 
                 ${
-                    typeof item[1] === "number"
-                    ? `💰 Cost: ${item[1].toLocaleString()} coins
-                        (${formatCoins(item[1])})`
-                    : item[1]
+                    typeof item.cost === "number"
+
+                    ? `💰 Cost: ${item.cost.toLocaleString()} coins
+                    <br>
+                    (${formatCoins(item.cost)})`
+
+                    : item.info
                 }
 
                 </p>
 
+                ${
+                    item.status === "coming soon"
+
+                    ?
+
+                    `<span class="coming-soon">
+                    🟡 Coming Soon
+                    </span>`
+
+                    :
+
+                    `<span class="available">
+                    🟢 Available
+                    </span>`
+                }
 
             </div>
 
         `;
 
-
     });
 
 }
-
-
 
 
 const searchBar = document.getElementById("shop-search");
@@ -151,19 +350,17 @@ searchBar.addEventListener("input", () => {
 
 
 
-    document.querySelectorAll("#shop-container .card")
+    document.querySelectorAll("#shop-container .shop-card")
     .forEach(card => {
 
 
-        const name =
-        card.querySelector("h2")
-        .textContent
-        .toLowerCase();
+        const text =
+        card.dataset.search;
 
 
 
         card.style.display =
-        name.includes(search)
+        text.includes(search)
         ? "flex"
         : "none";
 
