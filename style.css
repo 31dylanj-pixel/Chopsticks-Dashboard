@@ -1149,6 +1149,8 @@ a.card:hover {
 
     line-height: 1.6;
 
+    min-height: 45px;
+
     margin: 10px 0;
 
 }
@@ -1177,3 +1179,4 @@ a.card:hover {
     backdrop-filter: blur(10px);
 
 }
+
