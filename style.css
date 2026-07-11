@@ -1124,3 +1124,52 @@ a.card:hover {
     opacity: 1;
 
 }
+
+/* ==========================
+   SHOP CARDS
+   ========================== */
+
+
+.shop-card {
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+}
+
+
+.shop-info {
+
+    opacity: 0.85;
+
+    line-height: 1.6;
+
+    margin: 10px 0;
+
+}
+
+
+.shop-status {
+
+    display: inline-block;
+
+    width: fit-content;
+
+    margin: 10px auto 0;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-family: "Poppins", sans-serif;
+
+    backdrop-filter: blur(10px);
+
+}
