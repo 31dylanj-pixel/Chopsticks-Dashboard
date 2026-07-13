@@ -26,19 +26,30 @@
     <div class="card">
 
         <h2>🎨 Theme</h2>
-
-        <p>Choose your preferred website theme.</p>
-
-        <button onclick="setTheme('dark')">
-            🌙 Dark
-        </button>
-
-        <button onclick="setTheme('light')">
-            ☀️ Light
-        </button>
-
+    
+        <p>
+            Theme:
+            <span id="themeName">
+                Dark
+            </span>
+        </p>
+    
+    
+        <div class="theme-toggle">
+    
+            <button id="darkButton">
+                🌙 Dark
+            </button>
+    
+            <button id="lightButton">
+                ☀️ Light
+            </button>
+    
+        </div>
+    
+    
     </div>
-
+    
 </div>
 
 <script src="settings.js"></script>
