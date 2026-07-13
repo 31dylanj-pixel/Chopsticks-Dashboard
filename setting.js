@@ -10,8 +10,14 @@ document.getElementById("themeName");
 
 function applyTheme(theme){
 
-    document.documentElement.className =
-    theme + "-theme";
+    document.documentElement.classList.remove(
+        "dark-theme",
+        "light-theme"
+    );
+    
+    document.documentElement.classList.add(
+        theme + "-theme"
+    );
 
 
     localStorage.setItem(
