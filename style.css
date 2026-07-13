@@ -1214,46 +1214,92 @@ a.card:hover {
 
 }
 
-.dark-theme {
+/* ==============================
+   THEMES
+============================== */
+
+
+html.dark-theme body {
 
     background: #111;
     color: white;
 
 }
 
-.light-theme {
+
+html.light-theme body {
 
     background: #f5f5f5;
     color: #222;
 
 }
 
-.dark-theme .card {
+
+
+/* CARDS */
+
+html.dark-theme .card {
 
     background: rgba(255,255,255,0.08);
+    color: white;
 
 }
 
-.light-theme .card {
+
+html.light-theme .card {
 
     background: rgba(255,255,255,0.95);
     color: #222;
 
 }
 
-.dark-theme header {
+
+
+/* HEADER */
+
+html.dark-theme header {
 
     color: white;
 
 }
 
-.light-theme header {
+
+html.light-theme header {
 
     color: #222;
 
 }
 
-.light-theme .back-button {
+
+
+/* BACK BUTTON */
+
+html.light-theme .back-button {
+
+    color: #222;
+
+}
+
+/* SEARCH BOXES */
+
+html.dark-theme input {
+
+    background: #222;
+    color: white;
+    border: 1px solid #555;
+
+}
+
+
+html.light-theme input {
+
+    background: white;
+    color: #222;
+    border: 1px solid #aaa;
+
+}
+
+html.light-theme a {
 
     color: #222;
 
