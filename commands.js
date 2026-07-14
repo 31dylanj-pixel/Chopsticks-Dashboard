@@ -60,7 +60,7 @@ const commands = {
     {
         name: "💰 Take",
         usage: "take <from> <amount>",
-        description: "Take coins from target player at a 10% chance of success(Maximum 10% of their total)<",
+        description: "Take coins from target player at a 10% chance of success(Maximum 10% of their balance)",
         status: "coming soon"
     },
     
