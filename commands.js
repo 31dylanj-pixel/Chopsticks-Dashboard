@@ -55,7 +55,14 @@ const commands = {
         usage: "give <from> <to> <amount>",
         description: "Give coins to another player.",
         status: "coming soon"
-    }
+    },
+
+    {
+        name: "💰 Take",
+        usage: "take <from> <amount>",
+        description: "Take coins from target player at a 10% chance of success(Maximum 10% of their total)<",
+        status: "coming soon"
+    },
     
     ],
 
