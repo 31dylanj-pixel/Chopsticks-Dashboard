@@ -171,13 +171,6 @@ const shops = {
         },
 
         {
-            name: "🥢 Chopsticks Addict 🥢",
-            cost: 50000000000000,
-            info: "Requires Prestige Level 1",
-            status: "coming soon"
-        },
-
-        {
             name: "💸 Tax Evasion Expert 💸",
             cost: 420000000000000000,
             status: "available"
