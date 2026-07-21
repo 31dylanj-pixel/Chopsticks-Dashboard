@@ -46,7 +46,7 @@ function updateAccount(){
         class="account-pill"
         id="loginButton">
 
-            🔐 Login
+            🔐 Login [BETA - UNDER TESTING]
 
         </button>
 
