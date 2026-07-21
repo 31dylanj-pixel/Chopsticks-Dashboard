@@ -994,9 +994,6 @@ a.card:hover {
 
 }
 
-
-}
-
 #leaderboard {
     text-align: left;
 }
@@ -1158,6 +1155,8 @@ a.card:hover {
     repeat(auto-fit, minmax(250px, 1fr));
 
     gap: 25px;
+
+}
 
 /* ==========================
    SHOP CARDS
