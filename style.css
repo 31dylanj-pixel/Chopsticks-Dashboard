@@ -1467,3 +1467,51 @@ html.light-theme .moon{
     }
 
 }
+
+/* ==============================
+   ACCOUNT BAR
+============================== */
+
+
+.account-bar {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin:25px 0;
+
+}
+
+
+.account-pill {
+
+    padding:14px 45px;
+
+    border-radius:50px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    color:white;
+
+    backdrop-filter:blur(15px);
+
+    transition:0.3s;
+
+}
+
+
+.account-pill:hover {
+
+    transform:scale(1.05);
+
+}
