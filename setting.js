@@ -1,8 +1,5 @@
-const darkButton =
-document.getElementById("darkButton");
-
-const lightButton =
-document.getElementById("lightButton");
+const toggle =
+document.getElementById("themeToggle");
 
 const themeName =
 document.getElementById("themeName");
@@ -50,19 +47,21 @@ localStorage.getItem("theme")
 
 
 applyTheme(currentTheme);
+toggle.checked = currentTheme === "dark";
 
 
+toggle.addEventListener("change", () => {
 
-darkButton.onclick = () => {
+    if(toggle.checked){
 
-    applyTheme("dark");
+        applyTheme("dark");
 
-};
+    }
 
+    else{
 
+        applyTheme("light");
 
-lightButton.onclick = () => {
+    }
 
-    applyTheme("light");
-
-};
+});
