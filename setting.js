@@ -1,3 +1,6 @@
+const thumbIcon =
+document.querySelector(".thumb-icon");
+
 const toggle =
 document.getElementById("themeToggle");
 
@@ -23,13 +26,23 @@ function applyTheme(theme){
 
     if(theme === "dark"){
 
-        themeName.innerHTML = "Dark Mode";
+        themeName.textContent = "Dark Mode";
+
+        thumbIcon.className =
+        "bi bi-moon-stars thumb-icon";
+
+        toggle.checked = true;
 
     }
 
     else{
 
-        themeName.innerHTML = "Light Mode";
+        themeName.textContent = "Light Mode";
+
+        thumbIcon.className =
+        "bi bi-sun thumb-icon";
+
+        toggle.checked = false;
 
     }
 
