@@ -86,16 +86,32 @@ window.closeLogin = function(){
 window.fakeLogin = function(){
 
     const username =
-    document.getElementById("loginUsername").value;
+    document.getElementById("loginUsername").value.trim();
 
 
-    if(username.trim() === ""){
+    const password =
+    document.getElementById("loginPassword").value;
 
-        alert("Enter a username!");
+
+
+    if(!accounts[username]){
+
+        alert("Account does not exist!");
 
         return;
 
     }
+
+
+
+    if(accounts[username].password !== password){
+
+        alert("Incorrect password!");
+
+        return;
+
+    }
+
 
 
     currentUser = username;
@@ -105,7 +121,7 @@ window.fakeLogin = function(){
 
     updateAccount();
 
-};
+}
 
 
 updateAccount();
