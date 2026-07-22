@@ -46,9 +46,9 @@ function updateAccount(){
             currentUser = null;
 
 
-            localStorage.removeItem(
-                "currentUser"
-            );
+            localStorage.removeItem("currentUser");
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("auth_id");
 
 
             updateAccount();
@@ -177,16 +177,15 @@ window.fakeLogin = async function(){
 
 
 
-    if(data.error){
+    if(!data.access_token){
 
         alert(
-            "Wrong email or password!"
+            "❌ Incorrect email or password!"
         );
-
+    
         return;
-
+    
     }
-
 
 
     localStorage.setItem(
@@ -199,12 +198,56 @@ window.fakeLogin = async function(){
         "auth_id",
         data.user.id
     );
-
-
+    
+    
+    
+    const playerResponse = await fetch(
+    
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username`,
+    
+        {
+    
+            headers:{
+    
+                apikey:SUPABASE_KEY,
+    
+                Authorization:
+                `Bearer ${SUPABASE_KEY}`
+    
+            }
+    
+        }
+    
+    );
+    
+    
+    
+    const players =
+    await playerResponse.json();
+    
+    
+    
+    console.log("Player data:", players);
+    
+    
+    
+    if(players.length === 0){
+    
+        alert(
+            "❌ No Chopsticks profile linked to this account!"
+        );
+    
+        return;
+    
+    }
+    
+    
+    
     currentUser =
-    "DylanJ";
-
-
+    players[0].username;
+    
+    
+    
     localStorage.setItem(
         "currentUser",
         currentUser
