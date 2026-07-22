@@ -11,28 +11,26 @@ function applyTheme(theme){
         "dark-theme",
         "light-theme"
     );
-    
+
     document.documentElement.classList.add(
         theme + "-theme"
     );
-
 
     localStorage.setItem(
         "theme",
         theme
     );
 
-
     if(theme === "dark"){
 
-        themeName.innerHTML = "🌙 Dark";
-        document.querySelector(".thumb-icon").textContent = "🌙";
+        themeName.innerHTML = "Dark Mode";
+
     }
 
-    else {
+    else{
 
-        themeName.innerHTML = "☀️ Light";
-        document.querySelector(".thumb-icon").textContent = "☀️";
+        themeName.innerHTML = "Light Mode";
+
     }
 
 }
