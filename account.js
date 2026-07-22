@@ -1,18 +1,16 @@
-const accountBar =
-document.querySelector(".account-bar");
+const accountBar = document.querySelector(".account-bar");
 
-
-let loggedIn = false;
+let currentUser = null;
 
 
 function updateAccount(){
 
-    if(loggedIn){
+    if(currentUser){
 
         accountBar.innerHTML = `
 
         <button class="account-pill">
-            👤 Dylan
+            👤 ${currentUser}
         </button>
 
 
@@ -31,7 +29,8 @@ function updateAccount(){
         .getElementById("logoutButton")
         .onclick = () => {
 
-            loggedIn = false;
+            currentUser = null;
+
             updateAccount();
 
         };
@@ -46,7 +45,7 @@ function updateAccount(){
         class="account-pill"
         id="loginButton">
 
-            🔐 Login [BETA - UNDER TESTING]
+            🔐 Login
 
         </button>
 
@@ -57,13 +56,54 @@ function updateAccount(){
         .getElementById("loginButton")
         .onclick = () => {
 
-            loggedIn = true;
-            updateAccount();
+            openLogin();
 
         };
 
+    }
+
+}
+
+
+function openLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.add("active");
+
+}
+
+
+function closeLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.remove("active");
+
+}
+
+
+function fakeLogin(){
+
+    const username =
+    document.getElementById("loginUsername").value;
+
+
+    if(username.trim() === ""){
+
+        alert("Enter a username!");
+
+        return;
 
     }
+
+
+    currentUser = username;
+
+
+    closeLogin();
+
+    updateAccount();
 
 }
 
