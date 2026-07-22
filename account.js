@@ -120,19 +120,14 @@ window.closeLogin = function(){
 
 
 
-window.fakeLogin = function(){
+window.fakeLogin = async function(){
 
 
-    console.log("fakeLogin started");
-
-
-
-    const username =
+    const email =
     document
-    .getElementById("loginUsername")
+    .getElementById("loginEmail")
     .value
     .trim();
-
 
 
     const password =
@@ -142,86 +137,86 @@ window.fakeLogin = function(){
 
 
 
-    console.log(
-        "Username:",
-        username
+    const response = await fetch(
+
+        `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+
+        {
+
+            method:"POST",
+
+            headers:{
+
+                apikey:SUPABASE_KEY,
+
+                "Content-Type":"application/json"
+
+            },
+
+
+            body:JSON.stringify({
+
+                email:email,
+
+                password:password
+
+            })
+
+        }
+
     );
 
 
-    console.log(
-        "Password:",
-        password
-    );
+
+    const data =
+    await response.json();
 
 
 
-    if(!accounts[username]){
+    console.log(data);
 
+
+
+    if(data.error){
 
         alert(
-            "Account does not exist!"
+            "Wrong email or password!"
         );
-
 
         return;
 
-
     }
-
-
-
-
-    if(accounts[username].password !== password){
-
-
-        alert(
-            "Incorrect password!"
-        );
-
-
-        return;
-
-
-    }
-
-
-
-
-
-    currentUser = username;
 
 
 
     localStorage.setItem(
+        "access_token",
+        data.access_token
+    );
+
+
+    localStorage.setItem(
+        "auth_id",
+        data.user.id
+    );
+
+
+    currentUser =
+    "DylanJ";
+
+
+    localStorage.setItem(
         "currentUser",
-        username
+        currentUser
     );
-
-
-
-    console.log(
-        "Saved:",
-        localStorage.getItem("currentUser")
-    );
-
 
 
     closeLogin();
 
-
     updateAccount();
 
 
-
-};
-
-window.changePassword = function(){
-
-    alert(
-        "Password changing coming soon!"
-    );
-
-};
+}
 
 
 
