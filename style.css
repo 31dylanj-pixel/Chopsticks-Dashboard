@@ -1610,6 +1610,48 @@ html.light-theme .moon{
     min-width:140px;
 
 }
+
+.account-pill {
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    border:none;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-width:320px;
+    height:56px;
+
+    padding:14px 30px;
+
+    border-radius:999px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.18);
+
+    color:white;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,.25);
+
+    transition:.25s;
+
+}
 /* Icon inside the knob */
 
 html.dark-theme .thumb-icon{
