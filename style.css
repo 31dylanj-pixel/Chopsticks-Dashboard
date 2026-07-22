@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Orbitron:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap');
 
 
+/* ==========================
+   GLOBAL
+========================== */
 
 body {
 
-    margin: 0;
+    margin:0;
+
+    min-height:100vh;
 
     background:
     linear-gradient(
@@ -13,280 +18,302 @@ body {
         #0b2545
     );
 
+    color:white;
 
-    color: white;
+    font-family:"Poppins", sans-serif;
 
-    min-height: 100vh;
+}
 
-    font-family: "Poppins", sans-serif;
+
+h1,
+h2,
+h3 {
+
+    font-family:"Montserrat", sans-serif;
 
 }
 
 
 
-
-h1, h2, h3 {
-
-    font-family: "Montserrat", sans-serif;
-
-}
-
+/* ==========================
+   HEADER
+========================== */
 
 
 header {
 
-    text-align: center;
+    text-align:center;
 
-    padding: 40px 20px;
+    padding:40px 20px;
 
 }
-
 
 
 header h1 {
 
-    font-size: 46px;
+    font-size:46px;
+
+    margin-bottom:10px;
 
 }
-
 
 
 header p {
 
-    font-size: 18px;
+    font-size:18px;
+
+    opacity:.85;
 
 }
-
 
 
 header a {
 
-    color: #7dd3ff;
+    color:#7dd3ff;
 
-    text-decoration: none;
+    text-decoration:none;
 
 }
 
 
+
+/* ==========================
+   MAIN GRID
+========================== */
 
 
 .container {
 
+    width:90%;
 
-    width: 90%;
+    max-width:1000px;
 
-    max-width: 1000px;
+    margin:auto;
 
-    margin: auto;
-
-
-    display: grid;
+    display:grid;
 
     grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
+    repeat(auto-fit,minmax(250px,1fr));
 
+    gap:25px;
 
-    gap: 25px;
-
-
-    padding-bottom: 40px;
-
+    padding-bottom:40px;
 
 }
 
 
 
+/* ==========================
+   GLASS CARDS
+========================== */
 
 
-a.card {
+.card {
 
+    text-decoration:none;
 
-    text-decoration: none;
-
-    color: white;
-
+    color:white;
 
 
     background:
-
-    rgba(255,255,255,0.12);
-
+    rgba(255,255,255,.10);
 
 
     border:
-
-    1px solid rgba(255,255,255,0.25);
-
+    1px solid rgba(255,255,255,.20);
 
 
-    border-radius: 18px;
+    border-radius:18px;
 
 
+    padding:25px;
 
-    padding: 25px;
 
+    min-height:130px;
 
 
     text-align:center;
 
 
+    display:flex;
 
-    backdrop-filter: blur(10px);
+    flex-direction:column;
 
-
-
-    transition: 0.25s;
-
+    justify-content:center;
 
 
-}
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
 
 
+    transition:
 
+    transform .25s ease,
 
-a.card:hover {
+    background .25s ease,
 
-
-    transform:
-    translateY(-8px);
-
-
-
-    background:
-
-    rgba(255,255,255,0.22);
-
-
+    box-shadow .25s ease;
 
 }
 
 
-
-.card {
-
-    background: rgba(255,255,255,0.08);
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    border-radius: 18px;
-
-    padding: 24px;
-
-    min-height: 130px;
-
-    text-align: center;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    transition: transform 0.25s ease,
-                background 0.25s ease,
-                box-shadow 0.25s ease;
-
-}
 
 .card:hover {
+
 
     transform:
     translateY(-8px)
     scale(1.04);
 
-    background:
-    rgba(255,255,255,0.18);
 
-    filter: brightness(1.2);
+    background:
+    rgba(255,255,255,.20);
+
+
+    filter:brightness(1.15);
 
 }
+
+
 
 .card h2 {
 
-    margin-bottom: 12px;
+    margin-bottom:12px;
 
-    font-size: 24px;
+    font-size:24px;
 
 }
+
+
 
 .card p {
 
-    opacity: 0.85;
+    margin:0;
 
-    margin: 0;
+    opacity:.85;
 
 }
+
+
+
+/* ==========================
+   SEARCH
+========================== */
+
 
 .search-box {
 
-    display: flex;
+    display:flex;
 
-    justify-content: center;
+    justify-content:center;
 
-    width: 100%;
+    width:100%;
 
-    margin: 35px auto 45px;
+    margin:35px auto 45px;
 
 }
+
+
 
 .search-box input {
 
-    width: min(700px, 90%);
 
-    padding: 18px 24px;
+    width:min(700px,90%);
 
-    background: rgba(255,255,255,0.10);
 
-    border: 1px solid rgba(255,255,255,0.20);
+    padding:
 
-    border-radius: 18px;
+    18px 24px;
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
 
-    color: white;
+    background:
 
-    font-family: "Poppins", sans-serif;
+    rgba(255,255,255,.10);
 
-    font-size: 18px;
 
-    outline: none;
+    border:
 
-    box-sizing: border-box;
+    1px solid rgba(255,255,255,.20);
 
-    transition: all .25s ease;
+
+    border-radius:18px;
+
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+
+    color:white;
+
+
+    font-family:"Poppins",sans-serif;
+
+
+    font-size:18px;
+
+
+    outline:none;
+
+
+    box-sizing:border-box;
+
+
+    transition:.25s;
 
 }
+
+
 
 .search-box input::placeholder {
 
-    color: rgba(255,255,255,.6);
+    color:
+    rgba(255,255,255,.6);
 
 }
+
+
 
 .search-box input:hover {
 
-    background: rgba(255,255,255,.14);
+    background:
+
+    rgba(255,255,255,.14);
 
 }
+
+
 
 .search-box input:focus {
 
-    background: rgba(255,255,255,.18);
 
-    border-color: #7dd3ff;
+    background:
 
-    box-shadow: 0 0 20px rgba(125,211,255,.45);
+    rgba(255,255,255,.18);
+
+
+    border-color:#7dd3ff;
+
+
+    box-shadow:
+
+    0 0 20px rgba(125,211,255,.45);
 
 }
 
+/* ==========================
+   FISH LIBRARY
+========================== */
+
+
 .rarity-section {
 
-    width: 100%;
+    width:100%;
 
-    grid-column: 1 / -1;
+    grid-column:1 / -1;
 
-    margin-bottom: 40px;
+    margin-bottom:40px;
 
 }
 
@@ -294,15 +321,15 @@ a.card:hover {
 
 .rarity-title {
 
-    text-align: center;
+    text-align:center;
 
-    font-family: "Orbitron", sans-serif;
+    font-family:"Orbitron",sans-serif;
 
-    text-transform: uppercase;
+    text-transform:uppercase;
 
-    letter-spacing: 5px;
+    letter-spacing:5px;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 
 }
 
@@ -310,38 +337,46 @@ a.card:hover {
 
 .fish-grid {
 
-
-    display: grid;
-
+    display:grid;
 
     grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
+    repeat(auto-fit,minmax(220px,1fr));
 
-
-    gap: 20px;
-
+    gap:20px;
 
 }
+
+
+#fish-container {
+
+    display:block;
+
+}
+
+
+
+/* ==========================
+   COMMAND GRID SIZE
+========================== */
+
 
 #commands-container .fish-grid {
 
     grid-template-columns:
-    repeat(auto-fit, minmax(320px, 1fr));
+    repeat(auto-fit,minmax(320px,1fr));
 
 }
 
-#fish-container {
 
-    display: block;
 
-}
-
-/* Rarity Glow Effects */
+/* ==========================
+   RARITY TEXT COLORS
+========================== */
 
 
 .rarity-common {
 
-    color: #c0c0c0;
+    color:#c0c0c0;
 
     text-shadow:
     0 0 10px #c0c0c0;
@@ -352,7 +387,7 @@ a.card:hover {
 
 .rarity-uncommon {
 
-    color: #55ff55;
+    color:#55ff55;
 
     text-shadow:
     0 0 10px #55ff55;
@@ -363,7 +398,7 @@ a.card:hover {
 
 .rarity-rare {
 
-    color: #55aaff;
+    color:#55aaff;
 
     text-shadow:
     0 0 10px #55aaff;
@@ -374,7 +409,7 @@ a.card:hover {
 
 .rarity-epic {
 
-    color: #bb55ff;
+    color:#bb55ff;
 
     text-shadow:
     0 0 15px #bb55ff;
@@ -385,7 +420,7 @@ a.card:hover {
 
 .rarity-legendary {
 
-    color: #ffd700;
+    color:#ffd700;
 
     text-shadow:
     0 0 15px #ffd700;
@@ -396,10 +431,10 @@ a.card:hover {
 
 .rarity-mythic {
 
-    color: #ff66ff;
+    color:#ff66ff;
 
-    text-shadow:
-    0 0 20px #ff66ff;
+    animation:
+    galaxyGlow 3s infinite alternate;
 
 }
 
@@ -407,19 +442,21 @@ a.card:hover {
 
 .rarity-secret {
 
-    color: #ff3333;
+    color:#ff3333;
 
-    animation: glitchGlow 1.2s infinite;
+    animation:
+    glitchGlow 1.2s infinite;
 
 }
 
 
+
 .rarity-godly {
 
-    color: #ffff55;
+    color:#ffff55;
 
-    text-shadow:
-    0 0 25px #ffff55;
+    animation:
+    lightning 1.5s infinite;
 
 }
 
@@ -427,35 +464,29 @@ a.card:hover {
 
 .rarity-divine {
 
-    color: white;
+    color:white;
 
-    text-shadow:
-    0 0 10px white,
-    0 0 30px #00ffff,
-    0 0 50px #aa00ff;
+    animation:
+    divinePulse 2.5s infinite alternate;
 
 }
+
+
 
 /* ==========================
-   SPECIAL RARITY EFFECTS
-   ========================== */
-
-
-/* MYTHIC - Galaxy Glow */
-
-.rarity-mythic {
-
-    animation: galaxyGlow 3s infinite alternate;
-
-}
+   MYTHIC
+========================== */
 
 
 @keyframes galaxyGlow {
 
+
     from {
 
         text-shadow:
+
         0 0 10px #ff66ff,
+
         0 0 25px #9933ff;
 
     }
@@ -464,8 +495,11 @@ a.card:hover {
     to {
 
         text-shadow:
+
         0 0 20px #00ffff,
+
         0 0 45px #ff66ff,
+
         0 0 70px #9933ff;
 
     }
@@ -474,26 +508,20 @@ a.card:hover {
 
 
 
-
-
-/* SECRET - Glitch Glow */
-
-.rarity-secret {
-
-    color: #ff3333;
-
-    animation: glitchGlow 1.2s infinite;
-
-}
-
+/* ==========================
+   SECRET
+========================== */
 
 
 @keyframes glitchGlow {
 
+
     0% {
 
         text-shadow:
+
         3px 0 #ff0000,
+
         -3px 0 #00ffff;
 
     }
@@ -502,7 +530,9 @@ a.card:hover {
     25% {
 
         text-shadow:
+
         -3px 0 #ff0000,
+
         3px 0 #00ffff;
 
     }
@@ -511,7 +541,9 @@ a.card:hover {
     50% {
 
         text-shadow:
+
         2px 2px #ff0000,
+
         -2px -2px #00ffff;
 
     }
@@ -520,7 +552,9 @@ a.card:hover {
     75% {
 
         text-shadow:
+
         -2px 1px #ff0000,
+
         2px -1px #00ffff;
 
     }
@@ -529,7 +563,9 @@ a.card:hover {
     100% {
 
         text-shadow:
+
         3px 0 #ff0000,
+
         -3px 0 #00ffff;
 
     }
@@ -538,23 +574,21 @@ a.card:hover {
 
 
 
-
-
-/* GODLY - Lightning Flicker */
-
-.rarity-godly {
-
-    animation: lightning 1.5s infinite;
-
-}
-
+/* ==========================
+   GODLY
+========================== */
 
 
 @keyframes lightning {
 
-    0%, 90%, 100% {
+
+    0%,
+    90%,
+    100% {
+
 
         text-shadow:
+
         0 0 10px #ffff00;
 
     }
@@ -562,8 +596,11 @@ a.card:hover {
 
     92% {
 
+
         text-shadow:
+
         0 0 30px white,
+
         0 0 60px #ffff00;
 
     }
@@ -571,7 +608,9 @@ a.card:hover {
 
     94% {
 
+
         text-shadow:
+
         0 0 5px #ffff00;
 
     }
@@ -579,8 +618,11 @@ a.card:hover {
 
     96% {
 
+
         text-shadow:
+
         0 0 40px white,
+
         0 0 80px #ffff00;
 
     }
@@ -589,49 +631,55 @@ a.card:hover {
 
 
 
-
-
-/* DIVINE - Cosmic Pulse */
-
-.rarity-divine {
-
-    animation: divinePulse 2.5s infinite alternate;
-
-}
-
+/* ==========================
+   DIVINE
+========================== */
 
 
 @keyframes divinePulse {
 
+
     from {
 
+
         text-shadow:
+
         0 0 15px white,
+
         0 0 30px #00ffff,
+
         0 0 50px #aa00ff;
+
 
     }
 
 
     to {
 
+
         text-shadow:
+
         0 0 30px white,
+
         0 0 60px #00ffff,
+
         0 0 100px #aa00ff;
+
 
     }
 
 }
 
+
+
 /* ==========================
-   FISH CARD RARITY EFFECTS
-   ========================== */
+   FISH CARD RARITY GLOW
+========================== */
 
 
 .card.common {
 
-    border: 1px solid #aaaaaa;
+    border-color:#aaaaaa;
 
 }
 
@@ -639,9 +687,10 @@ a.card:hover {
 
 .card.uncommon {
 
-    border: 1px solid #55ff55;
+    border-color:#55ff55;
 
     box-shadow:
+
     0 0 8px #55ff55;
 
 }
@@ -650,9 +699,10 @@ a.card:hover {
 
 .card.rare {
 
-    border: 1px solid #55aaff;
+    border-color:#55aaff;
 
     box-shadow:
+
     0 0 10px #55aaff;
 
 }
@@ -661,9 +711,10 @@ a.card:hover {
 
 .card.epic {
 
-    border: 1px solid #bb55ff;
+    border-color:#bb55ff;
 
     box-shadow:
+
     0 0 12px #bb55ff;
 
 }
@@ -672,9 +723,10 @@ a.card:hover {
 
 .card.legendary {
 
-    border: 1px solid #ffd700;
+    border-color:#ffd700;
 
     box-shadow:
+
     0 0 15px #ffd700;
 
 }
@@ -683,10 +735,12 @@ a.card:hover {
 
 .card.mythic {
 
-    border: 1px solid #ff66ff;
+    border-color:#ff66ff;
 
     box-shadow:
+
     0 0 15px #ff66ff,
+
     0 0 30px #9933ff;
 
 }
@@ -695,21 +749,24 @@ a.card:hover {
 
 .card.secret {
 
-    border: 1px solid #ff3333;
+    border-color:#ff3333;
 
     box-shadow:
 
     0 0 15px #ff3333,
+
     0 0 30px #660000;
 
 }
 
 
+
 .card.godly {
 
-    border: 1px solid #ffff55;
+    border-color:#ffff55;
 
     box-shadow:
+
     0 0 20px #ffff55;
 
 }
@@ -718,116 +775,41 @@ a.card:hover {
 
 .card.divine {
 
-    border: 1px solid white;
+    border-color:white;
 
     box-shadow:
+
     0 0 20px white,
+
     0 0 40px cyan,
+
     0 0 60px #aa00ff;
 
 }
 
-.release-section {
-
-    width: 100%;
-
-    grid-column: 1 / -1;
-
-    margin-bottom: 50px;
-
-}
-
-
-.release-title {
-
-    text-align: center;
-
-    font-family: "Orbitron", sans-serif;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 25px;
-
-}
-
-.back-button {
-
-    display: inline-block;
-
-    margin-top: 20px;
-
-    padding: 12px 25px;
-
-    border-radius: 15px;
-
-
-    background:
-    rgba(255,255,255,0.12);
-
-
-    border:
-    1px solid rgba(255,255,255,0.25);
-
-
-    color: white;
-
-    text-decoration: none;
-
-
-    font-family: "Poppins", sans-serif;
-
-
-    backdrop-filter: blur(10px);
-
-
-    transition: 0.25s;
-
-}
-
-
-
-.back-button:hover {
-
-    transform: translateY(-5px);
-
-
-    background:
-    rgba(255,255,255,0.25);
-
-
-    box-shadow:
-    0 0 15px rgba(125,211,255,0.5);
-
-}
-
-.coming-soon:hover {
-
-    filter: grayscale(0%);
-
-}
-
 /* ==========================
-   COMMAND STATUS BADGES
-   ========================== */
+   STATUS BADGES
+========================== */
+
 
 .shop-status,
 .command-card span {
 
-    display: inline-block;
+    display:inline-block;
 
-    padding: 6px 14px;
+    padding:6px 14px;
 
-    border-radius: 20px;
+    border-radius:20px;
 
-    font-size: 14px;
+    font-size:14px;
 
-    font-family: "Poppins", sans-serif;
+    font-family:"Poppins",sans-serif;
 
-    width: fit-content;
+    width:fit-content;
 
-    margin: 10px auto 0;
+    margin:10px auto 0;
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:blur(10px);
 
 }
 
@@ -835,19 +817,24 @@ a.card:hover {
 
 /* AVAILABLE */
 
+
 .available {
 
-    color: #55ff88;
+    color:#55ff88;
 
     background:
-    rgba(85,255,136,0.15);
+
+    rgba(85,255,136,.15);
+
 
     border:
-    1px solid rgba(85,255,136,0.4);
+
+    1px solid rgba(85,255,136,.4);
+
 
     box-shadow:
 
-    0 0 12px rgba(85,255,136,0.4);
+    0 0 12px rgba(85,255,136,.4);
 
 }
 
@@ -855,19 +842,24 @@ a.card:hover {
 
 /* COMING SOON */
 
+
 .coming-soon {
 
-    color: #ffaa55;
+    color:#ffaa55;
 
     background:
-    rgba(255,170,85,0.15);
+
+    rgba(255,170,85,.15);
+
 
     border:
-    1px solid rgba(255,170,85,0.4);
+
+    1px solid rgba(255,170,85,.4);
+
 
     box-shadow:
 
-    0 0 12px rgba(255,170,85,0.4);
+    0 0 12px rgba(255,170,85,.4);
 
 }
 
@@ -875,52 +867,47 @@ a.card:hover {
 
 /* DISABLED */
 
+
 .disabled {
 
-    color: #ff5555;
+    color:#ff5555;
 
     background:
-    rgba(255,85,85,0.15);
+
+    rgba(255,85,85,.15);
+
 
     border:
-    1px solid rgba(255,85,85,0.4);
+
+    1px solid rgba(255,85,85,.4);
+
 
     box-shadow:
 
-    0 0 12px rgba(255,85,85,0.4);
+    0 0 12px rgba(255,85,85,.4);
 
 }
 
+
+
 /* ==========================
-   COMMAND PAGE FINAL FIX
-   ========================== */
+   COMMAND PAGE
+========================== */
 
 
 #commands-container {
 
-    width: 90%;
+    width:90%;
 
-    max-width: 1400px;
-
-}
-
-
-#commands-container .fish-grid {
-
-    grid-template-columns:
-    repeat(auto-fit, minmax(320px, 1fr));
+    max-width:1400px;
 
 }
 
 
-
-/* COMMAND CARDS */
 
 .command-card {
 
     min-height:260px;
-
-    height:auto;
 
     display:flex;
 
@@ -935,11 +922,12 @@ a.card:hover {
 }
 
 
+
 .command-card h2 {
 
-    margin: 0;
+    margin:0;
 
-    font-size: 24px;
+    font-size:24px;
 
 }
 
@@ -947,28 +935,35 @@ a.card:hover {
 
 /* COMMAND USAGE */
 
+
 .command-card .usage {
 
-    font-family: Consolas, monospace;
+    font-family:Consolas, monospace;
 
     color:#7dd3ff;
 
+
     background:
-    rgba(0,0,0,0.25);
+
+    rgba(0,0,0,.25);
+
 
     padding:10px 15px;
 
+
     border-radius:12px;
+
 
     margin:10px auto;
 
+
     width:90%;
 
-    white-space:normal;
 
     overflow-wrap:break-word;
 
     word-break:break-word;
+
 
     text-align:center;
 
@@ -978,246 +973,333 @@ a.card:hover {
 
 /* DESCRIPTION */
 
+
 .command-card .description {
 
-    opacity: 0.85;
+    opacity:.85;
 
-    line-height: 1.5;
+    line-height:1.5;
 
-    margin: 10px auto;
+    margin:10px auto;
 
-    width: 90%;
+    width:90%;
 
-    flex-grow: 1;
+    flex-grow:1;
 
-    font-size: 15px;
+    font-size:15px;
 
 }
+
+
+
+/* ==========================
+   LEADERBOARD
+========================== */
+
 
 #leaderboard {
-    text-align: left;
+
+    text-align:left;
+
 }
+
 
 
 .leaderboard-card {
 
-    text-align: left;
-    margin-bottom: 15px;
-    position: relative;
+    text-align:left;
+
+    margin-bottom:15px;
+
+    position:relative;
+
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+
+    transform .2s ease,
+
+    box-shadow .2s ease;
 
 }
 
 
-/* Hover details */
+
 .player-details {
 
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
 
     transition:
-        max-height 0.3s ease,
-        opacity 0.3s ease;
+
+    max-height .3s ease,
+
+    opacity .3s ease;
 
 }
+
 
 
 .leaderboard-card:hover .player-details {
 
-    max-height: 250px;
-    opacity: 1;
+    max-height:250px;
+
+    opacity:1;
 
 }
 
 
-/* 🥇 1st place */
+
+/* TOP 3 */
+
+
 .leaderboard-card.top-one {
-    box-shadow: 0 0 25px gold;
+
+    box-shadow:
+
+    0 0 25px gold;
+
 }
 
 
-/* 🥈 2nd place */
+
 .leaderboard-card.top-two {
-    box-shadow: 0 0 25px silver;
+
+    box-shadow:
+
+    0 0 25px silver;
+
 }
 
 
-/* 🥉 3rd place */
+
 .leaderboard-card.top-three {
-    box-shadow: 0 0 25px #cd7f32;
+
+    box-shadow:
+
+    0 0 25px #cd7f32;
+
 }
 
 
-/* Hover zoom */
+
 .leaderboard-card:hover {
 
-    transform: scale(1.03);
+    transform:scale(1.03);
 
 }
+
+
+
+/* ==========================
+   RELEASE NOTES
+========================== */
+
+
+.release-section {
+
+    width:100%;
+
+    grid-column:1/-1;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.release-title {
+
+    text-align:center;
+
+    font-family:"Orbitron",sans-serif;
+
+    letter-spacing:4px;
+
+    margin-bottom:25px;
+
+}
+
+
 
 .release-card {
 
-    position: relative;
+    position:relative;
 
 }
+
 
 
 .release-details {
 
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
 
     transition:
-        max-height 0.4s ease,
-        opacity 0.4s ease;
+
+    max-height .4s ease,
+
+    opacity .4s ease;
 
 }
+
 
 
 .release-card:hover .release-details {
 
-    max-height: 500px;
-    opacity: 1;
+    max-height:500px;
+
+    opacity:1;
 
 }
+
+
 
 .release-group summary {
 
-    list-style: none;
-    cursor: pointer;
+    list-style:none;
+
+    cursor:pointer;
 
 }
+
 
 
 .release-group summary::-webkit-details-marker {
 
-    display: none;
+    display:none;
 
 }
+
 
 
 .release-group summary:hover {
 
-    transform: scale(1.03);
+    transform:scale(1.03);
 
 }
+
 
 
 .release-child {
 
-    margin-top: 15px;
+    margin-top:15px;
 
 }
+
+
+
 /* ==========================
    SHOP PAGE
-   ========================== */
+========================== */
+
 
 .shop-section {
 
-    width: 100%;
+    width:100%;
 
-    grid-column: 1 / -1;
+    grid-column:1/-1;
 
-    margin-bottom: 45px;
+    margin-bottom:45px;
 
 }
+
 
 
 .shop-title {
 
-    text-align: center;
+    text-align:center;
 
-    font-family: "Orbitron", sans-serif;
+    font-family:"Orbitron",sans-serif;
 
-    letter-spacing: 5px;
+    letter-spacing:5px;
 
-    margin-bottom: 25px;
-
-}
-
-#shop-container .fish-grid {
-
-    grid-template-columns:
-    repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom:25px;
 
 }
+
+
 
 .shop-grid {
 
-    display: grid;
+    display:grid;
 
     grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
 
-    gap: 25px;
+    repeat(auto-fit,minmax(250px,1fr));
+
+
+    gap:25px;
 
 }
 
-/* ==========================
-   SHOP CARDS
-   ========================== */
 
 
 .shop-card {
 
-    min-height: 180px;
+    min-height:180px;
 
-    display: flex;
 
-    flex-direction: column;
+    display:flex;
 
-    justify-content: space-between;
+    flex-direction:column;
+
+
+    justify-content:space-between;
 
 }
+
 
 
 .shop-info {
 
-    opacity: 0.85;
+    opacity:.85;
 
-    line-height: 1.6;
+    line-height:1.6;
 
-    min-height: 45px;
+    min-height:45px;
 
-    margin: 10px 0;
+    margin:10px 0;
 
 }
+
 
 
 .shop-status {
 
-    display: inline-flex;
+    display:inline-flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    padding: 6px 16px;
+    padding:6px 16px;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    font-size: 14px;
+    font-size:14px;
 
-    font-family: "Poppins", sans-serif;
+    width:fit-content;
 
-    width: fit-content;
+    margin:15px auto 0;
 
-    margin: 15px auto 0;
-
-    backdrop-filter: blur(10px);
+    backdrop-filter:blur(10px);
 
 }
 
-/* ==============================
+/* ==========================
    THEME SWITCH
-============================== */
+========================== */
 
-.theme-row{
+
+.theme-row {
 
     display:flex;
 
@@ -1231,7 +1313,9 @@ a.card:hover {
 
 }
 
-.theme-info h3{
+
+
+.theme-info h3 {
 
     margin:0;
 
@@ -1239,7 +1323,9 @@ a.card:hover {
 
 }
 
-.theme-info p{
+
+
+.theme-info p {
 
     margin-top:6px;
 
@@ -1247,9 +1333,12 @@ a.card:hover {
 
 }
 
+
+
 /* SWITCH */
 
-.theme-switch{
+
+.theme-switch {
 
     position:relative;
 
@@ -1261,15 +1350,17 @@ a.card:hover {
 
 }
 
-.theme-switch input{
+
+
+.theme-switch input {
 
     display:none;
 
 }
 
-/* TRACK */
 
-.track{
+
+.track {
 
     position:relative;
 
@@ -1289,25 +1380,31 @@ a.card:hover {
 
 }
 
-/* Dark */
 
-html.dark-theme .track{
+
+/* Track colors */
+
+
+html.dark-theme .track {
 
     background:#6674b8;
 
 }
 
-/* Light */
 
-html.light-theme .track{
 
-    background:#dddddd;
+html.light-theme .track {
+
+    background:#ddd;
 
 }
 
-/* Background Icons */
 
-.icon{
+
+/* Icons */
+
+
+.icon {
 
     position:absolute;
 
@@ -1321,7 +1418,9 @@ html.light-theme .track{
 
 }
 
-.sun{
+
+
+.sun {
 
     left:25px;
 
@@ -1329,7 +1428,9 @@ html.light-theme .track{
 
 }
 
-.moon{
+
+
+.moon {
 
     right:25px;
 
@@ -1337,9 +1438,12 @@ html.light-theme .track{
 
 }
 
-/* THUMB */
 
-.thumb{
+
+/* Thumb */
+
+
+.thumb {
 
     position:absolute;
 
@@ -1353,7 +1457,9 @@ html.light-theme .track{
 
     border-radius:50%;
 
+
     background:white;
+
 
     display:flex;
 
@@ -1361,84 +1467,133 @@ html.light-theme .track{
 
     align-items:center;
 
-    box-shadow:
-        0 8px 18px rgba(0,0,0,.25);
 
-    transition:.35s cubic-bezier(.25,.8,.25,1);
+    box-shadow:
+
+    0 8px 18px rgba(0,0,0,.25);
+
+
+    transition:
+
+    .35s cubic-bezier(.25,.8,.25,1);
 
 }
 
-/* Icon inside knob */
 
-.thumb-icon{
+
+.thumb-icon {
 
     font-size:40px;
 
-    color:#4c63ff;
-
 }
 
-/* Move */
 
-.theme-switch input:checked + .track .thumb{
+
+/* Move thumb */
+
+
+.theme-switch input:checked + .track .thumb {
 
     transform:translateX(88px);
 
 }
 
-/* Active icon */
 
-html.dark-theme .moon{
 
-    opacity:1;
+/* Theme icon colors */
 
-}
 
-html.dark-theme .sun{
+html.dark-theme .thumb-icon {
 
-    opacity:.2;
+    color:#4c63ff;
 
 }
 
-html.light-theme .sun{
 
-    opacity:1;
+
+html.light-theme .thumb-icon {
+
+    color:#f6a400;
+
+}
+
+
+
+html.dark-theme .sun {
+
+    opacity:.25;
 
 }
 
-html.light-theme .moon{
 
-    opacity:.2;
+
+html.dark-theme .moon {
+
+    opacity:.5;
 
 }
+
+
+
+html.light-theme .sun {
+
+    opacity:.5;
+
+}
+
+
+
+html.light-theme .moon {
+
+    opacity:.25;
+
+}
+
+
 
 /* ==========================
-   LOGIN MODAL
+   MODALS
 ========================== */
 
-.modal{
+
+.modal {
 
     display:none;
 
+
     position:fixed;
+
 
     inset:0;
 
+
     background:
+
     rgba(0,0,0,.55);
 
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
+
+    backdrop-filter:
+
+    blur(10px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(10px);
+
 
     justify-content:center;
+
     align-items:center;
+
 
     z-index:999;
 
 }
 
 
-.modal.active{
+
+.modal.active {
 
     display:flex;
 
@@ -1446,25 +1601,35 @@ html.light-theme .moon{
 
 
 
-.modal-content{
+.modal-content {
 
     width:420px;
 
+
     padding:35px;
+
 
     border-radius:25px;
 
 
     background:
+
     rgba(255,255,255,.10);
 
 
     border:
+
     1px solid rgba(255,255,255,.2);
 
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:
+
+    blur(20px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(20px);
 
 
     text-align:center;
@@ -1472,61 +1637,79 @@ html.light-theme .moon{
 }
 
 
-/* INPUTS */
 
-.modal-content input{
+/* Inputs */
+
+
+.modal-content input {
+
 
     width:85%;
 
+
     padding:14px;
 
+
     margin:10px;
+
 
     border-radius:15px;
 
 
     border:
+
     1px solid rgba(255,255,255,.2);
 
 
     background:
+
     rgba(255,255,255,.10);
 
 
     color:white;
 
-    font-family:"Poppins",sans-serif;
+
+    font-family:
+
+    "Poppins",sans-serif;
+
 
     outline:none;
 
 }
 
 
-.modal-content input::placeholder{
+
+.modal-content input::placeholder {
 
     color:
+
     rgba(255,255,255,.6);
 
 }
 
 
 
-/* ==========================
-   LOGIN BUTTONS
-========================== */
+/* Buttons */
 
 
-.modal-buttons{
+.modal-buttons {
+
 
     display:flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
+
     gap:10px;
 
+
     margin-top:20px;
+
 
     flex-wrap:wrap;
 
@@ -1534,11 +1717,7 @@ html.light-theme .moon{
 
 
 
-.modal-button{
-
-
-    appearance:none;
-    -webkit-appearance:none;
+.modal-button {
 
 
     padding:10px 18px;
@@ -1551,10 +1730,12 @@ html.light-theme .moon{
 
 
     border:
+
     1px solid rgba(255,255,255,.2);
 
 
     background:
+
     rgba(255,255,255,.08);
 
 
@@ -1564,15 +1745,12 @@ html.light-theme .moon{
     font-family:"Poppins",sans-serif;
 
 
-    font-size:14px;
-
-
     cursor:pointer;
 
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
 
-    -webkit-backdrop-filter:blur(15px);
+    blur(15px);
 
 
     box-shadow:
@@ -1586,14 +1764,16 @@ html.light-theme .moon{
 
 
 
-.modal-button:hover{
+.modal-button:hover {
 
 
     transform:
+
     translateY(-3px);
 
 
     background:
+
     rgba(255,255,255,.22);
 
 
@@ -1605,101 +1785,129 @@ html.light-theme .moon{
 
 
 
-.modal-button:last-child{
+/* ==========================
+   ACCOUNT BAR
+========================== */
 
-    min-width:140px;
 
-}
+.account-bar {
 
-.account-bar{
 
     display:flex;
 
+
     justify-content:center;
 
+
     align-items:center;
+
+
+    gap:15px;
+
 
     width:100%;
 
+
     margin:25px 0;
+
+
+    flex-wrap:wrap;
 
 }
 
+
+
 .account-pill {
 
+
     appearance:none;
+
     -webkit-appearance:none;
 
-    border:none;
 
     display:flex;
+
+
     justify-content:center;
+
     align-items:center;
 
-    min-width:320px;
+
+    min-width:200px;
+
+
     height:56px;
+
 
     padding:14px 30px;
 
+
     border-radius:999px;
 
+
     background:
-    rgba(255,255,255,0.08);
+
+    rgba(255,255,255,.08);
+
 
     border:
-    1px solid rgba(255,255,255,0.18);
+
+    1px solid rgba(255,255,255,.18);
+
 
     color:white;
 
+
     font-family:"Poppins",sans-serif;
+
 
     font-size:17px;
 
+
     cursor:pointer;
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+
+    backdrop-filter:
+
+    blur(18px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(18px);
+
 
     box-shadow:
+
     0 8px 24px rgba(0,0,0,.25);
+
 
     transition:.25s;
 
 }
-/* Icon inside the knob */
 
-html.dark-theme .thumb-icon{
 
-    color:#4c63ff;
 
-}
+.account-pill:hover {
 
-html.light-theme .thumb-icon{
 
-    color:#f6a400;
+    transform:
 
-}
+    translateY(-4px)
 
-html.dark-theme .sun{
+    scale(1.03);
 
-    opacity:.25;
 
-}
+    background:
 
-html.dark-theme .moon{
-
-    opacity:.5;
+    rgba(255,255,255,.14);
 
 }
 
-html.light-theme .sun{
 
-    opacity:.5;
 
-}
+.account-pill:active {
 
-html.light-theme .moon{
-
-    opacity:.25;
+    transform:scale(.97);
 
 }
