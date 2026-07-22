@@ -1,6 +1,7 @@
 const accountBar = document.querySelector(".account-bar");
 
-let currentUser = null;
+let currentUser =
+localStorage.getItem("currentUser");
 
 
 function updateAccount(){
@@ -30,6 +31,10 @@ function updateAccount(){
         .onclick = () => {
 
             currentUser = null;
+
+            localStorage.removeItem(
+                "currentUser"
+            );
 
             updateAccount();
 
@@ -115,6 +120,11 @@ window.fakeLogin = function(){
 
 
     currentUser = username;
+
+    localStorage.setItem(
+        "currentUser",
+        username
+    );
 
 
     closeLogin();
