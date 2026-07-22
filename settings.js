@@ -69,4 +69,3 @@ toggle.addEventListener("change", () => {
 
 });
 
-});
