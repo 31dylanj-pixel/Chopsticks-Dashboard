@@ -209,7 +209,13 @@ window.fakeLogin = function(){
 
 };
 
+window.changePassword = function(){
 
+    alert(
+        "Password changing coming soon!"
+    );
+
+};
 
 
 
