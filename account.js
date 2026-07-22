@@ -64,6 +64,7 @@ function updateAccount(){
             localStorage.removeItem("currentUser");
             localStorage.removeItem("access_token");
             localStorage.removeItem("auth_id");
+            localStorage.removeItem("currentEmail");
 
             updateAccount();
 
@@ -271,6 +272,10 @@ window.fakeLogin = async function(){
         currentUser
     );
 
+    localStorage.setItem(
+        "currentEmail",
+        email
+    );
 
     closeLogin();
 
@@ -310,17 +315,20 @@ window.closePasswordChange = function(){
 
 window.changePassword = async function(){
 
+    const currentPassword =
+    document
+    .getElementById("currentPassword")
+    .value;
+
     const newPassword =
     document
     .getElementById("newPassword")
     .value;
 
-
     const confirmPassword =
     document
     .getElementById("confirmPassword")
     .value;
-
 
 
     if(newPassword !== confirmPassword){
@@ -334,7 +342,6 @@ window.changePassword = async function(){
     }
 
 
-
     if(newPassword.length < 6){
 
         alert(
@@ -346,6 +353,54 @@ window.changePassword = async function(){
     }
 
 
+    // Verify current password
+
+    const verifyResponse = await fetch(
+
+        `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+
+        {
+
+            method:"POST",
+
+            headers:{
+
+                apikey:SUPABASE_KEY,
+                "Content-Type":"application/json"
+
+            },
+
+            body:JSON.stringify({
+
+                email:
+                localStorage.getItem("currentEmail"),
+
+                password:
+                currentPassword
+
+            })
+
+        }
+
+    );
+
+
+    const verifyData =
+    await verifyResponse.json();
+
+
+    if(!verifyData.access_token){
+
+        alert(
+            "❌ Current password is incorrect!"
+        );
+
+        return;
+
+    }
+
+
+    // Change password
 
     const response = await fetch(
 
@@ -366,7 +421,6 @@ window.changePassword = async function(){
 
             },
 
-
             body:JSON.stringify({
 
                 password:newPassword
@@ -378,11 +432,10 @@ window.changePassword = async function(){
     );
 
 
-
     if(response.ok){
 
         alert(
-            "✅ Password changed!"
+            "✅ Password changed successfully!"
         );
 
         closePasswordChange();
@@ -394,30 +447,6 @@ window.changePassword = async function(){
         alert(
             "❌ Failed to change password!"
         );
-
-    }
-
-};
-
-
-
-
-updateAccount();
-
-window.togglePassword = function(inputId, icon){
-
-    const input =
-    document.getElementById(inputId);
-
-    if(input.type === "password"){
-
-        input.type = "text";
-        icon.textContent = "visibility_off";
-
-    } else {
-
-        input.type = "password";
-        icon.textContent = "visibility";
 
     }
 
