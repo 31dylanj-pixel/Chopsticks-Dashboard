@@ -38,11 +38,20 @@
         placeholder="Email">
 
 
-        <input
-        id="loginPassword"
-        type="password"
-        autocomplete="current-password"
-        placeholder="Password">
+        <div class="password-box">
+
+            <input
+            id="loginPassword"
+            type="password"
+            placeholder="Password">
+        
+            <span
+            class="material-symbols-rounded password-toggle"
+            onclick="togglePassword('loginPassword', this)">
+                visibility
+            </span>
+        
+        </div>
 
 
         <div class="modal-buttons">
@@ -88,18 +97,36 @@
         </h2>
 
 
-        <input
-        id="newPassword"
-        type="password"
-        autocomplete="new-password"
-        placeholder="New Password">
+        <div class="password-box">
+
+            <input
+            id="newPassword"
+            type="password"
+            placeholder="New Password">
+        
+            <span
+            class="material-symbols-rounded password-toggle"
+            onclick="togglePassword('newPassword', this)">
+                visibility
+            </span>
+        
+        </div>
 
 
-        <input
-        id="confirmPassword"
-        type="password"
-        autocomplete="new-password"
-        placeholder="Confirm Password">
+        <div class="password-box">
+
+            <input
+            id="confirmPassword"
+            type="password"
+            placeholder="Confirm Password">
+        
+            <span
+            class="material-symbols-rounded password-toggle"
+            onclick="togglePassword('confirmPassword', this)">
+                visibility
+            </span>
+        
+        </div>
 
 
         <div class="modal-buttons">
