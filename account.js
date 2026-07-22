@@ -95,19 +95,13 @@ window.fakeLogin = function(){
     const username =
     document.getElementById("loginUsername").value.trim();
 
+
     const password =
     document.getElementById("loginPassword").value;
 
 
     console.log("Username:", username);
     console.log("Password:", password);
-
-    const username =
-    document.getElementById("loginUsername").value.trim();
-
-
-    const password =
-    document.getElementById("loginPassword").value;
 
 
 
@@ -119,6 +113,38 @@ window.fakeLogin = function(){
 
     }
 
+
+
+    if(accounts[username].password !== password){
+
+        alert("Incorrect password!");
+
+        return;
+
+    }
+
+
+
+    currentUser = username;
+
+
+    localStorage.setItem(
+        "currentUser",
+        username
+    );
+
+
+    console.log(
+        "Saved:",
+        localStorage.getItem("currentUser")
+    );
+
+
+    closeLogin();
+
+    updateAccount();
+
+}
 
 
     if(accounts[username].password !== password){
