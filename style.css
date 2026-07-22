@@ -1225,6 +1225,8 @@ a.card:hover {
 
     align-items:center;
 
+    gap:30px;
+
     margin-top:20px;
 
 }
@@ -1239,9 +1241,23 @@ a.card:hover {
 
 .theme-info p{
 
-    margin-top:8px;
+    margin-top:6px;
 
     opacity:.7;
+
+}
+
+/* SWITCH */
+
+.theme-switch{
+
+    position:relative;
+
+    width:170px;
+
+    height:82px;
+
+    flex-shrink:0;
 
 }
 
@@ -1251,21 +1267,25 @@ a.card:hover {
 
 }
 
-/* Track */
+/* TRACK */
 
 .track{
 
     position:relative;
 
-    width:155px;
+    display:block;
 
-    height:72px;
+    width:100%;
+
+    height:100%;
 
     border-radius:999px;
 
+    overflow:visible;
+
     cursor:pointer;
 
-    transition:.35s;
+    transition:.3s;
 
 }
 
@@ -1273,7 +1293,7 @@ a.card:hover {
 
 html.dark-theme .track{
 
-    background:#5f6fb3;
+    background:#6674b8;
 
 }
 
@@ -1281,11 +1301,11 @@ html.dark-theme .track{
 
 html.light-theme .track{
 
-    background:#e3e3e3;
+    background:#dddddd;
 
 }
 
-/* Icons */
+/* Background Icons */
 
 .icon{
 
@@ -1297,70 +1317,86 @@ html.light-theme .track{
 
     font-size:24px;
 
-    transition:.35s;
+    opacity:.35;
 
 }
 
 .sun{
 
-    left:18px;
+    left:25px;
 
-    color:#F5A623;
+    color:#f6a400;
 
 }
 
 .moon{
 
-    right:18px;
+    right:25px;
 
-    color:#4A67FF;
+    color:#4c63ff;
 
 }
 
-/* Thumb */
+/* THUMB */
 
 .thumb{
 
     position:absolute;
 
-    top:6px;
+    top:-5px;
 
-    left:6px;
+    left:-5px;
 
-    width:60px;
+    width:92px;
 
-    height:60px;
+    height:92px;
 
     border-radius:50%;
 
     background:white;
 
-    transition:.35s cubic-bezier(.25,.8,.3,1);
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     box-shadow:
-        0 8px 18px rgba(0,0,0,.22);
+        0 8px 18px rgba(0,0,0,.25);
+
+    transition:.35s cubic-bezier(.25,.8,.25,1);
 
 }
 
-/* Dark = knob on right */
+/* Icon inside knob */
+
+.thumb-icon{
+
+    font-size:40px;
+
+    color:#4c63ff;
+
+}
+
+/* Move */
 
 .theme-switch input:checked + .track .thumb{
 
-    transform:translateX(83px);
+    transform:translateX(88px);
 
 }
 
-/* Fade icons */
-
-html.dark-theme .sun{
-
-    opacity:.25;
-
-}
+/* Active icon */
 
 html.dark-theme .moon{
 
     opacity:1;
+
+}
+
+html.dark-theme .sun{
+
+    opacity:.2;
 
 }
 
@@ -1372,21 +1408,7 @@ html.light-theme .sun{
 
 html.light-theme .moon{
 
-    opacity:.25;
-
-}
-
-/* Hover */
-
-.theme-switch:hover .thumb{
-
-    transform:scale(1.04);
-
-}
-
-.theme-switch input:checked + .track:hover .thumb{
-
-    transform:translateX(83px) scale(1.04);
+    opacity:.2;
 
 }
 /* ==========================
