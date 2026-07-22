@@ -15,35 +15,43 @@ localStorage.getItem("currentUser") || null;
 
 function updateAccount(){
 
-
     if(currentUser){
-
 
         accountBar.innerHTML = `
 
         <button class="account-pill">
             👤 ${currentUser}
         </button>
-        
-        
+
+
         <button 
         class="account-pill"
         id="changePasswordButton">
-        
+
             🔑 Change Password
-        
+
         </button>
-        
-        
+
+
         <button 
         class="account-pill"
         id="logoutButton">
-        
+
             🚪 Sign Out
-        
+
         </button>
-        
+
         `;
+
+
+
+        document
+        .getElementById("changePasswordButton")
+        .onclick = () => {
+
+            openPasswordChange();
+
+        };
 
 
 
@@ -51,31 +59,18 @@ function updateAccount(){
         .getElementById("logoutButton")
         .onclick = () => {
 
-
             currentUser = null;
-
 
             localStorage.removeItem("currentUser");
             localStorage.removeItem("access_token");
             localStorage.removeItem("auth_id");
 
-            document
-            .getElementById("changePasswordButton")
-            .onclick = () => {
-            
-                openPasswordChange();
-            
-            };
-
             updateAccount();
-
 
         };
 
 
-
     } else {
-
 
 
         accountBar.innerHTML = `
@@ -100,9 +95,7 @@ function updateAccount(){
 
         };
 
-
     }
-
 
 }
 
@@ -111,11 +104,9 @@ function updateAccount(){
 
 function openLogin(){
 
-
     document
     .getElementById("loginModal")
     .classList.add("active");
-
 
 }
 
@@ -124,11 +115,9 @@ function openLogin(){
 
 window.closeLogin = function(){
 
-
     document
     .getElementById("loginModal")
     .classList.remove("active");
-
 
 };
 
@@ -136,8 +125,8 @@ window.closeLogin = function(){
 
 
 
-window.fakeLogin = async function(){
 
+window.fakeLogin = async function(){
 
     const email =
     document
@@ -153,34 +142,54 @@ window.fakeLogin = async function(){
 
 
 
-    const response = await fetch(
-
-        `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
-
-        {
-
-            method:"POST",
-
-            headers:{
-
-                apikey:SUPABASE_KEY,
-
-                "Content-Type":"application/json"
-
-            },
+    let response;
 
 
-            body:JSON.stringify({
+    try{
 
-                email:email,
+        response = await fetch(
 
-                password:password
+            `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
 
-            })
+            {
 
-        }
+                method:"POST",
 
-    );
+                headers:{
+
+                    apikey:SUPABASE_KEY,
+
+                    "Content-Type":"application/json"
+
+                },
+
+
+                body:JSON.stringify({
+
+                    email:email,
+
+                    password:password
+
+                })
+
+            }
+
+        );
+
+    }
+
+
+    catch(error){
+
+        alert(
+            "❌ Connection error!"
+        );
+
+        console.error(error);
+
+        return;
+
+    }
 
 
 
@@ -189,19 +198,16 @@ window.fakeLogin = async function(){
 
 
 
-    console.log(data);
-
-
-
     if(!data.access_token){
 
         alert(
             "❌ Incorrect email or password!"
         );
-    
+
         return;
-    
+
     }
+
 
 
     localStorage.setItem(
@@ -214,56 +220,52 @@ window.fakeLogin = async function(){
         "auth_id",
         data.user.id
     );
-    
-    
-    
+
+
+
     const playerResponse = await fetch(
-    
+
         `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username`,
-    
+
         {
-    
+
             headers:{
-    
+
                 apikey:SUPABASE_KEY,
-    
+
                 Authorization:
                 `Bearer ${SUPABASE_KEY}`
-    
+
             }
-    
+
         }
-    
+
     );
-    
-    
-    
+
+
+
     const players =
     await playerResponse.json();
-    
-    
-    
-    console.log("Player data:", players);
-    
-    
-    
+
+
+
     if(players.length === 0){
-    
+
         alert(
             "❌ No Chopsticks profile linked to this account!"
         );
-    
+
         return;
-    
+
     }
-    
-    
-    
+
+
+
     currentUser =
     players[0].username;
-    
-    
-    
+
+
+
     localStorage.setItem(
         "currentUser",
         currentUser
@@ -275,9 +277,12 @@ window.fakeLogin = async function(){
     updateAccount();
 
 
-}
+};
 
-updateAccount();
+
+
+
+
 
 function openPasswordChange(){
 
@@ -286,6 +291,7 @@ function openPasswordChange(){
     .classList.add("active");
 
 }
+
 
 
 
@@ -299,8 +305,10 @@ window.closePasswordChange = function(){
 
 
 
-window.changePassword = async function(){
 
+
+
+window.changePassword = async function(){
 
     const newPassword =
     document
@@ -371,15 +379,6 @@ window.changePassword = async function(){
 
 
 
-    const data =
-    await response.json();
-
-
-
-    console.log(data);
-
-
-
     if(response.ok){
 
         alert(
@@ -398,5 +397,9 @@ window.changePassword = async function(){
 
     }
 
-
 };
+
+
+
+
+updateAccount();
