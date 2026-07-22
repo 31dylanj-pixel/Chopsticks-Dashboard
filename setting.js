@@ -52,21 +52,21 @@ localStorage.getItem("theme")
 
 
 applyTheme(currentTheme);
-toggle.checked = currentTheme === "dark";
-
-
 toggle.addEventListener("change", () => {
 
-    if(toggle.checked){
+    console.log("Switch changed!");
+    console.log("Checked:", toggle.checked);
+
+    if (toggle.checked) {
 
         applyTheme("dark");
 
-    }
-
-    else{
+    } else {
 
         applyTheme("light");
 
     }
+
+});
 
 });
