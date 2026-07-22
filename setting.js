@@ -24,26 +24,22 @@ function applyTheme(theme){
         theme
     );
 
-    if(theme === "dark"){
+    if (theme === "dark") {
 
         themeName.textContent = "Dark Mode";
-
-        thumbIcon.className =
-        "bi bi-moon-stars thumb-icon";
-
+    
+        thumbIcon.className = "bi bi-moon-stars thumb-icon";
+    
         toggle.checked = true;
-
-    }
-
-    else{
-
+    
+    } else {
+    
         themeName.textContent = "Light Mode";
-
-        thumbIcon.className =
-        "bi bi-sun thumb-icon";
-
+    
+        thumbIcon.className = "bi bi-sun thumb-icon";
+    
         toggle.checked = false;
-
+    
     }
 
 }
