@@ -74,16 +74,16 @@ function openLogin(){
 }
 
 
-function closeLogin(){
+window.closeLogin = function(){
 
     document
     .getElementById("loginModal")
     .classList.remove("active");
 
-}
+};
 
 
-function fakeLogin(){
+window.fakeLogin = function(){
 
     const username =
     document.getElementById("loginUsername").value;
@@ -105,7 +105,7 @@ function fakeLogin(){
 
     updateAccount();
 
-}
+};
 
 
 updateAccount();
