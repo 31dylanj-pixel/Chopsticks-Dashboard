@@ -1685,3 +1685,41 @@ html.light-theme .moon{
     0 0 15px rgba(125,211,255,.35);
 
 }
+
+/* Icon inside the knob */
+
+html.dark-theme .thumb-icon{
+
+    color:#4c63ff;
+
+}
+
+html.light-theme .thumb-icon{
+
+    color:#f6a400;
+
+}
+
+html.dark-theme .sun{
+
+    opacity:.25;
+
+}
+
+html.dark-theme .moon{
+
+    opacity:.5;
+
+}
+
+html.light-theme .sun{
+
+    opacity:.5;
+
+}
+
+html.light-theme .moon{
+
+    opacity:.25;
+
+}
