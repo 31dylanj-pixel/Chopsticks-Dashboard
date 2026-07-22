@@ -1911,3 +1911,52 @@ html.light-theme .moon {
     transform:scale(.97);
 
 }
+
+/* ==========================
+   PASSWORD TOGGLE
+========================== */
+
+.password-box{
+
+    position:relative;
+
+    width:85%;
+
+    margin:10px auto;
+
+}
+
+.password-box input{
+
+    width:100%;
+    margin:0;
+    padding-right:55px;
+
+    box-sizing:border-box;
+
+}
+
+.password-toggle{
+
+    position:absolute;
+
+    top:50%;
+    right:18px;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:rgba(255,255,255,.6);
+
+    transition:.2s;
+
+    user-select:none;
+
+}
+
+.password-toggle:hover{
+
+    color:white;
+
+}
