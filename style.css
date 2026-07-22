@@ -1411,6 +1411,7 @@ html.light-theme .moon{
     opacity:.2;
 
 }
+
 /* ==========================
    ACCOUNT BAR
 ========================== */
@@ -1430,7 +1431,17 @@ html.light-theme .moon{
 
 .account-pill{
 
-    min-width: 520px;
+    appearance:none;
+    -webkit-appearance:none;
+    outline:none;
+
+    min-width:320px;
+
+    height:56px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     padding:14px 30px;
 
@@ -1438,23 +1449,24 @@ html.light-theme .moon{
 
     border:1px solid rgba(255,255,255,0.18);
 
-    background:rgba(255,255,255,0.08);
+    background:
+    rgba(255,255,255,0.08);
 
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 
     color:white;
 
-    font-family:Poppins,sans-serif;
+    font-family:"Poppins",sans-serif;
 
     font-size:17px;
 
     cursor:pointer;
 
-    transition:0.25s;
+    transition:.25s;
 
     box-shadow:
-        0 8px 24px rgba(0,0,0,0.25);
+    0 8px 24px rgba(0,0,0,.25);
 
 }
 
@@ -1462,17 +1474,22 @@ html.light-theme .moon{
 .account-pill:hover{
 
     transform:
-        translateY(-4px)
-        scale(1.03);
+    translateY(-4px)
+    scale(1.03);
+
+    background:
+    rgba(255,255,255,.12);
 
 }
 
 
 .account-pill:active{
 
-    transform:scale(0.97);
+    transform:scale(.97);
 
 }
+
+
 
 /* ==========================
    LOGIN MODAL
@@ -1491,6 +1508,7 @@ html.light-theme .moon{
     rgba(0,0,0,.55);
 
     backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 
     justify-content:center;
 
@@ -1506,6 +1524,7 @@ html.light-theme .moon{
     display:flex;
 
 }
+
 
 
 .modal-content{
@@ -1526,10 +1545,25 @@ html.light-theme .moon{
 
 
     backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
 
     text-align:center;
 
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
 }
+
+
+
+/* ==========================
+   LOGIN INPUTS
+========================== */
 
 
 .modal-content input{
@@ -1540,9 +1574,12 @@ html.light-theme .moon{
 
     margin:10px;
 
+
     border-radius:15px;
 
-    border:1px solid rgba(255,255,255,.2);
+
+    border:
+    1px solid rgba(255,255,255,.2);
 
 
     background:
@@ -1551,51 +1588,100 @@ html.light-theme .moon{
 
     color:white;
 
+
+    font-family:"Poppins",sans-serif;
+
+
+    outline:none;
+
 }
+
+
+
+.modal-content input::placeholder{
+
+    color:
+    rgba(255,255,255,.6);
+
+}
+
+
 
 /* ==========================
    LOGIN MODAL BUTTONS
 ========================== */
 
+
 .modal-button{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    outline:none;
+
 
     width:160px;
 
+
     padding:12px 25px;
+
 
     margin:8px;
 
+
     border-radius:999px;
 
-    border:1px solid rgba(255,255,255,0.2);
+
+    border:
+    1px solid rgba(255,255,255,.2);
+
 
     background:
-    rgba(255,255,255,0.12);
+    rgba(255,255,255,.08);
+
 
     color:white;
 
+
     font-family:"Poppins",sans-serif;
+
 
     font-size:16px;
 
+
     cursor:pointer;
 
+
     backdrop-filter:blur(15px);
+
     -webkit-backdrop-filter:blur(15px);
+
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.25);
+
 
     transition:.25s;
 
 }
 
 
+
 .modal-button:hover{
 
-    transform:translateY(-3px);
+
+    transform:
+    translateY(-3px);
+
 
     background:
-    rgba(255,255,255,0.22);
+    rgba(255,255,255,.22);
+
 
     box-shadow:
+
     0 0 15px rgba(125,211,255,.35);
 
 }
