@@ -64,10 +64,6 @@ applyTheme(currentTheme);
 
 toggle.addEventListener("change", () => {
 
-    console.log("Switch changed!");
-    console.log("Checked:", toggle.checked);
-
-
     if(toggle.checked){
 
         applyTheme("dark");
