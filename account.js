@@ -451,3 +451,24 @@ window.changePassword = async function(){
     }
 
 };
+
+updateAccount();
+
+window.togglePassword = function(inputId, icon){
+
+    const input =
+    document.getElementById(inputId);
+
+    if(input.type === "password"){
+
+        input.type = "text";
+        icon.textContent = "visibility_off";
+
+    } else {
+
+        input.type = "password";
+        icon.textContent = "visibility";
+
+    }
+
+};
