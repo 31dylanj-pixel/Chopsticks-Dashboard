@@ -15,31 +15,38 @@ function applyTheme(theme){
         "light-theme"
     );
 
+
     document.documentElement.classList.add(
         theme + "-theme"
     );
+
 
     localStorage.setItem(
         "theme",
         theme
     );
 
-    if (theme === "dark") {
+
+    if(theme === "dark"){
 
         themeName.textContent = "Dark Mode";
-    
-        thumbIcon.className = "bi bi-moon-stars thumb-icon";
-    
+
+        thumbIcon.className =
+        "bi bi-moon-stars thumb-icon";
+
         toggle.checked = true;
-    
-    } else {
-    
+
+    }
+
+    else{
+
         themeName.textContent = "Light Mode";
-    
-        thumbIcon.className = "bi bi-sun thumb-icon";
-    
+
+        thumbIcon.className =
+        "bi bi-sun thumb-icon";
+
         toggle.checked = false;
-    
+
     }
 
 }
@@ -52,20 +59,25 @@ localStorage.getItem("theme")
 
 
 applyTheme(currentTheme);
+
+
+
 toggle.addEventListener("change", () => {
 
     console.log("Switch changed!");
     console.log("Checked:", toggle.checked);
 
-    if (toggle.checked) {
+
+    if(toggle.checked){
 
         applyTheme("dark");
 
-    } else {
+    }
+
+    else{
 
         applyTheme("light");
 
     }
 
 });
-
