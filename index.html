@@ -2,14 +2,19 @@
 <html>
 
 <head>
-    <title>Chopsticks Hub </title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <title>Chopsticks Hub</title>
+
     <script src="theme.js" defer></script>
     <script src="account.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
-    
+
+
 <body>
+
 
 <div id="loginModal" class="modal">
 
@@ -24,25 +29,39 @@
 
         <input
         id="loginEmail"
+        type="email"
+        autocomplete="email"
         placeholder="Email">
 
 
         <input
         id="loginPassword"
         type="password"
+        autocomplete="current-password"
         placeholder="Password">
 
 
         <div class="modal-buttons">
 
-        <button class="modal-button" onclick="fakeLogin()">
-            Login
-        </button>
-        
-        <button class="modal-button" onclick="closeLogin()">
-            Cancel
-        </button>
-        
+
+            <button
+            class="modal-button"
+            onclick="fakeLogin()">
+
+                Login
+
+            </button>
+
+
+            <button
+            class="modal-button"
+            onclick="closeLogin()">
+
+                Cancel
+
+            </button>
+
+
         </div>
 
 
@@ -51,115 +70,223 @@
 
 </div>
 
+
+
+
 <div id="passwordModal" class="modal">
 
 
-<div class="modal-content">
+    <div class="modal-content">
 
 
-<h2>
-🔑 Change Password
-</h2>
+        <h2>
+            🔑 Change Password
+        </h2>
 
 
-<input
-id="newPassword"
-type="password"
-placeholder="New Password">
+        <input
+        id="newPassword"
+        type="password"
+        autocomplete="new-password"
+        placeholder="New Password">
 
 
-<input
-id="confirmPassword"
-type="password"
-placeholder="Confirm Password">
+        <input
+        id="confirmPassword"
+        type="password"
+        autocomplete="new-password"
+        placeholder="Confirm Password">
 
 
-<div class="modal-buttons">
+        <div class="modal-buttons">
 
 
-<button
-class="modal-button"
-onclick="changePassword()">
+            <button
+            class="modal-button"
+            onclick="changePassword()">
 
-Change
+                Change
 
-</button>
+            </button>
 
 
-<button
-class="modal-button"
-onclick="closePasswordChange()">
+            <button
+            class="modal-button"
+            onclick="closePasswordChange()">
 
-Cancel
+                Cancel
 
-</button>
+            </button>
+
+
+        </div>
+
+
+    </div>
 
 
 </div>
 
 
-</div>
 
 
-</div>
-    
 <header>
-    <h1>🥢 Chopsticks Hub</h1>
-    <p>The official companion website</p>
+
+    <h1>
+        🥢 Chopsticks Hub
+    </h1>
+
+    <p>
+        The official companion website
+    </p>
+
 </header>
 
+
+
+
 <div class="account-bar"></div>
-    
+
+
+
+
 <div class="container">
 
+
     <a href="leaderboard.html" class="card">
-        <h2>🏆 Leaderboard</h2>
-        <p>View the top players </p>
+
+        <h2>
+            🏆 Leaderboard
+        </h2>
+
+        <p>
+            View the top players
+        </p>
+
     </a>
+
+
 
     <a href="fish.html" class="card">
-        <h2>🎣 Fish Library</h2>
-        <p>View all fish </p>
+
+        <h2>
+            🎣 Fish Library
+        </h2>
+
+        <p>
+            View all fish
+        </p>
+
     </a>
+
+
 
     <a href="cards.html" class="card">
-        <h2>🃏 Card Library</h2>
-        <p>View available cards </p>
+
+        <h2>
+            🃏 Card Library
+        </h2>
+
+        <p>
+            View available cards
+        </p>
+
     </a>
+
+
 
     <a href="shop.html" class="card">
-        <h2>🛒 Shops</h2>
-        <p>Browse shop items </p>
+
+        <h2>
+            🛒 Shops
+        </h2>
+
+        <p>
+            Browse shop items
+        </p>
+
     </a>
+
+
 
     <a href="commands.html" class="card">
-        <h2>📜 Commands</h2>
-        <p>View all Chopsticks commands </p>
+
+        <h2>
+            📜 Commands
+        </h2>
+
+        <p>
+            View all Chopsticks commands
+        </p>
+
     </a>
+
+
 
     <a href="releases.html" class="card">
-        <h2>📢 Release Notes</h2>
-        <p>View the latest Chopsticks updates </p>
-    
+
+        <h2>
+            📢 Release Notes
+        </h2>
+
+        <p>
+            View the latest Chopsticks updates
+        </p>
+
     </a>
 
+
+
     <a href="events.html" class="card">
-        <h2>🎉 Events</h2>
-        <p>View current and upcoming events <br>[COMING SOON]</p>
+
+        <h2>
+            🎉 Events
+        </h2>
+
+        <p>
+            View current and upcoming events
+            <br>
+            [COMING SOON]
+        </p>
+
     </a>
+
 
 
     <a href="credits.html" class="card">
-        <h2>🎬 Credits</h2>
-        <p>View the credits for Chopsticks <br>[COMING SOON]</p>
+
+        <h2>
+            🎬 Credits
+        </h2>
+
+        <p>
+            View the credits for Chopsticks
+            <br>
+            [COMING SOON]
+        </p>
+
     </a>
 
+
+
     <a href="settings.html" class="card">
-        <h2>⚙️ Settings</h2>
-        <p>Customize your Chopsticks Hub experience <br>[COMING SOON]</p>
+
+        <h2>
+            ⚙️ Settings
+        </h2>
+
+        <p>
+            Customize your Chopsticks Hub experience
+            <br>
+            [COMING SOON]
+        </p>
+
     </a>
+
+
 </div>
 
 
 </body>
+
 </html>
