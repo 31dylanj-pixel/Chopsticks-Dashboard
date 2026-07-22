@@ -1213,9 +1213,9 @@ a.card:hover {
 
 }
 
-/* ===========================
+/* ==============================
    THEME SWITCH
-=========================== */
+============================== */
 
 .theme-row{
 
@@ -1225,9 +1225,7 @@ a.card:hover {
 
     align-items:center;
 
-    gap:25px;
-
-    margin-top:18px;
+    margin-top:20px;
 
 }
 
@@ -1237,19 +1235,15 @@ a.card:hover {
 
     font-size:24px;
 
-    font-weight:700;
-
 }
 
 .theme-info p{
 
-    margin-top:6px;
+    margin-top:8px;
 
     opacity:.7;
 
 }
-
-/* Hide checkbox */
 
 .theme-switch input{
 
@@ -1263,11 +1257,9 @@ a.card:hover {
 
     position:relative;
 
-    display:block;
+    width:155px;
 
-    width:130px;
-
-    height:68px;
+    height:72px;
 
     border-radius:999px;
 
@@ -1281,7 +1273,7 @@ a.card:hover {
 
 html.dark-theme .track{
 
-    background:#4d5f9f;
+    background:#5f6fb3;
 
 }
 
@@ -1289,7 +1281,39 @@ html.dark-theme .track{
 
 html.light-theme .track{
 
-    background:#dddddd;
+    background:#e3e3e3;
+
+}
+
+/* Icons */
+
+.icon{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:24px;
+
+    transition:.35s;
+
+}
+
+.sun{
+
+    left:18px;
+
+    color:#F5A623;
+
+}
+
+.moon{
+
+    right:18px;
+
+    color:#4A67FF;
 
 }
 
@@ -1299,39 +1323,56 @@ html.light-theme .track{
 
     position:absolute;
 
-    top:5px;
+    top:6px;
 
-    left:5px;
+    left:6px;
 
-    width:58px;
+    width:60px;
 
-    height:58px;
+    height:60px;
 
     border-radius:50%;
 
     background:white;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:26px;
-
-    transition:.35s cubic-bezier(.22,.9,.3,1);
+    transition:.35s cubic-bezier(.25,.8,.3,1);
 
     box-shadow:
-
-        0 8px 20px rgba(0,0,0,.25);
+        0 8px 18px rgba(0,0,0,.22);
 
 }
 
-/* Slide */
+/* Dark = knob on right */
 
 .theme-switch input:checked + .track .thumb{
 
-    transform:translateX(62px);
+    transform:translateX(83px);
+
+}
+
+/* Fade icons */
+
+html.dark-theme .sun{
+
+    opacity:.25;
+
+}
+
+html.dark-theme .moon{
+
+    opacity:1;
+
+}
+
+html.light-theme .sun{
+
+    opacity:1;
+
+}
+
+html.light-theme .moon{
+
+    opacity:.25;
 
 }
 
@@ -1339,13 +1380,13 @@ html.light-theme .track{
 
 .theme-switch:hover .thumb{
 
-    transform:scale(1.05);
+    transform:scale(1.04);
 
 }
 
 .theme-switch input:checked + .track:hover .thumb{
 
-    transform:translateX(62px) scale(1.05);
+    transform:translateX(83px) scale(1.04);
 
 }
 /* ==========================
