@@ -8,6 +8,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<div id="loginModal" class="modal">
+
+
+    <div class="modal-content">
+
+
+        <h2>
+            🥢 Chopsticks Login
+        </h2>
+
+
+        <input
+        id="loginUsername"
+        placeholder="Username">
+
+
+        <input
+        id="loginPassword"
+        type="password"
+        placeholder="Password">
+
+
+        <button
+        class="account-pill"
+        onclick="fakeLogin()">
+
+            Login
+
+        </button>
+
+
+        <button
+        class="account-pill"
+        onclick="closeLogin()">
+
+            Cancel
+
+        </button>
+
+
+    </div>
+
+
+</div>
+    
 <body>
 
 <header>
@@ -45,9 +90,7 @@
     </a>
 
     <a href="releases.html" class="card">
-
         <h2>📢 Release Notes</h2>
-    
         <p>View the latest Chopsticks updates </p>
     
     </a>
