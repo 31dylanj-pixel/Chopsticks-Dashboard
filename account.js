@@ -277,6 +277,126 @@ window.fakeLogin = async function(){
 
 }
 
-
-
 updateAccount();
+
+function openPasswordChange(){
+
+    document
+    .getElementById("passwordModal")
+    .classList.add("active");
+
+}
+
+
+
+window.closePasswordChange = function(){
+
+    document
+    .getElementById("passwordModal")
+    .classList.remove("active");
+
+};
+
+
+
+window.changePassword = async function(){
+
+
+    const newPassword =
+    document
+    .getElementById("newPassword")
+    .value;
+
+
+    const confirmPassword =
+    document
+    .getElementById("confirmPassword")
+    .value;
+
+
+
+    if(newPassword !== confirmPassword){
+
+        alert(
+            "❌ Passwords do not match!"
+        );
+
+        return;
+
+    }
+
+
+
+    if(newPassword.length < 6){
+
+        alert(
+            "❌ Password must be at least 6 characters!"
+        );
+
+        return;
+
+    }
+
+
+
+    const response = await fetch(
+
+        `${SUPABASE_URL}/auth/v1/user`,
+
+        {
+
+            method:"PUT",
+
+            headers:{
+
+                apikey:SUPABASE_KEY,
+
+                Authorization:
+                `Bearer ${localStorage.getItem("access_token")}`,
+
+                "Content-Type":"application/json"
+
+            },
+
+
+            body:JSON.stringify({
+
+                password:newPassword
+
+            })
+
+        }
+
+    );
+
+
+
+    const data =
+    await response.json();
+
+
+
+    console.log(data);
+
+
+
+    if(response.ok){
+
+        alert(
+            "✅ Password changed!"
+        );
+
+        closePasswordChange();
+
+    }
+
+    else{
+
+        alert(
+            "❌ Failed to change password!"
+        );
+
+    }
+
+
+};
