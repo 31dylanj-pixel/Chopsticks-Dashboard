@@ -1611,6 +1611,20 @@ html.light-theme .moon{
 
 }
 
+.account-bar{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    margin:25px 0;
+
+}
+
 .account-pill {
 
     appearance:none;
