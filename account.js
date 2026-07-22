@@ -59,6 +59,13 @@ function updateAccount(){
             localStorage.removeItem("access_token");
             localStorage.removeItem("auth_id");
 
+            document
+            .getElementById("changePasswordButton")
+            .onclick = () => {
+            
+                openPasswordChange();
+            
+            };
 
             updateAccount();
 
