@@ -1,12 +1,17 @@
-const accountBar = document.querySelector(".account-bar");
+const accountBar =
+document.querySelector(".account-bar");
+
 
 let currentUser =
-localStorage.getItem("currentUser");
+localStorage.getItem("currentUser") || null;
+
 
 
 function updateAccount(){
 
+
     if(currentUser){
+
 
         accountBar.innerHTML = `
 
@@ -26,22 +31,29 @@ function updateAccount(){
         `;
 
 
+
         document
         .getElementById("logoutButton")
         .onclick = () => {
 
+
             currentUser = null;
+
 
             localStorage.removeItem(
                 "currentUser"
             );
 
+
             updateAccount();
+
 
         };
 
 
+
     } else {
+
 
 
         accountBar.innerHTML = `
@@ -57,6 +69,7 @@ function updateAccount(){
         `;
 
 
+
         document
         .getElementById("loginButton")
         .onclick = () => {
@@ -65,73 +78,119 @@ function updateAccount(){
 
         };
 
+
     }
+
 
 }
 
 
+
+
 function openLogin(){
+
 
     document
     .getElementById("loginModal")
     .classList.add("active");
 
+
 }
 
 
+
+
 window.closeLogin = function(){
+
 
     document
     .getElementById("loginModal")
     .classList.remove("active");
 
+
 };
+
+
+
 
 
 window.fakeLogin = function(){
 
+
     console.log("fakeLogin started");
 
+
+
     const username =
-    document.getElementById("loginUsername").value.trim();
+    document
+    .getElementById("loginUsername")
+    .value
+    .trim();
+
 
 
     const password =
-    document.getElementById("loginPassword").value;
+    document
+    .getElementById("loginPassword")
+    .value;
 
 
-    console.log("Username:", username);
-    console.log("Password:", password);
+
+    console.log(
+        "Username:",
+        username
+    );
+
+
+    console.log(
+        "Password:",
+        password
+    );
 
 
 
     if(!accounts[username]){
 
-        alert("Account does not exist!");
+
+        alert(
+            "Account does not exist!"
+        );
+
 
         return;
 
+
     }
+
 
 
 
     if(accounts[username].password !== password){
 
-        alert("Incorrect password!");
+
+        alert(
+            "Incorrect password!"
+        );
+
 
         return;
 
+
     }
+
+
 
 
 
     currentUser = username;
 
 
+
     localStorage.setItem(
         "currentUser",
         username
     );
+
 
 
     console.log(
@@ -140,36 +199,18 @@ window.fakeLogin = function(){
     );
 
 
-    closeLogin();
-
-    updateAccount();
-
-}
-
-
-    if(accounts[username].password !== password){
-
-        alert("Incorrect password!");
-
-        return;
-
-    }
-
-
-
-    currentUser = username;
-
-    localStorage.setItem(
-        "currentUser",
-        username
-    );
-
 
     closeLogin();
 
+
     updateAccount();
 
-}
+
+
+};
+
+
+
 
 
 updateAccount();
