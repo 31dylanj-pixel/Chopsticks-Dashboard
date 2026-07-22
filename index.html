@@ -43,10 +43,6 @@
             Cancel
         </button>
         
-        <button class="modal-button" onclick="changePassword()">
-            Change Password
-        </button>
-        
         </div>
 
 
@@ -55,6 +51,58 @@
 
 </div>
 
+<div id="passwordModal" class="modal">
+
+
+<div class="modal-content">
+
+
+<h2>
+🔑 Change Password
+</h2>
+
+
+<input
+id="newPassword"
+type="password"
+placeholder="New Password">
+
+
+<input
+id="confirmPassword"
+type="password"
+placeholder="Confirm Password">
+
+
+<div class="modal-buttons">
+
+
+<button
+class="modal-button"
+onclick="changePassword()">
+
+Change
+
+</button>
+
+
+<button
+class="modal-button"
+onclick="closePasswordChange()">
+
+Cancel
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+    
 <header>
     <h1>🥢 Chopsticks Hub</h1>
     <p>The official companion website</p>
