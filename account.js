@@ -24,16 +24,25 @@ function updateAccount(){
         <button class="account-pill">
             👤 ${currentUser}
         </button>
-
-
+        
+        
+        <button 
+        class="account-pill"
+        id="changePasswordButton">
+        
+            🔑 Change Password
+        
+        </button>
+        
+        
         <button 
         class="account-pill"
         id="logoutButton">
-
+        
             🚪 Sign Out
-
+        
         </button>
-
+        
         `;
 
 
