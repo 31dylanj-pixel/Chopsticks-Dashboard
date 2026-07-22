@@ -25,16 +25,14 @@ function applyTheme(theme){
 
     if(theme === "dark"){
 
-        themeName.innerHTML =
-        "🌙 Dark";
-
+        themeName.innerHTML = "🌙 Dark";
+        document.querySelector(".thumb-icon").textContent = "🌙";
     }
 
     else {
 
-        themeName.innerHTML =
-        "☀️ Light";
-
+        themeName.innerHTML = "☀️ Light";
+        document.querySelector(".thumb-icon").textContent = "☀️";
     }
 
 }
