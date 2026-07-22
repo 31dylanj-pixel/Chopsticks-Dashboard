@@ -90,6 +90,18 @@ window.closeLogin = function(){
 
 window.fakeLogin = function(){
 
+    console.log("fakeLogin started");
+
+    const username =
+    document.getElementById("loginUsername").value.trim();
+
+    const password =
+    document.getElementById("loginPassword").value;
+
+
+    console.log("Username:", username);
+    console.log("Password:", password);
+
     const username =
     document.getElementById("loginUsername").value.trim();
 
