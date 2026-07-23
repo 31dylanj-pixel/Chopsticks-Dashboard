@@ -4,7 +4,10 @@
 <head>
 
 <title>Release Notes - Chopsticks Hub</title>
+
 <script src="theme.js" defer></script>
+<script src="release-search.js" defer></script>
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -26,19 +29,33 @@
 </header>
 
 
+<div class="search-box">
+
+    <input
+    type="text"
+    id="releaseSearch"
+    placeholder="Search versions or features...">
+
+</div>
+
+
 
 <div class="container">
+
 
 
 <!-- WEBSITE -->
 
 <div class="release-section">
 
+
 <h2 class="release-title">
 🌐 Chopsticks Hub
 </h2>
 
-<div class="card">
+
+
+<div class="card release-card">
 
 
 <h2>
@@ -67,14 +84,21 @@ Version 2.0
 🌙 Added light/dark theme switch foundation
 <br>
 📱 Improved account bar layout and responsiveness
+
 <br><br>
 
 📅 July 23rd, 2026
+
 </p>
 
+
 </div>
-    
-<div class="card">
+
+
+
+
+
+<div class="card release-card">
 
 
 <h2>
@@ -84,7 +108,7 @@ Version 1.0
 <p>
 
 🚀 OFFICIAL RELEASE
-    
+
 <br><br>
 
 ✨ Added Features
@@ -103,12 +127,20 @@ Version 1.0
 🎨 Even More CSS Formatting
 <br>
 🐟 Improved the fish page design and reduced lag
+
 <br><br>
+
 📅 July 10th, 2026
+
 </p>
 
+
 </div>
-    
+
+
+
+
+
 <details class="release-group">
 
 
@@ -116,7 +148,7 @@ Version 1.0
 
 <h2>
 BETA VERSIONS
-</h2> 
+</h2>
 
 <p>
 Website beta development updates. (Click to Expand)
@@ -126,7 +158,9 @@ Website beta development updates. (Click to Expand)
 
 
 
-<div class="card release-child">
+
+
+<div class="card release-card release-child">
 
 
 <h2>
@@ -170,7 +204,7 @@ Added Features
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -215,10 +249,6 @@ Current Features:
 
 </div>
 
-
-
-
-
 <!-- WEBHOOK -->
 
 <div class="release-section">
@@ -230,7 +260,7 @@ Current Features:
 
 
 
-<div class="card">
+<div class="card release-card">
 
 
 <h2>
@@ -255,13 +285,19 @@ Version 4.1
 💾 Improved player data handling
 
 <br><br>
+
 📅 July 5th, 2026
+
 </p>
 
 
 </div>
 
-<div class="card">
+
+
+
+
+<div class="card release-card">
 
 
 <h2>
@@ -284,14 +320,19 @@ Version 4
 
 <br>
 💎 Added 5 Prestige Upgrades:
+
 <br>
 &nbsp;&nbsp;🪙 Coin Boost (+5% per level)
+
 <br>
 &nbsp;&nbsp;🐟 Fish Luck (+1% per level)
+
 <br>
 &nbsp;&nbsp;🎰 Slot Luck (+3% per level)
+
 <br>
 &nbsp;&nbsp;📦 Cap Boost (+10% per level)
+
 <br>
 &nbsp;&nbsp;🏷️ Custom Titles
 
@@ -333,11 +374,16 @@ Version 4
 🏷️ Renamed bot releases back to Chopsticks + version numbers
 
 <br><br>
+
 📅 July 2nd, 2026
+
 </p>
 
 
 </div>
+
+
+
 
 <details class="release-group">
 
@@ -357,7 +403,8 @@ Patch updates and improvements.
 
 
 
-<div class="card release-child">
+
+<div class="card release-card release-child">
 
 
 <h2>
@@ -386,7 +433,7 @@ CHOPSTICKS REFORGED 3.7.2
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -415,7 +462,7 @@ CHOPSTICKS REFORGED 3.7.1
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -448,7 +495,11 @@ CHOPSTICKS REFORGED 3.7
 
 </details>
 
-<div class="card">
+
+
+
+
+<div class="card release-card">
 
 
 <h2>
@@ -463,17 +514,27 @@ CHOPSTICKS REFORGED 3.6
 Collection Command (collection &lt;user&gt;)
 </b>
 
+
 <br>
 
 - 📝 New Message Design
+
 <br>
+
 - 🌊 Different Emojis for different rarities instead of all waves
+
 <br>
+
 - 🎉 Event Fish is now separated
+
 <br>
+
 - 📊 Added a completion bar for each rarity
+
 <br>
+
 - 🐟 Added total fish species count with completed percentage
+
 
 
 <br><br>
@@ -483,13 +544,19 @@ Collection Command (collection &lt;user&gt;)
 Fish Command (fish &lt;user&gt;)
 </b>
 
+
 <br>
 
 - 🐟 Added more fish to each rarity
+
 <br>
+
 - ⚖️ Rebalanced fish prices to prevent rarity overlap
+
 <br>
+
 - 🛠️ Added a helper command to reduce lag
+
 
 
 <br><br>
@@ -499,15 +566,23 @@ Fish Command (fish &lt;user&gt;)
 Fishing Events
 </b>
 
+
 <br>
 
 - 🌊 Added a Lucky Wave helper command to reduce lag
+
 <br>
+
 - 🎣 Added more fish to existing events (Summer & Anniversary)
+
 <br>
+
 - 🎉 Added 8 more events
+
 <br>
+
 - 🥢 Renamed Anniversary to Chopsticks Anniversary
+
 
 
 <br><br>
@@ -515,21 +590,34 @@ Fishing Events
 
 ✨ Some added events include:
 
+
 <br>
 
 🌸 Spring Event
+
 <br>
+
 🍂 Autumn Event
+
 <br>
+
 ❄️ Winter Event
+
 <br>
+
 🗽 US Independence Day
+
 <br>
+
 🎊 And many more!
+
+
 <br><br>
+
 📅 June 30th, 2026
 
 </p>
+
 
 </div>
 
@@ -551,7 +639,8 @@ Fishing, Slot Machine, and system improvements.
 
 
 
-<div class="card release-child">
+
+<div class="card release-card release-child">
 
 
 <h2>
@@ -580,7 +669,7 @@ CHOPSTICKS REFORGED 3.5
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -595,11 +684,15 @@ CHOPSTICKS REFORGED 3.4
 Fishing
 </b>
 
+
 <br>
 
 - 🐟 Fully patched coins not saving from Mythic / Secret / Godly / Divine Fish
+
 <br>
+
 - ⭐ Event Fish now follows prestige cap as well
+
 
 
 <br><br>
@@ -609,13 +702,19 @@ Fishing
 Slot Machine
 </b>
 
+
 <br>
 
 - 🎰 Slot Machine is now back up and running!
+
 <br>
+
 - ⭐ Slot Machine follows prestige cap
+
 <br>
+
 - 💰 Slot Reward has been updated to show the formatted version as well as the original amount
+
 
 
 <br><br>
@@ -625,13 +724,19 @@ Slot Machine
 Others
 </b>
 
+
 <br>
 
 - 🛠️ Added 3 helper functions to reduce overall lag
+
 <br>
+
 - 🤖 Began development in fishauto (&lt;amount of times, max 10&gt;)
+
 <br>
+
 - ⚠️ Unusable during Lucky Wave
+
 
 
 <br><br>
@@ -648,6 +753,10 @@ Others
 
 
 </details>
+
+
+
+
 
 <details class="release-group">
 
@@ -667,7 +776,8 @@ Prestige, Fishing, and system improvements.
 
 
 
-<div class="card release-child">
+
+<div class="card release-card release-child">
 
 
 <h2>
@@ -682,13 +792,19 @@ CHOPSTICKS REFORGED 3.3.1
 Fishing
 </b>
 
+
 <br>
 
 - 🐟 Patched coins not saving
+
 <br>
+
 - 💥 Patched crashing when fish command is run
+
 <br>
+
 - 💰 Added new fish worth 50,000 and 75,000 coins
+
 
 
 <br><br>
@@ -698,13 +814,19 @@ Fishing
 Others
 </b>
 
+
 <br>
 
 - 🚀 Redid fishing logic to minimize lag
+
 <br>
+
 - 🌐 Redid VPN code to minimize delay within 300ms
+
 <br>
+
 - 🐛 Minor bug fixes
+
 
 
 <br><br>
@@ -722,7 +844,7 @@ Others
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -737,11 +859,15 @@ CHOPSTICKS REFORGED 3.3
 Fishing
 </b>
 
+
 <br>
 
 - ⭐ Fixed fishing prestige cap
+
 <br>
+
 - 🐛 Fixed fishing crash bug
+
 
 
 <br><br>
@@ -759,7 +885,7 @@ Fishing
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -774,9 +900,11 @@ CHOPSTICKS REFORGED 3.2.1
 Prestige System
 </b>
 
+
 <br>
 
 - 🏆 Added working Prestige Command
+
 
 
 <br><br>
@@ -794,7 +922,7 @@ Prestige System
 
 
 
-<div class="card release-child">
+<div class="card release-card release-child">
 
 
 <h2>
@@ -809,11 +937,15 @@ CHOPSTICKS REFORGED 3.2
 Prestige System
 </b>
 
+
 <br>
 
 - 🏆 Added Prestige Levels
+
 <br>
+
 - 🪙 Added a cap for allotted coins
+
 
 
 <br><br>
@@ -823,11 +955,15 @@ Prestige System
 New Commands
 </b>
 
+
 <br>
 
 - ⭐ Added /prestige &lt;user&gt;
+
 <br>
+
 - 📊 Added /prestigeinfo &lt;user&gt;
+
 
 
 <br><br>
@@ -837,9 +973,11 @@ New Commands
 Leaderboard
 </b>
 
+
 <br>
 
 - 🔹 Added a dot separator
+
 
 
 <br><br>
@@ -849,9 +987,11 @@ Leaderboard
 Others
 </b>
 
+
 <br>
 
 - 🎰 Temporarily disabled Slot Machine
+
 
 
 <br><br>
@@ -865,7 +1005,11 @@ Others
 
 </div>
 
-<div class="card release-child">
+
+
+
+
+<div class="card release-card release-child">
 
 
 <h2>
@@ -880,11 +1024,15 @@ CHOPSTICKS REFORGED 3.1
 Fishing
 </b>
 
+
 <br>
 
 - 🧢 Added Hard Cap to the fish command
+
 <br>
+
 - ⚙️ Added helper functions to the fish command to reduce delay
+
 
 
 <br><br>
@@ -899,9 +1047,14 @@ Fishing
 </div>
 
 
+
 </details>
 
-<div class="card">
+
+
+
+
+<div class="card release-card">
 
 
 <h2>
@@ -916,9 +1069,11 @@ Fishing
 Networking
 </b>
 
+
 <br>
 
 - 🇨🇳 Successfully operated in China with VPN support
+
 
 
 <br><br>
@@ -928,9 +1083,11 @@ Networking
 Prestige System
 </b>
 
+
 <br>
 
 - 🧪 Added beta prestigeinfo &lt;user&gt;
+
 
 
 <br><br>
@@ -943,12 +1100,62 @@ Prestige System
 
 
 </div>
-    
-</div>
 
 
 
 </div>
+
+
+</div>
+
+
+<script>
+
+
+// Auto open collapsed sections when searching
+
+const search =
+document.getElementById("releaseSearch");
+
+
+const groups =
+document.querySelectorAll(".release-group");
+
+
+
+search.addEventListener("input", () => {
+
+
+    const value =
+    search.value.toLowerCase();
+
+
+
+    groups.forEach(group => {
+
+
+        if(value.length > 0){
+
+            group.open = true;
+
+        }
+
+
+        else{
+
+            group.open = false;
+
+        }
+
+
+    });
+
+
+});
+
+
+</script>
+
 
 
 </body>
