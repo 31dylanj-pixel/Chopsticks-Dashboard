@@ -1966,28 +1966,6 @@ body,
 /* ==========================
    LOGGED IN ACCOUNT HUD
 ========================== */
-
-
-.account-bar {
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    width:100%;
-
-    margin:25px 0;
-
-    flex-wrap:wrap;
-
-}
-
-
-
 /* USER INFO */
 
 .user-pill {
@@ -2061,14 +2039,14 @@ body,
 
     justify-content:space-between;
 
-    gap:10px;
+    gap:8px;
 
 }
 
 
 .action-button {
 
-    height:55px;
+    height:56px;
 
     min-width:200px;
 
@@ -2077,6 +2055,12 @@ body,
     justify-content:center;
 
     align-items:center;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
 
 }
 /* ==========================
