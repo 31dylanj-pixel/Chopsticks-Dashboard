@@ -220,7 +220,7 @@ function updateAccount(){
 
 
         <button
-        class="account-pill"
+        class="action-button"
         id="loginButton">
 
 
