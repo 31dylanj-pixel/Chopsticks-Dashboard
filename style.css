@@ -1298,259 +1298,273 @@ header a {
    THEME SWITCH
 ========================== */
 
-
 .theme-row {
 
-    display:flex;
+    display: flex;
 
-    justify-content:space-between;
+    justify-content: space-between;
 
-    align-items:center;
+    align-items: center;
 
-    gap:30px;
+    gap: 30px;
 
-    margin-top:20px;
+    margin-top: 20px;
 
 }
-
-
 
 .theme-info h3 {
 
-    margin:0;
+    margin: 0;
 
-    font-size:24px;
+    font-size: 24px;
 
 }
-
-
 
 .theme-info p {
 
-    margin-top:6px;
+    margin-top: 6px;
 
-    opacity:.7;
+    opacity: .7;
 
 }
 
-
-
-/* SWITCH */
-
+/* ==========================
+   SWITCH
+========================== */
 
 .theme-switch {
 
-    position:relative;
+    position: relative;
 
-    width:145px;
+    width: 145px;
 
-    height:70px;
+    height: 70px;
 
-    flex-shrink:0;
+    flex-shrink: 0;
 
 }
-
-
 
 .theme-switch input {
 
-    display:none;
+    display: none;
 
 }
 
-
+/* ==========================
+   TRACK
+========================== */
 
 .track {
 
-    position:relative;
+    position: relative;
 
-    display:block;
+    display: block;
 
-    width:100%;
+    width: 100%;
 
-    height:100%;
+    height: 100%;
 
-    border-radius:999px;
+    border-radius: 999px;
 
-    overflow:visible;
+    overflow: visible;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.3s;
+    transition: .3s;
 
 }
 
-
-
-/* Track colors */
-
+/* Dark */
 
 html.dark-theme .track {
 
-    background:#6674b8;
+    background: linear-gradient(
+        145deg,
+        #7284c7,
+        #5f6fb3
+    );
+
+    box-shadow:
+        inset 0 2px 6px rgba(255,255,255,.15),
+        inset 0 -3px 8px rgba(0,0,0,.20),
+        0 6px 18px rgba(0,0,0,.18);
 
 }
 
-
+/* Light */
 
 html.light-theme .track {
 
-    background:#ddd;
+    background: linear-gradient(
+        145deg,
+        #f3f3f3,
+        #dddddd
+    );
+
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,.95),
+        inset 0 -2px 5px rgba(0,0,0,.08),
+        0 6px 18px rgba(0,0,0,.10);
 
 }
 
-
-
-/* Icons */
-
+/* ==========================
+   BACKGROUND ICONS
+========================== */
 
 .icon {
 
-    position:absolute;
+    position: absolute;
 
-    top:50%;
+    top: 50%;
 
-    transform:translateY(-50%);
+    transform: translateY(-50%);
 
-    font-size:22px;
+    font-size: 22px;
 
-    opacity:.35;
+    transition: .35s;
 
 }
-
-
 
 .sun {
 
-    left:25px;
+    left: 22px;
 
-    color:#f6a400;
+    color: #f6a400;
 
 }
-
-
 
 .moon {
 
-    right:25px;
+    right: 22px;
 
-    color:#4c63ff;
+    color: #4c63ff;
 
 }
 
-
-
-/* Thumb */
-
+/* ==========================
+   THUMB
+========================== */
 
 .thumb {
 
-    position:absolute;
+    position: absolute;
 
-    top:-4px;
+    top: -4px;
 
-    left:-4px;
+    left: -4px;
 
-    width:78px;
+    width: 78px;
 
-    height:78px;
+    height: 78px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #f3f3f3
+    );
 
-    background:white;
+    display: flex;
 
+    justify-content: center;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
+    align-items: center;
 
     box-shadow:
-
-    0 8px 18px rgba(0,0,0,.25);
-
+        0 10px 24px rgba(0,0,0,.22),
+        inset 0 2px 6px rgba(255,255,255,.95),
+        inset 0 -2px 4px rgba(0,0,0,.06);
 
     transition:
-
-    .35s cubic-bezier(.25,.8,.25,1);
+        transform .45s cubic-bezier(.34,1.56,.64,1),
+        box-shadow .25s ease;
 
 }
 
-
+/* Thumb Icon */
 
 .thumb-icon {
 
-    font-size:34px;
+    font-size: 34px;
+
+    transition: .3s;
 
 }
 
-
-
-/* Move thumb */
-
+/* ==========================
+   MOVE THUMB
+========================== */
 
 .theme-switch input:checked + .track .thumb {
 
-    transform:translateX(71px);
+    transform: translateX(71px);
 
 }
 
-
-
-/* Theme icon colors */
-
+/* ==========================
+   ACTIVE ICON COLORS
+========================== */
 
 html.dark-theme .thumb-icon {
 
-    color:#4c63ff;
+    color: #4c63ff;
 
 }
-
-
 
 html.light-theme .thumb-icon {
 
-    color:#f6a400;
+    color: #f6a400;
 
 }
 
-
+/* ==========================
+   BACKGROUND ICON OPACITY
+========================== */
 
 html.dark-theme .sun {
 
-    opacity:.25;
+    opacity: .25;
 
 }
-
-
 
 html.dark-theme .moon {
 
-    opacity:.5;
+    opacity: .55;
 
 }
-
-
 
 html.light-theme .sun {
 
-    opacity:.5;
+    opacity: .55;
 
 }
-
-
 
 html.light-theme .moon {
 
-    opacity:.25;
+    opacity: .25;
 
 }
 
+/* ==========================
+   HOVER EFFECTS
+========================== */
 
+.theme-switch:hover .track {
 
+    transform: scale(1.02);
+
+}
+
+.theme-switch:hover .thumb {
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,.28),
+        inset 0 2px 6px rgba(255,255,255,.95),
+        inset 0 -2px 4px rgba(0,0,0,.06);
+
+}
 /* ==========================
    MODALS
 ========================== */
