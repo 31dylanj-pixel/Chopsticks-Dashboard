@@ -901,17 +901,17 @@ html.light-theme .search-box input::placeholder {
 
 .available {
 
-    color:#55ff88;
+    color:#00a34a;
 
     background:
-    rgba(85,255,136,.15);
+    rgba(0,163,74,.15);
 
     border:
-    1px solid rgba(85,255,136,.4);
+    1px solid rgba(0,163,74,.45);
 
     box-shadow:
 
-    0 0 12px rgba(85,255,136,.4);
+    0 0 12px rgba(0,163,74,.35);
 
 }
 
@@ -1918,7 +1918,21 @@ html.light-theme input::placeholder {
 
 }
 
+html.light-theme .available {
 
+    color:#006b32;
+
+    background:
+    rgba(0,107,50,.12);
+
+    border-color:
+    rgba(0,107,50,.35);
+
+    box-shadow:
+
+    0 0 12px rgba(0,107,50,.25);
+
+}
 
 html.light-theme .command-card .usage {
 
