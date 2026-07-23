@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+
 const search =
 document.getElementById("releaseSearch");
 
@@ -11,9 +14,7 @@ document.querySelectorAll(".release-group");
 
 
 
-search.addEventListener(
-"input",
-() => {
+search.addEventListener("input", () => {
 
 
     const value =
@@ -21,13 +22,14 @@ search.addEventListener(
 
 
 
-    // If search is empty
+    // Reset everything
+
     if(value === ""){
 
 
         releases.forEach(card => {
 
-            card.style.display = "flex";
+            card.style.display = "";
 
         });
 
@@ -47,11 +49,10 @@ search.addEventListener(
 
 
 
-
     groups.forEach(group => {
 
 
-        let hasMatch = false;
+        let groupMatch = false;
 
 
 
@@ -71,9 +72,10 @@ search.addEventListener(
             if(text.includes(value)){
 
 
-                card.style.display = "flex";
+                card.style.display = "";
 
-                hasMatch = true;
+
+                groupMatch = true;
 
 
             }
@@ -91,8 +93,7 @@ search.addEventListener(
 
 
 
-        // Automatically expand if found
-        if(hasMatch){
+        if(groupMatch){
 
             group.open = true;
 
@@ -110,8 +111,7 @@ search.addEventListener(
 
 
 
-
-    // Normal cards outside groups
+    // Cards NOT inside details
 
     releases.forEach(card => {
 
@@ -132,7 +132,7 @@ search.addEventListener(
         if(text.includes(value)){
 
 
-            card.style.display = "flex";
+            card.style.display = "";
 
 
         }
@@ -148,6 +148,8 @@ search.addEventListener(
 
     });
 
+
+});
 
 
 });
