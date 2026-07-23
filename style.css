@@ -103,7 +103,14 @@ a {
 
 }
 
+button,
+input,
+textarea,
+select {
 
+    font-family:"Poppins", sans-serif;
+
+}
 
 /* ==========================
    HEADER
@@ -1967,13 +1974,14 @@ body,
    LOGGED IN ACCOUNT HUD
 ========================== */
 
-/* USER INFO */
 
 .user-pill {
 
     height:120px;
 
-    min-width:230px;
+    min-width:280px;
+
+    padding:20px 35px;
 
     display:flex;
 
@@ -1983,11 +1991,11 @@ body,
 
     text-align:center;
 
+    border-radius:999px;
+
 }
 
 
-
-/* USER TEXT */
 
 .user-pill h3 {
 
@@ -1995,7 +2003,10 @@ body,
 
     font-size:22px;
 
+    font-family:"Montserrat",sans-serif;
+
 }
+
 
 
 .user-pill p {
@@ -2003,6 +2014,8 @@ body,
     margin:3px 0;
 
     font-size:14px;
+
+    font-family:"Poppins",sans-serif;
 
 }
 
@@ -2017,7 +2030,9 @@ body,
 
     height:120px;
 
-    min-width:230px;
+    min-width:280px;
+
+    padding:20px 40px;
 
     display:flex;
 
@@ -2027,14 +2042,18 @@ body,
 
     text-align:center;
 
+    border-radius:999px;
+
     font-size:20px;
+
+    font-family:"Poppins",sans-serif;
 
 }
 
 
 
 /* ==========================
-   RIGHT BUTTON STACK
+   ACTION BUTTONS
 ========================== */
 
 
@@ -2042,13 +2061,15 @@ body,
 
     height:120px;
 
+    min-width:230px;
+
     display:flex;
 
     flex-direction:column;
 
-    justify-content:space-between;
+    justify-content:center;
 
-    gap:8px;
+    gap:10px;
 
 }
 
@@ -2056,9 +2077,11 @@ body,
 
 .action-button {
 
-    height:56px;
+    height:55px;
 
-    min-width:200px;
+    min-width:230px;
+
+    border-radius:999px;
 
     display:flex;
 
@@ -2070,18 +2093,20 @@ body,
 
     font-size:15px;
 
+    font-family:"Poppins",sans-serif;
+
 }
 
 
 
 /* ==========================
-   ACCOUNT HUD GLASS STYLE
+   GLASS STYLE
 ========================== */
 
 
+.user-pill,
 .daily-reward,
-.action-button,
-.user-pill {
+.action-button {
 
 
     background:var(--glass);
@@ -2105,59 +2130,28 @@ body,
     color:var(--text);
 
 
-    border-radius:999px;
-
-
     transition:
 
-    transform .25s ease,
-
-    background .35s ease,
-
-    border-color .35s ease,
-
-    box-shadow .25s ease;
+    .25s ease;
 
 
 }
 
 
 
-/* ==========================
-   HOVER
-========================== */
-
-
+.user-pill:hover,
 .daily-reward:hover,
-.action-button:hover,
-.user-pill:hover {
+.action-button:hover {
 
 
     transform:
 
-    translateY(-3px);
+    translateY(-4px);
 
 
     background:
 
     var(--glass-hover);
-
-
-}
-
-
-
-/* ==========================
-   LIGHT MODE
-========================== */
-
-
-html.light-theme .daily-reward,
-html.light-theme .action-button,
-html.light-theme .user-pill {
-
-
-    color:#111;
 
 
 }
@@ -2184,7 +2178,11 @@ html.light-theme .user-pill {
     .daily-reward,
     .action-button {
 
+
         width:90%;
+
+        min-width:0;
+
 
     }
 
@@ -2192,7 +2190,11 @@ html.light-theme .user-pill {
 
     .account-actions {
 
+
         width:90%;
+
+        min-width:0;
+
 
     }
 
