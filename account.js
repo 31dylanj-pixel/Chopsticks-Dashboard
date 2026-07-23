@@ -4,6 +4,7 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
+
 const accountBar =
 document.querySelector(".account-bar");
 
@@ -17,62 +18,65 @@ function updateAccount(){
 
     if(currentUser){
 
+
         accountBar.innerHTML = `
-    
-        <div class="user-pill account-pill">
-    
+
+        <div class="user-pill">
+
             <div>
-    
+
                 <h3>
                     👤 ${currentUser}
                 </h3>
-    
+
                 <p>
-                    Coins: Loading...
+                    Coins: ${localStorage.getItem("coins") || 0}
                 </p>
-    
+
                 <p>
-                    Daily Streak: Loading...
+                    Daily Streak: ${localStorage.getItem("streak") || 0}
                 </p>
-    
+
             </div>
-    
+
         </div>
-    
-    
-    
-        <button class="daily-reward account-pill">
-    
+
+
+
+        <button 
+        class="daily-reward"
+        id="dailyRewardButton">
+
             🎁 Daily Reward
-    
+
         </button>
-    
-    
-    
+
+
+
         <div class="account-actions">
-    
-    
+
+
             <button
-            class="action-button account-pill"
+            class="action-button"
             id="changePasswordButton">
-    
+
                 🔑 Change Password
-    
+
             </button>
-    
-    
-    
+
+
+
             <button
-            class="action-button account-pill"
+            class="action-button"
             id="logoutButton">
-    
+
                 🚪 Sign Out
-    
+
             </button>
-    
-    
+
+
         </div>
-    
+
         `;
 
 
@@ -91,14 +95,34 @@ function updateAccount(){
         .getElementById("logoutButton")
         .onclick = () => {
 
+
             currentUser = null;
+
 
             localStorage.removeItem("currentUser");
             localStorage.removeItem("access_token");
             localStorage.removeItem("auth_id");
             localStorage.removeItem("currentEmail");
+            localStorage.removeItem("coins");
+            localStorage.removeItem("streak");
+
 
             updateAccount();
+
+        };
+
+
+        /*
+            DAILY REWARD WILL GO HERE
+        */
+
+        document
+        .getElementById("dailyRewardButton")
+        .onclick = () => {
+
+            alert(
+                "Daily rewards coming soon!"
+            );
 
         };
 
@@ -108,13 +132,17 @@ function updateAccount(){
 
         accountBar.innerHTML = `
 
+
         <button 
         class="account-pill"
         id="loginButton">
 
+
             🔐 Login
 
+
         </button>
+
 
         `;
 
@@ -128,9 +156,11 @@ function updateAccount(){
 
         };
 
+
     }
 
 }
+
 
 
 
@@ -142,6 +172,7 @@ function openLogin(){
     .classList.add("active");
 
 }
+
 
 
 
@@ -159,13 +190,16 @@ window.closeLogin = function(){
 
 
 
+
 window.fakeLogin = async function(){
+
 
     const email =
     document
     .getElementById("loginEmail")
     .value
     .trim();
+
 
 
     const password =
@@ -178,7 +212,9 @@ window.fakeLogin = async function(){
     let response;
 
 
+
     try{
+
 
         response = await fetch(
 
@@ -186,13 +222,17 @@ window.fakeLogin = async function(){
 
             {
 
+
                 method:"POST",
 
+
                 headers:{
+
 
                     apikey:SUPABASE_KEY,
 
                     "Content-Type":"application/json"
+
 
                 },
 
@@ -205,24 +245,30 @@ window.fakeLogin = async function(){
 
                 })
 
+
             }
 
         );
+
 
     }
 
 
     catch(error){
 
+
         alert(
             "❌ Connection error!"
         );
+
 
         console.error(error);
 
         return;
 
+
     }
+
 
 
 
@@ -231,15 +277,22 @@ window.fakeLogin = async function(){
 
 
 
+
+
     if(!data.access_token){
+
 
         alert(
             "❌ Incorrect email or password!"
         );
 
+
         return;
 
+
     }
+
+
 
 
 
@@ -249,6 +302,7 @@ window.fakeLogin = async function(){
     );
 
 
+
     localStorage.setItem(
         "auth_id",
         data.user.id
@@ -256,24 +310,38 @@ window.fakeLogin = async function(){
 
 
 
+
+
+
     const playerResponse = await fetch(
 
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username`,
+
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,streak`,
+
 
         {
 
+
             headers:{
 
+
                 apikey:SUPABASE_KEY,
+
 
                 Authorization:
                 `Bearer ${SUPABASE_KEY}`
 
+
             }
+
 
         }
 
+
     );
+
+
+
 
 
 
@@ -282,20 +350,38 @@ window.fakeLogin = async function(){
 
 
 
+
+
+
     if(players.length === 0){
+
 
         alert(
             "❌ No Chopsticks profile linked to this account!"
         );
 
+
         return;
+
 
     }
 
 
 
+
+
+
+    const player =
+    players[0];
+
+
+
+
+
     currentUser =
-    players[0].username;
+    player.username;
+
+
 
 
 
@@ -304,17 +390,41 @@ window.fakeLogin = async function(){
         currentUser
     );
 
+
+
     localStorage.setItem(
         "currentEmail",
         email
     );
 
+
+
+    localStorage.setItem(
+        "coins",
+        player.coins || 0
+    );
+
+
+
+    localStorage.setItem(
+        "streak",
+        player.streak || 0
+    );
+
+
+
+
+
     closeLogin();
+
 
     updateAccount();
 
 
+
 };
+
+
 
 
 
@@ -323,22 +433,32 @@ window.fakeLogin = async function(){
 
 function openPasswordChange(){
 
+
     document
     .getElementById("passwordModal")
     .classList.add("active");
+
 
 }
 
 
 
 
+
+
+
 window.closePasswordChange = function(){
+
 
     document
     .getElementById("passwordModal")
     .classList.remove("active");
 
+
 };
+
+
+
 
 
 
@@ -347,15 +467,20 @@ window.closePasswordChange = function(){
 
 window.changePassword = async function(){
 
+
     const currentPassword =
     document
     .getElementById("currentPassword")
     .value;
 
+
+
     const newPassword =
     document
     .getElementById("newPassword")
     .value;
+
+
 
     const confirmPassword =
     document
@@ -363,144 +488,232 @@ window.changePassword = async function(){
     .value;
 
 
+
+
+
     if(newPassword !== confirmPassword){
+
 
         alert(
             "❌ Passwords do not match!"
         );
 
+
         return;
+
 
     }
 
 
+
+
+
     if(newPassword.length < 6){
+
 
         alert(
             "❌ Password must be at least 6 characters!"
         );
 
+
         return;
+
 
     }
 
 
-    // Verify current password
+
+
+
+
 
     const verifyResponse = await fetch(
 
+
         `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+
 
         {
 
+
             method:"POST",
+
 
             headers:{
 
+
                 apikey:SUPABASE_KEY,
+
                 "Content-Type":"application/json"
+
 
             },
 
+
             body:JSON.stringify({
+
 
                 email:
                 localStorage.getItem("currentEmail"),
 
+
                 password:
                 currentPassword
 
+
             })
+
 
         }
 
+
     );
+
+
+
+
 
 
     const verifyData =
     await verifyResponse.json();
 
 
+
+
+
     if(!verifyData.access_token){
+
 
         alert(
             "❌ Current password is incorrect!"
         );
 
+
         return;
+
 
     }
 
 
-    // Change password
+
+
+
 
     const response = await fetch(
 
+
         `${SUPABASE_URL}/auth/v1/user`,
+
 
         {
 
+
             method:"PUT",
+
 
             headers:{
 
+
                 apikey:SUPABASE_KEY,
+
 
                 Authorization:
                 `Bearer ${localStorage.getItem("access_token")}`,
 
+
                 "Content-Type":"application/json"
+
 
             },
 
+
             body:JSON.stringify({
+
 
                 password:newPassword
 
+
             })
 
+
         }
+
 
     );
 
 
+
+
+
+
+
     if(response.ok){
+
 
         alert(
             "✅ Password changed successfully!"
         );
 
+
         closePasswordChange();
+
 
     }
 
+
     else{
+
 
         alert(
             "❌ Failed to change password!"
         );
 
+
     }
+
 
 };
 
+
+
+
+
+
+
 updateAccount();
 
+
+
+
+
+
+
 window.togglePassword = function(inputId, icon){
+
 
     const input =
     document.getElementById(inputId);
 
+
+
+
     if(input.type === "password"){
 
+
         input.type = "text";
+
         icon.textContent = "visibility_off";
+
 
     } else {
 
+
         input.type = "password";
+
         icon.textContent = "visibility";
 
+
     }
+
 
 };
