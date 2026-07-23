@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Orbitron:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap');
 
+
 /* ==========================
    THEME VARIABLES
 ========================== */
@@ -11,43 +12,52 @@
 
     --text:white;
 
-    --glass:
-    rgba(255,255,255,.10);
+    --glass:rgba(255,255,255,.10);
+    --glass-hover:rgba(255,255,255,.20);
 
-    --glass-border:
-    rgba(255,255,255,.20);
+    --border:rgba(255,255,255,.20);
 
     --blue:#7dd3ff;
 
+    --shadow:rgba(0,0,0,.25);
+
 }
+
 
 
 /* ==========================
    LIGHT THEME
 ========================== */
 
-
 html.light-theme {
 
-    --bg-top:#f8fbff;
+    --bg-top:#e8f7ff;
+    --bg-bottom:#8fd3ff;
 
-    --bg-bottom:#b9dcff;
+    --text:#101820;
 
-    --text:#111;
+    --glass:rgba(255,255,255,.45);
+    --glass-hover:rgba(255,255,255,.75);
 
-    --glass:
-    rgba(0,0,0,.08);
+    --border:rgba(0,0,0,.15);
 
-    --glass-border:
-    rgba(0,0,0,.18);
-
-    --blue:#005eff;
+    --blue:#0077ff;
 
 }
+
+
 
 /* ==========================
    GLOBAL
 ========================== */
+
+* {
+
+    box-sizing:border-box;
+
+}
+
+
 
 body {
 
@@ -56,6 +66,7 @@ body {
     min-height:100vh;
 
     background:
+
     linear-gradient(
         180deg,
         var(--bg-top),
@@ -64,18 +75,31 @@ body {
 
     color:var(--text);
 
-    font-family:"Poppins", sans-serif;
+    font-family:"Poppins",sans-serif;
 
-    transition:.4s;
+    transition:
+
+    background .35s ease,
+
+    color .35s ease;
 
 }
+
 
 
 h1,
 h2,
 h3 {
 
-    font-family:"Montserrat", sans-serif;
+    font-family:"Montserrat",sans-serif;
+
+}
+
+
+
+a {
+
+    color:var(--blue);
 
 }
 
@@ -85,23 +109,28 @@ h3 {
    HEADER
 ========================== */
 
-
 header {
 
     text-align:center;
 
-    padding:40px 20px;
+    padding:
+
+    40px 20px;
 
 }
+
 
 
 header h1 {
 
     font-size:46px;
 
-    margin-bottom:10px;
+    margin:
+
+    0 0 10px;
 
 }
+
 
 
 header p {
@@ -113,20 +142,20 @@ header p {
 }
 
 
+
 header a {
 
-    color:#7dd3ff;
-
     text-decoration:none;
+
+    color:var(--blue);
 
 }
 
 
 
 /* ==========================
-   MAIN GRID
+   CONTAINER GRID
 ========================== */
-
 
 .container {
 
@@ -139,7 +168,11 @@ header a {
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+
+    repeat(
+        auto-fit,
+        minmax(250px,1fr)
+    );
 
     gap:25px;
 
@@ -153,20 +186,20 @@ header a {
    GLASS CARDS
 ========================== */
 
-
 .card {
 
     text-decoration:none;
 
     color:var(--text);
 
-
     background:
+
     var(--glass);
 
 
     border:
-    1px solid var(--glass-border);
+
+    1px solid var(--border);
 
 
     border-radius:18px;
@@ -188,18 +221,25 @@ header a {
     justify-content:center;
 
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:
 
-    -webkit-backdrop-filter:blur(10px);
+    blur(15px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(15px);
 
 
     transition:
 
     transform .25s ease,
 
-    background .25s ease,
+    background .35s ease,
 
-    box-shadow .25s ease;
+    box-shadow .25s ease,
+
+    color .35s ease;
 
 }
 
@@ -207,17 +247,20 @@ header a {
 
 .card:hover {
 
-
     transform:
+
     translateY(-8px)
     scale(1.04);
 
 
     background:
-    rgba(255,255,255,.20);
+
+    var(--glass-hover);
 
 
-    filter:brightness(1.15);
+    filter:
+
+    brightness(1.15);
 
 }
 
@@ -247,7 +290,6 @@ header a {
    SEARCH
 ========================== */
 
-
 .search-box {
 
     display:flex;
@@ -256,14 +298,15 @@ header a {
 
     width:100%;
 
-    margin:35px auto 45px;
+    margin:
+
+    35px auto 45px;
 
 }
 
 
 
 .search-box input {
-
 
     width:min(700px,90%);
 
@@ -275,23 +318,28 @@ header a {
 
     background:
 
-    rgba(255,255,255,.10);
+    var(--glass);
 
 
     border:
 
-    1px solid rgba(255,255,255,.20);
+    1px solid var(--border);
 
 
     border-radius:18px;
 
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:
 
-    -webkit-backdrop-filter:blur(12px);
+    blur(15px);
 
 
-    color:white;
+    -webkit-backdrop-filter:
+
+    blur(15px);
+
+
+    color:var(--text);
 
 
     font-family:"Poppins",sans-serif;
@@ -303,10 +351,9 @@ header a {
     outline:none;
 
 
-    box-sizing:border-box;
+    transition:
 
-
-    transition:.25s;
+    .25s;
 
 }
 
@@ -315,7 +362,18 @@ header a {
 .search-box input::placeholder {
 
     color:
+
     rgba(255,255,255,.6);
+
+}
+
+
+
+html.light-theme .search-box input::placeholder {
+
+    color:
+
+    rgba(0,0,0,.45);
 
 }
 
@@ -325,7 +383,7 @@ header a {
 
     background:
 
-    rgba(255,255,255,.14);
+    var(--glass-hover);
 
 }
 
@@ -333,18 +391,16 @@ header a {
 
 .search-box input:focus {
 
+    border-color:
 
-    background:
-
-    rgba(255,255,255,.18);
-
-
-    border-color:#7dd3ff;
+    var(--blue);
 
 
     box-shadow:
 
-    0 0 20px rgba(125,211,255,.45);
+    0 0 20px
+
+    rgba(125,211,255,.45);
 
 }
 
@@ -364,7 +420,6 @@ header a {
 }
 
 
-
 .rarity-title {
 
     text-align:center;
@@ -378,7 +433,6 @@ header a {
     margin-bottom:25px;
 
 }
-
 
 
 .fish-grid {
@@ -400,7 +454,6 @@ header a {
 }
 
 
-
 /* ==========================
    COMMAND GRID SIZE
 ========================== */
@@ -414,9 +467,8 @@ header a {
 }
 
 
-
 /* ==========================
-   RARITY TEXT COLORS
+   RARITY TEXT
 ========================== */
 
 
@@ -430,7 +482,6 @@ header a {
 }
 
 
-
 .rarity-uncommon {
 
     color:#55ff55;
@@ -439,7 +490,6 @@ header a {
     0 0 10px #55ff55;
 
 }
-
 
 
 .rarity-rare {
@@ -452,7 +502,6 @@ header a {
 }
 
 
-
 .rarity-epic {
 
     color:#bb55ff;
@@ -461,7 +510,6 @@ header a {
     0 0 15px #bb55ff;
 
 }
-
 
 
 .rarity-legendary {
@@ -474,7 +522,6 @@ header a {
 }
 
 
-
 .rarity-mythic {
 
     color:#ff66ff;
@@ -483,7 +530,6 @@ header a {
     galaxyGlow 3s infinite alternate;
 
 }
-
 
 
 .rarity-secret {
@@ -496,7 +542,6 @@ header a {
 }
 
 
-
 .rarity-godly {
 
     color:#ffff55;
@@ -505,7 +550,6 @@ header a {
     lightning 1.5s infinite;
 
 }
-
 
 
 .rarity-divine {
@@ -520,7 +564,7 @@ header a {
 
 
 /* ==========================
-   MYTHIC
+   MYTHIC ANIMATION
 ========================== */
 
 
@@ -555,7 +599,7 @@ header a {
 
 
 /* ==========================
-   SECRET
+   SECRET ANIMATION
 ========================== */
 
 
@@ -621,7 +665,7 @@ header a {
 
 
 /* ==========================
-   GODLY
+   GODLY ANIMATION
 ========================== */
 
 
@@ -632,7 +676,6 @@ header a {
     90%,
     100% {
 
-
         text-shadow:
 
         0 0 10px #ffff00;
@@ -641,7 +684,6 @@ header a {
 
 
     92% {
-
 
         text-shadow:
 
@@ -654,7 +696,6 @@ header a {
 
     94% {
 
-
         text-shadow:
 
         0 0 5px #ffff00;
@@ -663,7 +704,6 @@ header a {
 
 
     96% {
-
 
         text-shadow:
 
@@ -678,7 +718,7 @@ header a {
 
 
 /* ==========================
-   DIVINE
+   DIVINE ANIMATION
 ========================== */
 
 
@@ -687,30 +727,26 @@ header a {
 
     from {
 
-
         text-shadow:
 
         0 0 15px white,
 
-        0 0 30px #00ffff,
+        0 0 30px cyan,
 
         0 0 50px #aa00ff;
-
 
     }
 
 
     to {
 
-
         text-shadow:
 
         0 0 30px white,
 
-        0 0 60px #00ffff,
+        0 0 60px cyan,
 
         0 0 100px #aa00ff;
-
 
     }
 
@@ -719,7 +755,7 @@ header a {
 
 
 /* ==========================
-   FISH CARD RARITY GLOW
+   FISH CARD GLOW
 ========================== */
 
 
@@ -863,20 +899,15 @@ header a {
 
 /* AVAILABLE */
 
-
 .available {
 
     color:#55ff88;
 
     background:
-
     rgba(85,255,136,.15);
 
-
     border:
-
     1px solid rgba(85,255,136,.4);
-
 
     box-shadow:
 
@@ -888,20 +919,15 @@ header a {
 
 /* COMING SOON */
 
-
 .coming-soon {
 
     color:#ffaa55;
 
     background:
-
     rgba(255,170,85,.15);
 
-
     border:
-
     1px solid rgba(255,170,85,.4);
-
 
     box-shadow:
 
@@ -913,20 +939,15 @@ header a {
 
 /* DISABLED */
 
-
 .disabled {
 
     color:#ff5555;
 
     background:
-
     rgba(255,85,85,.15);
 
-
     border:
-
     1px solid rgba(255,85,85,.4);
-
 
     box-shadow:
 
@@ -981,35 +1002,27 @@ header a {
 
 /* COMMAND USAGE */
 
-
 .command-card .usage {
 
     font-family:Consolas, monospace;
 
     color:#7dd3ff;
 
-
     background:
 
     rgba(0,0,0,.25);
 
-
     padding:10px 15px;
-
 
     border-radius:12px;
 
-
     margin:10px auto;
 
-
     width:90%;
-
 
     overflow-wrap:break-word;
 
     word-break:break-word;
-
 
     text-align:center;
 
@@ -1017,8 +1030,7 @@ header a {
 
 
 
-/* DESCRIPTION */
-
+/* COMMAND DESCRIPTION */
 
 .command-card .description {
 
@@ -1059,7 +1071,6 @@ header a {
 
     position:relative;
 
-
     transition:
 
     transform .2s ease,
@@ -1077,7 +1088,6 @@ header a {
     overflow:hidden;
 
     opacity:0;
-
 
     transition:
 
@@ -1099,7 +1109,7 @@ header a {
 
 
 
-/* TOP 3 */
+/* TOP 3 EFFECTS */
 
 
 .leaderboard-card.top-one {
@@ -1186,7 +1196,6 @@ header a {
     overflow:hidden;
 
     opacity:0;
-
 
     transition:
 
@@ -1281,7 +1290,6 @@ header a {
 
     repeat(auto-fit,minmax(250px,1fr));
 
-
     gap:25px;
 
 }
@@ -1292,11 +1300,9 @@ header a {
 
     min-height:180px;
 
-
     display:flex;
 
     flex-direction:column;
-
 
     justify-content:space-between;
 
@@ -1344,273 +1350,264 @@ header a {
    THEME SWITCH
 ========================== */
 
+
 .theme-row {
 
-    display: flex;
+    display:flex;
 
-    justify-content: space-between;
+    justify-content:space-between;
 
-    align-items: center;
+    align-items:center;
 
-    gap: 30px;
+    gap:30px;
 
-    margin-top: 20px;
+    margin-top:20px;
 
 }
+
 
 .theme-info h3 {
 
-    margin: 0;
+    margin:0;
 
-    font-size: 24px;
+    font-size:24px;
 
 }
+
 
 .theme-info p {
 
-    margin-top: 6px;
+    margin-top:6px;
 
-    opacity: .7;
+    opacity:.7;
 
 }
+
+
 
 /* ==========================
    SWITCH
 ========================== */
 
+
 .theme-switch {
 
-    position: relative;
+    position:relative;
 
-    width: 145px;
+    width:145px;
 
-    height: 70px;
+    height:70px;
 
-    flex-shrink: 0;
+    flex-shrink:0;
 
 }
+
 
 .theme-switch input {
 
-    display: none;
+    display:none;
 
 }
 
-/* ==========================
-   TRACK
-========================== */
+
 
 .track {
 
-    position: relative;
+    position:relative;
 
-    display: block;
+    display:block;
 
-    width: 100%;
+    width:100%;
 
-    height: 100%;
+    height:100%;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    overflow: visible;
+    overflow:visible;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    transition: .3s;
+    transition:.3s;
 
 }
 
-/* Dark */
+
+
+/* DARK TRACK */
 
 html.dark-theme .track {
 
-    background: linear-gradient(
+    background:
+
+    linear-gradient(
         145deg,
         #7284c7,
         #5f6fb3
     );
 
-    box-shadow:
-        inset 0 2px 6px rgba(255,255,255,.15),
-        inset 0 -3px 8px rgba(0,0,0,.20),
-        0 6px 18px rgba(0,0,0,.18);
-
 }
 
-/* Light */
+
+
+/* LIGHT TRACK */
 
 html.light-theme .track {
 
-    background: linear-gradient(
+    background:
+
+    linear-gradient(
         145deg,
         #f3f3f3,
         #dddddd
     );
 
-    box-shadow:
-        inset 0 2px 5px rgba(255,255,255,.95),
-        inset 0 -2px 5px rgba(0,0,0,.08),
-        0 6px 18px rgba(0,0,0,.10);
-
 }
 
-/* ==========================
-   BACKGROUND ICONS
-========================== */
+
+
+/* SWITCH ICONS */
+
 
 .icon {
 
-    position: absolute;
+    position:absolute;
 
-    top: 50%;
+    top:50%;
 
-    transform: translateY(-50%);
+    transform:translateY(-50%);
 
-    font-size: 22px;
-
-    transition: .35s;
+    font-size:22px;
 
 }
+
 
 .sun {
 
-    left: 22px;
+    left:22px;
 
-    color: #f6a400;
+    color:#f6a400;
 
 }
+
 
 .moon {
 
-    right: 22px;
+    right:22px;
 
-    color: #4c63ff;
+    color:#4c63ff;
 
 }
 
-/* ==========================
-   THUMB
-========================== */
+
+
+/* THUMB */
+
 
 .thumb {
 
-    position: absolute;
+    position:absolute;
 
-    top: -4px;
+    top:-4px;
 
-    left: -4px;
+    left:-4px;
 
-    width: 78px;
+    width:78px;
 
-    height: 78px;
+    height:78px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: linear-gradient(
+    background:
+
+    linear-gradient(
         145deg,
-        #ffffff,
+        white,
         #f3f3f3
     );
 
-    display: flex;
 
-    justify-content: center;
+    display:flex;
 
-    align-items: center;
+    justify-content:center;
+
+    align-items:center;
+
 
     box-shadow:
-        0 10px 24px rgba(0,0,0,.22),
-        inset 0 2px 6px rgba(255,255,255,.95),
-        inset 0 -2px 4px rgba(0,0,0,.06);
+
+    0 10px 24px rgba(0,0,0,.22);
+
 
     transition:
-        transform .45s cubic-bezier(.34,1.56,.64,1),
-        box-shadow .25s ease;
+
+    transform .45s cubic-bezier(.34,1.56,.64,1);
 
 }
 
-/* Thumb Icon */
+
 
 .thumb-icon {
 
-    font-size: 34px;
-
-    transition: .3s;
+    font-size:34px;
 
 }
 
-/* ==========================
-   MOVE THUMB
-========================== */
+
 
 .theme-switch input:checked + .track .thumb {
 
-    transform: translateX(71px);
+    transform:translateX(71px);
 
 }
 
-/* ==========================
-   ACTIVE ICON COLORS
-========================== */
+
+
+/* ICON STATES */
+
 
 html.dark-theme .thumb-icon {
 
-    color: #4c63ff;
+    color:#4c63ff;
 
 }
+
 
 html.light-theme .thumb-icon {
 
-    color: #f6a400;
+    color:#f6a400;
 
 }
 
-/* ==========================
-   BACKGROUND ICON OPACITY
-========================== */
 
 html.dark-theme .sun {
 
-    opacity: .25;
+    opacity:.25;
 
 }
+
 
 html.dark-theme .moon {
 
-    opacity: .55;
+    opacity:.55;
 
 }
+
 
 html.light-theme .sun {
 
-    opacity: .55;
+    opacity:.55;
 
 }
+
 
 html.light-theme .moon {
 
-    opacity: .25;
+    opacity:.25;
 
 }
 
-/* ==========================
-   HOVER EFFECTS
-========================== */
 
-.theme-switch:hover .track {
 
-    transform: scale(1.02);
-
-}
-
-.theme-switch:hover .thumb {
-
-    box-shadow:
-        0 14px 30px rgba(0,0,0,.28),
-        inset 0 2px 6px rgba(255,255,255,.95),
-        inset 0 -2px 4px rgba(0,0,0,.06);
-
-}
 /* ==========================
    MODALS
 ========================== */
@@ -1625,13 +1622,10 @@ html.light-theme .moon {
     inset:0;
 
     background:
+
     rgba(0,0,0,.55);
 
-    backdrop-filter:
-    blur(10px);
-
-    -webkit-backdrop-filter:
-    blur(10px);
+    backdrop-filter:blur(10px);
 
     justify-content:center;
 
@@ -1659,16 +1653,14 @@ html.light-theme .moon {
     border-radius:25px;
 
     background:
+
     rgba(255,255,255,.10);
 
     border:
+
     1px solid rgba(255,255,255,.2);
 
-    backdrop-filter:
-    blur(20px);
-
-    -webkit-backdrop-filter:
-    blur(20px);
+    backdrop-filter:blur(20px);
 
     text-align:center;
 
@@ -1676,9 +1668,7 @@ html.light-theme .moon {
 
 
 
-/* ==========================
-   INPUTS
-========================== */
+/* INPUTS */
 
 
 .modal-content input {
@@ -1693,34 +1683,33 @@ html.light-theme .moon {
 
     border-radius:15px;
 
-    border:
-    1px solid rgba(255,255,255,.2);
-
     background:
+
     rgba(255,255,255,.10);
+
+    border:
+
+    1px solid rgba(255,255,255,.2);
 
     color:white;
 
-    font-family:
-    "Poppins",sans-serif;
-
-    outline:none;
+    font-family:"Poppins",sans-serif;
 
 }
+
 
 
 .modal-content input::placeholder {
 
     color:
+
     rgba(255,255,255,.6);
 
 }
 
 
 
-/* ==========================
-   PASSWORD TOGGLE
-========================== */
+/* PASSWORD */
 
 
 .password-box {
@@ -1734,15 +1723,12 @@ html.light-theme .moon {
 }
 
 
+
 .password-box input {
 
     width:100%;
 
-    margin:0;
-
     padding-right:55px;
-
-    box-sizing:border-box;
 
 }
 
@@ -1756,24 +1742,13 @@ html.light-theme .moon {
 
     right:18px;
 
-    transform:
-    translateY(-50%);
+    transform:translateY(-50%);
 
     cursor:pointer;
 
     color:
+
     rgba(255,255,255,.6);
-
-    transition:.2s;
-
-    user-select:none;
-
-}
-
-
-.password-toggle:hover {
-
-    color:white;
 
 }
 
@@ -1789,8 +1764,6 @@ html.light-theme .moon {
     display:flex;
 
     justify-content:center;
-
-    align-items:center;
 
     gap:10px;
 
@@ -1811,42 +1784,18 @@ html.light-theme .moon {
     border-radius:999px;
 
     border:
+
     1px solid rgba(255,255,255,.2);
 
     background:
+
     rgba(255,255,255,.08);
 
     color:white;
 
-    font-family:
-    "Poppins",sans-serif;
+    font-family:"Poppins",sans-serif;
 
     cursor:pointer;
-
-    backdrop-filter:
-    blur(15px);
-
-    box-shadow:
-
-    0 6px 15px rgba(0,0,0,.25);
-
-    transition:.25s;
-
-}
-
-
-
-.modal-button:hover {
-
-    transform:
-    translateY(-3px);
-
-    background:
-    rgba(255,255,255,.22);
-
-    box-shadow:
-
-    0 0 15px rgba(125,211,255,.35);
 
 }
 
@@ -1879,15 +1828,12 @@ html.light-theme .moon {
 
 .account-pill {
 
-    appearance:none;
-
-    -webkit-appearance:none;
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
+
 
     min-width:200px;
 
@@ -1895,78 +1841,66 @@ html.light-theme .moon {
 
     padding:14px 30px;
 
+
     border-radius:999px;
 
+
     background:
+
     rgba(255,255,255,.08);
 
+
     border:
+
     1px solid rgba(255,255,255,.18);
+
 
     color:white;
 
-    font-family:
-    "Poppins",sans-serif;
+    font-family:"Poppins",sans-serif;
 
     font-size:17px;
 
     cursor:pointer;
 
-    backdrop-filter:
-    blur(18px);
-
-    -webkit-backdrop-filter:
-    blur(18px);
-
-    box-shadow:
-
-    0 8px 24px rgba(0,0,0,.25);
-
-    transition:.25s;
-
 }
 
 
-
-.account-pill:hover {
-
-    transform:
-    translateY(-4px)
-    scale(1.03);
-
-    background:
-    rgba(255,255,255,.14);
-
-}
-
-
-
-.account-pill:active {
-
-    transform:
-    scale(.97);
-
-}
 
 /* ==========================
-   LIGHT THEME OVERRIDES
+   LIGHT MODE FIXES
 ========================== */
 
 
-/* TEXT */
+html.light-theme .card,
+html.light-theme .account-pill,
+html.light-theme .modal-content,
+html.light-theme .modal-button,
+html.light-theme .search-box input {
+
+    background:
+
+    rgba(255,255,255,.55);
+
+    border-color:
+
+    rgba(0,0,0,.15);
+
+}
+
+
 
 html.light-theme body,
 html.light-theme .card,
 html.light-theme .account-pill,
 html.light-theme .modal-button,
-html.light-theme .modal-content input {
+html.light-theme input {
 
     color:#111;
 
 }
 
 
-/* LINKS */
 
 html.light-theme header a {
 
@@ -1976,125 +1910,20 @@ html.light-theme header a {
 
 
 
-/* GLASS */
-
-html.light-theme .card,
-html.light-theme .account-pill,
-html.light-theme .search-box input,
-html.light-theme .modal-content,
-html.light-theme .modal-button,
-html.light-theme .modal-content input {
-
-    background:
-    rgba(255,255,255,.45);
-
-
-    border-color:
-    rgba(0,0,0,.15);
-
-}
-
-
-
-/* CARD HOVER */
-
-html.light-theme .card:hover {
-
-    background:
-    rgba(255,255,255,.75);
-
-}
-
-
-
-/* SEARCH */
-
-html.light-theme .search-box input {
-
-    color:#111;
-
-}
-
-
-html.light-theme .search-box input::placeholder {
+html.light-theme input::placeholder {
 
     color:
+
     rgba(0,0,0,.45);
 
 }
 
 
-
-/* INPUTS */
-
-html.light-theme .modal-content input {
-
-    color:#111;
-
-}
-
-
-html.light-theme .modal-content input::placeholder {
-
-    color:
-    rgba(0,0,0,.45);
-
-}
-
-
-
-/* PASSWORD EYE */
-
-html.light-theme .password-toggle {
-
-    color:
-    rgba(0,0,0,.5);
-
-}
-
-
-html.light-theme .password-toggle:hover {
-
-    color:black;
-
-}
-
-
-
-/* BUTTONS */
-
-html.light-theme .modal-button {
-
-    color:#111;
-
-}
-
-
-html.light-theme .modal-button:hover {
-
-    background:
-    rgba(255,255,255,.8);
-
-}
-
-
-
-/* ACCOUNT */
-
-html.light-theme .account-pill:hover {
-
-    background:
-    rgba(255,255,255,.75);
-
-}
-
-
-
-/* COMMAND USAGE */
 
 html.light-theme .command-card .usage {
 
     background:
+
     rgba(0,0,0,.08);
 
     color:#005eff;
@@ -2103,29 +1932,19 @@ html.light-theme .command-card .usage {
 
 
 
-/* MODAL BACKDROP */
-
-html.light-theme .modal {
-
-    background:
-    rgba(255,255,255,.45);
-
-}
-
-
-
-/* SMOOTH SWITCH */
-
 body,
 .card,
 .account-pill,
-.search-box input,
 .modal-content,
-.modal-button {
+.modal-button,
+.search-box input {
 
     transition:
+
     background .35s ease,
+
     color .35s ease,
+
     border-color .35s ease;
 
 }
