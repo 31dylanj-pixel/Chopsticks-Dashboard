@@ -1812,7 +1812,6 @@ html.light-theme .moon {
    ACCOUNT BAR
 ========================== */
 
-
 .account-bar {
 
     display:flex;
@@ -1844,7 +1843,7 @@ html.light-theme .moon {
 
     height:130px;
 
-    min-width:300px;
+    min-width:340px;
 
     padding:25px 40px;
 
@@ -1876,6 +1875,8 @@ html.light-theme .moon {
 }
 
 
+
+/* USER TEXT */
 
 .user-pill h3 {
 
@@ -1948,7 +1949,7 @@ html.light-theme .moon {
 
 
 /* ==========================
-   PASSWORD + LOGOUT PILLS
+   PASSWORD + LOGOUT
 ========================== */
 
 
@@ -2031,6 +2032,11 @@ html.light-theme .moon {
 
 
     background:var(--glass-hover);
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.25);
 
 
 }
