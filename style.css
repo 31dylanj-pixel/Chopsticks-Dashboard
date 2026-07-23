@@ -1821,167 +1821,32 @@ html.light-theme .moon {
 
     align-items:center;
 
-    gap:15px;
+    gap:20px;
 
     width:100%;
 
-    margin:25px 0;
+    margin:30px 0;
 
-    flex-wrap:nowrap;
-
-}
-
-
-
-.account-pill {
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    min-width:200px;
-
-    height:56px;
-
-    padding:14px 30px;
-
-
-    border-radius:999px;
-
-
-    background:
-
-    rgba(255,255,255,.08);
-
-
-    border:
-
-    1px solid rgba(255,255,255,.18);
-
-
-    color:var(--text);
+    flex-wrap:wrap;
 
     font-family:"Poppins",sans-serif;
 
-    font-size:17px;
-
-    cursor:pointer;
-
 }
 
 
 
 /* ==========================
-   LIGHT MODE FIXES
-========================== */
-
-
-html.light-theme .card,
-html.light-theme .account-pill,
-html.light-theme .modal-content,
-html.light-theme .modal-button,
-html.light-theme .search-box input {
-
-    background:
-
-    rgba(255,255,255,.55);
-
-    border-color:
-
-    rgba(0,0,0,.15);
-
-}
-
-
-
-html.light-theme body,
-html.light-theme .card,
-html.light-theme .account-pill,
-html.light-theme .modal-button,
-html.light-theme input {
-
-    color:#111;
-
-}
-
-
-
-html.light-theme header a {
-
-    color:#005eff;
-
-}
-
-
-
-html.light-theme input::placeholder {
-
-    color:
-
-    rgba(0,0,0,.45);
-
-}
-
-html.light-theme .available {
-
-    color:#006b32;
-
-    background:
-    rgba(0,107,50,.12);
-
-    border-color:
-    rgba(0,107,50,.35);
-
-    box-shadow:
-
-    0 0 12px rgba(0,107,50,.25);
-
-}
-
-html.light-theme .command-card .usage {
-
-    background:
-
-    rgba(0,0,0,.08);
-
-    color:#005eff;
-
-}
-
-
-
-body,
-.card,
-.account-pill,
-.modal-content,
-.modal-button,
-.search-box input {
-
-    transition:
-
-    background .35s ease,
-
-    color .35s ease,
-
-    border-color .35s ease;
-
-}
-
-/* ==========================
-   LOGGED IN ACCOUNT HUD
+   USER CARD
 ========================== */
 
 
 .user-pill {
 
-    height:120px;
+    height:130px;
 
-    min-width:280px;
+    min-width:300px;
 
-    padding:20px 35px;
+    padding:25px 40px;
 
     display:flex;
 
@@ -1991,7 +1856,20 @@ body,
 
     text-align:center;
 
-    border-radius:999px;
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+
+    color:var(--text);
 
 }
 
@@ -1999,21 +1877,18 @@ body,
 
 .user-pill h3 {
 
-    margin:0 0 8px;
-
-    font-size:22px;
+    margin:0 0 10px;
 
     font-family:"Montserrat",sans-serif;
+
+    font-size:24px;
 
 }
 
 
-
 .user-pill p {
 
-    margin:3px 0;
-
-    font-size:14px;
+    margin:5px 0;
 
     font-family:"Poppins",sans-serif;
 
@@ -2022,17 +1897,18 @@ body,
 
 
 /* ==========================
-   DAILY REWARD
+   DAILY REWARD CARD
 ========================== */
 
 
 .daily-reward {
 
-    height:120px;
+    height:130px;
 
-    min-width:280px;
+    min-width:300px;
 
-    padding:20px 40px;
+    padding:25px 40px;
+
 
     display:flex;
 
@@ -2040,11 +1916,26 @@ body,
 
     align-items:center;
 
-    text-align:center;
 
-    border-radius:999px;
+    border-radius:22px;
+
+
+    cursor:pointer;
 
     font-size:20px;
+
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+
+    color:var(--text);
 
     font-family:"Poppins",sans-serif;
 
@@ -2053,15 +1944,16 @@ body,
 
 
 /* ==========================
-   ACTION BUTTONS
+   PASSWORD + LOGOUT PILLS
 ========================== */
 
 
 .account-actions {
 
-    height:120px;
+    height:130px;
 
-    min-width:230px;
+    min-width:240px;
+
 
     display:flex;
 
@@ -2069,7 +1961,7 @@ body,
 
     justify-content:center;
 
-    gap:10px;
+    gap:12px;
 
 }
 
@@ -2077,11 +1969,12 @@ body,
 
 .action-button {
 
+
     height:55px;
 
-    min-width:230px;
 
-    border-radius:999px;
+    min-width:240px;
+
 
     display:flex;
 
@@ -2089,54 +1982,40 @@ body,
 
     align-items:center;
 
-    cursor:pointer;
 
-    font-size:15px;
+    border-radius:999px;
+
+
+    background:var(--glass);
+
+
+    border:1px solid var(--border);
+
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+
+    color:var(--text);
+
 
     font-family:"Poppins",sans-serif;
+
+
+    cursor:pointer;
+
+
+    transition:.25s ease;
+
 
 }
 
 
 
 /* ==========================
-   GLASS STYLE
+   HOVER
 ========================== */
-
-
-.user-pill,
-.daily-reward,
-.action-button {
-
-
-    background:var(--glass);
-
-
-    border:
-
-    1px solid var(--border);
-
-
-    backdrop-filter:
-
-    blur(15px);
-
-
-    -webkit-backdrop-filter:
-
-    blur(15px);
-
-
-    color:var(--text);
-
-
-    transition:
-
-    .25s ease;
-
-
-}
-
 
 
 .user-pill:hover,
@@ -2144,14 +2023,31 @@ body,
 .action-button:hover {
 
 
-    transform:
-
-    translateY(-4px);
+    transform:translateY(-5px);
 
 
-    background:
+    background:var(--glass-hover);
 
-    var(--glass-hover);
+
+}
+
+
+
+/* ==========================
+   LIGHT MODE
+========================== */
+
+
+html.light-theme .user-pill,
+html.light-theme .daily-reward,
+html.light-theme .action-button {
+
+
+    background:rgba(255,255,255,.55);
+
+    border-color:rgba(0,0,0,.15);
+
+    color:#111;
 
 
 }
@@ -2173,19 +2069,15 @@ body,
     }
 
 
-
     .user-pill,
-    .daily-reward,
-    .action-button {
+    .daily-reward {
 
 
         width:90%;
 
         min-width:0;
 
-
     }
-
 
 
     .account-actions {
@@ -2195,8 +2087,15 @@ body,
 
         min-width:0;
 
-
     }
 
+
+    .action-button {
+
+        width:100%;
+
+        min-width:0;
+
+    }
 
 }
