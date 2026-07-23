@@ -1812,7 +1812,14 @@ html.light-theme .moon {
    ACCOUNT BAR
 ========================== */
 
+
 .account-bar {
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:30px auto;
 
     display:flex;
 
@@ -1821,10 +1828,6 @@ html.light-theme .moon {
     align-items:center;
 
     gap:20px;
-
-    width:100%;
-
-    margin:30px 0;
 
     flex-wrap:wrap;
 
@@ -1843,9 +1846,12 @@ html.light-theme .moon {
 
     height:130px;
 
-    min-width:340px;
+    min-width:300px;
+
+    flex:1;
 
     padding:25px 40px;
+
 
     display:flex;
 
@@ -1876,8 +1882,6 @@ html.light-theme .moon {
 
 
 
-/* USER TEXT */
-
 .user-pill h3 {
 
     margin:0 0 10px;
@@ -1887,6 +1891,7 @@ html.light-theme .moon {
     font-size:24px;
 
 }
+
 
 
 .user-pill p {
@@ -1909,6 +1914,8 @@ html.light-theme .moon {
     height:130px;
 
     min-width:300px;
+
+    flex:1;
 
     padding:25px 40px;
 
@@ -1942,6 +1949,7 @@ html.light-theme .moon {
 
     font-family:"Poppins",sans-serif;
 
+
     transition:.25s ease;
 
 }
@@ -1958,6 +1966,8 @@ html.light-theme .moon {
     height:130px;
 
     min-width:240px;
+
+    flex:1;
 
 
     display:flex;
@@ -1977,8 +1987,7 @@ html.light-theme .moon {
 
     height:55px;
 
-
-    min-width:240px;
+    width:100%;
 
 
     display:flex;
@@ -2013,7 +2022,6 @@ html.light-theme .moon {
 
     transition:.25s ease;
 
-
 }
 
 
@@ -2030,14 +2038,7 @@ html.light-theme .moon {
 
     transform:translateY(-5px);
 
-
     background:var(--glass-hover);
-
-
-    box-shadow:
-
-    0 10px 30px rgba(0,0,0,.25);
-
 
 }
 
@@ -2059,7 +2060,6 @@ html.light-theme .action-button {
 
     color:#111;
 
-
 }
 
 
@@ -2080,20 +2080,10 @@ html.light-theme .action-button {
 
 
     .user-pill,
-    .daily-reward {
-
-
-        width:90%;
-
-        min-width:0;
-
-    }
-
-
+    .daily-reward,
     .account-actions {
 
-
-        width:90%;
+        width:100%;
 
         min-width:0;
 
@@ -2104,8 +2094,7 @@ html.light-theme .action-button {
 
         width:100%;
 
-        min-width:0;
-
     }
+
 
 }
