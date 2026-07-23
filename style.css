@@ -1962,3 +1962,199 @@ body,
     border-color .35s ease;
 
 }
+
+/* ==========================
+   LOGGED IN ACCOUNT HUD
+========================== */
+
+
+.account-bar {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    width:100%;
+
+    margin:25px 0;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+/* ==========================
+   PLAYER INFO PILL
+========================== */
+
+
+.user-pill {
+
+    height:120px;
+
+    min-width:230px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+
+.user-pill h3 {
+
+    margin:0 0 8px;
+
+    font-size:22px;
+
+}
+
+
+
+.user-pill p {
+
+    margin:3px 0;
+
+    font-size:14px;
+
+}
+
+
+
+/* ==========================
+   DAILY REWARD
+========================== */
+
+
+.daily-reward {
+
+    height:120px;
+
+    min-width:230px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+
+
+/* ==========================
+   ACTION STACK
+========================== */
+
+
+.account-actions {
+
+    height:120px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+
+.action-button {
+
+    height:55px;
+
+    min-width:200px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+/* ==========================
+   LIGHT MODE
+========================== */
+
+
+html.light-theme .user-pill,
+html.light-theme .daily-reward,
+html.light-theme .action-button {
+
+    color:#111;
+
+}
+
+
+
+/* ==========================
+   HOVER
+========================== */
+
+
+.daily-reward:hover,
+.action-button:hover {
+
+    transform:
+
+    translateY(-3px);
+
+}
+
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+
+@media(max-width:750px){
+
+
+    .account-bar {
+
+        flex-direction:column;
+
+    }
+
+
+
+    .user-pill,
+    .daily-reward,
+    .action-button {
+
+        width:90%;
+
+    }
+
+
+
+    .account-actions {
+
+        width:90%;
+
+    }
+
+
+}
