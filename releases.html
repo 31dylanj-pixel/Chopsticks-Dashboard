@@ -1108,56 +1108,6 @@ Prestige System
 
 </div>
 
-
-<script>
-
-
-// Auto open collapsed sections when searching
-
-const search =
-document.getElementById("releaseSearch");
-
-
-const groups =
-document.querySelectorAll(".release-group");
-
-
-
-search.addEventListener("input", () => {
-
-
-    const value =
-    search.value.toLowerCase();
-
-
-
-    groups.forEach(group => {
-
-
-        if(value.length > 0){
-
-            group.open = true;
-
-        }
-
-
-        else{
-
-            group.open = false;
-
-        }
-
-
-    });
-
-
-});
-
-
-</script>
-
-
-
 </body>
 
 </html>
