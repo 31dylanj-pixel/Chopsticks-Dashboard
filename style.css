@@ -1988,10 +1988,7 @@ body,
 
 
 
-/* ==========================
-   PLAYER INFO PILL
-========================== */
-
+/* USER INFO */
 
 .user-pill {
 
@@ -2020,7 +2017,6 @@ body,
 }
 
 
-
 .user-pill p {
 
     margin:3px 0;
@@ -2031,10 +2027,7 @@ body,
 
 
 
-/* ==========================
-   DAILY REWARD
-========================== */
-
+/* DAILY REWARD */
 
 .daily-reward {
 
@@ -2056,10 +2049,7 @@ body,
 
 
 
-/* ==========================
-   ACTION STACK
-========================== */
-
+/* RIGHT BUTTON STACK */
 
 .account-actions {
 
@@ -2076,7 +2066,6 @@ body,
 }
 
 
-
 .action-button {
 
     height:55px;
@@ -2090,9 +2079,6 @@ body,
     align-items:center;
 
 }
-
-
-
 /* ==========================
    LIGHT MODE
 ========================== */
