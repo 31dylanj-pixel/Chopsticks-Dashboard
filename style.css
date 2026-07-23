@@ -1820,7 +1820,7 @@ html.light-theme .moon {
 
     margin:25px 0;
 
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
 
 }
 
@@ -2067,13 +2067,17 @@ body,
 .daily-reward,
 .action-button {
 
-    border:none;
+    background:var(--glass);
 
-    cursor:pointer;
+    border:1px solid var(--border);
 
-    font-family:"Poppins",sans-serif;
+    backdrop-filter:blur(15px);
 
-    color:white;
+    -webkit-backdrop-filter:blur(15px);
+
+    color:var(--text);
+
+    transition:.25s ease;
 
 }
 /* ==========================
