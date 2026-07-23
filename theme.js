@@ -1,5 +1,6 @@
 const theme =
-    localStorage.getItem("theme") || "dark";
+localStorage.getItem("theme") || "dark";
+
 
 document.documentElement.classList.add(
     theme + "-theme"
