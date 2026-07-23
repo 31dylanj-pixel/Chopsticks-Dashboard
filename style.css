@@ -58,13 +58,15 @@ body {
     background:
     linear-gradient(
         180deg,
-        #07111f,
-        #0b2545
+        var(--bg-top),
+        var(--bg-bottom)
     );
 
-    color:white;
+    color:var(--text);
 
     font-family:"Poppins", sans-serif;
+
+    transition:.4s;
 
 }
 
@@ -156,15 +158,15 @@ header a {
 
     text-decoration:none;
 
-    color:white;
+    color:var(--text);
 
 
     background:
-    rgba(255,255,255,.10);
+    var(--glass);
 
 
     border:
-    1px solid rgba(255,255,255,.20);
+    1px solid var(--glass-border);
 
 
     border-radius:18px;
@@ -1943,5 +1945,187 @@ html.light-theme .moon {
 
     transform:
     scale(.97);
+
+}
+
+/* ==========================
+   LIGHT THEME OVERRIDES
+========================== */
+
+
+/* TEXT */
+
+html.light-theme body,
+html.light-theme .card,
+html.light-theme .account-pill,
+html.light-theme .modal-button,
+html.light-theme .modal-content input {
+
+    color:#111;
+
+}
+
+
+/* LINKS */
+
+html.light-theme header a {
+
+    color:#005eff;
+
+}
+
+
+
+/* GLASS */
+
+html.light-theme .card,
+html.light-theme .account-pill,
+html.light-theme .search-box input,
+html.light-theme .modal-content,
+html.light-theme .modal-button,
+html.light-theme .modal-content input {
+
+    background:
+    rgba(255,255,255,.45);
+
+
+    border-color:
+    rgba(0,0,0,.15);
+
+}
+
+
+
+/* CARD HOVER */
+
+html.light-theme .card:hover {
+
+    background:
+    rgba(255,255,255,.75);
+
+}
+
+
+
+/* SEARCH */
+
+html.light-theme .search-box input {
+
+    color:#111;
+
+}
+
+
+html.light-theme .search-box input::placeholder {
+
+    color:
+    rgba(0,0,0,.45);
+
+}
+
+
+
+/* INPUTS */
+
+html.light-theme .modal-content input {
+
+    color:#111;
+
+}
+
+
+html.light-theme .modal-content input::placeholder {
+
+    color:
+    rgba(0,0,0,.45);
+
+}
+
+
+
+/* PASSWORD EYE */
+
+html.light-theme .password-toggle {
+
+    color:
+    rgba(0,0,0,.5);
+
+}
+
+
+html.light-theme .password-toggle:hover {
+
+    color:black;
+
+}
+
+
+
+/* BUTTONS */
+
+html.light-theme .modal-button {
+
+    color:#111;
+
+}
+
+
+html.light-theme .modal-button:hover {
+
+    background:
+    rgba(255,255,255,.8);
+
+}
+
+
+
+/* ACCOUNT */
+
+html.light-theme .account-pill:hover {
+
+    background:
+    rgba(255,255,255,.75);
+
+}
+
+
+
+/* COMMAND USAGE */
+
+html.light-theme .command-card .usage {
+
+    background:
+    rgba(0,0,0,.08);
+
+    color:#005eff;
+
+}
+
+
+
+/* MODAL BACKDROP */
+
+html.light-theme .modal {
+
+    background:
+    rgba(255,255,255,.45);
+
+}
+
+
+
+/* SMOOTH SWITCH */
+
+body,
+.card,
+.account-pill,
+.search-box input,
+.modal-content,
+.modal-button {
+
+    transition:
+    background .35s ease,
+    color .35s ease,
+    border-color .35s ease;
 
 }
