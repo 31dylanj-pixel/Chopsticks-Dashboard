@@ -18,29 +18,61 @@ function updateAccount(){
     if(currentUser){
 
         accountBar.innerHTML = `
-
-        <button class="account-pill">
-            👤 ${currentUser}
+    
+        <div class="user-pill account-pill">
+    
+            <div>
+    
+                <h3>
+                    👤 ${currentUser}
+                </h3>
+    
+                <p>
+                    Coins: Loading...
+                </p>
+    
+                <p>
+                    Daily Streak: Loading...
+                </p>
+    
+            </div>
+    
+        </div>
+    
+    
+    
+        <button class="daily-reward account-pill">
+    
+            🎁 Daily Reward
+    
         </button>
-
-
-        <button 
-        class="account-pill"
-        id="changePasswordButton">
-
-            🔑 Change Password
-
-        </button>
-
-
-        <button 
-        class="account-pill"
-        id="logoutButton">
-
-            🚪 Sign Out
-
-        </button>
-
+    
+    
+    
+        <div class="account-actions">
+    
+    
+            <button
+            class="action-button account-pill"
+            id="changePasswordButton">
+    
+                🔑 Change Password
+    
+            </button>
+    
+    
+    
+            <button
+            class="action-button account-pill"
+            id="logoutButton">
+    
+                🚪 Sign Out
+    
+            </button>
+    
+    
+        </div>
+    
         `;
 
 
