@@ -1966,6 +1966,7 @@ body,
 /* ==========================
    LOGGED IN ACCOUNT HUD
 ========================== */
+
 /* USER INFO */
 
 .user-pill {
@@ -1986,6 +1987,8 @@ body,
 
 
 
+/* USER TEXT */
+
 .user-pill h3 {
 
     margin:0 0 8px;
@@ -2005,7 +2008,10 @@ body,
 
 
 
-/* DAILY REWARD */
+/* ==========================
+   DAILY REWARD
+========================== */
+
 
 .daily-reward {
 
@@ -2027,7 +2033,10 @@ body,
 
 
 
-/* RIGHT BUTTON STACK */
+/* ==========================
+   RIGHT BUTTON STACK
+========================== */
+
 
 .account-actions {
 
@@ -2042,6 +2051,7 @@ body,
     gap:8px;
 
 }
+
 
 
 .action-button {
@@ -2062,22 +2072,56 @@ body,
 
 }
 
+
+
+/* ==========================
+   ACCOUNT HUD GLASS STYLE
+========================== */
+
+
 .daily-reward,
-.action-button {
+.action-button,
+.user-pill {
+
 
     background:var(--glass);
 
-    border:1px solid var(--border);
 
-    backdrop-filter:blur(15px);
+    border:
 
-    -webkit-backdrop-filter:blur(15px);
+    1px solid var(--border);
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(15px);
+
 
     color:var(--text);
 
-    transition:.25s ease;
+
+    border-radius:999px;
+
+
+    transition:
+
+    transform .25s ease,
+
+    background .35s ease,
+
+    border-color .35s ease,
+
+    box-shadow .25s ease;
+
 
 }
+
+
 
 /* ==========================
    HOVER
@@ -2085,11 +2129,36 @@ body,
 
 
 .daily-reward:hover,
-.action-button:hover {
+.action-button:hover,
+.user-pill:hover {
+
 
     transform:
 
     translateY(-3px);
+
+
+    background:
+
+    var(--glass-hover);
+
+
+}
+
+
+
+/* ==========================
+   LIGHT MODE
+========================== */
+
+
+html.light-theme .daily-reward,
+html.light-theme .action-button,
+html.light-theme .user-pill {
+
+
+    color:#111;
+
 
 }
 
