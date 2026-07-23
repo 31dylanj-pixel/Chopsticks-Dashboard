@@ -901,17 +901,17 @@ html.light-theme .search-box input::placeholder {
 
 .available {
 
-    color:#00a34a;
+    color:#55ff88;
 
     background:
-    rgba(0,163,74,.15);
+    rgba(85,255,136,.15);
 
     border:
-    1px solid rgba(0,163,74,.45);
+    1px solid rgba(85,255,136,.4);
 
     box-shadow:
 
-    0 0 12px rgba(0,163,74,.35);
+    0 0 12px rgba(85,255,136,.4);
 
 }
 
