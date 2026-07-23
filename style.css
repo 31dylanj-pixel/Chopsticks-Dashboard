@@ -1,5 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Orbitron:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap');
 
+/* ==========================
+   THEME VARIABLES
+========================== */
+
+:root {
+
+    --bg-top:#07111f;
+    --bg-bottom:#0b2545;
+
+    --text:white;
+
+    --glass:
+    rgba(255,255,255,.10);
+
+    --glass-border:
+    rgba(255,255,255,.20);
+
+    --blue:#7dd3ff;
+
+}
+
+
+/* ==========================
+   LIGHT THEME
+========================== */
+
+
+html.light-theme {
+
+    --bg-top:#f8fbff;
+
+    --bg-bottom:#b9dcff;
+
+    --text:#111;
+
+    --glass:
+    rgba(0,0,0,.08);
+
+    --glass-border:
+    rgba(0,0,0,.18);
+
+    --blue:#005eff;
+
+}
 
 /* ==========================
    GLOBAL
