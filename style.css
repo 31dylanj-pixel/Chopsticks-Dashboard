@@ -1855,7 +1855,7 @@ html.light-theme .moon {
     1px solid rgba(255,255,255,.18);
 
 
-    color:white;
+    color:var(--text);
 
     font-family:"Poppins",sans-serif;
 
@@ -2056,8 +2056,6 @@ body,
 
     align-items:center;
 
-    border:none;
-
     cursor:pointer;
 
     font-size:15px;
@@ -2080,20 +2078,6 @@ body,
     transition:.25s ease;
 
 }
-/* ==========================
-   LIGHT MODE
-========================== */
-
-
-html.light-theme .user-pill,
-html.light-theme .daily-reward,
-html.light-theme .action-button {
-
-    color:#111;
-
-}
-
-
 
 /* ==========================
    HOVER
