@@ -2063,6 +2063,19 @@ body,
     font-size:15px;
 
 }
+
+.daily-reward,
+.action-button {
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:"Poppins",sans-serif;
+
+    color:white;
+
+}
 /* ==========================
    LIGHT MODE
 ========================== */
