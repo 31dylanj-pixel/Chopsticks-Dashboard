@@ -922,7 +922,21 @@ html.light-theme .search-box input::placeholder {
 
 }
 
+html.light-theme .available {
 
+    color:#006b32;
+
+    background:
+    rgba(0,107,50,.12);
+
+    border-color:
+    rgba(0,107,50,.35);
+
+    box-shadow:
+
+    0 0 12px rgba(0,107,50,.25);
+
+}
 
 /* COMING SOON */
 
