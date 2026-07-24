@@ -36,6 +36,7 @@ const fishTable = {
         ["🐟 Blue Tang", 58],
         ["🦀 Rock Crab", 62],
         ["🦀 Drift Crab", 65],
+        ["🌞 Sunfish", 67],
         ["🐠 Amberstream Guppy", 68],
         ["🦑 Spotted Puffer", 75],
         ["🐡 Bubblefish", 85]
