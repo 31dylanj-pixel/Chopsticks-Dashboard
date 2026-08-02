@@ -10,3 +10,8 @@ This Website currently features:
 - Commands Library
 - Release Notes (Not all of the Webhook versions is recorded)
 - Settings (Currently in Beta, with working light/dark theme)
+
+## Limitations
+Some Limitations include:
+- Not being able to create an account
+- All Items must be purchased on the webhook
