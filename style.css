@@ -2143,3 +2143,33 @@ html.light-theme .action-button {
 
     margin-bottom: 5px;
 }
+
+#upcoming-events {
+
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 0 auto 25px;
+
+    padding: 25px;
+
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: var(--text);
+
+}
+
+#upcoming-events h2 {
+
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+}
