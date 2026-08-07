@@ -5,20 +5,47 @@ function openDailyReward(){
 
     grid.innerHTML = "";
 
-    for(let day = 1; day <= 21; day++){
+    const streak =
+    Number(localStorage.getItem("streak") || 0);
+
+    const blockStart =
+    Math.floor((Math.max(streak,1) - 1) / 7) * 7 + 1;
+
+    const baseRewards = [
+
+        500000,
+        750000,
+        1000000,
+        1250000,
+        1500000,
+        2000000,
+        5000000
+
+    ];
+
+    for(let i = 0; i < 7; i++){
+
+        const day =
+        blockStart + i;
+
+        const rewardIndex =
+        (day - 1) % 7;
+
+        const reward =
+        baseRewards[rewardIndex];
 
         const card =
         document.createElement("div");
 
         card.className = "daily-card";
 
-        if(day <= 17){
+        if(day <= streak){
 
             card.classList.add("claimed");
 
         }
 
-        else if(day === 18){
+        else if(day === streak + 1){
 
             card.classList.add("next");
 
@@ -33,16 +60,14 @@ function openDailyReward(){
         card.innerHTML = `
 
             <div class="daily-day">
+
                 Day ${day}
+
             </div>
 
             <div class="daily-coins">
 
-                ${
-                    day % 7 === 0
-                    ? "💰 5,000,000"
-                    : "💰 500,000"
-                }
+                💰 ${reward.toLocaleString()}
 
             </div>
 
