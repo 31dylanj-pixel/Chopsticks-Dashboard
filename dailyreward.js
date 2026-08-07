@@ -103,3 +103,23 @@ function openDailyReward(){
     .add("active");
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const closeButton =
+    document.getElementById("dailyClose");
+
+    if(closeButton){
+
+        closeButton.onclick = () => {
+
+            document
+            .getElementById("dailyRewardModal")
+            .classList
+            .remove("active");
+
+        };
+
+    }
+
+});
