@@ -157,8 +157,6 @@ function updateAccount(){
 
         `;
 
-
-
         document
         .getElementById("changePasswordButton")
         .onclick = () => {
@@ -167,17 +165,11 @@ function updateAccount(){
 
         };
 
-
-
-
-
         document
         .getElementById("logoutButton")
         .onclick = () => {
 
-
             currentUser = null;
-
 
             localStorage.removeItem("currentUser");
             localStorage.removeItem("access_token");
@@ -186,32 +178,16 @@ function updateAccount(){
             localStorage.removeItem("coins");
             localStorage.removeItem("streak");
 
-
             updateAccount();
-
-
         };
-
-
-
-
-
         document
         .getElementById("dailyRewardButton")
         .onclick = () => {
-
-
-            alert(
-                "Daily rewards coming soon!"
-            );
-
-
+        
+            openDailyReward();
+        
         };
-
-
-
     }
-
     else {
 
 
