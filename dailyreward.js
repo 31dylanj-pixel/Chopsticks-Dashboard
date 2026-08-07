@@ -104,22 +104,11 @@ function openDailyReward(){
 
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function closeDailyReward(){
 
-    const closeButton =
-    document.getElementById("dailyClose");
+    document
+    .getElementById("dailyRewardModal")
+    .classList
+    .remove("active");
 
-    if(closeButton){
-
-        closeButton.onclick = () => {
-
-            document
-            .getElementById("dailyRewardModal")
-            .classList
-            .remove("active");
-
-        };
-
-    }
-
-});
+}
