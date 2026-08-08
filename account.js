@@ -311,6 +311,10 @@ async function loadPlayerData(){
         player.daily_streak || 0
     );
 
+    localStorage.setItem(
+        "streak_freezes",
+        player.inventory?.streak_freeze || 0
+    );
 
 
     updateAccount();
@@ -539,6 +543,11 @@ window.fakeLogin = async function(){
     localStorage.setItem(
         "streak",
         player.daily_streak || 0
+    );
+
+    localStorage.setItem(
+        "streak_freezes",
+        player.inventory?.streak_freeze || 0
     );
 
 
