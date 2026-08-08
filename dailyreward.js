@@ -21,9 +21,6 @@ function openDailyReward(){
 
     grid.innerHTML = "";
 
-    const streak =
-    Number(localStorage.getItem("streak") || 0);
-
     const blockStart =
     Math.floor((Math.max(streak,1) - 1) / 7) * 7 + 1;
 
