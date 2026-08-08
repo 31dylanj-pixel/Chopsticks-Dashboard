@@ -320,8 +320,165 @@ function closeDailyReward(){
 
 async function claimDailyReward(){
 
+    const authID =
+    localStorage.getItem("auth_id");
+
+    if(!authID){
+
+        alert(
+            "❌ Not logged in."
+        );
+
+        return;
+
+    }
+
+    const streak =
+    Number(
+        localStorage.getItem("streak") || 0
+    );
+
+    const coins =
+    Number(
+        localStorage.getItem("coins") || 0
+    );
+
+    const prestigePoints =
+    Number(
+        localStorage.getItem("prestige_points") || 0
+    );
+
+    const dayNumber =
+    streak + 1;
+
+    const rewardPattern = [
+
+        500000,
+        750000,
+        1000000,
+        1250000,
+        1500000,
+        2000000,
+        5000000
+
+    ];
+
+    const rewardIndex =
+    (dayNumber - 1) % 7;
+
+    const weekNumber =
+    Math.floor(
+        (dayNumber - 1) / 7
+    );
+
+    const multiplier =
+    Math.pow(
+        1.2,
+        weekNumber
+    );
+
+    const coinReward =
+    Math.floor(
+        rewardPattern[rewardIndex]
+        * multiplier
+    );
+
+    const ppReward =
+    rewardIndex === 6
+    ? 10
+    : 1;
+
+    const newCoins =
+    coins + coinReward;
+
+    const newPP =
+    prestigePoints + ppReward;
+
+    const newStreak =
+    streak + 1;
+
+    const now =
+    new Date().toISOString();
+
+    const response = await fetch(
+
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}`,
+
+        {
+
+            method:"PATCH",
+
+            headers:{
+
+                apikey:SUPABASE_KEY,
+
+                Authorization:
+                `Bearer ${SUPABASE_KEY}`,
+
+                "Content-Type":"application/json",
+
+                Prefer:"return=minimal"
+
+            },
+
+            body:JSON.stringify({
+
+                coins:newCoins,
+
+                daily_streak:newStreak,
+
+                prestige_points:newPP,
+
+                last_daily:now
+
+            })
+
+        }
+
+    );
+
+    if(!response.ok){
+
+        alert(
+            "❌ Failed to claim reward."
+        );
+
+        return;
+
+    }
+
+    localStorage.setItem(
+        "coins",
+        newCoins
+    );
+
+    localStorage.setItem(
+        "streak",
+        newStreak
+    );
+
+    localStorage.setItem(
+        "prestige_points",
+        newPP
+    );
+
+    localStorage.setItem(
+        "last_daily",
+        now
+    );
+
+    updateAccount();
+
+    openDailyReward();
+
     alert(
-        "Claim system not connected yet."
+
+        `🎁 Claimed!\n\n` +
+
+        `💰 +${coinReward.toLocaleString()} Coins\n` +
+
+        `⭐ +${ppReward} PP`
+
     );
 
 }
