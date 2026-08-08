@@ -1,30 +1,16 @@
-const SUPABASE_URL =
-"https://rualkoaojvjiqsudzgah.supabase.co";
+const SUPABASE_URL = "https://rualkoaojvjiqsudzgah.supabase.co";
+const SUPABASE_KEY = "sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
-const SUPABASE_KEY =
-"sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
-
-
-const accountBar =
-document.querySelector(".account-bar");
-
-
-let currentUser =
-localStorage.getItem("currentUser") || null;
-
-
+const accountBar = document.querySelector(".account-bar");
+let currentUser = localStorage.getItem("currentUser") || null;
 
 // ==========================
 // COIN FORMATTER
 // ==========================
-
 function formatCoins(num){
-
     num = Number(num);
-
-
+    
     const suffixes = [
-
         { value:1e33, suffix:"Dc" }, // Decillion
         { value:1e30, suffix:"No" }, // Nonillion
         { value:1e27, suffix:"Oc" }, // Octillion
@@ -36,125 +22,69 @@ function formatCoins(num){
         { value:1e9, suffix:"B" },
         { value:1e6, suffix:"M" },
         { value:1e3, suffix:"K" }
-
     ];
 
-
     for(let i = 0; i < suffixes.length; i++){
-
         if(num >= suffixes[i].value){
-
             return (
                 num / suffixes[i].value
             ).toFixed(2)
             + " "
             + suffixes[i].suffix;
-
         }
-
     }
-
-
     return num.toFixed(2);
-
 }
-
-
-
-
 // ==========================
 // ACCOUNT DISPLAY
 // ==========================
-
 function updateAccount(){
-
     if(currentUser){
-
-
         accountBar.innerHTML = `
 
-
         <div class="user-pill">
-
-
             <div>
-
-
                 <h3>
                     👤 ${currentUser}
                 </h3>
-
-
                 <p>
                     Coins:
                     ${formatCoins(
                         localStorage.getItem("coins") || 0
                     )}
                 </p>
-
-
                 <p>
                     Daily Streak:
                     ${localStorage.getItem("streak") || 0}
                 </p>
-
-
             </div>
-
-
         </div>
-
-
-
-
 
         <button
         class="daily-reward"
         id="dailyRewardButton">
-
-
             🎁 Daily Reward
-
-
         </button>
 
-
-
-
-
         <div class="account-actions">
-
-
 
             <button
             class="action-button"
             id="changePasswordButton">
 
-
                 🔑 Change Password
 
-
             </button>
-
-
-
-
-
+            
             <button
             class="action-button"
             id="logoutButton">
 
-
                 🚪 Sign Out
-
 
             </button>
 
-
-
         </div>
-
-
         `;
 
         document
@@ -248,7 +178,7 @@ async function loadPlayerData(){
     const response = await fetch(
 
 
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}&select=username,coins,daily_streak,inventory`,
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}&select=username,coins,daily_streak,last_daily,prestige_points,inventory`,
 
 
         {
@@ -459,7 +389,7 @@ window.fakeLogin = async function(){
     const playerResponse = await fetch(
 
 
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak,inventory`,
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak,last_daily,prestige_points,inventory`,
 
 
         {
