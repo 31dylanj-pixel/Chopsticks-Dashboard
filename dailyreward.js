@@ -130,17 +130,11 @@ function openDailyReward(){
         <button
         id="dailyClaimButton"
         class="daily-claim-button">
-
+    
             Claim Reward
-
+    
         </button>
-
-        <div
-        id="dailyCountdown"
-        class="daily-countdown">
-
-        </div>
-
+    
     `;
 
 
@@ -171,18 +165,22 @@ function updateDailyCountdown(lastDaily){
     }
 
 
-    const countdown =
-    document.getElementById("dailyCountdown");
-
     const claimButton =
     document.getElementById("dailyClaimButton");
 
 
+    if(!claimButton)
+        return;
+
+
     if(!lastDaily){
 
-        countdown.textContent = "";
-
         claimButton.disabled = false;
+
+        claimButton.textContent =
+        "Claim Reward";
+
+        claimButton.classList.remove("cooldown");
 
         return;
 
@@ -195,9 +193,12 @@ function updateDailyCountdown(lastDaily){
 
     if(isNaN(lastClaim)){
 
-        countdown.textContent = "";
-
         claimButton.disabled = false;
+
+        claimButton.textContent =
+        "Claim Reward";
+
+        claimButton.classList.remove("cooldown");
 
         return;
 
@@ -221,15 +222,25 @@ function updateDailyCountdown(lastDaily){
 
         if(remaining <= 0){
 
-            countdown.textContent =
-            "";
-
             claimButton.disabled =
             false;
+
+            claimButton.textContent =
+            "Claim Reward";
+
+            claimButton.classList.remove(
+                "cooldown"
+            );
+
 
             clearInterval(
                 dailyCountdownInterval
             );
+
+
+            dailyCountdownInterval =
+            null;
+
 
             return;
 
@@ -238,6 +249,11 @@ function updateDailyCountdown(lastDaily){
 
         claimButton.disabled =
         true;
+
+
+        claimButton.classList.add(
+            "cooldown"
+        );
 
 
         const hours =
@@ -258,7 +274,7 @@ function updateDailyCountdown(lastDaily){
         );
 
 
-        countdown.textContent =
+        claimButton.textContent =
         `Next Reward in: ${
             String(hours).padStart(2,"0")
         }:${
