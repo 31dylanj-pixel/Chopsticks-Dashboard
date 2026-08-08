@@ -242,6 +242,16 @@ async function loadPlayerData(){
     );
 
     localStorage.setItem(
+    "last_daily",
+    player.last_daily || ""
+    );
+    
+    localStorage.setItem(
+        "prestige_points",
+        player.prestige_points || 0
+    );
+    
+    localStorage.setItem(
         "streak_freezes",
         player.inventory?.streak_freeze || 0
     );
@@ -476,11 +486,19 @@ window.fakeLogin = async function(){
     );
 
     localStorage.setItem(
+        "last_daily",
+        player.last_daily || ""
+    );
+    
+    localStorage.setItem(
+        "prestige_points",
+        player.prestige_points || 0
+    );
+    
+    localStorage.setItem(
         "streak_freezes",
         player.inventory?.streak_freeze || 0
     );
-
-
 
     closeLogin();
 
