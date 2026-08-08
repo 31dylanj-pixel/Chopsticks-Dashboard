@@ -1049,8 +1049,6 @@ html.light-theme .available {
 
 }
 
-
-
 /* COMMAND DESCRIPTION */
 
 .command-card .description {
@@ -2147,7 +2145,7 @@ html.light-theme .action-button {
 html.light-theme .event-header {
 
     border-bottom: 1px solid rgba(0,0,0,0.25);
-
+    color: #0047AB;
 }
 
 #upcoming-events {
