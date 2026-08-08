@@ -248,7 +248,7 @@ async function loadPlayerData(){
     const response = await fetch(
 
 
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}&select=username,coins,daily_streak`,
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}&select=username,coins,daily_streak,inventory`,
 
 
         {
@@ -455,7 +455,7 @@ window.fakeLogin = async function(){
     const playerResponse = await fetch(
 
 
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak`,
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak,inventory`,
 
 
         {
