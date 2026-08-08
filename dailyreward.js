@@ -1,5 +1,21 @@
 function openDailyReward(){
 
+    const streak =
+    Number(localStorage.getItem("streak") || 0);
+    
+    const freezes =
+    Number(localStorage.getItem("streak_freezes") || 0);
+    
+    document.getElementById(
+        "dailyStreakDisplay"
+    ).textContent =
+    `🔥 Streak: ${streak}`;
+    
+    document.getElementById(
+        "freezeDisplay"
+    ).textContent =
+    `❄️ Freezes: ${freezes}`;
+    
     const grid =
     document.getElementById("dailyGrid");
 
