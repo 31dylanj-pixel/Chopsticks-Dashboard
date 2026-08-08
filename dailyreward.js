@@ -102,13 +102,19 @@ function openDailyReward(){
 
     document.getElementById("dailyClaimArea").innerHTML = `
 
-        <button class="daily-claim-button">
-
+        <button
+        id="dailyClaimButton"
+        class="daily-claim-button">
+    
             Claim Reward
-
+    
         </button>
-
+    
     `;
+    
+    document
+    .getElementById("dailyClaimButton")
+    .onclick = claimDailyReward;
 
     document
     .getElementById("dailyRewardModal")
@@ -123,5 +129,13 @@ function closeDailyReward(){
     .getElementById("dailyRewardModal")
     .classList
     .remove("active");
+
+}
+
+async function claimDailyReward(){
+
+    alert(
+        "Claim system not connected yet."
+    );
 
 }
