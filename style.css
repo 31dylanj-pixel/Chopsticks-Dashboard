@@ -2466,7 +2466,15 @@ html.light-theme .event-header {
 
 }
 
+.daily-claim-button.cooldown {
 
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    filter:grayscale(.7);
+
+}
 
 /* ==========================
    COUNTDOWN DISPLAY
