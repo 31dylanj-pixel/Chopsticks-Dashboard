@@ -1,7 +1,8 @@
 const notifications = [
+    "🪙 Earn Coins on the Webhook in Google Chat"
     "🏫 No School on Aug 12",
     "📢 Check Release Notes for Updates",
-    "🥢 Welcome to Chopsticks Hub"
+    "🥢 Welcome to Chopsticks Hub!"
 ];
 
 let notificationIndex = 0;
