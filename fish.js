@@ -95,13 +95,17 @@ const fishTable = {
 
     
     mythic: [
+        ["🌀 Chrono Leviathan", 900],
         ["💎 Ocean Diamond", 1000],
         ["🌠 Nebula Carp", 3000],
         ["✨ Halo", 2500],
         ["🌀 Rift Guardian Fish", 6000],
         ["🌌 Void Eel", 5000],
         ["💎 Crystal Seraph Fish", 8000],
-        ["🥢 Chopsticks Fish", 20000]
+        ["🌀 Time Rift Leviathan", 15000],
+        ["🥢 Chopsticks Fish", 20000],
+        ["🌌 Cosmic Leviathan", 25000],
+        ["👑 Crown of the Abyss", 40000]
     ],
 
 
