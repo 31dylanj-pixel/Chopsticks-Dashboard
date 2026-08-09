@@ -1149,7 +1149,12 @@ html.light-theme .available {
 
 }
 
+html.light-theme .leaderboard-card.top-two {
 
+   box-shadow:
+
+   0 0 25px #71706E;
+}
 
 .leaderboard-card.top-three {
 
