@@ -1057,6 +1057,20 @@ html.light-theme .command-card .usage {
 
    rgba(0, 0, 0, 0.12);
 
+   padding:10px 15px;
+
+   border-radius:12px;
+
+   margin:10px auto;
+
+   width:90%;
+
+   overflow-wrap:break-word;
+
+   word-break:break-word;
+
+   text-align:center;
+
 }
 /* COMMAND DESCRIPTION */
 
