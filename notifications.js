@@ -1,5 +1,5 @@
 const notifications = [
-    "🪙 Earn Coins on the Webhook in Google Chat"
+    "🪙 Earn Coins on the Webhook in Google Chat",
     "🏫 No School on Aug 12",
     "📢 Check Release Notes for Updates",
     "🥢 Welcome to Chopsticks Hub!"
