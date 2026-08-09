@@ -437,6 +437,18 @@ async function claimDailyReward(){
 
     );
 
+    console.log(
+        "PATCH STATUS:",
+        response.status
+    );
+    
+    const responseText =
+    await response.text();
+    
+    console.log(
+        responseText
+    );
+    
     if(!response.ok){
 
         alert(
