@@ -217,7 +217,7 @@ async function loadPlayerData(){
     const player =
     players[0];
 
-
+    console.log(player);
 
     currentUser =
     player.username;
