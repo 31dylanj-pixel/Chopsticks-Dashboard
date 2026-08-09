@@ -2179,6 +2179,46 @@ html.light-theme .event-header {
 }
 
 /* ==========================
+   NOTIFICATION BAR
+========================== */
+
+.notification-bar {
+
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 0 auto 25px auto;
+
+    padding: 16px 24px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: var(--text);
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+#notification-text {
+
+    display: block;
+
+    opacity: .9;
+
+    transition: opacity .5s ease;
+
+}
+
+/* ==========================
    DAILY REWARD MODAL
 ========================== */
 
