@@ -1,7 +1,7 @@
 const notifications = [
     "🥢 Welcome to Chopsticks Hub!",
     "🪙 Earn Coins on the Webhook in Google Chat",
-    "🏫 No School on Aug 12",
+    "🏫 No School on Sept 11",
     "📢 Check Release Notes for Updates",
     "🍂 Autumn Event Is Now Out for fishing!",
     "🎃 Halloween Event starting on October 29th!"
