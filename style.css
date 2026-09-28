@@ -4626,102 +4626,889 @@ html.light-theme .leaderboard-page .player-details {
 
 }
 
-/* ==========================
-   RELEASE NOTES
-========================== */
+/* =========================================================
+   RELEASE NOTES — CHOPSTICKS HUB
+   ========================================================= */
 
+.release-page {
 
-.release-section {
+    min-height:100vh;
 
-    width:100%;
-
-    grid-column:1/-1;
-
-    margin-bottom:50px;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(125,211,255,.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg-top),
+            var(--bg-bottom)
+        );
 
 }
 
 
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-.release-title {
+.release-page .release-header {
+
+    padding:70px 20px 35px;
 
     text-align:center;
 
-    font-family:"Orbitron",sans-serif;
+}
 
-    letter-spacing:4px;
 
-    margin-bottom:25px;
+.release-page .release-header-inner {
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
 
 }
 
 
+.release-page .page-eyebrow {
 
-.release-card {
+    display:inline-block;
+
+    margin-bottom:12px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+
+    opacity:.65;
+
+}
+
+
+.release-page .release-header h1 {
+
+    margin:0;
+
+    font-size:48px;
+
+    letter-spacing:-1px;
+
+}
+
+
+.release-page .release-header p {
+
+    margin:12px 0 25px;
+
+    opacity:.7;
+
+    font-size:16px;
+
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.release-page .release-main {
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding-bottom:80px;
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.release-page .release-search {
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:0 auto 60px;
 
     position:relative;
 
 }
 
 
+.release-page .release-search-icon {
 
-.release-details {
+    position:absolute;
 
-    max-height:0;
+    left:18px;
 
-    overflow:hidden;
+    top:50%;
 
-    opacity:0;
+    transform:translateY(-50%);
+
+    opacity:.55;
+
+    pointer-events:none;
+
+}
+
+
+.release-page #releaseSearch {
+
+    width:100%;
+
+    height:56px;
+
+    padding:0 20px 0 52px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    outline:none;
+
+    background:var(--glass);
+
+    color:var(--text);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    font-size:15px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.12);
 
     transition:
-
-    max-height .4s ease,
-
-    opacity .4s ease;
-
-}
-
-
-
-.release-card:hover .release-details {
-
-    max-height:500px;
-
-    opacity:1;
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
 
 }
 
 
+.release-page #releaseSearch::placeholder {
 
-.release-group summary {
+    color:var(--text);
+
+    opacity:.5;
+
+}
+
+
+.release-page #releaseSearch:focus {
+
+    border-color:var(--blue);
+
+    box-shadow:
+        0 0 0 3px rgba(125,211,255,.10),
+        0 15px 40px rgba(0,0,0,.15);
+
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.release-page .release-section {
+
+    margin-bottom:75px;
+
+}
+
+
+.release-page .release-section-heading {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:25px;
+
+}
+
+
+.release-page .release-section-icon {
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    font-size:23px;
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+.release-page .release-section-label {
+
+    display:block;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    opacity:.5;
+
+    margin-bottom:3px;
+
+}
+
+
+.release-page .release-section-heading h2 {
+
+    margin:0;
+
+    font-size:28px;
+
+}
+
+
+/* =========================================================
+   RELEASE CARD
+   ========================================================= */
+
+.release-page .release-card {
+
+    position:relative;
+
+    margin-bottom:18px;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.10);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.release-page .release-card:hover {
+
+    transform:translateY(-3px);
+
+    background:var(--glass-hover);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.15);
+
+}
+
+
+/* =========================================================
+   FEATURED V3
+   ========================================================= */
+
+.release-page .release-featured {
+
+    padding:34px;
+
+    border-color:rgba(125,211,255,.30);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(125,211,255,.10),
+            var(--glass) 45%,
+            rgba(255,255,255,.04)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.18);
+
+}
+
+
+.release-page .release-featured::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:25px;
+    bottom:25px;
+
+    width:3px;
+
+    border-radius:5px;
+
+    background:var(--blue);
+
+    opacity:.8;
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.release-page .release-card-top {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+
+.release-page .release-version {
+
+    display:inline-block;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    opacity:.55;
+
+}
+
+
+.release-page .release-card h3 {
+
+    margin:7px 0 0;
+
+    font-size:24px;
+
+}
+
+
+.release-page .release-badge {
+
+    flex-shrink:0;
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    background:rgba(125,211,255,.12);
+
+    border:1px solid rgba(125,211,255,.30);
+
+    color:var(--blue);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.release-page .release-date {
+
+    margin-top:9px;
+
+    font-size:12px;
+
+    opacity:.5;
+
+}
+
+
+.release-page .release-intro {
+
+    max-width:750px;
+
+    margin:22px 0 28px;
+
+    line-height:1.7;
+
+    opacity:.78;
+
+}
+
+
+/* =========================================================
+   FEATURE GRID
+   ========================================================= */
+
+.release-page .release-feature-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:12px;
+
+}
+
+
+.release-page .release-feature {
+
+    display:flex;
+
+    gap:13px;
+
+    padding:17px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid var(--border);
+
+}
+
+
+.release-page .release-feature > span {
+
+    font-size:20px;
+
+    line-height:1;
+
+}
+
+
+.release-page .release-feature strong {
+
+    display:block;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:14px;
+
+}
+
+
+.release-page .release-feature p {
+
+    margin:5px 0 0;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    opacity:.6;
+
+}
+
+
+/* =========================================================
+   NORMAL RELEASE LIST
+   ========================================================= */
+
+.release-page .release-list {
+
+    margin-top:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+.release-page .release-list p {
+
+    margin:0;
+
+    line-height:1.55;
+
+    font-size:14px;
+
+    opacity:.82;
+
+}
+
+
+/* =========================================================
+   FOOTER INFO
+   ========================================================= */
+
+.release-page .release-footer {
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    opacity:.4;
+
+}
+
+
+/* =========================================================
+   EXPANDABLE ARCHIVES
+   ========================================================= */
+
+.release-page .release-group {
+
+    margin-bottom:18px;
+
+}
+
+
+.release-page .release-group summary {
 
     list-style:none;
 
     cursor:pointer;
 
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:25px 28px;
+
+    border-radius:22px;
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+
 }
 
 
-
-.release-group summary::-webkit-details-marker {
+.release-page .release-group summary::-webkit-details-marker {
 
     display:none;
 
 }
 
 
+.release-page .release-group summary:hover {
 
-.release-group summary:hover {
+    background:var(--glass-hover);
 
-    transform:scale(1.03);
+    transform:translateY(-2px);
 
 }
 
 
+.release-page .release-group summary h3 {
 
-.release-child {
+    margin:7px 0 4px;
 
-    margin-top:15px;
+    font-size:21px;
+
+}
+
+
+.release-page .release-group summary p {
+
+    margin:0;
+
+    font-size:13px;
+
+    opacity:.6;
+
+}
+
+
+.release-page .release-expand {
+
+    width:36px;
+
+    height:36px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    font-size:20px;
+
+    transition:transform .3s ease;
+
+}
+
+
+.release-page .release-group[open]
+.release-expand {
+
+    transform:rotate(45deg);
+
+}
+
+
+.release-page .release-archive {
+
+    padding-top:14px;
+
+}
+
+
+.release-page .release-child {
+
+    margin-bottom:12px;
+
+    margin-left:25px;
+
+    padding:24px;
+
+}
+
+
+.release-page .release-child:hover {
+
+    transform:translateX(3px);
+
+}
+
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+html.light-theme .release-page {
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(0,119,255,.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg-top),
+            var(--bg-bottom)
+        );
+
+}
+
+
+html.light-theme .release-page .release-featured {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.72),
+            rgba(255,255,255,.48)
+        );
+
+    border-color:rgba(0,119,255,.18);
+
+}
+
+
+html.light-theme .release-page .release-feature {
+
+    background:rgba(255,255,255,.38);
+
+}
+
+
+html.light-theme .release-page .release-card {
+
+    box-shadow:
+        0 15px 40px rgba(30,70,100,.08);
+
+}
+
+
+html.light-theme .release-page .release-card:hover {
+
+    box-shadow:
+        0 20px 45px rgba(30,70,100,.11);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:800px) {
+
+    .release-page .release-header {
+
+        padding-top:50px;
+
+    }
+
+
+    .release-page .release-header h1 {
+
+        font-size:38px;
+
+    }
+
+
+    .release-page .release-feature-grid {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .release-page .release-card {
+
+        padding:24px;
+
+    }
+
+
+    .release-page .release-featured {
+
+        padding:28px 24px;
+
+    }
+
+}
+
+
+@media (max-width:550px) {
+
+    .release-page .release-header h1 {
+
+        font-size:32px;
+
+    }
+
+
+    .release-page .release-header p {
+
+        font-size:14px;
+
+    }
+
+
+    .release-page .release-section-heading h2 {
+
+        font-size:23px;
+
+    }
+
+
+    .release-page .release-section-icon {
+
+        width:45px;
+
+        height:45px;
+
+        border-radius:13px;
+
+    }
+
+
+    .release-page .release-card-top {
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+
+    .release-page .release-badge {
+
+        align-self:flex-start;
+
+    }
+
+
+    .release-page .release-group summary {
+
+        padding:22px;
+
+    }
+
+
+    .release-page .release-child {
+
+        margin-left:10px;
+
+    }
+
+
+    .release-page .release-footer {
+
+        flex-wrap:wrap;
+
+    }
 
 }
 
