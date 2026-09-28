@@ -186,8 +186,15 @@ const fishInfo = {
     },
 
     "🐟 Minnow": {
-        image: "images/fish/minnow.png",
-        overview: "Overview coming soon."
+        image: "fish/minnow.png",
+        overview: `
+            <strong>Length:</strong> 5-10 cm<br>
+            <strong>Weight:</strong> 8-16 grams<br><br>
+        
+            A minnow is a small freshwater fish often used for bait. 
+            There are over 2000 species of true minnow found in North America, Europe, Asia, and Africa. 
+            Minnows are also often kept as pets, as they are easy to take care of, colorful, and cheap.
+        `
     },
 
     "🐠 Goldfish": {
