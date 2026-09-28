@@ -952,6 +952,240 @@ header a {
 }
 
 /* ========================================
+   HOME ACCOUNT + ANNOUNCEMENTS
+   LIGHT THEME
+======================================== */
+
+
+/* ==========================
+   ACCOUNT / PLAYER PROFILE
+========================== */
+
+html.light-theme .home-page .player-profile {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.82),
+            rgba(255,255,255,.58)
+        );
+
+    border-color:
+        rgba(16,24,32,.10);
+
+    box-shadow:
+        0 12px 35px rgba(30,70,100,.10);
+
+}
+
+
+html.light-theme .home-page .player-avatar {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,119,255,.10),
+            rgba(0,119,255,.04)
+        );
+
+    border-color:
+        rgba(0,119,255,.16);
+
+    box-shadow:
+        0 0 20px rgba(0,119,255,.06);
+
+}
+
+
+html.light-theme .home-page .player-identity p {
+
+    opacity:.55;
+
+}
+
+
+html.light-theme .home-page .player-stat strong {
+
+    color:
+        var(--text);
+
+}
+
+
+html.light-theme .home-page .profile-action {
+
+    background:
+        rgba(16,24,32,.035);
+
+    border-color:
+        rgba(16,24,32,.10);
+
+}
+
+
+html.light-theme .home-page .profile-action:hover {
+
+    background:
+        rgba(0,119,255,.07);
+
+    border-color:
+        rgba(0,119,255,.18);
+
+}
+
+
+html.light-theme .home-page .profile-action.danger:hover {
+
+    background:
+        rgba(220,60,60,.07);
+
+    border-color:
+        rgba(220,60,60,.20);
+
+}
+
+
+/* ==========================
+   LOGGED OUT ACCOUNT
+========================== */
+
+html.light-theme .home-page .logged-out-profile {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.82),
+            rgba(255,255,255,.58)
+        );
+
+    border-color:
+        rgba(16,24,32,.10);
+
+    box-shadow:
+        0 12px 35px rgba(30,70,100,.10);
+
+}
+
+
+html.light-theme .home-page .logged-out-icon {
+
+    background:
+        rgba(0,119,255,.06);
+
+    border-color:
+        rgba(0,119,255,.13);
+
+}
+
+
+html.light-theme .home-page .logged-out-info p {
+
+    opacity:.58;
+
+}
+
+
+html.light-theme .home-page .profile-login-button {
+
+    background:
+        rgba(0,119,255,.07);
+
+    border-color:
+        rgba(0,119,255,.20);
+
+    color:
+        var(--text);
+
+}
+
+
+html.light-theme .home-page .profile-login-button:hover {
+
+    background:
+        rgba(0,119,255,.12);
+
+}
+
+
+/* ==========================
+   ANNOUNCEMENTS
+========================== */
+
+html.light-theme .home-page .notification-bar {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.82),
+            rgba(255,255,255,.58)
+        );
+
+    border-color:
+        rgba(16,24,32,.10);
+
+    box-shadow:
+        0 12px 35px rgba(30,70,100,.09);
+
+}
+
+
+html.light-theme .home-page .notification-bar::before {
+
+    background:
+        rgba(0,119,255,.07);
+
+}
+
+
+/* announcement message container */
+
+html.light-theme .home-page .announcement-content {
+
+    background:
+        rgba(16,24,32,.035);
+
+    border-color:
+        rgba(16,24,32,.065);
+
+}
+
+
+/* announcement footer */
+
+html.light-theme .home-page .announcement-footer {
+
+    opacity:.45;
+
+}
+
+
+/* LIVE badge */
+
+html.light-theme .home-page .announcement-status {
+
+    background:
+        rgba(20,150,75,.06);
+
+    border-color:
+        rgba(20,150,75,.16);
+
+    color:
+        #16804a;
+
+}
+
+
+html.light-theme .home-page .status-dot {
+
+    background:
+        #20a05a;
+
+    box-shadow:
+        0 0 7px rgba(32,160,90,.35);
+
+}
+
+/* ========================================
    UPCOMING EVENTS
 ======================================== */
 
