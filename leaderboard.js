@@ -5,6 +5,10 @@ const SUPABASE_KEY =
 "sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
 
+/* ========================================
+   FORMAT COINS
+======================================== */
+
 function formatCoins(amount) {
 
     const units = [
@@ -34,25 +38,32 @@ function formatCoins(amount) {
 }
 
 
+/* ========================================
+   FULL COIN FORMAT
+======================================== */
+
+function fullCoins(amount) {
+
+    return Number(amount).toLocaleString();
+
+}
+
+
+/* ========================================
+   LOAD LEADERBOARD
+======================================== */
+
 async function loadLeaderboard() {
 
     const response = await fetch(
-
         `${SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak,stats&order=prestige.desc,coins.desc&limit=50`,
-
         {
-
             headers: {
-
                 apikey: SUPABASE_KEY,
-
                 Authorization:
                 `Bearer ${SUPABASE_KEY}`
-
             }
-
         }
-
     );
 
 
@@ -66,7 +77,7 @@ async function loadLeaderboard() {
 
 
     const container =
-    document.getElementById("leaderboard");
+        document.getElementById("leaderboard");
 
 
     if (!container) {
@@ -85,10 +96,12 @@ async function loadLeaderboard() {
 
     players.forEach((player, index) => {
 
+        /* ==========================
+           RANK
+        ========================== */
 
-        let rank = index + 1;
-
-        let rankDisplay = rank;
+        let rankDisplay =
+            `${index + 1}`;
 
 
         if (index === 0) {
@@ -110,45 +123,51 @@ async function loadLeaderboard() {
         }
 
 
+        /* ==========================
+           SAFE VALUES
+        ========================== */
+
+        const coins =
+            Number(player.coins) || 0;
+
+
+        const streak =
+            Number(player.daily_streak) || 0;
+
+
         const prestige =
-            Number(player.prestige || 0);
+            Number(player.prestige) || 0;
+
+
+        const fishCaught =
+            Number(player.stats?.fish_caught) || 0;
+
+
+        const slotsPlayed =
+            Number(player.stats?.slots_played) || 0;
+
+
+        const coinsEarned =
+            Number(player.stats?.coins_earned) || 0;
 
 
         const title =
             player.title || "Rookie";
 
 
-        const coins =
-            Number(player.coins || 0);
-
-
-        const streak =
-            Number(player.daily_streak || 0);
-
-
-        const fishCaught =
-            Number(
-                player.stats?.fish_caught ?? 0
-            );
-
-
-        const slotsPlayed =
-            Number(
-                player.stats?.slots_played ?? 0
-            );
-
-
-        const coinsEarned =
-            Number(
-                player.stats?.coins_earned ?? 0
-            );
-
+        /* ==========================
+           PRESTIGE
+        ========================== */
 
         const prestigeDisplay =
             prestige > 0
                 ? `PRESTIGE ${prestige}`
                 : "NO PRESTIGE";
 
+
+        /* ==========================
+           CARD
+        ========================== */
 
         container.innerHTML += `
 
@@ -159,53 +178,42 @@ async function loadLeaderboard() {
             ""
         }">
 
-
             <div class="leaderboard-main">
 
-
                 <div class="leaderboard-rank">
-
                     ${rankDisplay}
-
                 </div>
 
 
                 <div class="leaderboard-player">
 
                     <span class="leaderboard-title">
-
                         ${title}
-
                     </span>
 
                     <h2>
-
                         ${player.username}
-
                     </h2>
 
                 </div>
 
 
                 <div class="leaderboard-prestige">
-
                     ${prestigeDisplay}
-
                 </div>
-
 
             </div>
 
 
-
             <div class="leaderboard-stats">
 
+                <!-- COINS -->
 
                 <div class="leaderboard-stat">
 
-                    <span class="leaderboard-stat-icon">
-                        🪙
-                    </span>
+                    <div class="leaderboard-stat-icon">
+                        💰
+                    </div>
 
                     <div>
 
@@ -214,51 +222,57 @@ async function loadLeaderboard() {
                         </span>
 
                         <strong>
-                            ${formatCoins(coins)}
+                            ${fullCoins(coins)}
                         </strong>
+
+                        <small>
+                            ${formatCoins(coins)}
+                        </small>
 
                     </div>
 
                 </div>
 
 
+                <!-- STREAK -->
 
                 <div class="leaderboard-stat">
 
-                    <span class="leaderboard-stat-icon">
+                    <div class="leaderboard-stat-icon">
                         🔥
-                    </span>
+                    </div>
 
                     <div>
 
                         <span>
-                            STREAK
+                            DAILY STREAK
                         </span>
 
                         <strong>
-                            ${streak} DAYS
+                            ${streak}
                         </strong>
+
+                        <small>
+                            ${streak === 1 ? "day" : "days"}
+                        </small>
 
                     </div>
 
                 </div>
 
-
             </div>
-
 
 
             <div class="player-details">
 
-
                 <div class="detail-stat">
 
                     <span>
-                        🎣 Fish Caught
+                        🎣 FISH CAUGHT
                     </span>
 
                     <strong>
-                        ${fishCaught.toLocaleString()}
+                        ${fullCoins(fishCaught)}
                     </strong>
 
                 </div>
@@ -267,11 +281,11 @@ async function loadLeaderboard() {
                 <div class="detail-stat">
 
                     <span>
-                        🎰 Slots Played
+                        🎰 SLOTS PLAYED
                     </span>
 
                     <strong>
-                        ${slotsPlayed.toLocaleString()}
+                        ${fullCoins(slotsPlayed)}
                     </strong>
 
                 </div>
@@ -280,18 +294,19 @@ async function loadLeaderboard() {
                 <div class="detail-stat">
 
                     <span>
-                        💰 Coins Earned
+                        💰 COINS EARNED
                     </span>
 
                     <strong>
-                        ${formatCoins(coinsEarned)}
+                        ${fullCoins(coinsEarned)}
+                        <small>
+                            ${formatCoins(coinsEarned)}
+                        </small>
                     </strong>
 
                 </div>
-
 
             </div>
-
 
         </div>
 
@@ -302,10 +317,16 @@ async function loadLeaderboard() {
 }
 
 
+/* ========================================
+   INITIAL LOAD
+======================================== */
+
 loadLeaderboard();
 
 
-// Refresh every 10 seconds
+/* ========================================
+   AUTO REFRESH
+======================================== */
 
 setInterval(
     loadLeaderboard,
