@@ -22,7 +22,7 @@ const shops = {
         {
             name: "🎣 Fisherman 🎣",
             cost: 500,
-            description: "Patience is its own reward.",
+            description: "For those who love to fish.",
             status: "available"
         },
         {
@@ -58,7 +58,7 @@ const shops = {
         {
             name: "💰 Merchant 💰",
             cost: 5000,
-            description: "Know the value of every coin.",
+            description: "For those who know the value of every coin.",
             status: "available"
         },
         {
