@@ -153,6 +153,74 @@ const fishTable = {
     ]
 };
 
+/* ========================================
+   FISH INFORMATION
+======================================== */
+
+const fishInfo = {
+
+    /*
+     * REAL FISH
+     *
+     * Add an image path when a real fish
+     * image exists.
+     */
+
+    "🐟 Anchovy": {
+        image: "images/fish/anchovy.png",
+        overview: "Overview coming soon."
+    },
+
+    "🐟 Minnow": {
+        image: "images/fish/minnow.png",
+        overview: "Overview coming soon."
+    },
+
+    "🐠 Goldfish": {
+        image: "images/fish/goldfish.png",
+        overview: "Overview coming soon."
+    },
+
+    "🐠 Bluegill": {
+        image: "images/fish/bluegill.png",
+        overview: "Overview coming soon."
+    },
+
+    "🦀 Crab": {
+        image: "images/fish/crab.png",
+        overview: "Overview coming soon."
+    },
+
+
+    /*
+     * FANTASY FISH
+     *
+     * No image = automatically shows
+     * "This is a fantasy fish."
+     */
+
+    "🌌 Void Eel": {
+        image: null,
+        overview: "Overview coming soon."
+    },
+
+    "🌀 Chrono Leviathan": {
+        image: null,
+        overview: "Overview coming soon."
+    },
+
+    "🥢 Chopsticks Fish": {
+        image: null,
+        overview: "Overview coming soon."
+    },
+
+    "🌌 Cosmic Leviathan": {
+        image: null,
+        overview: "Overview coming soon."
+    }
+
+};
+
 function formatCoins(amount) {
 
     const units = [
@@ -212,26 +280,30 @@ for (let rarity in fishTable) {
 
     fishTable[rarity].forEach(fish => {
 
-
         section.innerHTML += `
-
-            <div class="card ${rarity}">
-        
+    
+            <div
+                class="card ${rarity} fish-card"
+                data-fish="${encodeURIComponent(fish[0])}"
+            >
+    
                 <h2>
                     ${fish[0]}
                 </h2>
-        
-        
+    
                 <p>
                     💰 Value: ${fish[1].toLocaleString()} coins
                     ${fish[1] >= 1000 ? `(${formatCoins(fish[1])})` : ""}
                 </p>
-        
+    
+                <span class="fish-card-hint">
+                    Click to view
+                </span>
+    
             </div>
-        
+    
         `;
-
-
+    
     });
 
 
@@ -263,3 +335,222 @@ searchBar.addEventListener("input", function() {
     });
 
 });
+
+/* ========================================
+   FISH PROFILE MODAL
+======================================== */
+
+const fishModal = document.getElementById("fish-modal");
+
+const fishModalClose =
+    document.getElementById("fish-modal-close");
+
+const fishModalName =
+    document.getElementById("fish-modal-name");
+
+const fishModalRarity =
+    document.getElementById("fish-modal-rarity");
+
+const fishModalValue =
+    document.getElementById("fish-modal-value");
+
+const fishModalImage =
+    document.getElementById("fish-modal-image");
+
+const fishModalOverview =
+    document.getElementById("fish-modal-overview-text");
+
+
+/* ========================================
+   FIND FISH DATA
+======================================== */
+
+function findFishData(fishName) {
+
+    for (const rarity in fishTable) {
+
+        const fish = fishTable[rarity].find(
+            item => item[0] === fishName
+        );
+
+        if (fish) {
+
+            return {
+                name: fish[0],
+                value: fish[1],
+                rarity: rarity,
+                info: fishInfo[fishName] || {}
+            };
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/* ========================================
+   OPEN FISH PROFILE
+======================================== */
+
+function openFishProfile(fishName) {
+
+    const fish = findFishData(fishName);
+
+    if (!fish) return;
+
+
+    /* Name */
+
+    fishModalName.textContent = fish.name;
+
+
+    /* Rarity */
+
+    fishModalRarity.textContent =
+        fish.rarity.toUpperCase();
+
+    fishModalRarity.className =
+        `fish-modal-rarity rarity-${fish.rarity}`;
+
+
+    /* Value */
+
+    fishModalValue.innerHTML =
+        `💰 ${fish.value.toLocaleString()} coins` +
+        (fish.value >= 1000
+            ? ` (${formatCoins(fish.value)})`
+            : ""
+        );
+
+
+    /* ========================================
+       IMAGE
+    ======================================== */
+
+    const image =
+        fish.info.image;
+
+
+    if (image) {
+
+        fishModalImage.innerHTML = `
+
+            <img
+                src="${image}"
+                alt="${fish.name}"
+                class="fish-profile-image"
+                onerror="this.parentElement.innerHTML =
+                    '<div class=&quot;fantasy-fish-message&quot;>This is a fantasy fish.</div>'"
+            >
+
+        `;
+
+    } else {
+
+        fishModalImage.innerHTML = `
+
+            <div class="fantasy-fish-message">
+                This is a fantasy fish.
+            </div>
+
+        `;
+
+    }
+
+
+    /* ========================================
+       OVERVIEW
+    ======================================== */
+
+    fishModalOverview.textContent =
+        fish.info.overview ||
+        "Overview coming soon.";
+
+
+    /* ========================================
+       SHOW MODAL
+    ======================================== */
+
+    fishModal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+
+}
+
+
+/* ========================================
+   CLICK FISH CARD
+======================================== */
+
+document.addEventListener("click", function(event) {
+
+    const card =
+        event.target.closest(".fish-card");
+
+    if (!card) return;
+
+
+    const fishName =
+        decodeURIComponent(card.dataset.fish);
+
+
+    openFishProfile(fishName);
+
+});
+
+
+/* ========================================
+   CLOSE MODAL
+======================================== */
+
+function closeFishProfile() {
+
+    fishModal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+fishModalClose.addEventListener(
+    "click",
+    closeFishProfile
+);
+
+
+/* Click outside popup */
+
+fishModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === fishModal) {
+
+            closeFishProfile();
+
+        }
+
+    }
+);
+
+
+/* Escape key */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            fishModal.classList.contains("active")
+        ) {
+
+            closeFishProfile();
+
+        }
+
+    }
+);
