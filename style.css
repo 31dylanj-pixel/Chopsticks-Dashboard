@@ -745,6 +745,212 @@ header a {
 
 }
 
+/* ========================================
+   ANNOUNCEMENTS
+======================================== */
+
+.home-page .notification-bar {
+
+    position:relative;
+
+    width:94%;
+    max-width:1000px;
+
+    margin:20px auto;
+
+    padding:22px 24px;
+
+    overflow:hidden;
+
+}
+
+
+/* subtle glow */
+
+.home-page .notification-bar::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+    right:-80px;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        rgba(125,211,255,.08);
+
+    filter:blur(30px);
+
+    pointer-events:none;
+
+}
+
+
+/* HEADER */
+
+.home-page .announcement-header {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.home-page .announcement-header .section-heading {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.home-page .announcement-header .section-heading h2 {
+
+    margin:2px 0 0;
+
+}
+
+
+/* LIVE STATUS */
+
+.home-page .announcement-status {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    background:
+        rgba(80,255,150,.06);
+
+    border:
+        1px solid rgba(80,255,150,.18);
+
+    color:#8affb5;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.home-page .status-dot {
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#6dff9b;
+
+    box-shadow:
+        0 0 8px rgba(109,255,155,.7);
+
+    animation:
+        announcementPulse 1.8s ease-in-out infinite;
+
+}
+
+
+@keyframes announcementPulse {
+
+    0%,100% {
+        opacity:.45;
+        transform:scale(.85);
+    }
+
+    50% {
+        opacity:1;
+        transform:scale(1.1);
+    }
+
+}
+
+
+/* MESSAGE */
+
+.home-page .announcement-content {
+
+    margin-top:18px;
+
+    padding:17px 18px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+}
+
+
+.home-page .announcement-message {
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    min-height:24px;
+
+    color:var(--text);
+
+}
+
+
+/* FOOTER */
+
+.home-page .announcement-footer {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:13px;
+
+    padding-left:4px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1.4px;
+
+    opacity:.4;
+
+}
+
+
+.home-page .announcement-footer span:nth-child(2) {
+
+    opacity:.5;
+
+}
+
 /* =========================
    UPCOMING EVENTS
 ========================= */
@@ -3447,6 +3653,59 @@ html.light-theme .action-button {
        width:100%;
    
        margin-top:4px;
+   
+   }
+
+   .home-page .notification-bar {
+
+       padding:18px;
+   
+       margin:16px auto;
+   
+   }
+   
+   
+   .home-page .announcement-header {
+   
+       align-items:flex-start;
+   
+   }
+   
+   
+   .home-page .announcement-status {
+   
+       flex-shrink:0;
+   
+       font-size:7px;
+   
+       padding:5px 8px;
+   
+   }
+   
+   
+   .home-page .announcement-content {
+   
+       margin-top:15px;
+   
+       padding:14px;
+   
+   }
+   
+   
+   .home-page .announcement-message {
+   
+       font-size:13px;
+   
+       line-height:1.55;
+   
+   }
+   
+   
+   .home-page .announcement-footer {
+   
+       font-size:6px;
+   
+       margin-top:11px;
    
    }
 
