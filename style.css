@@ -2589,7 +2589,430 @@ html.light-theme .action-button {
 
 }
 
+   PLAYER PROFILE
+========================== */
 
+.home-page .account-bar {
+
+    width:90%;
+    max-width:1100px;
+
+    margin:25px auto;
+
+}
+
+
+.home-page .player-profile {
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    1.2fr
+    1.8fr
+    auto;
+
+    align-items:center;
+
+    gap:28px;
+
+    padding:24px 26px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.09),
+        rgba(255,255,255,.035)
+    );
+
+    border:
+    1px solid var(--border);
+
+    border-radius:22px;
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.12);
+
+}
+
+
+/* ==========================
+   PLAYER IDENTITY
+========================== */
+
+.home-page .player-main {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    min-width:0;
+
+}
+
+
+.home-page .player-avatar {
+
+    width:64px;
+    height:64px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(125,211,255,.18),
+        rgba(125,211,255,.05)
+    );
+
+    border:
+    1px solid rgba(125,211,255,.25);
+
+    font-size:28px;
+
+    box-shadow:
+    0 0 25px rgba(125,211,255,.08);
+
+}
+
+
+.home-page .player-identity {
+
+    min-width:0;
+
+}
+
+
+.home-page .player-label {
+
+    display:block;
+
+    color:var(--blue);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+}
+
+
+.home-page .player-identity h2 {
+
+    margin:3px 0 2px;
+
+    font-size:23px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+.home-page .player-identity p {
+
+    margin:0;
+
+    font-size:12px;
+
+    opacity:.55;
+
+}
+
+
+/* ==========================
+   PLAYER STATS
+========================== */
+
+.home-page .player-stats {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:24px;
+
+}
+
+
+.home-page .player-stat {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    min-width:85px;
+
+}
+
+
+.home-page .stat-icon {
+
+    font-size:20px;
+
+}
+
+
+.home-page .stat-label {
+
+    display:block;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    opacity:.5;
+
+}
+
+
+.home-page .player-stat strong {
+
+    display:block;
+
+    margin-top:2px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:14px;
+
+    white-space:nowrap;
+
+}
+
+
+/* ==========================
+   PLAYER ACTIONS
+========================== */
+
+.home-page .player-actions {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    min-width:150px;
+
+}
+
+
+.home-page .profile-action {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    min-height:40px;
+
+    padding:8px 14px;
+
+    border-radius:11px;
+
+    border:
+    1px solid var(--border);
+
+    background:
+    rgba(255,255,255,.06);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:11px;
+
+    transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+
+}
+
+
+.home-page .profile-action:hover {
+
+    transform:translateY(-2px);
+
+    background:
+    rgba(255,255,255,.12);
+
+}
+
+
+.home-page .profile-action.danger:hover {
+
+    border-color:
+    rgba(255,85,85,.35);
+
+    background:
+    rgba(255,85,85,.08);
+
+}
+
+
+/* ==========================
+   LOGGED OUT
+========================== */
+
+.home-page .logged-out-profile {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:20px 24px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.035)
+    );
+
+    border:
+    1px solid var(--border);
+
+    border-radius:22px;
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+
+.home-page .logged-out-icon {
+
+    width:52px;
+    height:52px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:
+    rgba(125,211,255,.08);
+
+    border:
+    1px solid rgba(125,211,255,.15);
+
+    font-size:23px;
+
+}
+
+
+.home-page .logged-out-info {
+
+    flex:1;
+
+}
+
+
+.home-page .logged-out-info h2 {
+
+    margin:2px 0;
+
+    font-size:19px;
+
+}
+
+
+.home-page .logged-out-info p {
+
+    margin:0;
+
+    font-size:12px;
+
+    opacity:.55;
+
+}
+
+
+.home-page .profile-login-button {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    min-width:110px;
+
+    padding:11px 18px;
+
+    border-radius:999px;
+
+    border:
+    1px solid rgba(125,211,255,.3);
+
+    background:
+    rgba(125,211,255,.08);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-family:"Poppins",sans-serif;
+
+    font-weight:500;
+
+    transition:
+    transform .2s ease,
+    background .2s ease;
+
+}
+
+
+.home-page .profile-login-button:hover {
+
+    transform:translateY(-2px);
+
+    background:
+    rgba(125,211,255,.15);
+
+}
 
 /* ==========================
    MOBILE
@@ -2898,5 +3321,133 @@ html.light-theme .action-button {
         translateY(-50%);
 
     }
+
+    /* PLAYER PROFILE */
+
+   .home-page .account-bar {
+   
+       margin:
+       15px auto 18px;
+   
+   }
+   
+   
+   .home-page .player-profile {
+   
+       grid-template-columns:1fr;
+   
+       gap:18px;
+   
+       padding:20px;
+   
+       border-radius:18px;
+   
+   }
+   
+   
+   .home-page .player-main {
+   
+       justify-content:flex-start;
+   
+   }
+   
+   
+   .home-page .player-avatar {
+   
+       width:55px;
+       height:55px;
+   
+       border-radius:15px;
+   
+       font-size:24px;
+   
+   }
+   
+   
+   .home-page .player-identity h2 {
+   
+       font-size:20px;
+   
+   }
+   
+   
+   .home-page .player-stats {
+   
+       width:100%;
+   
+       justify-content:space-between;
+   
+       gap:8px;
+   
+       padding-top:4px;
+   
+   }
+   
+   
+   .home-page .player-stat {
+   
+       min-width:0;
+   
+       gap:6px;
+   
+   }
+   
+   
+   .home-page .stat-icon {
+   
+       font-size:17px;
+   
+   }
+   
+   
+   .home-page .player-stat strong {
+   
+       font-size:12px;
+   
+   }
+   
+   
+   .home-page .player-actions {
+   
+       width:100%;
+   
+       flex-direction:row;
+   
+   }
+   
+   
+   .home-page .profile-action {
+   
+       flex:1;
+   
+       min-height:44px;
+   
+   }
+   
+   
+   .home-page .logged-out-profile {
+   
+       flex-wrap:wrap;
+   
+       padding:18px;
+   
+   }
+   
+   
+   .home-page .logged-out-info {
+   
+       min-width:
+       calc(100% - 70px);
+   
+   }
+   
+   
+   .home-page .profile-login-button {
+   
+       width:100%;
+   
+       margin-top:4px;
+   
+   }
 
 }
