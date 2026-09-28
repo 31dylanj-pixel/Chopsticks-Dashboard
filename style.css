@@ -2604,6 +2604,14 @@ html.light-theme .search-box input::placeholder {
 
 }
 
+/* ========================================
+   SPLASH TEXT
+======================================== */
+.shop-page .shop-info {
+    font-style:italic;
+    line-height:1.65;
+    opacity:.55;
+}
 
 /* ========================================
    STATUS
