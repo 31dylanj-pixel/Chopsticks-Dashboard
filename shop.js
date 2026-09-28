@@ -136,7 +136,7 @@ const shops = {
         {
             name: "🥢 GOD OF CHOPSTICKS 🥢",
             cost: 1000000000000,
-            description: "There are players. There are legends. Then there is you.",
+            description: "For those who have truly mastered Chopsticks.",
             status: "available"
         },
         {
