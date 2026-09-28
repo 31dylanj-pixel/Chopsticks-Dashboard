@@ -2,41 +2,67 @@
 <html>
 
 <head>
+
     <title>Shop - Chopsticks</title>
+
     <script src="theme.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+
+<body class="shop-page">
+
 
 <header>
 
-    <h1>🛒 Chopsticks Shop</h1>
+    <span class="page-eyebrow">
+        CHOPSTICKS HUB
+    </span>
+
+    <h1>
+        🛒 Chopsticks Shop
+    </h1>
 
     <p>
-        Browse titles and items available in Chopsticks.
+        Browse titles, upgrades, and items available in Chopsticks.
     </p>
 
     <a href="index.html" class="back-button">
-        Back to Home
+        ← Back to Home
     </a>
 
 </header>
 
-<div class="search-box">
 
-    <input
-        type="text"
-        id="shop-search"
-        placeholder="🔍 Search shop items..."
-    >
+<div class="shop-search-wrap">
+
+    <div class="shop-search">
+
+        <span class="shop-search-icon">
+            🔍
+        </span>
+
+        <input
+            type="text"
+            id="shop-search"
+            placeholder="Search shop items..."
+        >
+
+    </div>
 
 </div>
 
-<div id="shop-container" class="container"></div>
+
+<main
+    id="shop-container"
+    class="shop-container">
+</main>
 
 
 <script src="shop.js"></script>
+
 
 </body>
 
