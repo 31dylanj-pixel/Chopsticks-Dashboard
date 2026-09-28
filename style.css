@@ -2851,6 +2851,326 @@ html.light-theme .leaderboard-page .leaderboard-card.top-three {
 
 }
 
+/* ========================================
+   LEADERBOARD CONTENT
+======================================== */
+
+.leaderboard-page .leaderboard-main {
+
+    display:grid;
+
+    grid-template-columns:
+        55px
+        1fr
+        auto;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+
+.leaderboard-page .leaderboard-rank {
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+
+.leaderboard-page .leaderboard-player {
+
+    min-width:0;
+
+}
+
+
+.leaderboard-page .leaderboard-title {
+
+    display:block;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    color:var(--blue);
+
+    opacity:.8;
+
+}
+
+
+.leaderboard-page .leaderboard-player h2 {
+
+    margin:3px 0 0;
+
+    font-size:20px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+.leaderboard-page .leaderboard-prestige {
+
+    padding:7px 10px;
+
+    border-radius:999px;
+
+    background:
+        rgba(125,211,255,.055);
+
+    border:
+        1px solid rgba(125,211,255,.12);
+
+    color:var(--blue);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+
+}
+
+
+/* ========================================
+   STATS
+======================================== */
+
+.leaderboard-page .leaderboard-stats {
+
+    display:flex;
+
+    gap:28px;
+
+    margin-top:18px;
+
+    padding-top:15px;
+
+    border-top:
+        1px solid rgba(255,255,255,.055);
+
+}
+
+
+.leaderboard-page .leaderboard-stat {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.leaderboard-page .leaderboard-stat-icon {
+
+    font-size:18px;
+
+}
+
+
+.leaderboard-page .leaderboard-stat span {
+
+    display:block;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    opacity:.45;
+
+}
+
+
+.leaderboard-page .leaderboard-stat strong {
+
+    display:block;
+
+    margin-top:2px;
+
+    font-size:13px;
+
+}
+
+
+/* ========================================
+   DETAILS
+======================================== */
+
+.leaderboard-page .player-details {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:10px;
+
+    padding-top:14px;
+
+    border-top:
+        1px solid rgba(255,255,255,.055);
+
+}
+
+
+.leaderboard-page .detail-stat {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+
+.leaderboard-page .detail-stat span {
+
+    font-size:10px;
+
+    opacity:.5;
+
+}
+
+
+.leaderboard-page .detail-stat strong {
+
+    font-size:13px;
+
+}
+
+
+/* ========================================
+   LIGHT THEME CONTENT
+======================================== */
+
+html.light-theme .leaderboard-page .leaderboard-rank {
+
+    background:
+        rgba(16,24,32,.04);
+
+}
+
+
+html.light-theme .leaderboard-page .leaderboard-prestige {
+
+    background:
+        rgba(0,119,255,.055);
+
+    border-color:
+        rgba(0,119,255,.13);
+
+}
+
+
+html.light-theme .leaderboard-page .leaderboard-stats,
+
+html.light-theme .leaderboard-page .player-details {
+
+    border-color:
+        rgba(16,24,32,.075);
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media(max-width:750px) {
+
+    .leaderboard-page .leaderboard-main {
+
+        grid-template-columns:
+            44px
+            1fr;
+
+        gap:12px;
+
+    }
+
+
+    .leaderboard-page .leaderboard-rank {
+
+        width:40px;
+        height:40px;
+
+        font-size:19px;
+
+    }
+
+
+    .leaderboard-page .leaderboard-player h2 {
+
+        font-size:17px;
+
+    }
+
+
+    .leaderboard-page .leaderboard-prestige {
+
+        grid-column:
+            2;
+
+        justify-self:start;
+
+        margin-top:-4px;
+
+    }
+
+
+    .leaderboard-page .leaderboard-stats {
+
+        gap:18px;
+
+    }
+
+
+    .leaderboard-page .leaderboard-stat strong {
+
+        font-size:12px;
+
+    }
+
+
+    .leaderboard-page .player-details {
+
+        grid-template-columns:1fr;
+
+        gap:8px;
+
+    }
+
+}
 
 /* ========================================
    MOBILE
