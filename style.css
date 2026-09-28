@@ -113,10 +113,51 @@ select {
 }
 
 /* ==========================
+   HEADER
+========================== */
+
+header {
+
+    text-align:center;
+
+    padding:40px 20px;
+
+}
+
+
+header h1 {
+
+    font-size:46px;
+
+    margin:
+    0 0 10px;
+
+}
+
+
+header p {
+
+    font-size:18px;
+
+    opacity:.85;
+
+}
+
+
+header a {
+
+    text-decoration:none;
+
+    color:var(--blue);
+
+}
+
+
+/* ==========================
    HOME HEADER
 ========================== */
 
-.home-hero {
+.home-page .home-hero {
 
     position:relative;
 
@@ -134,9 +175,7 @@ select {
 }
 
 
-/* subtle lighting behind logo */
-
-.home-hero::before {
+.home-page .home-hero::before {
 
     content:"";
 
@@ -164,14 +203,13 @@ select {
 }
 
 
-.hero-badge {
+.home-page .hero-badge {
 
     position:relative;
 
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     padding:7px 14px;
@@ -180,9 +218,11 @@ select {
 
     border-radius:999px;
 
-    border:1px solid rgba(125,211,255,.25);
+    border:
+    1px solid rgba(125,211,255,.25);
 
-    background:rgba(125,211,255,.07);
+    background:
+    rgba(125,211,255,.07);
 
     color:var(--blue);
 
@@ -197,7 +237,7 @@ select {
 }
 
 
-.home-hero h1 {
+.home-page .home-hero h1 {
 
     position:relative;
 
@@ -212,7 +252,7 @@ select {
 }
 
 
-.home-hero p {
+.home-page .home-hero p {
 
     position:relative;
 
@@ -230,7 +270,7 @@ select {
    HOME EXPLORE
 ========================== */
 
-.home-explore {
+.home-page .home-explore {
 
     width:90%;
 
@@ -243,7 +283,7 @@ select {
 }
 
 
-.home-section-header {
+.home-page .home-section-header {
 
     margin-bottom:22px;
 
@@ -271,7 +311,7 @@ select {
 }
 
 
-.home-section-header h2 {
+.home-page .home-section-header h2 {
 
     margin:0;
 
@@ -280,7 +320,7 @@ select {
 }
 
 
-.home-section-header p {
+.home-page .home-section-header p {
 
     margin:6px 0 0;
 
@@ -291,7 +331,7 @@ select {
 }
 
 
-.home-grid {
+.home-page .home-grid {
 
     display:grid;
 
@@ -299,6 +339,32 @@ select {
     repeat(2,minmax(0,1fr));
 
     gap:16px;
+
+}
+
+/* ==========================
+   CONTAINER GRID
+========================== */
+
+.container {
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(250px,1fr)
+    );
+
+    gap:25px;
+
+    padding-bottom:40px;
 
 }
 
@@ -2531,10 +2597,9 @@ html.light-theme .action-button {
 
 @media(max-width:750px) {
 
+    /* HOME HEADER */
 
-    /* HEADER */
-
-    .home-hero {
+    .home-page .home-hero {
 
         width:94%;
 
@@ -2544,7 +2609,7 @@ html.light-theme .action-button {
     }
 
 
-    .home-hero h1 {
+    .home-page .home-hero h1 {
 
         font-size:34px;
 
@@ -2553,14 +2618,14 @@ html.light-theme .action-button {
     }
 
 
-    .home-hero p {
+    .home-page .home-hero p {
 
         font-size:14px;
 
     }
 
 
-    .hero-badge {
+    .home-page .hero-badge {
 
         font-size:9px;
 
@@ -2569,10 +2634,9 @@ html.light-theme .action-button {
     }
 
 
+    /* HOME ACCOUNT */
 
-    /* ACCOUNT */
-
-    .account-bar {
+    .home-page .account-bar {
 
         width:94%;
 
@@ -2586,7 +2650,7 @@ html.light-theme .action-button {
     }
 
 
-    .user-pill {
+    .home-page .user-pill {
 
         width:100%;
 
@@ -2601,14 +2665,14 @@ html.light-theme .action-button {
     }
 
 
-    .user-pill h3 {
+    .home-page .user-pill h3 {
 
         font-size:20px;
 
     }
 
 
-    .account-actions {
+    .home-page .account-actions {
 
         width:100%;
 
@@ -2619,7 +2683,7 @@ html.light-theme .action-button {
     }
 
 
-    .action-button {
+    .home-page .action-button {
 
         width:100%;
 
@@ -2628,10 +2692,9 @@ html.light-theme .action-button {
     }
 
 
+    /* HOME PANELS */
 
-    /* PANELS */
-
-    .home-panel {
+    .home-page .home-panel {
 
         width:94%;
 
@@ -2640,23 +2703,24 @@ html.light-theme .action-button {
     }
 
 
-    .notification-bar {
+    .home-page .notification-bar {
 
         padding:18px;
 
     }
 
 
-    .section-heading {
+    .home-page .section-heading {
 
         gap:11px;
 
     }
 
 
-    .section-icon {
+    .home-page .section-icon {
 
         width:40px;
+
         height:40px;
 
         border-radius:11px;
@@ -2666,14 +2730,14 @@ html.light-theme .action-button {
     }
 
 
-    .section-heading h2 {
+    .home-page .section-heading h2 {
 
         font-size:18px;
 
     }
 
 
-    #notification-text {
+    .home-page #notification-text {
 
         padding-left:0;
 
@@ -2682,10 +2746,9 @@ html.light-theme .action-button {
     }
 
 
-
     /* EVENTS */
 
-    #upcoming-events {
+    .home-page #upcoming-events {
 
         padding:18px;
 
@@ -2694,7 +2757,7 @@ html.light-theme .action-button {
     }
 
 
-    .events-table {
+    .home-page .events-table {
 
         grid-template-columns:
         1fr 2.3fr 1fr;
@@ -2704,7 +2767,7 @@ html.light-theme .action-button {
     }
 
 
-    .events-table > div {
+    .home-page .events-table > div {
 
         padding:11px 5px;
 
@@ -2715,17 +2778,16 @@ html.light-theme .action-button {
     }
 
 
-    .event-header {
+    .home-page .event-header {
 
         font-size:8px !important;
 
     }
 
 
-
     /* EXPLORE */
 
-    .home-explore {
+    .home-page .home-explore {
 
         width:94%;
 
@@ -2734,7 +2796,7 @@ html.light-theme .action-button {
     }
 
 
-    .home-section-header {
+    .home-page .home-section-header {
 
         margin:
         25px 2px 16px;
@@ -2742,23 +2804,21 @@ html.light-theme .action-button {
     }
 
 
-    .home-section-header h2 {
+    .home-page .home-section-header h2 {
 
         font-size:25px;
 
     }
 
 
-    .home-section-header p {
+    .home-page .home-section-header p {
 
         font-size:13px;
 
     }
 
 
-    /* ONE CARD PER ROW */
-
-    .home-grid {
+    .home-page .home-grid {
 
         grid-template-columns:1fr;
 
@@ -2767,7 +2827,9 @@ html.light-theme .action-button {
     }
 
 
-    .home-card {
+    /* HOME CARDS */
+
+    .home-page .home-card {
 
         min-height:105px;
 
@@ -2781,9 +2843,10 @@ html.light-theme .action-button {
     }
 
 
-    .home-card-icon {
+    .home-page .home-card-icon {
 
         width:48px;
+
         height:48px;
 
         border-radius:13px;
@@ -2793,7 +2856,7 @@ html.light-theme .action-button {
     }
 
 
-    .home-card h2 {
+    .home-page .home-card h2 {
 
         font-size:17px;
 
@@ -2802,14 +2865,14 @@ html.light-theme .action-button {
     }
 
 
-    .home-card p {
+    .home-page .home-card p {
 
         font-size:12px;
 
     }
 
 
-    .card-arrow {
+    .home-page .card-arrow {
 
         right:17px;
 
@@ -2817,11 +2880,10 @@ html.light-theme .action-button {
 
     }
 
-}
 
-@media(max-width:750px) {
+    /* HOME ONLY */
 
-    .card:hover {
+    .home-page .card:hover {
 
         transform:none;
 
@@ -2830,7 +2892,7 @@ html.light-theme .action-button {
     }
 
 
-    .home-card:hover .card-arrow {
+    .home-page .home-card:hover .card-arrow {
 
         transform:
         translateY(-50%);
