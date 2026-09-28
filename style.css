@@ -3029,219 +3029,752 @@ html.light-theme .shop-page .shop-price-icon {
 
 }
 
-/* ==========================
-   STATUS BADGES
-========================== */
+/* ========================================
+   COMMAND PAGE
+======================================== */
 
-.command-card span {
+.command-page header {
 
-    display:inline-block;
+    width:90%;
+    max-width:1100px;
 
-    padding:6px 14px;
+    margin:0 auto;
 
-    border-radius:20px;
+    padding:55px 20px 35px;
 
-    font-size:14px;
+}
+
+
+.command-page .page-eyebrow {
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:2.5px;
+
+    color:var(--blue);
+
+    opacity:.75;
+
+}
+
+
+.command-page header h1 {
+
+    margin:0 0 10px;
+
+    font-size:clamp(32px,5vw,46px);
+
+}
+
+
+.command-page header p {
+
+    margin:0;
+
+    font-size:15px;
+
+    opacity:.65;
+
+}
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.command-search-wrap {
+
+    width:90%;
+    max-width:1100px;
+
+    margin:0 auto 45px;
+
+}
+
+
+.command-search {
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+.command-search-icon {
+
+    position:absolute;
+
+    left:18px;
+
+    font-size:22px;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+
+#command-search {
+
+    width:100%;
+    height:52px;
+
+    padding:
+        0 18px 0 50px;
+
+    border-radius:15px;
+
+    border:1px solid var(--border);
+
+    outline:none;
+
+    background:var(--glass);
+
+    color:var(--text);
 
     font-family:"Poppins",sans-serif;
 
-    width:fit-content;
+    font-size:14px;
 
-    margin:10px auto 0;
+    backdrop-filter:blur(15px);
 
-    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(15px);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+#command-search::placeholder {
+
+    color:var(--text);
+
+    opacity:.42;
 
 }
 
 
-
-/* AVAILABLE */
-
-.available {
-
-    color:#55ff88;
-
-    background:
-    rgba(85,255,136,.15);
-
-    border:
-    1px solid rgba(85,255,136,.4);
-
-    box-shadow:
-
-    0 0 12px rgba(85,255,136,.4);
-
-}
-
-html.light-theme .available {
-
-    color:#006b32;
-
-    background:
-    rgba(0,107,50,.12);
+#command-search:focus {
 
     border-color:
-    rgba(0,107,50,.35);
+        rgba(125,211,255,.4);
 
     box-shadow:
-
-    0 0 12px rgba(0,107,50,.25);
-
-}
-
-/* COMING SOON */
-
-.coming-soon {
-
-    color:#ffaa55;
-
-    background:
-    rgba(255,170,85,.15);
-
-    border:
-    1px solid rgba(255,170,85,.4);
-
-    box-shadow:
-
-    0 0 12px rgba(255,170,85,.4);
+        0 0 0 3px rgba(125,211,255,.07);
 
 }
 
 
-
-/* DISABLED */
-
-.disabled {
-
-    color:#ff5555;
-
-    background:
-    rgba(255,85,85,.15);
-
-    border:
-    1px solid rgba(255,85,85,.4);
-
-    box-shadow:
-
-    0 0 12px rgba(255,85,85,.4);
-
-}
-
-
-
-/* ==========================
-   COMMAND PAGE
-========================== */
-
+/* ========================================
+   MAIN CONTAINER
+======================================== */
 
 #commands-container {
 
     width:90%;
+    max-width:1100px;
 
-    max-width:1400px;
+    margin:0 auto;
+
+    padding-bottom:60px;
 
 }
 
 
+/* ========================================
+   CATEGORY SECTION
+======================================== */
+
+.command-section {
+
+    margin-bottom:48px;
+
+}
+
+
+.command-section-header {
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:18px;
+
+}
+
+
+.command-section-label {
+
+    display:block;
+
+    margin-bottom:5px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:1.8px;
+
+    color:var(--blue);
+
+    opacity:.8;
+
+}
+
+
+.command-section-header h2 {
+
+    margin:0;
+
+    font-size:25px;
+
+}
+
+
+.command-count {
+
+    flex-shrink:0;
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    color:var(--blue);
+
+    background:
+        rgba(125,211,255,.055);
+
+    border:
+        1px solid rgba(125,211,255,.12);
+
+}
+
+
+/* ========================================
+   COMMAND GRID
+======================================== */
+
+.command-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:15px;
+
+}
+
+
+/* ========================================
+   COMMAND CARD
+======================================== */
 
 .command-card {
 
-    min-height:260px;
+    position:relative;
+
+    min-width:0;
+
+    min-height:285px;
+
+    padding:20px;
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:flex-start;
+    border-radius:18px;
 
-    text-align:center;
+    background:var(--glass);
 
-    overflow:visible;
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    overflow:hidden;
+
+    text-align:left;
+
+    transition:
+        transform .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
 
 }
 
 
+.command-card::before {
 
-.command-card h2 {
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(125,211,255,.55),
+            transparent
+        );
+
+    opacity:.45;
+
+}
+
+
+.command-card:hover {
+
+    transform:translateY(-4px);
+
+    background:var(--glass-hover);
+
+    border-color:
+        rgba(125,211,255,.25);
+
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.14);
+
+}
+
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.command-card-top {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.command-category {
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+    opacity:.4;
+
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.command-status {
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:5px 8px;
+
+    border-radius:999px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    backdrop-filter:blur(8px);
+
+}
+
+
+.command-status.available {
+
+    color:#55ff88;
+
+    background:
+        rgba(85,255,136,.08);
+
+    border:
+        1px solid rgba(85,255,136,.25);
+
+}
+
+
+.command-status.coming-soon {
+
+    color:#ffaa55;
+
+    background:
+        rgba(255,170,85,.08);
+
+    border:
+        1px solid rgba(255,170,85,.25);
+
+}
+
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.command-card-content {
+
+    flex:1;
+
+    padding-top:24px;
+
+}
+
+
+.command-card h3 {
 
     margin:0;
 
-    font-size:24px;
+    font-size:20px;
+
+    line-height:1.3;
+
+    font-weight:600;
 
 }
 
 
+/* ========================================
+   USAGE
+======================================== */
 
-/* COMMAND USAGE */
+.command-usage-label {
 
-.command-card .usage {
+    display:block;
 
-    font-family:Consolas, monospace;
+    margin-top:21px;
+
+    margin-bottom:7px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1.5px;
+
+    opacity:.4;
+
+}
+
+
+.command-usage {
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:5px;
+
+    width:100%;
+
+    padding:11px 13px;
+
+    border-radius:10px;
+
+    background:
+        rgba(0,0,0,.22);
+
+    border:
+        1px solid rgba(255,255,255,.055);
 
     color:#7dd3ff;
 
-    background:
+    font-family:
+        "Consolas",
+        "Courier New",
+        monospace;
 
-    rgba(0,0,0,.25);
-
-    padding:10px 15px;
-
-    border-radius:12px;
-
-    margin:10px auto;
-
-    width:90%;
-
-    overflow-wrap:break-word;
-
-    word-break:break-word;
-
-    text-align:center;
-
-}
-
-html.light-theme .command-card .usage {
-
-   color:#0047AB;
-
-   background:
-
-   rgba(0, 0, 0, 0.12);
-
-   padding:10px 15px;
-
-   border-radius:12px;
-
-   margin:10px auto;
-
-   width:90%;
-
-   overflow-wrap:break-word;
-
-   word-break:break-word;
-
-   text-align:center;
-
-}
-/* COMMAND DESCRIPTION */
-
-.command-card .description {
-
-    opacity:.85;
+    font-size:13px;
 
     line-height:1.5;
 
-    margin:10px auto;
+    overflow-wrap:anywhere;
 
-    width:90%;
-
-    flex-grow:1;
-
-    font-size:15px;
+    word-break:break-word;
 
 }
 
 
+.command-prefix {
+
+    opacity:.4;
+
+    user-select:none;
+
+}
+
+
+.command-description {
+
+    margin:15px 0 0;
+
+    font-size:12px;
+
+    line-height:1.65;
+
+    opacity:.58;
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.command-card-footer {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:20px;
+
+    padding-top:14px;
+
+    border-top:
+        1px solid rgba(255,255,255,.055);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:7px;
+
+    letter-spacing:1.2px;
+
+    color:var(--blue);
+
+    opacity:.7;
+
+}
+
+
+.command-arrow {
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:16px;
+
+    opacity:.6;
+
+}
+
+
+/* ========================================
+   LIGHT THEME
+======================================== */
+
+html.light-theme .command-card {
+
+    background:
+        rgba(255,255,255,.60);
+
+    border-color:
+        rgba(16,24,32,.09);
+
+}
+
+
+html.light-theme .command-card:hover {
+
+    background:
+        rgba(255,255,255,.78);
+
+    border-color:
+        rgba(0,119,255,.18);
+
+    box-shadow:
+        0 15px 35px rgba(30,70,100,.10);
+
+}
+
+
+html.light-theme #command-search {
+
+    background:
+        rgba(255,255,255,.58);
+
+    border-color:
+        rgba(16,24,32,.10);
+
+}
+
+
+html.light-theme #command-search:focus {
+
+    border-color:
+        rgba(0,119,255,.25);
+
+    box-shadow:
+        0 0 0 3px rgba(0,119,255,.06);
+
+}
+
+
+html.light-theme .command-usage {
+
+    color:#0047AB;
+
+    background:
+        rgba(0,0,0,.055);
+
+    border-color:
+        rgba(0,0,0,.07);
+
+}
+
+
+html.light-theme .command-card-footer {
+
+    border-color:
+        rgba(16,24,32,.07);
+
+}
+
+
+html.light-theme .command-count {
+
+    background:
+        rgba(0,119,255,.055);
+
+    border-color:
+        rgba(0,119,255,.12);
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width:800px) {
+
+    .command-grid {
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width:560px) {
+
+    .command-page header {
+
+        padding:
+            40px 15px 28px;
+
+    }
+
+
+    .command-page header h1 {
+
+        font-size:32px;
+
+    }
+
+
+    .command-page header p {
+
+        font-size:13px;
+
+    }
+
+
+    .command-search-wrap {
+
+        width:94%;
+
+        margin-bottom:32px;
+
+    }
+
+
+    #commands-container {
+
+        width:94%;
+
+    }
+
+
+    .command-section-header {
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+
+    .command-grid {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .command-card {
+
+        min-height:250px;
+
+    }
+
+}
 
 /* ========================================
    LEADERBOARD
