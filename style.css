@@ -2962,18 +2962,18 @@ html.light-theme .leaderboard-page .leaderboard-card.top-three {
 
 
 /* ========================================
-   STATS
+   LEADERBOARD STATS
 ======================================== */
 
 .leaderboard-page .leaderboard-stats {
 
     display:flex;
 
-    gap:28px;
+    gap:40px;
 
     margin-top:18px;
 
-    padding-top:15px;
+    padding-top:18px;
 
     border-top:
         1px solid rgba(255,255,255,.055);
@@ -2987,14 +2987,34 @@ html.light-theme .leaderboard-page .leaderboard-card.top-three {
 
     align-items:center;
 
-    gap:8px;
+    gap:12px;
+
+    min-width:170px;
 
 }
 
 
 .leaderboard-page .leaderboard-stat-icon {
 
-    font-size:18px;
+    width:46px;
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:13px;
+
+    background:
+        rgba(125,211,255,.07);
+
+    border:
+        1px solid rgba(125,211,255,.12);
+
+    font-size:25px;
 
 }
 
@@ -3005,9 +3025,9 @@ html.light-theme .leaderboard-page .leaderboard-card.top-three {
 
     font-family:"Orbitron",sans-serif;
 
-    font-size:7px;
+    font-size:8px;
 
-    letter-spacing:1px;
+    letter-spacing:1.2px;
 
     opacity:.45;
 
@@ -3016,14 +3036,34 @@ html.light-theme .leaderboard-page .leaderboard-card.top-three {
 
 .leaderboard-page .leaderboard-stat strong {
 
+    display:inline-block;
+
+    margin-top:3px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+.leaderboard-page .leaderboard-stat small {
+
     display:block;
 
     margin-top:2px;
 
-    font-size:13px;
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:.8px;
+
+    color:var(--blue);
+
+    opacity:.75;
 
 }
-
 
 /* ========================================
    DETAILS
