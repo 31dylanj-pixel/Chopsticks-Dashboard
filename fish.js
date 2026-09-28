@@ -166,6 +166,11 @@ const fishInfo = {
      * image exists.
      */
 
+    "🐚 Seashell": {
+        image: "images/fish/seashell.jpg",
+        overview: "Length: 1 cm-1.3 m <br>Weight: 0.5 g-340 kg <br>Congratulations! You fished a… shell. How did you even do that? Aren’t they inanimate? I mean, it’s better than nothing. Seashells are made of calcium carbonate, and are created by animals (usually mollusks) as a hard, protective layer. Historically, they have been used as jewelry, currency, and even musical instruments."
+    },
+    
     "🐟 Anchovy": {
         image: "images/fish/anchovy.png",
         overview: "Overview coming soon."
