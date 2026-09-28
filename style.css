@@ -3065,6 +3065,16 @@ html.light-theme .leaderboard-page .leaderboard-card.top-three {
 
 }
 
+html.light-theme .leaderboard-page .leaderboard-stat-icon {
+
+    background:
+        rgba(0,119,255,.055);
+
+    border-color:
+        rgba(0,119,255,.12);
+
+}
+
 /* ========================================
    DETAILS
 ======================================== */
@@ -3194,17 +3204,35 @@ html.light-theme .leaderboard-page .player-details {
 
     .leaderboard-page .leaderboard-stats {
 
-        gap:18px;
+        gap:16px;
+
+        flex-wrap:wrap;
+
+    }
+
+
+    .leaderboard-page .leaderboard-stat {
+
+        min-width:140px;
+
+    }
+
+
+    .leaderboard-page .leaderboard-stat-icon {
+
+        width:42px;
+        height:42px;
+
+        font-size:22px;
 
     }
 
 
     .leaderboard-page .leaderboard-stat strong {
 
-        font-size:12px;
+        font-size:16px;
 
     }
-
 
     .leaderboard-page .player-details {
 
