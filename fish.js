@@ -186,7 +186,7 @@ const fishInfo = {
     },
 
     "🐟 Minnow": {
-        image: "fish/minnow.png",
+        image: "fish/minnow.jpg",
         overview: `
             <strong>Length:</strong> 5-10 cm<br>
             <strong>Weight:</strong> 8-16 grams<br><br>
@@ -197,6 +197,18 @@ const fishInfo = {
         `
     },
 
+    "🐟 Guppy": {
+        image: "fish/guppy.jpg",
+        overview: `
+            <strong>Length:</strong> 1.5-4 cm (male), 3-8 cm (female)<br>
+            <strong>Weight:</strong> 0.9 (male), 1.5-2.5 g (female)<br><br>
+        
+            Guppies are one of the most popular pet fish, because they are easy to care for, and are famous for their vibrant colors and flowy tails. 
+            They are also called millionfish or rainbow fish. Male guppies, which are significantly smaller than females, have beautiful dorsal fins and are more colorful.
+
+        `
+    },
+    
     "🐠 Goldfish": {
         image: "images/fish/goldfish.png",
         overview: "Overview coming soon."
