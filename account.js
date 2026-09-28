@@ -2,69 +2,88 @@ const SUPABASE_URL = "https://rualkoaojvjiqsudzgah.supabase.co";
 const SUPABASE_KEY = "sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
 const accountBar = document.querySelector(".account-bar");
-let currentUser = localStorage.getItem("currentUser") || null;
+
+let currentUser =
+    localStorage.getItem("currentUser") || null;
+
 
 // ==========================
 // COIN FORMATTER
 // ==========================
+
 function formatCoins(num){
+
     num = Number(num);
-    
+
     const suffixes = [
-        { value:1e33, suffix:"Dc" }, // Decillion
-        { value:1e30, suffix:"No" }, // Nonillion
-        { value:1e27, suffix:"Oc" }, // Octillion
-        { value:1e24, suffix:"Sp" }, // Septillion
-        { value:1e21, suffix:"Sx" }, // Sextillion
-        { value:1e18, suffix:"Qi" }, // Quintillion
-        { value:1e15, suffix:"Qa" }, // Quadrillion
+
+        { value:1e33, suffix:"Dc" },
+        { value:1e30, suffix:"No" },
+        { value:1e27, suffix:"Oc" },
+        { value:1e24, suffix:"Sp" },
+        { value:1e21, suffix:"Sx" },
+        { value:1e18, suffix:"Qi" },
+        { value:1e15, suffix:"Qa" },
         { value:1e12, suffix:"T" },
         { value:1e9, suffix:"B" },
         { value:1e6, suffix:"M" },
         { value:1e3, suffix:"K" }
+
     ];
 
     for(let i = 0; i < suffixes.length; i++){
+
         if(num >= suffixes[i].value){
+
             return (
                 num / suffixes[i].value
             ).toFixed(2)
             + " "
             + suffixes[i].suffix;
+
         }
+
     }
+
     return num.toFixed(2);
+
 }
+
+
 // ==========================
 // ACCOUNT DISPLAY
 // ==========================
+
 function updateAccount(){
+
     if(currentUser){
+
         accountBar.innerHTML = `
 
         <div class="user-pill">
+
             <div>
+
                 <h3>
                     👤 ${currentUser}
                 </h3>
+
                 <p>
-                    Coins:
+                    🪙 Coins:
                     ${formatCoins(
                         localStorage.getItem("coins") || 0
                     )}
                 </p>
+
                 <p>
-                    Daily Streak:
+                    🔥 Daily Streak:
                     ${localStorage.getItem("streak") || 0}
                 </p>
+
             </div>
+
         </div>
 
-        <button
-        class="daily-reward"
-        id="dailyRewardButton">
-            🎁 Daily Reward
-        </button>
 
         <div class="account-actions">
 
@@ -75,7 +94,8 @@ function updateAccount(){
                 🔑 Change Password
 
             </button>
-            
+
+
             <button
             class="action-button"
             id="logoutButton">
@@ -85,7 +105,11 @@ function updateAccount(){
             </button>
 
         </div>
+
         `;
+
+
+        // CHANGE PASSWORD
 
         document
         .getElementById("changePasswordButton")
@@ -94,6 +118,9 @@ function updateAccount(){
             openPasswordChange();
 
         };
+
+
+        // LOGOUT
 
         document
         .getElementById("logoutButton")
@@ -109,35 +136,24 @@ function updateAccount(){
             localStorage.removeItem("streak");
 
             updateAccount();
+
         };
-        document
-        .getElementById("dailyRewardButton")
-        .onclick = () => {
-        
-            openDailyReward();
-        
-        };
+
     }
+
     else {
 
-
-
         accountBar.innerHTML = `
-
 
         <button
         class="action-button"
         id="loginButton">
 
-
             🔐 Login
-
 
         </button>
 
-
         `;
-
 
 
         document
@@ -148,15 +164,9 @@ function updateAccount(){
 
         };
 
-
     }
 
-
 }
-
-
-
-
 
 
 // ==========================
@@ -165,63 +175,51 @@ function updateAccount(){
 
 async function loadPlayerData(){
 
-
     const authID =
-    localStorage.getItem("auth_id");
+        localStorage.getItem("auth_id");
 
 
     if(!authID)
         return;
 
 
-
     const response = await fetch(
 
-
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}&select=username,coins,daily_streak,last_daily,prestige_points,inventory`,
-
+        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${authID}&select=username,coins,daily_streak,prestige_points,inventory`,
 
         {
 
-
             headers:{
 
-
                 apikey:SUPABASE_KEY,
-
 
                 Authorization:
                 `Bearer ${SUPABASE_KEY}`
 
-
             }
 
-
         }
-
 
     );
 
 
-
     const players =
-    await response.json();
-
+        await response.json();
 
 
     if(players.length === 0)
         return;
 
 
-
     const player =
-    players[0];
+        players[0];
+
 
     console.log(player);
 
-    currentUser =
-    player.username;
 
+    currentUser =
+        player.username;
 
 
     localStorage.setItem(
@@ -241,16 +239,15 @@ async function loadPlayerData(){
         player.daily_streak || 0
     );
 
-    localStorage.setItem(
-    "last_daily",
-    player.last_daily || ""
-    );
-    
+
+    // Keep these for other Chopsticks systems
+
     localStorage.setItem(
         "prestige_points",
         player.prestige_points || 0
     );
-    
+
+
     localStorage.setItem(
         "streak_freezes",
         player.inventory?.streak_freeze || 0
@@ -259,13 +256,7 @@ async function loadPlayerData(){
 
     updateAccount();
 
-
 }
-
-
-
-
-
 
 
 // ==========================
@@ -276,109 +267,83 @@ function openLogin(){
 
     document
     .getElementById("loginModal")
-    .classList.add("active");
+    .classList
+    .add("active");
 
 }
-
-
-
 
 
 window.closeLogin = function(){
 
     document
     .getElementById("loginModal")
-    .classList.remove("active");
+    .classList
+    .remove("active");
 
 };
 
 
-
-
-
+// ==========================
+// LOGIN AUTHENTICATION
+// ==========================
 
 window.fakeLogin = async function(){
 
-
     const email =
-    document
-    .getElementById("loginEmail")
-    .value
-    .trim();
-
+        document
+        .getElementById("loginEmail")
+        .value
+        .trim();
 
 
     const password =
-    document
-    .getElementById("loginPassword")
-    .value;
-
-
-
+        document
+        .getElementById("loginPassword")
+        .value;
 
 
     const response = await fetch(
 
-
         `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
-
 
         {
 
-
             method:"POST",
-
 
             headers:{
 
-
                 apikey:SUPABASE_KEY,
 
-                "Content-Type":"application/json"
-
+                "Content-Type":
+                "application/json"
 
             },
 
-
             body:JSON.stringify({
 
-
                 email,
-
                 password
-
 
             })
 
-
         }
-
 
     );
 
 
-
     const data =
-    await response.json();
-
-
+        await response.json();
 
 
     if(!data.access_token){
-
 
         alert(
             "❌ Incorrect email or password!"
         );
 
-
         return;
 
-
     }
-
-
-
 
 
     localStorage.setItem(
@@ -393,71 +358,52 @@ window.fakeLogin = async function(){
     );
 
 
+    // ==========================
+    // LOAD CHOPSTICKS PROFILE
+    // ==========================
 
+    const playerResponse =
+        await fetch(
 
+            `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak,prestige_points,inventory`,
 
-    const playerResponse = await fetch(
+            {
 
+                headers:{
 
-        `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak,last_daily,prestige_points,inventory`,
+                    apikey:SUPABASE_KEY,
 
+                    Authorization:
+                    `Bearer ${SUPABASE_KEY}`
 
-        {
-
-
-            headers:{
-
-
-                apikey:SUPABASE_KEY,
-
-
-                Authorization:
-                `Bearer ${SUPABASE_KEY}`
-
+                }
 
             }
 
-
-        }
-
-
-    );
-
+        );
 
 
     const players =
-    await playerResponse.json();
-
-
-
+        await playerResponse.json();
 
 
     if(players.length === 0){
-
 
         alert(
             "❌ No Chopsticks profile linked!"
         );
 
-
         return;
-
 
     }
 
 
-
-
-
     const player =
-    players[0];
-
+        players[0];
 
 
     currentUser =
-    player.username;
-
-
+        player.username;
 
 
     localStorage.setItem(
@@ -466,12 +412,10 @@ window.fakeLogin = async function(){
     );
 
 
-
     localStorage.setItem(
         "currentEmail",
         email
     );
-
 
 
     localStorage.setItem(
@@ -485,77 +429,62 @@ window.fakeLogin = async function(){
         player.daily_streak || 0
     );
 
-    localStorage.setItem(
-        "last_daily",
-        player.last_daily || ""
-    );
-    
+
     localStorage.setItem(
         "prestige_points",
         player.prestige_points || 0
     );
-    
+
+
     localStorage.setItem(
         "streak_freezes",
         player.inventory?.streak_freeze || 0
     );
 
+
     closeLogin();
 
     updateAccount();
 
-
 };
-
-
-
-
-
 
 
 // ==========================
 // PASSWORD CHANGE
 // ==========================
 
-
 function openPasswordChange(){
 
     document
     .getElementById("passwordModal")
-    .classList.add("active");
+    .classList
+    .add("active");
 
 }
-
 
 
 window.closePasswordChange = function(){
 
     document
     .getElementById("passwordModal")
-    .classList.remove("active");
+    .classList
+    .remove("active");
 
 };
 
 
-
-
-
-
 window.changePassword = async function(){
 
-
     const newPassword =
-    document
-    .getElementById("newPassword")
-    .value;
+        document
+        .getElementById("newPassword")
+        .value;
 
 
     const confirmPassword =
-    document
-    .getElementById("confirmPassword")
-    .value;
-
-
+        document
+        .getElementById("confirmPassword")
+        .value;
 
 
     if(newPassword !== confirmPassword){
@@ -569,108 +498,82 @@ window.changePassword = async function(){
     }
 
 
-
-
     const response = await fetch(
-
 
         `${SUPABASE_URL}/auth/v1/user`,
 
-
         {
-
 
             method:"PUT",
 
-
             headers:{
-
 
                 apikey:SUPABASE_KEY,
 
-
                 Authorization:
-                `Bearer ${localStorage.getItem("access_token")}`,
+                `Bearer ${
+                    localStorage.getItem("access_token")
+                }`,
 
-
-                "Content-Type":"application/json"
-
+                "Content-Type":
+                "application/json"
 
             },
 
-
             body:JSON.stringify({
-
 
                 password:newPassword
 
-
             })
 
-
         }
-
 
     );
 
 
-
-
     if(response.ok){
-
 
         alert(
             "✅ Password changed!"
         );
 
-
         closePasswordChange();
 
-
     }
-
 
 };
 
 
+// ==========================
+// PASSWORD VISIBILITY
+// ==========================
 
-
-
-
-window.togglePassword = function(inputId, icon){
-
+window.togglePassword =
+function(inputId, icon){
 
     const input =
-    document.getElementById(inputId);
-
+        document.getElementById(inputId);
 
 
     if(input.type === "password"){
 
+        input.type = "text";
 
-        input.type="text";
-
-        icon.textContent="visibility_off";
-
+        icon.textContent =
+            "visibility_off";
 
     }
 
     else{
 
+        input.type = "password";
 
-        input.type="password";
-
-        icon.textContent="visibility";
-
+        icon.textContent =
+            "visibility";
 
     }
 
-
 };
-
-
-
-
 
 
 // ==========================
