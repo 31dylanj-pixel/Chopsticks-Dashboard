@@ -2,32 +2,123 @@
 <html>
 
 <head>
+
     <title>Fish Library - Chopsticks</title>
+
     <script src="theme.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+<body class="fish-page">
 
 <header>
+
     <h1>🎣 Fish Library</h1>
+
     <p>Discover every fish in Chopsticks</p>
+
     <a href="index.html" class="back-button">
         Back to Home
     </a>
+
 </header>
+
 
 <div class="search-box">
 
-    <input 
+    <input
         type="text"
         id="fish-search"
-        placeholder="🔍 Search for a fish..."
+        placeholder="Search for a fish..."
     >
 
 </div>
-    
+
+
 <div id="fish-container" class="container"></div>
+
+
+<!-- ========================================
+     FISH PROFILE POPUP
+======================================== -->
+
+<div id="fish-modal" class="fish-modal">
+
+    <div class="fish-modal-content">
+
+        <button
+            id="fish-modal-close"
+            class="fish-modal-close"
+            aria-label="Close fish profile"
+        >
+            ×
+        </button>
+
+
+        <div class="fish-modal-header">
+
+            <div class="fish-modal-title-area">
+
+                <h2 id="fish-modal-name">
+                    Fish Name
+                </h2>
+
+                <div class="fish-modal-meta">
+
+                    <span
+                        id="fish-modal-rarity"
+                        class="fish-modal-rarity"
+                    >
+                        Rarity
+                    </span>
+
+                    <span
+                        id="fish-modal-value"
+                        class="fish-modal-value"
+                    >
+                        💰 0 coins
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Fish image / fantasy fish area -->
+
+        <div
+            id="fish-modal-image"
+            class="fish-modal-image"
+        >
+
+            <div class="fantasy-fish-message">
+                This is a fantasy fish.
+            </div>
+
+        </div>
+
+
+        <!-- Overview -->
+
+        <div class="fish-modal-overview">
+
+            <div class="fish-modal-section-label">
+                OVERVIEW
+            </div>
+
+            <p id="fish-modal-overview-text">
+                No overview available yet.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <script src="fish.js"></script>
