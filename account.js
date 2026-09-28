@@ -58,51 +58,150 @@ function updateAccount(){
 
     if(currentUser){
 
+        const coins =
+            formatCoins(
+                localStorage.getItem("coins") || 0
+            );
+
+        const streak =
+            localStorage.getItem("streak") || 0;
+
+        const prestige =
+            localStorage.getItem("prestige_points") || 0;
+
         accountBar.innerHTML = `
 
-        <div class="user-pill">
+        <div class="player-profile">
 
-            <div>
 
-                <h3>
-                    👤 ${currentUser}
-                </h3>
+            <div class="player-main">
 
-                <p>
-                    🪙 Coins:
-                    ${formatCoins(
-                        localStorage.getItem("coins") || 0
-                    )}
-                </p>
 
-                <p>
-                    🔥 Daily Streak:
-                    ${localStorage.getItem("streak") || 0}
-                </p>
+                <div class="player-avatar">
+
+                    👤
+
+                </div>
+
+
+                <div class="player-identity">
+
+                    <span class="player-label">
+                        PLAYER PROFILE
+                    </span>
+
+                    <h2>
+                        ${currentUser}
+                    </h2>
+
+                    <p>
+                        Chopsticks Player
+                    </p>
+
+                </div>
+
 
             </div>
 
-        </div>
 
 
-        <div class="account-actions">
-
-            <button
-            class="action-button"
-            id="changePasswordButton">
-
-                🔑 Change Password
-
-            </button>
+            <div class="player-stats">
 
 
-            <button
-            class="action-button"
-            id="logoutButton">
+                <div class="player-stat">
 
-                🚪 Sign Out
+                    <span class="stat-icon">
+                        🪙
+                    </span>
 
-            </button>
+                    <div>
+
+                        <span class="stat-label">
+                            COINS
+                        </span>
+
+                        <strong>
+                            ${coins}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="player-stat">
+
+                    <span class="stat-icon">
+                        🔥
+                    </span>
+
+                    <div>
+
+                        <span class="stat-label">
+                            STREAK
+                        </span>
+
+                        <strong>
+                            ${streak} Days
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="player-stat">
+
+                    <span class="stat-icon">
+                        ⭐
+                    </span>
+
+                    <div>
+
+                        <span class="stat-label">
+                            PRESTIGE
+                        </span>
+
+                        <strong>
+                            ${prestige}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="player-actions">
+
+
+                <button
+                class="profile-action"
+                id="changePasswordButton">
+
+                    🔑
+                    <span>Change Password</span>
+
+                </button>
+
+
+                <button
+                class="profile-action danger"
+                id="logoutButton">
+
+                    🚪
+                    <span>Sign Out</span>
+
+                </button>
+
+
+            </div>
+
 
         </div>
 
@@ -145,13 +244,38 @@ function updateAccount(){
 
         accountBar.innerHTML = `
 
-        <button
-        class="action-button"
-        id="loginButton">
+        <div class="logged-out-profile">
 
-            🔐 Login
+            <div class="logged-out-icon">
+                🔐
+            </div>
 
-        </button>
+            <div class="logged-out-info">
+
+                <span class="player-label">
+                    CHOPSTICKS ACCOUNT
+                </span>
+
+                <h2>
+                    Sign in to Chopsticks
+                </h2>
+
+                <p>
+                    Access your player profile and stats.
+                </p>
+
+            </div>
+
+            <button
+            class="profile-login-button"
+            id="loginButton">
+
+                Login
+                <span>→</span>
+
+            </button>
+
+        </div>
 
         `;
 
@@ -167,8 +291,6 @@ function updateAccount(){
     }
 
 }
-
-
 // ==========================
 // LOAD PLAYER DATA
 // ==========================
