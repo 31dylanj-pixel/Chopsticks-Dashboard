@@ -2,19 +2,29 @@
 <html>
 
 <head>
+
     <title>Commands - Chopsticks</title>
+
     <script src="theme.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+<body class="command-page">
 
 <header>
 
-    <h1>💻 Chopsticks Commands</h1>
+    <span class="page-eyebrow">
+        CHOPSTICKS HUB
+    </span>
+
+    <h1>
+        💻 Chopsticks Commands
+    </h1>
 
     <p>
-        Browse every command there is.
+        Explore every command available in Chopsticks.
     </p>
 
     <a href="index.html" class="back-button">
@@ -24,18 +34,35 @@
 </header>
 
 
-<div class="search-box">
+<!-- ========================================
+     SEARCH
+======================================== -->
 
-    <input
-        type="text"
-        id="command-search"
-        placeholder="🔍 Search commands..."
-    >
+<div class="command-search-wrap">
+
+    <div class="command-search">
+
+        <span class="command-search-icon">
+            ⌕
+        </span>
+
+        <input
+            type="text"
+            id="command-search"
+            placeholder="Search commands..."
+            autocomplete="off"
+        >
+
+    </div>
 
 </div>
 
 
-<div id="commands-container" class="container"></div>
+<!-- ========================================
+     COMMANDS
+======================================== -->
+
+<main id="commands-container"></main>
 
 
 <script src="commands.js"></script>
