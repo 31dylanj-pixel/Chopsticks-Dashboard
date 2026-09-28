@@ -465,6 +465,24 @@ html.light-theme .home-page .home-hero h1 {
 }
 
 /* ========================================
+   HOME EXPLORE CARDS — HOVER
+======================================== */
+
+.home-page .home-card:hover {
+    transform: translateY(-4px);
+    background: var(--glass);
+    filter: none;
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, .12);
+}
+
+html.light-theme .home-page .home-card:hover {
+    background: rgba(255, 255, 255, .72);
+    box-shadow:
+        0 14px 35px rgba(30, 70, 100, .10);
+}
+
+/* ========================================
    EXPLORE — LIGHT THEME
 ======================================== */
 
