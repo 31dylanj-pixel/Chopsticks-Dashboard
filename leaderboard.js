@@ -5,7 +5,6 @@ const SUPABASE_KEY =
 "sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
 
 
-
 function formatCoins(amount) {
 
     const units = [
@@ -16,7 +15,6 @@ function formatCoins(amount) {
         { value: 1e6, symbol: "M" },
         { value: 1e3, symbol: "K" }
     ];
-
 
     for (const unit of units) {
 
@@ -31,15 +29,12 @@ function formatCoins(amount) {
 
     }
 
-
     return amount.toString();
 
 }
 
 
-
 async function loadLeaderboard() {
-
 
     const response = await fetch(
 
@@ -47,7 +42,7 @@ async function loadLeaderboard() {
 
         {
 
-            headers:{
+            headers: {
 
                 apikey: SUPABASE_KEY,
 
@@ -61,22 +56,17 @@ async function loadLeaderboard() {
     );
 
 
-
     console.log("Status:", response.status);
-
 
 
     const players = await response.json();
 
 
-
     console.log("Players:", players);
-
 
 
     const container =
     document.getElementById("leaderboard");
-
 
 
     if (!container) {
@@ -90,33 +80,77 @@ async function loadLeaderboard() {
     }
 
 
-
     container.innerHTML = "";
 
 
+    players.forEach((player, index) => {
 
-    players.forEach((player,index)=>{
 
+        let rank = index + 1;
 
-        let rank = `${index + 1}.`;
+        let rankDisplay = rank;
 
 
         if (index === 0) {
-            rank = "🥇";
+
+            rankDisplay = "🥇";
+
         }
 
         else if (index === 1) {
-            rank = "🥈";
+
+            rankDisplay = "🥈";
+
         }
 
         else if (index === 2) {
-            rank = "🥉";
+
+            rankDisplay = "🥉";
+
         }
 
 
+        const prestige =
+            Number(player.prestige || 0);
+
+
+        const title =
+            player.title || "Rookie";
+
+
+        const coins =
+            Number(player.coins || 0);
+
+
+        const streak =
+            Number(player.daily_streak || 0);
+
+
+        const fishCaught =
+            Number(
+                player.stats?.fish_caught ?? 0
+            );
+
+
+        const slotsPlayed =
+            Number(
+                player.stats?.slots_played ?? 0
+            );
+
+
+        const coinsEarned =
+            Number(
+                player.stats?.coins_earned ?? 0
+            );
+
+
+        const prestigeDisplay =
+            prestige > 0
+                ? `PRESTIGE ${prestige}`
+                : "NO PRESTIGE";
+
 
         container.innerHTML += `
-
 
         <div class="card leaderboard-card ${
             index === 0 ? "top-one" :
@@ -125,80 +159,153 @@ async function loadLeaderboard() {
             ""
         }">
 
-            <h2>
 
-                ${rank}
-            
-                ${player.prestige > 0 
-                    ? `PRESTIGE ${player.prestige} • `
-                    : ""
-                }
-            
-                ${player.title}
-            
-                • ${player.username}
-            
-            </h2>
+            <div class="leaderboard-main">
 
 
+                <div class="leaderboard-rank">
 
-            <p>
+                    ${rankDisplay}
 
-                💰 ${player.coins.toLocaleString()}
-
-                coins
-
-                (${formatCoins(player.coins)})
-
-            </p>
+                </div>
 
 
+                <div class="leaderboard-player">
 
-            <p>
+                    <span class="leaderboard-title">
 
-                🔥 Daily Streak:
+                        ${title}
 
-                ${player.daily_streak}
+                    </span>
 
-            </p>
+                    <h2>
+
+                        ${player.username}
+
+                    </h2>
+
+                </div>
+
+
+                <div class="leaderboard-prestige">
+
+                    ${prestigeDisplay}
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="leaderboard-stats">
+
+
+                <div class="leaderboard-stat">
+
+                    <span class="leaderboard-stat-icon">
+                        🪙
+                    </span>
+
+                    <div>
+
+                        <span>
+                            COINS
+                        </span>
+
+                        <strong>
+                            ${formatCoins(coins)}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="leaderboard-stat">
+
+                    <span class="leaderboard-stat-icon">
+                        🔥
+                    </span>
+
+                    <div>
+
+                        <span>
+                            STREAK
+                        </span>
+
+                        <strong>
+                            ${streak} DAYS
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
 
             <div class="player-details">
 
-                <p>
-                    🎣 Fish Caught:
-                    ${player.stats?.fish_caught ?? 0}
-                </p>
-            
-                <p>
-                    🎰 Slots Played:
-                    ${player.stats?.slots_played ?? 0}
-                </p>
-            
-                <p>
-                    💰 Coins Earned:
-                    ${formatCoins(player.stats?.coins_earned ?? 0)}
-                </p>
-            
+
+                <div class="detail-stat">
+
+                    <span>
+                        🎣 Fish Caught
+                    </span>
+
+                    <strong>
+                        ${fishCaught.toLocaleString()}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-stat">
+
+                    <span>
+                        🎰 Slots Played
+                    </span>
+
+                    <strong>
+                        ${slotsPlayed.toLocaleString()}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-stat">
+
+                    <span>
+                        💰 Coins Earned
+                    </span>
+
+                    <strong>
+                        ${formatCoins(coinsEarned)}
+                    </strong>
+
+                </div>
+
+
             </div>
+
 
         </div>
 
-
         `;
-
 
     });
 
-
 }
-
 
 
 loadLeaderboard();
 
 
-
-// Refresh leaderboard every 30 seconds
+// Refresh every 10 seconds
 
 setInterval(
     loadLeaderboard,
