@@ -398,10 +398,6 @@ for (const category in commands) {
 
                     <div class="command-usage">
 
-                        <span class="command-prefix">
-                            /
-                        </span>
-
                         ${escapeHTML(command.usage)}
 
                     </div>
