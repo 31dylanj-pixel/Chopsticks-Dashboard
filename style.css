@@ -489,21 +489,6 @@ html.light-theme .home-page .home-card {
 
 }
 
-
-html.light-theme .home-page .home-card:hover {
-
-    background:
-        rgba(255,255,255,.86);
-
-    border-color:
-        rgba(0,119,255,.18);
-
-    box-shadow:
-        0 12px 30px rgba(30,70,100,.10);
-
-}
-
-
 html.light-theme .home-page .home-card::before {
 
     background:
