@@ -4645,7 +4645,6 @@ html.light-theme .leaderboard-page .player-details {
             var(--bg-top),
             var(--bg-bottom)
         );
-
 }
 
 
@@ -4658,18 +4657,14 @@ html.light-theme .leaderboard-page .player-details {
     padding:70px 20px 35px;
 
     text-align:center;
-
 }
 
 
 .release-page .release-header-inner {
 
     width:100%;
-
     max-width:1100px;
-
     margin:auto;
-
 }
 
 
@@ -4682,13 +4677,11 @@ html.light-theme .leaderboard-page .player-details {
     font-family:"Orbitron",sans-serif;
 
     font-size:12px;
-
     font-weight:600;
 
     letter-spacing:4px;
 
     opacity:.65;
-
 }
 
 
@@ -4699,7 +4692,6 @@ html.light-theme .leaderboard-page .player-details {
     font-size:48px;
 
     letter-spacing:-1px;
-
 }
 
 
@@ -4710,7 +4702,6 @@ html.light-theme .leaderboard-page .player-details {
     opacity:.7;
 
     font-size:16px;
-
 }
 
 
@@ -4721,13 +4712,11 @@ html.light-theme .leaderboard-page .player-details {
 .release-page .release-main {
 
     width:90%;
-
     max-width:1100px;
 
     margin:auto;
 
     padding-bottom:80px;
-
 }
 
 
@@ -4738,13 +4727,11 @@ html.light-theme .leaderboard-page .player-details {
 .release-page .release-search {
 
     width:100%;
-
     max-width:650px;
 
     margin:0 auto 60px;
 
     position:relative;
-
 }
 
 
@@ -4753,7 +4740,6 @@ html.light-theme .leaderboard-page .player-details {
     position:absolute;
 
     left:18px;
-
     top:50%;
 
     transform:translateY(-50%);
@@ -4761,14 +4747,12 @@ html.light-theme .leaderboard-page .player-details {
     opacity:.55;
 
     pointer-events:none;
-
 }
 
 
 .release-page #releaseSearch {
 
     width:100%;
-
     height:56px;
 
     padding:0 20px 0 52px;
@@ -4784,7 +4768,6 @@ html.light-theme .leaderboard-page .player-details {
     color:var(--text);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
     font-size:15px;
@@ -4796,16 +4779,13 @@ html.light-theme .leaderboard-page .player-details {
         background .25s ease,
         border-color .25s ease,
         box-shadow .25s ease;
-
 }
 
 
 .release-page #releaseSearch::placeholder {
 
     color:var(--text);
-
     opacity:.5;
-
 }
 
 
@@ -4816,7 +4796,6 @@ html.light-theme .leaderboard-page .player-details {
     box-shadow:
         0 0 0 3px rgba(125,211,255,.10),
         0 15px 40px rgba(0,0,0,.15);
-
 }
 
 
@@ -4827,7 +4806,6 @@ html.light-theme .leaderboard-page .player-details {
 .release-page .release-section {
 
     margin-bottom:75px;
-
 }
 
 
@@ -4840,20 +4818,17 @@ html.light-theme .leaderboard-page .player-details {
     gap:16px;
 
     margin-bottom:25px;
-
 }
 
 
 .release-page .release-section-icon {
 
     width:52px;
-
     height:52px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     border-radius:16px;
@@ -4865,7 +4840,7 @@ html.light-theme .leaderboard-page .player-details {
     font-size:23px;
 
     backdrop-filter:blur(15px);
-
+    -webkit-backdrop-filter:blur(15px);
 }
 
 
@@ -4882,7 +4857,6 @@ html.light-theme .leaderboard-page .player-details {
     opacity:.5;
 
     margin-bottom:3px;
-
 }
 
 
@@ -4891,13 +4865,21 @@ html.light-theme .leaderboard-page .player-details {
     margin:0;
 
     font-size:28px;
-
 }
 
 
 /* =========================================================
-   RELEASE CARD
+   ALL RELEASE CARDS
    ========================================================= */
+
+/*
+   Every release now uses the SAME visual system.
+
+   V3.0 is only distinguished by:
+   - LATEST badge
+   - slightly stronger glow
+   - feature grid
+*/
 
 .release-page .release-card {
 
@@ -4905,16 +4887,21 @@ html.light-theme .leaderboard-page .player-details {
 
     margin-bottom:18px;
 
-    padding:28px;
+    padding:30px;
 
     border-radius:22px;
 
-    background:var(--glass);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(125,211,255,.07),
+            var(--glass) 45%,
+            rgba(255,255,255,.035)
+        );
 
     border:1px solid var(--border);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
     box-shadow:
@@ -4925,7 +4912,6 @@ html.light-theme .leaderboard-page .player-details {
         background .25s ease,
         border-color .25s ease,
         box-shadow .25s ease;
-
 }
 
 
@@ -4933,61 +4919,24 @@ html.light-theme .leaderboard-page .player-details {
 
     transform:translateY(-3px);
 
-    background:var(--glass-hover);
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.15);
-
-}
-
-
-/* =========================================================
-   FEATURED V3
-   ========================================================= */
-
-.release-page .release-featured {
-
-    padding:34px;
-
-    border-color:rgba(125,211,255,.30);
-
     background:
         linear-gradient(
             135deg,
             rgba(125,211,255,.10),
-            var(--glass) 45%,
-            rgba(255,255,255,.04)
+            var(--glass-hover) 45%,
+            rgba(255,255,255,.05)
         );
 
+    border-color:
+        rgba(125,211,255,.22);
+
     box-shadow:
-        0 25px 70px rgba(0,0,0,.18);
-
-}
-
-
-.release-page .release-featured::before {
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:25px;
-    bottom:25px;
-
-    width:3px;
-
-    border-radius:5px;
-
-    background:var(--blue);
-
-    opacity:.8;
-
+        0 20px 45px rgba(0,0,0,.15);
 }
 
 
 /* =========================================================
-   CARD HEADER
+   RELEASE CARD HEADER
    ========================================================= */
 
 .release-page .release-card-top {
@@ -4995,11 +4944,9 @@ html.light-theme .leaderboard-page .player-details {
     display:flex;
 
     justify-content:space-between;
-
     align-items:flex-start;
 
     gap:20px;
-
 }
 
 
@@ -5016,7 +4963,6 @@ html.light-theme .leaderboard-page .player-details {
     letter-spacing:2px;
 
     opacity:.55;
-
 }
 
 
@@ -5025,7 +4971,6 @@ html.light-theme .leaderboard-page .player-details {
     margin:7px 0 0;
 
     font-size:24px;
-
 }
 
 
@@ -5050,7 +4995,6 @@ html.light-theme .leaderboard-page .player-details {
     font-weight:700;
 
     letter-spacing:1.5px;
-
 }
 
 
@@ -5061,9 +5005,12 @@ html.light-theme .leaderboard-page .player-details {
     font-size:12px;
 
     opacity:.5;
-
 }
 
+
+/* =========================================================
+   RELEASE INTRO
+   ========================================================= */
 
 .release-page .release-intro {
 
@@ -5074,7 +5021,6 @@ html.light-theme .leaderboard-page .player-details {
     line-height:1.7;
 
     opacity:.78;
-
 }
 
 
@@ -5090,7 +5036,6 @@ html.light-theme .leaderboard-page .player-details {
         repeat(2,minmax(0,1fr));
 
     gap:12px;
-
 }
 
 
@@ -5108,6 +5053,17 @@ html.light-theme .leaderboard-page .player-details {
 
     border:1px solid var(--border);
 
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.release-page .release-feature:hover {
+
+    background:rgba(255,255,255,.07);
+
+    transform:translateY(-2px);
 }
 
 
@@ -5116,7 +5072,6 @@ html.light-theme .leaderboard-page .player-details {
     font-size:20px;
 
     line-height:1;
-
 }
 
 
@@ -5127,7 +5082,6 @@ html.light-theme .leaderboard-page .player-details {
     font-family:"Montserrat",sans-serif;
 
     font-size:14px;
-
 }
 
 
@@ -5140,12 +5094,11 @@ html.light-theme .leaderboard-page .player-details {
     line-height:1.5;
 
     opacity:.6;
-
 }
 
 
 /* =========================================================
-   NORMAL RELEASE LIST
+   NORMAL RELEASE CONTENT
    ========================================================= */
 
 .release-page .release-list {
@@ -5157,7 +5110,6 @@ html.light-theme .leaderboard-page .player-details {
     flex-direction:column;
 
     gap:10px;
-
 }
 
 
@@ -5165,17 +5117,36 @@ html.light-theme .leaderboard-page .player-details {
 
     margin:0;
 
+    padding:11px 14px;
+
+    border-radius:11px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.06);
+
     line-height:1.55;
 
     font-size:14px;
 
     opacity:.82;
 
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.release-page .release-list p:hover {
+
+    background:rgba(255,255,255,.055);
+
+    transform:translateX(3px);
 }
 
 
 /* =========================================================
-   FOOTER INFO
+   RELEASE FOOTER
    ========================================================= */
 
 .release-page .release-footer {
@@ -5197,7 +5168,6 @@ html.light-theme .leaderboard-page .player-details {
     letter-spacing:2px;
 
     opacity:.4;
-
 }
 
 
@@ -5208,9 +5178,13 @@ html.light-theme .leaderboard-page .player-details {
 .release-page .release-group {
 
     margin-bottom:18px;
-
 }
 
+
+/*
+   The expandable headers now use the SAME
+   visual language as every release card.
+*/
 
 .release-page .release-group summary {
 
@@ -5226,38 +5200,53 @@ html.light-theme .leaderboard-page .player-details {
 
     gap:20px;
 
-    padding:25px 28px;
+    padding:30px;
 
     border-radius:22px;
 
-    background:var(--glass);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(125,211,255,.07),
+            var(--glass) 45%,
+            rgba(255,255,255,.035)
+        );
 
     border:1px solid var(--border);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.10);
 
     transition:
         background .25s ease,
-        transform .25s ease;
-
+        transform .25s ease,
+        border-color .25s ease;
 }
 
 
 .release-page .release-group summary::-webkit-details-marker {
 
     display:none;
-
 }
 
 
 .release-page .release-group summary:hover {
 
-    background:var(--glass-hover);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(125,211,255,.10),
+            var(--glass-hover) 45%,
+            rgba(255,255,255,.05)
+        );
 
-    transform:translateY(-2px);
+    border-color:
+        rgba(125,211,255,.22);
 
+    transform:translateY(-3px);
 }
 
 
@@ -5266,7 +5255,6 @@ html.light-theme .leaderboard-page .player-details {
     margin:7px 0 4px;
 
     font-size:21px;
-
 }
 
 
@@ -5277,14 +5265,12 @@ html.light-theme .leaderboard-page .player-details {
     font-size:13px;
 
     opacity:.6;
-
 }
 
 
 .release-page .release-expand {
 
     width:36px;
-
     height:36px;
 
     flex-shrink:0;
@@ -5292,7 +5278,6 @@ html.light-theme .leaderboard-page .player-details {
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     border-radius:50%;
@@ -5302,7 +5287,6 @@ html.light-theme .leaderboard-page .player-details {
     font-size:20px;
 
     transition:transform .3s ease;
-
 }
 
 
@@ -5310,14 +5294,16 @@ html.light-theme .leaderboard-page .player-details {
 .release-expand {
 
     transform:rotate(45deg);
-
 }
 
+
+/* =========================================================
+   ARCHIVED RELEASES
+   ========================================================= */
 
 .release-page .release-archive {
 
     padding-top:14px;
-
 }
 
 
@@ -5327,15 +5313,58 @@ html.light-theme .leaderboard-page .player-details {
 
     margin-left:25px;
 
-    padding:24px;
-
+    padding:27px;
 }
 
+
+/*
+   Archived cards still look exactly like
+   normal release cards, just slightly nested.
+*/
 
 .release-page .release-child:hover {
 
     transform:translateX(3px);
+}
 
+
+/* =========================================================
+   LATEST RELEASE
+   ========================================================= */
+
+/*
+   V3.0 gets a little extra emphasis,
+   but it is NOT a completely different component.
+*/
+
+.release-page .release-featured {
+
+    border-color:
+        rgba(125,211,255,.30);
+
+    box-shadow:
+        0 22px 60px rgba(0,0,0,.15);
+}
+
+
+.release-page .release-featured::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:25px;
+    bottom:25px;
+
+    width:3px;
+
+    border-radius:5px;
+
+    background:var(--blue);
+
+    opacity:.8;
 }
 
 
@@ -5356,44 +5385,96 @@ html.light-theme .release-page {
             var(--bg-top),
             var(--bg-bottom)
         );
-
 }
 
 
-html.light-theme .release-page .release-featured {
+html.light-theme .release-page .release-card {
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.72),
-            rgba(255,255,255,.48)
+            rgba(255,255,255,.62),
+            var(--glass) 50%,
+            rgba(255,255,255,.42)
         );
 
-    border-color:rgba(0,119,255,.18);
+    box-shadow:
+        0 15px 40px rgba(30,70,100,.08);
+}
 
+
+html.light-theme .release-page .release-card:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.78),
+            var(--glass-hover) 50%,
+            rgba(255,255,255,.58)
+        );
+
+    box-shadow:
+        0 20px 45px rgba(30,70,100,.11);
 }
 
 
 html.light-theme .release-page .release-feature {
 
     background:rgba(255,255,255,.38);
-
 }
 
 
-html.light-theme .release-page .release-card {
+html.light-theme .release-page .release-feature:hover {
+
+    background:rgba(255,255,255,.55);
+}
+
+
+html.light-theme .release-page .release-list p {
+
+    background:rgba(255,255,255,.32);
+
+    border-color:rgba(0,0,0,.06);
+}
+
+
+html.light-theme .release-page .release-list p:hover {
+
+    background:rgba(255,255,255,.50);
+}
+
+
+html.light-theme .release-page .release-group summary {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.62),
+            var(--glass) 50%,
+            rgba(255,255,255,.42)
+        );
 
     box-shadow:
         0 15px 40px rgba(30,70,100,.08);
-
 }
 
 
-html.light-theme .release-page .release-card:hover {
+html.light-theme .release-page .release-group summary:hover {
 
-    box-shadow:
-        0 20px 45px rgba(30,70,100,.11);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.78),
+            var(--glass-hover) 50%,
+            rgba(255,255,255,.58)
+        );
+}
 
+
+html.light-theme .release-page .release-featured {
+
+    border-color:
+        rgba(0,119,255,.20);
 }
 
 
@@ -5406,35 +5487,30 @@ html.light-theme .release-page .release-card:hover {
     .release-page .release-header {
 
         padding-top:50px;
-
     }
 
 
     .release-page .release-header h1 {
 
         font-size:38px;
-
     }
 
 
     .release-page .release-feature-grid {
 
         grid-template-columns:1fr;
-
     }
 
 
     .release-page .release-card {
 
         padding:24px;
-
     }
 
 
-    .release-page .release-featured {
+    .release-page .release-group summary {
 
-        padding:28px 24px;
-
+        padding:24px;
     }
 
 }
@@ -5445,32 +5521,27 @@ html.light-theme .release-page .release-card:hover {
     .release-page .release-header h1 {
 
         font-size:32px;
-
     }
 
 
     .release-page .release-header p {
 
         font-size:14px;
-
     }
 
 
     .release-page .release-section-heading h2 {
 
         font-size:23px;
-
     }
 
 
     .release-page .release-section-icon {
 
         width:45px;
-
         height:45px;
 
         border-radius:13px;
-
     }
 
 
@@ -5479,35 +5550,30 @@ html.light-theme .release-page .release-card:hover {
         flex-direction:column;
 
         gap:12px;
-
     }
 
 
     .release-page .release-badge {
 
         align-self:flex-start;
-
     }
 
 
     .release-page .release-group summary {
 
         padding:22px;
-
     }
 
 
     .release-page .release-child {
 
         margin-left:10px;
-
     }
 
 
     .release-page .release-footer {
 
         flex-wrap:wrap;
-
     }
 
 }
