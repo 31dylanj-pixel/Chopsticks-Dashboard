@@ -365,7 +365,7 @@ for (const shop in shops) {
                 data-search="${`
                     ${item.name}
                     ${item.cost || ""}
-                    ${item.info || ""}
+                    ${item.description || item.info || ""}
                     ${item.status}
                     ${shop}
                 `.toLowerCase()}"
@@ -438,24 +438,19 @@ for (const shop in shops) {
 
 
                     ${
-                        item.info
-
+                        item.description || item.info
+                    
                         ?
-
+                    
                         `
                         <p class="shop-info">
-                            ${item.info}
+                            ${item.description || item.info}
                         </p>
                         `
-
+                    
                         :
-
-                        `
-                        <p class="shop-info">
-                            Exclusive Chopsticks title.
-                        </p>
-                        `
-
+                        
+                        ""
                     }
 
                 </div>
