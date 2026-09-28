@@ -178,6 +178,7 @@ const shops = {
 
     ],
 
+
     general: [
 
         {
@@ -195,6 +196,7 @@ const shops = {
         }
 
     ],
+
 
     prestige: [
 
@@ -232,116 +234,261 @@ const shops = {
 
 };
 
+
+/* ========================================
+   COIN FORMAT
+======================================== */
+
 function formatCoins(amount) {
 
     const units = [
-        { value: 1e18, symbol: "Qi" }, // Quintillion
-        { value: 1e15, symbol: "Qa" }, // Quadrillion
-        { value: 1e12, symbol: "T" },  // Trillion
-        { value: 1e9, symbol: "B" },   // Billion
-        { value: 1e6, symbol: "M" },   // Million
-        { value: 1e3, symbol: "K" }    // Thousand
+        { value: 1e18, symbol: "Qi" },
+        { value: 1e15, symbol: "Qa" },
+        { value: 1e12, symbol: "T" },
+        { value: 1e9, symbol: "B" },
+        { value: 1e6, symbol: "M" },
+        { value: 1e3, symbol: "K" }
     ];
 
 
-    for (let unit of units) {
+    for (const unit of units) {
 
         if (amount >= unit.value) {
 
             return (amount / unit.value)
                 .toFixed(1)
-                .replace(".0", "") + unit.symbol;
+                .replace(".0", "")
+                + unit.symbol;
 
         }
 
     }
 
 
-    return amount;
+    return amount.toLocaleString();
 
 }
 
-const container = document.getElementById("shop-container");
+
+/* ========================================
+   SHOP CONTAINER
+======================================== */
+
+const container =
+    document.getElementById("shop-container");
 
 
+/* ========================================
+   BUILD SHOP
+======================================== */
 
-for (let shop in shops) {
+for (const shop in shops) {
+
+    const shopNames = {
+
+        titles: "Title Shop",
+
+        general: "General Shop",
+
+        prestige: "Prestige Shop"
+
+    };
+
+
+    const shopDescriptions = {
+
+        titles:
+            "Customize your identity with exclusive Chopsticks titles.",
+
+        general:
+            "Useful items and consumables for your Chopsticks journey.",
+
+        prestige:
+            "Permanent upgrades purchased with Prestige progression."
+
+    };
+
 
     container.innerHTML += `
 
-        <div class="rarity-section">
+        <section class="shop-section">
 
-            <h1 class="rarity-title">
-                ${shop}
-            </h1>
+            <div class="shop-section-header">
 
-            <div class="fish-grid"></div>
+                <div>
 
-        </div>
+                    <span class="shop-section-label">
+                        ${shop.toUpperCase()}
+                    </span>
+
+                    <h2>
+                        ${shopNames[shop]}
+                    </h2>
+
+                    <p>
+                        ${shopDescriptions[shop]}
+                    </p>
+
+                </div>
+
+                <span class="shop-item-count">
+                    ${shops[shop].length} ITEMS
+                </span>
+
+            </div>
+
+
+            <div class="shop-grid"></div>
+
+        </section>
 
     `;
 
+
     const section =
-        container.lastElementChild.querySelector(".fish-grid");
+        container.lastElementChild.querySelector(".shop-grid");
+
 
     shops[shop].forEach(item => {
 
+        const isComingSoon =
+            item.status === "coming soon";
+
+
+        const hasCost =
+            item.cost !== undefined;
+
+
         section.innerHTML += `
 
-            <div class="card shop-card"
-        
-            data-search="${`
-            ${item.name}
-            ${item.cost || ""}
-            ${item.info || ""}
-            ${item.status}
-            ${shop}
-            `.toLowerCase()}">
-        
-                <h2>
+            <article
+                class="shop-card ${isComingSoon ? "is-coming-soon" : ""}"
+                data-search="${`
                     ${item.name}
-                </h2>
+                    ${item.cost || ""}
+                    ${item.info || ""}
+                    ${item.status}
+                    ${shop}
+                `.toLowerCase()}"
+            >
 
-                <p class="shop-info">
+                <div class="shop-card-top">
 
-                ${
-                item.cost !== undefined
-                
-                ?
-                
-                `
-                💰 Cost: ${item.cost.toLocaleString()} coins
-                <br>
-                (${formatCoins(item.cost)})
-                <br><br>
-                ${item.info || ""}
-                `
-                
-                :
-                
-                item.info || ""
-                
-                }
-                
-                </p>
+                    <span class="shop-card-category">
+                        ${shop}
+                    </span>
 
-                ${
-                    item.status === "coming soon"
+                    <span class="shop-status ${item.status}">
+                        ${
+                            isComingSoon
+                                ? "COMING SOON"
+                                : "AVAILABLE"
+                        }
+                    </span>
 
-                    ?
+                </div>
 
-                    `<span class="shop-status coming-soon">
-                    🟡 Coming Soon
-                    </span>`
 
-                    :
+                <div class="shop-card-content">
 
-                    `<span class="shop-status available">
-                    🟢 Available
-                    </span>`
-                }
+                    <h3>
+                        ${item.name}
+                    </h3>
 
-            </div>
+
+                    ${
+                        hasCost
+
+                        ?
+
+                        `
+                        <div class="shop-price">
+
+                            <span class="shop-price-icon">
+                                💰
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    ${item.cost.toLocaleString()}
+                                </strong>
+
+                                <span>
+                                    coins
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="shop-short-price">
+                            ${formatCoins(item.cost)}
+                        </div>
+                        `
+
+                        :
+
+                        `
+                        <div class="shop-no-price">
+                            PRESTIGE UPGRADE
+                        </div>
+                        `
+
+                    }
+
+
+                    ${
+                        item.info
+
+                        ?
+
+                        `
+                        <p class="shop-info">
+                            ${item.info}
+                        </p>
+                        `
+
+                        :
+
+                        `
+                        <p class="shop-info">
+                            Exclusive Chopsticks title.
+                        </p>
+                        `
+
+                    }
+
+                </div>
+
+
+                <div class="shop-card-footer">
+
+                    ${
+                        isComingSoon
+
+                        ?
+
+                        `
+                        <span class="shop-action disabled">
+                            COMING SOON
+                        </span>
+                        `
+
+                        :
+
+                        `
+                        <span class="shop-action">
+                            AVAILABLE
+                            <span>→</span>
+                        </span>
+                        `
+
+                    }
+
+                </div>
+
+            </article>
 
         `;
 
@@ -350,32 +497,33 @@ for (let shop in shops) {
 }
 
 
-const searchBar = document.getElementById("shop-search");
+/* ========================================
+   SEARCH
+======================================== */
+
+const searchBar =
+    document.getElementById("shop-search");
 
 
 searchBar.addEventListener("input", () => {
 
-
-    const search = searchBar.value.toLowerCase();
-
-
-
-    document.querySelectorAll("#shop-container .shop-card")
-    .forEach(card => {
+    const search =
+        searchBar.value.toLowerCase().trim();
 
 
-        const text =
-        card.dataset.search;
+    document
+        .querySelectorAll(".shop-card")
+        .forEach(card => {
+
+            const text =
+                card.dataset.search;
 
 
+            card.style.display =
+                text.includes(search)
+                    ? ""
+                    : "none";
 
-        card.style.display =
-        text.includes(search)
-        ? "flex"
-        : "none";
-
-
-    });
-
+        });
 
 });
