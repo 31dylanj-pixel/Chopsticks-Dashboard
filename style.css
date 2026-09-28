@@ -1132,6 +1132,70 @@ header a {
     opacity:.55;
 
 }
+
+/* ========================================
+   UPCOMING EVENTS — LIGHT THEME
+======================================== */
+
+html.light-theme .home-page .event-card {
+
+    background:
+        rgba(255,255,255,.58);
+
+    border-color:
+        rgba(16,24,32,.10);
+
+}
+
+
+html.light-theme .home-page .event-card:hover {
+
+    background:
+        rgba(255,255,255,.82);
+
+    border-color:
+        rgba(0,119,255,.20);
+
+}
+
+
+html.light-theme .home-page .event-card::before {
+
+    background:
+        var(--blue);
+
+    opacity:.65;
+
+}
+
+
+html.light-theme .home-page .event-date {
+
+    background:
+        rgba(0,119,255,.07);
+
+    border-color:
+        rgba(0,119,255,.14);
+
+    color:
+        var(--blue);
+
+}
+
+
+html.light-theme .home-page .event-type {
+
+    opacity:.55;
+
+}
+
+
+html.light-theme .home-page .event-card p {
+
+    opacity:.6;
+
+}
+
 /* ==========================
    SEARCH
 ========================== */
