@@ -298,10 +298,10 @@ async function loadLeaderboard() {
                     </span>
 
                     <strong>
-                        ${fullCoins(coinsEarned)}
-                        <small>
-                            ${formatCoins(coinsEarned)}
-                        </small>
+                      ${fullCoins(coinsEarned)}
+                      <small>
+                          (${formatCoins(coinsEarned)})
+                      </small>
                     </strong>
 
                 </div>
