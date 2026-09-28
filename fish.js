@@ -174,6 +174,8 @@ const fishInfo = {
         
             Congratulations! You fished a… shell. How did you even do that?
             Aren’t they inanimate? I mean, it’s better than nothing.
+            Seashells are made of calcium carbonate, and are created by animals (usually mollusks) as a hard, protective layer. 
+            Historically, they have been used as jewelry, currency, and even musical instruments.
         `
     },
     
