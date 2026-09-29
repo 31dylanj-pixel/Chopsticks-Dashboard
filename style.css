@@ -1799,9 +1799,9 @@ html.light-theme .search-box input::placeholder {
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+    repeat(3, minmax(0, 1fr));
 
-    gap:20px;
+    gap:24px;
 
 }
 
@@ -2254,6 +2254,96 @@ html.light-theme .search-box input::placeholder {
 
 }
 
+/* ========================================
+   FISH CARD REDESIGN
+======================================== */
+
+.fish-page .fish-card {
+
+    min-width:0;
+    min-height:180px;
+
+    padding:30px 24px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+/* Fish name */
+
+.fish-page .fish-card h2 {
+
+    margin:0 0 16px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:22px;
+
+    line-height:1.4;
+
+    overflow-wrap:anywhere;
+
+}
+
+
+/* Fish value */
+
+.fish-page .fish-card p {
+
+    margin:0;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* Click to view */
+
+.fish-page .fish-card-hint {
+
+    margin-top:16px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    opacity:.5;
+
+}
+
+
+/* Hover effect */
+
+.fish-page .fish-card:hover {
+
+    transform:translateY(-5px);
+
+    filter:brightness(1.12);
+
+}
+
+
+.fish-page .fish-card:hover .fish-card-hint {
+
+    opacity:1;
+
+}
 
 /* ========================================
    FISH PROFILE MODAL
@@ -7785,5 +7875,53 @@ html.light-theme .action-button {
        max-width:none;
    
    }
+
+}
+
+/* ========================================
+   FISH LIBRARY RESPONSIVE GRID
+======================================== */
+
+/* Tablets */
+
+@media (max-width:900px) {
+
+    .fish-page .fish-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:20px;
+
+    }
+
+}
+
+
+/* Phones */
+
+@media (max-width:600px) {
+
+    .fish-page .fish-grid {
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+    .fish-page .fish-card {
+
+        min-height:150px;
+
+        padding:25px 20px;
+
+    }
+
+    .fish-page .fish-card h2 {
+
+        font-size:20px;
+
+    }
 
 }
