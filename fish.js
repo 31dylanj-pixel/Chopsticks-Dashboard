@@ -181,8 +181,15 @@ const fishInfo = {
     
     
     "🐟 Anchovy": {
-        image: "images/fish/anchovy.png",
-        overview: "Overview coming soon."
+        image: "fish/anchovy.jpg",
+        overview: `
+            (Indian Anchovy)
+            <strong>Length:</strong> 12-15 cm<br>
+            <strong>Weight:</strong> 10-28 grams<br><br>
+        
+            The Indian anchovy is a small type of fish commonly found in the Indo-Pacific ocean. 
+            It is sometimes used as bait, but is often used in the dishes of India and Southeast Asia, whether to make curry, fried snacks, or fish sauce.
+        `
     },
 
     "🐟 Minnow": {
