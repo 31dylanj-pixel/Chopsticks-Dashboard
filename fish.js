@@ -220,7 +220,7 @@ const fishInfo = {
         image: "fish/goldfish.jpg",
         overview:  `
             <strong>Length:</strong> 10-20 cm (domestic), 30-60 cm (wild)<br>
-            <strong>Weight:</strong> 100-300 g (domestic), 1.5-3 kg (wild)<br><br>
+            <strong>Weight:</strong> 100-300 grams (domestic), 1.5-3 kilograms (wild)<br><br>
         
             Goldfish are a type of freshwater carp domesticated 1,000 years ago during the Song Dynasty. 
             They were considered symbols of luck and fortune, and were often used ornamentally. 
@@ -229,6 +229,18 @@ const fishInfo = {
         `
     },
 
+    "🐟 Mud Minnow": {
+        image: "fish/mudminnow.jpg",
+        overview:  `
+            <strong>Length:</strong> 5-15 cm<br>
+            <strong>Weight:</strong> 0.5-28 grams<br><br>
+        
+            Despite being called mud <i>minnows</i>, mud minnows are not actually true minnows. 
+            However, similarly to minnows, mudminnows are small freshwater fish often used for bait. 
+            They are known for being resilient fish that can survive in low oxygen conditions and acidic waters.
+        `
+    },
+    
     "🐠 Bluegill": {
         image: "images/fish/bluegill.png",
         overview: "Overview coming soon."
