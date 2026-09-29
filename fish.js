@@ -217,8 +217,16 @@ const fishInfo = {
     },
     
     "🐠 Goldfish": {
-        image: "images/fish/goldfish.png",
-        overview: "Overview coming soon."
+        image: "fish/goldfish.jpg",
+        overview:  `
+            <strong>Length:</strong> 10-20 cm (domestic), 30-60 cm (wild)<br>
+            <strong>Weight:</strong> 100-300 g (domestic), 1.5-3 kg (wild)<br><br>
+        
+            Goldfish are a type of freshwater carp domesticated 1,000 years ago during the Song Dynasty. 
+            They were considered symbols of luck and fortune, and were often used ornamentally. 
+            Goldfish are popular pets nowadays, with over 200 varieties. 
+            Interestingly, goldfish released in the wild in parts of North America have become invasive species, as they can carry parasites and outcompete native species.
+        `
     },
 
     "🐠 Bluegill": {
