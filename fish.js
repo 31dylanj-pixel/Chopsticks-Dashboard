@@ -183,7 +183,7 @@ const fishInfo = {
     "🐟 Anchovy": {
         image: "fish/anchovy.jpg",
         overview: `
-            (Indian Anchovy)
+            (Indian Anchovy)<br>
             <strong>Length:</strong> 12-15 cm<br>
             <strong>Weight:</strong> 10-28 grams<br><br>
         
