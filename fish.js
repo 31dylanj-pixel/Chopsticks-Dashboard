@@ -170,7 +170,7 @@ const fishInfo = {
         image: "fish/seashell.jpg",
         overview: `
             <strong>Length:</strong> 1 cm–1.3 m<br>
-            <strong>Weight:</strong> 0.5 g–340 kg<br><br>
+            <strong>Weight:</strong> 0.5 grams–340 kilograms<br><br>
         
             Congratulations! You fished a… shell. How did you even do that?
             Aren’t they inanimate? I mean, it’s better than nothing.
@@ -208,7 +208,7 @@ const fishInfo = {
         image: "fish/guppy.jpg",
         overview: `
             <strong>Length:</strong> 1.5-4 cm (male), 3-8 cm (female)<br>
-            <strong>Weight:</strong> 0.9 (male), 1.5-2.5 g (female)<br><br>
+            <strong>Weight:</strong> 0.9 grams (male), 1.5-2.5 grams (female)<br><br>
         
             Guppies are one of the most popular pet fish, because they are easy to care for, and are famous for their vibrant colors and flowy tails. 
             They are also called millionfish or rainbow fish. Male guppies, which are significantly smaller than females, have beautiful dorsal fins and are more colorful.
@@ -236,14 +236,34 @@ const fishInfo = {
             <strong>Weight:</strong> 0.5-28 grams<br><br>
         
             Despite being called mud <i>minnows</i>, mud minnows are not actually true minnows. 
-            However, similarly to minnows, mudminnows are small freshwater fish often used for bait. 
+            However, similarly to minnows, mud minnows are small freshwater fish often used for bait. 
             They are known for being resilient fish that can survive in low oxygen conditions and acidic waters.
         `
     },
     
     "🐠 Bluegill": {
-        image: "images/fish/bluegill.png",
-        overview: "Overview coming soon."
+        image: "fish/bluegill.jpg",
+        overview: `
+            <strong>Length:</strong> 15-25 cm<br>
+            <strong>Weight:</strong> 100-450 grams<br><br>
+        
+            Bluegill are a type of freshwater fish native to North America, often fished for their delicious meat. 
+            They were named for the blue coloring of the sides of their heads. 
+            Bluegills are important for their role in the ecosystem, as they are prey for many other fish and animals. 
+            They have become an invasive species in Japan, where they escaped from a research facility.
+        `
+    },
+
+    "🐠 Reef Guppy": {
+        image: "fish/reefguppy.jpg",
+        overview: `
+            <strong>Length:</strong> 1.5-4 cm (male), 3-8 cm (female)<br>
+            <strong>Weight:</strong> 0.9 grams (male), 1.5-2.5 grams (female)<br><br>
+        
+            Reef guppies are not a naturally occurring species of guppies. 
+            Instead, they are normal freshwater guppies that have been acclimated to saltwater aquariums. 
+            However, once they are accustomed to saltwater, guppies can help reefs, cleaning harmful algae.
+        `
     },
 
     "🦀 Crab": {
