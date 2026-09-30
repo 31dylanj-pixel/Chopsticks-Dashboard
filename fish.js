@@ -266,6 +266,47 @@ const fishInfo = {
         `
     },
 
+    "🦀 Hermit Crab": {
+        image: "fish/hermitcrab.jpg",
+        overview: `
+            <strong>Length:</strong> 5-15 cm<br>
+            <strong>Weight:</strong> 10-40 grams<br><br>
+        
+            Hermit crabs are known for living in seashells that they find and carry around, which protect their soft, fragile abdomens. 
+            Some terrestrial hermit crabs who can’t find natural shells will use other items like tin cans, broken bottles, or other pieces of trash. 
+            Hermit crabs have to find new, bigger shells as they grow, so they sometimes exchange shells, 
+            or gang up on one crab with a better shell, pull the crab out of the shell, then fight over it until one crab gets it. 
+            Hermit crabs even form vacancy chains with shells, where if one crab finds an empty shell that is too big for it, 
+            it waits for other crabs to come until the shell fits a crab. 
+            They then form a line from largest to smallest, and the largest crab takes the empty shell, 
+            and leaves its shell behind, which the next crab takes, and so on.
+        `
+    },
+
+    "🦀 Pebble Crab": {
+        image: "fish/pebblecrab.jpg",
+        overview: `
+            <strong>Length:</strong> 1-4 cm<br>
+            <strong>Weight:</strong> 5-15 grams<br><br>
+        
+            Pebble crabs are small, brightly colored crabs named for their round, pebble-like shells. 
+            Some pebble crabs are extremely poisonous, and there is no known cure to their toxin. 
+            Pebble crabs have periscope eyes that stick out of the sand they can quickly bury themselves in.
+        `
+    },
+    
+     "🐡 Baby Blowfish": {
+        image: "fish/babyblowfish.jpg",
+        overview: `
+            <strong>Length:</strong> 1-1.5 cm<br>
+            <strong>Weight:</strong> 0.1 grams<br><br>
+        
+            This is also an impressive catch! How you managed to catch a 1 centimeter fish is beyond my comprehension. 
+            However, you should not touch a baby blowfish, as you can hurt it. 
+            It is also not good to make them puff up on purpose, and they can die from it.
+        `
+    },
+
     "🦀 Crab": {
         image: "images/fish/crab.png",
         overview: "Overview coming soon."
