@@ -380,291 +380,460 @@ async function loadPlayerData(){
 
 }
 
+/* ==========================
+   MODAL FEEDBACK HELPERS
+========================== */
 
-// ==========================
-// LOGIN
-// ==========================
+function setModalMessage(elementId, message = "", type = "info") {
+    const element = document.getElementById(elementId);
+    if (!element) return;
 
-function openLogin(){
+    element.textContent = message;
+    element.className = "modal-message";
+    element.hidden = !message;
 
-    document
-    .getElementById("loginModal")
-    .classList
-    .add("active");
-
+    if (message) {
+        element.classList.add(type);
+    }
 }
 
+function setButtonLoading(buttonId, loading, loadingText, normalText) {
+    const button = document.getElementById(buttonId);
+    if (!button) return;
 
-window.closeLogin = function(){
+    button.disabled = loading;
+    button.classList.toggle("is-loading", loading);
+    button.textContent = loading ? loadingText : normalText;
+}
 
-    document
-    .getElementById("loginModal")
-    .classList
-    .remove("active");
+async function readResponse(response) {
+    try {
+        return await response.json();
+    } catch {
+        return {};
+    }
+}
 
+function getAuthErrorMessage(data) {
+    const message = String(
+        data?.msg || data?.message || data?.error_description || data?.error || ""
+    ).toLowerCase();
+
+    if (
+        message.includes("invalid login credentials") ||
+        message.includes("invalid credentials") ||
+        message.includes("invalid grant")
+    ) {
+        return "Incorrect email or password. Please try again.";
+    }
+
+    if (message.includes("rate limit") || message.includes("too many requests")) {
+        return "Too many attempts. Please wait a little and try again.";
+    }
+
+    return "";
+}
+
+/* ==========================
+   LOGIN MODAL
+========================== */
+
+function openLogin() {
+    setModalMessage("loginMessage");
+
+    document.getElementById("loginModal")
+        .classList.add("active");
+
+    setTimeout(() => {
+        document.getElementById("loginEmail")?.focus();
+    }, 50);
+}
+
+window.closeLogin = function () {
+    document.getElementById("loginModal")
+        .classList.remove("active");
+
+    setModalMessage("loginMessage");
 };
 
 
-// ==========================
-// LOGIN AUTHENTICATION
-// ==========================
+/* ==========================
+   LOGIN AUTHENTICATION
+========================== */
 
-window.fakeLogin = async function(){
+window.fakeLogin = async function () {
+    const emailInput = document.getElementById("loginEmail");
+    const passwordInput = document.getElementById("loginPassword");
 
-    const email =
-        document
-        .getElementById("loginEmail")
-        .value
-        .trim();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
 
+    const messageId = "loginMessage";
+    const buttonId = "loginSubmitButton";
 
-    const password =
-        document
-        .getElementById("loginPassword")
-        .value;
+    if (!email || !password) {
+        setModalMessage(
+            messageId,
+            "Please enter both your email and password.",
+            "error"
+        );
+        return;
+    }
 
+    if (!emailInput.checkValidity()) {
+        setModalMessage(
+            messageId,
+            "Please enter a valid email address.",
+            "error"
+        );
+        emailInput.focus();
+        return;
+    }
 
-    const response = await fetch(
+    setModalMessage(messageId);
+    setButtonLoading(buttonId, true, "Signing in…", "Login");
 
-        `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+    try {
+        const response = await fetch(
+            `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+            {
+                method: "POST",
+                headers: {
+                    apikey: SUPABASE_KEY,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            }
+        );
 
-        {
+        const data = await readResponse(response);
 
-            method:"POST",
+        if (!response.ok || !data.access_token || !data.user?.id) {
+            const authMessage = getAuthErrorMessage(data);
 
-            headers:{
-
-                apikey:SUPABASE_KEY,
-
-                "Content-Type":
-                "application/json"
-
-            },
-
-            body:JSON.stringify({
-
-                email,
-                password
-
-            })
-
+            setModalMessage(
+                messageId,
+                authMessage ||
+                (response.status >= 500
+                    ? "The authentication service is temporarily unavailable. Please try again."
+                    : "We couldn't sign you in. Please check your details and try again."),
+                "error"
+            );
+            return;
         }
 
-    );
-
-
-    const data =
-        await response.json();
-
-
-    if(!data.access_token){
-
-        alert(
-            "❌ Incorrect email or password!"
-        );
-
-        return;
-
-    }
-
-
-    localStorage.setItem(
-        "access_token",
-        data.access_token
-    );
-
-
-    localStorage.setItem(
-        "auth_id",
-        data.user.id
-    );
-
-
-    // ==========================
-    // LOAD CHOPSTICKS PROFILE
-    // ==========================
-
-    const playerResponse =
-        await fetch(
-
-            `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${data.user.id}&select=username,coins,daily_streak,prestige_points,inventory`,
-
+        // Load the linked Chopsticks player before saving the session locally.
+        const playerResponse = await fetch(
+            `${SUPABASE_URL}/rest/v1/players?auth_id=eq.${encodeURIComponent(data.user.id)}&select=username,coins,daily_streak,prestige_points,inventory`,
             {
-
-                headers:{
-
-                    apikey:SUPABASE_KEY,
-
-                    Authorization:
-                    `Bearer ${SUPABASE_KEY}`
-
+                headers: {
+                    apikey: SUPABASE_KEY,
+                    Authorization: `Bearer ${data.access_token}`
                 }
-
             }
-
         );
 
+        if (!playerResponse.ok) {
+            setModalMessage(
+                messageId,
+                "Your account was authenticated, but your player profile couldn't be loaded. Please try again.",
+                "error"
+            );
+            return;
+        }
 
-    const players =
-        await playerResponse.json();
+        const players = await readResponse(playerResponse);
 
+        if (!Array.isArray(players) || players.length === 0) {
+            setModalMessage(
+                messageId,
+                "Your account doesn't have a linked Chopsticks player profile. Please contact the site administrator.",
+                "error"
+            );
+            return;
+        }
 
-    if(players.length === 0){
+        const player = players[0];
 
-        alert(
-            "❌ No Chopsticks profile linked!"
+        // Save the session only after the player profile has been found.
+        currentUser = player.username;
+
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("auth_id", data.user.id);
+        localStorage.setItem("currentUser", player.username);
+        localStorage.setItem("currentEmail", email);
+        localStorage.setItem("coins", player.coins || 0);
+        localStorage.setItem("streak", player.daily_streak || 0);
+        localStorage.setItem("prestige_points", player.prestige_points || 0);
+        localStorage.setItem(
+            "streak_freezes",
+            player.inventory?.streak_freeze || 0
         );
 
-        return;
+        if (data.refresh_token) {
+            localStorage.setItem("refresh_token", data.refresh_token);
+        }
 
+        closeLogin();
+        updateAccount();
+
+    } catch (error) {
+        console.error("Login request failed:", error);
+
+        setModalMessage(
+            messageId,
+            "Couldn't connect to the server. Check your internet connection and try again.",
+            "error"
+        );
+    } finally {
+        setButtonLoading(buttonId, false, "Signing in…", "Login");
     }
-
-
-    const player =
-        players[0];
-
-
-    currentUser =
-        player.username;
-
-
-    localStorage.setItem(
-        "currentUser",
-        player.username
-    );
-
-
-    localStorage.setItem(
-        "currentEmail",
-        email
-    );
-
-
-    localStorage.setItem(
-        "coins",
-        player.coins || 0
-    );
-
-
-    localStorage.setItem(
-        "streak",
-        player.daily_streak || 0
-    );
-
-
-    localStorage.setItem(
-        "prestige_points",
-        player.prestige_points || 0
-    );
-
-
-    localStorage.setItem(
-        "streak_freezes",
-        player.inventory?.streak_freeze || 0
-    );
-
-
-    closeLogin();
-
-    updateAccount();
-
 };
 
+/* ==========================
+   PASSWORD CHANGE MODAL
+========================== */
 
-// ==========================
-// PASSWORD CHANGE
-// ==========================
+function openPasswordChange() {
+    setModalMessage("passwordMessage");
 
-function openPasswordChange(){
+    document.getElementById("passwordModal")
+        .classList.add("active");
 
-    document
-    .getElementById("passwordModal")
-    .classList
-    .add("active");
-
+    setTimeout(() => {
+        document.getElementById("currentPassword")?.focus();
+    }, 50);
 }
 
+window.closePasswordChange = function () {
+    document.getElementById("passwordModal")
+        .classList.remove("active");
 
-window.closePasswordChange = function(){
+    setModalMessage("passwordMessage");
 
-    document
-    .getElementById("passwordModal")
-    .classList
-    .remove("active");
+    // Clear password fields when the modal closes.
+    ["currentPassword", "newPassword", "confirmPassword"].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.value = "";
+            input.type = "password";
+        }
+    });
 
+    document.querySelectorAll(
+        "#passwordModal .password-toggle"
+    ).forEach(icon => {
+        icon.textContent = "visibility";
+        icon.setAttribute("aria-label", "Show password");
+    });
 };
 
 
-window.changePassword = async function(){
+/* ==========================
+   CHANGE PASSWORD
+========================== */
+
+window.changePassword = async function () {
+    const currentPassword =
+        document.getElementById("currentPassword").value;
 
     const newPassword =
-        document
-        .getElementById("newPassword")
-        .value;
-
+        document.getElementById("newPassword").value;
 
     const confirmPassword =
-        document
-        .getElementById("confirmPassword")
-        .value;
+        document.getElementById("confirmPassword").value;
 
+    const messageId = "passwordMessage";
+    const buttonId = "passwordSubmitButton";
 
-    if(newPassword !== confirmPassword){
-
-        alert(
-            "❌ Passwords do not match!"
+    if (!currentPassword || !newPassword || !confirmPassword) {
+        setModalMessage(
+            messageId,
+            "Please fill in all three password fields.",
+            "error"
         );
-
         return;
-
     }
 
+    if (newPassword !== confirmPassword) {
+        setModalMessage(
+            messageId,
+            "Your new passwords don't match. Please check them and try again.",
+            "error"
+        );
+        document.getElementById("confirmPassword").focus();
+        return;
+    }
 
-    const response = await fetch(
+    if (newPassword === currentPassword) {
+        setModalMessage(
+            messageId,
+            "Your new password must be different from your current password.",
+            "error"
+        );
+        return;
+    }
 
-        `${SUPABASE_URL}/auth/v1/user`,
+    const email = localStorage.getItem("currentEmail");
 
-        {
+    if (!email) {
+        setModalMessage(
+            messageId,
+            "Your saved session doesn't include your email address. Please sign out and sign in again before changing your password.",
+            "error"
+        );
+        return;
+    }
 
-            method:"PUT",
-
-            headers:{
-
-                apikey:SUPABASE_KEY,
-
-                Authorization:
-                `Bearer ${
-                    localStorage.getItem("access_token")
-                }`,
-
-                "Content-Type":
-                "application/json"
-
-            },
-
-            body:JSON.stringify({
-
-                password:newPassword
-
-            })
-
-        }
-
+    setModalMessage(messageId);
+    setButtonLoading(
+        buttonId,
+        true,
+        "Updating…",
+        "Update Password"
     );
 
-
-    if(response.ok){
-
-        alert(
-            "✅ Password changed!"
+    try {
+        /*
+         * STEP 1:
+         * Verify the current password by signing in again.
+         * This does not update the password.
+         */
+        const verifyResponse = await fetch(
+            `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+            {
+                method: "POST",
+                headers: {
+                    apikey: SUPABASE_KEY,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password: currentPassword
+                })
+            }
         );
 
-        closePasswordChange();
+        const verifyData = await readResponse(verifyResponse);
 
+        if (
+            !verifyResponse.ok ||
+            !verifyData.access_token ||
+            !verifyData.user?.id
+        ) {
+            const authMessage = getAuthErrorMessage(verifyData);
+
+            setModalMessage(
+                messageId,
+                authMessage === "Incorrect email or password. Please try again."
+                    ? "Your current password is incorrect. Please try again."
+                    : authMessage ||
+                      "We couldn't verify your current password. Please try again.",
+                "error"
+            );
+            return;
+        }
+
+        /*
+         * STEP 2:
+         * Use the newly verified session to update the password.
+         */
+        const updateResponse = await fetch(
+            `${SUPABASE_URL}/auth/v1/user`,
+            {
+                method: "PUT",
+                headers: {
+                    apikey: SUPABASE_KEY,
+                    Authorization: `Bearer ${verifyData.access_token}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    password: newPassword
+                })
+            }
+        );
+
+        const updateData = await readResponse(updateResponse);
+
+        if (!updateResponse.ok) {
+            const serverMessage =
+                updateData.msg ||
+                updateData.message ||
+                updateData.error_description ||
+                updateData.error;
+
+            // Avoid showing raw server errors that might contain technical details.
+            const safeMessage = String(serverMessage || "").toLowerCase();
+
+            let friendlyMessage =
+                "Your password couldn't be updated. Please try again.";
+
+            if (
+                safeMessage.includes("password") &&
+                (
+                    safeMessage.includes("weak") ||
+                    safeMessage.includes("short") ||
+                    safeMessage.includes("length") ||
+                    safeMessage.includes("characters")
+                )
+            ) {
+                friendlyMessage =
+                    "That password doesn't meet the password requirements. Please choose a stronger password.";
+            } else if (updateResponse.status >= 500) {
+                friendlyMessage =
+                    "The authentication service is temporarily unavailable. Please try again later.";
+            }
+
+            setModalMessage(messageId, friendlyMessage, "error");
+            return;
+        }
+
+        // Preserve the freshly issued session returned during verification.
+        localStorage.setItem("access_token", verifyData.access_token);
+
+        if (verifyData.refresh_token) {
+            localStorage.setItem("refresh_token", verifyData.refresh_token);
+        }
+
+        if (verifyData.user?.id) {
+            localStorage.setItem("auth_id", verifyData.user.id);
+        }
+
+        setModalMessage(
+            messageId,
+            "Your password has been changed successfully.",
+            "success"
+        );
+
+        // Clear the fields but keep the success message visible.
+        ["currentPassword", "newPassword", "confirmPassword"].forEach(id => {
+            document.getElementById(id).value = "";
+        });
+
+        document.querySelectorAll(
+            "#passwordModal .password-toggle"
+        ).forEach(icon => {
+            icon.textContent = "visibility";
+            icon.setAttribute("aria-label", "Show password");
+        });
+
+    } catch (error) {
+        console.error("Password change request failed:", error);
+
+        setModalMessage(
+            messageId,
+            "Couldn't connect to the server. Check your internet connection and try again.",
+            "error"
+        );
+    } finally {
+        setButtonLoading(
+            buttonId,
+            false,
+            "Updating…",
+            "Update Password"
+        );
     }
-
 };
-
 
 // ==========================
 // PASSWORD VISIBILITY
@@ -705,3 +874,29 @@ function(inputId, icon){
 updateAccount();
 
 loadPlayerData();
+
+/* ==========================
+   KEYBOARD SUBMISSION
+========================== */
+
+document.querySelectorAll(
+    "#loginModal input"
+).forEach(input => {
+    input.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            fakeLogin();
+        }
+    });
+});
+
+document.querySelectorAll(
+    "#passwordModal input"
+).forEach(input => {
+    input.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            changePassword();
+        }
+    });
+});
