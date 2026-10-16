@@ -19,792 +19,767 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+    
 <body class="home-page">
-<div id="loginModal" class="modal">
-
-
-    <div class="modal-content">
-
-
-        <h2>
-            🥢 Chopsticks Login
-        </h2>
-
-
-
-        <input
-        id="loginEmail"
-        type="email"
-        autocomplete="email"
-        placeholder="Email">
-
-
-
-        <div class="password-box">
-
+    
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-heading-icon">🥢</div>
+    
+            <span class="modal-eyebrow">WELCOME BACK</span>
+            <h2>Chopsticks Login</h2>
+            <p class="modal-description">Sign in to access your player profile.</p>
+    
             <input
-            id="loginPassword"
-            type="password"
-            placeholder="Password">
-
-
-            <span
-            class="material-symbols-rounded password-toggle"
-            onclick="togglePassword('loginPassword', this)">
-
-                visibility
-
-            </span>
-
-
+                id="loginEmail"
+                type="email"
+                autocomplete="email"
+                placeholder="Email"
+                aria-label="Email"
+            >
+    
+            <div class="password-box">
+                <input
+                    id="loginPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Password"
+                    aria-label="Password"
+                >
+    
+                <span
+                    class="material-symbols-rounded password-toggle"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Show password"
+                    onclick="togglePassword('loginPassword', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePassword('loginPassword',this)}"
+                >visibility</span>
+            </div>
+    
+            <div
+                id="loginMessage"
+                class="modal-message"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+    
+            <div class="modal-buttons">
+                <button
+                    class="modal-button modal-primary"
+                    id="loginSubmitButton"
+                    type="button"
+                    onclick="fakeLogin()"
+                >Login</button>
+    
+                <button
+                    class="modal-button"
+                    type="button"
+                    onclick="closeLogin()"
+                >Cancel</button>
+            </div>
+    
+            <p class="modal-footer-note">CHOPSTICKS HUB · PLAYER ACCESS</p>
         </div>
-
-
-
-        <div class="modal-buttons">
-
-
-            <button
-            class="modal-button"
-            onclick="fakeLogin()">
-
-                Login
-
-            </button>
-
-
-
-            <button
-            class="modal-button"
-            onclick="closeLogin()">
-
-                Cancel
-
-            </button>
-
-
-        </div>
-
-
     </div>
-
-
-</div>
-
-
-
-
-
-<div id="passwordModal" class="modal">
-
-
-    <div class="modal-content">
-
-
-        <h2>
-            🔑 Change Password
-        </h2>
-
-
-
-        <div class="password-box">
-
-            <input
-            id="currentPassword"
-            type="password"
-            placeholder="Current Password">
-
-
-            <span
-            class="material-symbols-rounded password-toggle"
-            onclick="togglePassword('currentPassword', this)">
-
-                visibility
-
-            </span>
-
-
+    
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-heading-icon">🔑</div>
+    
+            <span class="modal-eyebrow">ACCOUNT SECURITY</span>
+            <h2>Change Password</h2>
+            <p class="modal-description">
+                Verify your current password before choosing a new one.
+            </p>
+    
+            <div class="password-box">
+                <input
+                    id="currentPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Current password"
+                    aria-label="Current password"
+                >
+    
+                <span
+                    class="material-symbols-rounded password-toggle"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Show current password"
+                    onclick="togglePassword('currentPassword', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePassword('currentPassword',this)}"
+                >visibility</span>
+            </div>
+    
+            <div class="password-box">
+                <input
+                    id="newPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="New password"
+                    aria-label="New password"
+                >
+    
+                <span
+                    class="material-symbols-rounded password-toggle"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Show new password"
+                    onclick="togglePassword('newPassword', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePassword('newPassword',this)}"
+                >visibility</span>
+            </div>
+    
+            <div class="password-box">
+                <input
+                    id="confirmPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Confirm new password"
+                    aria-label="Confirm new password"
+                >
+    
+                <span
+                    class="material-symbols-rounded password-toggle"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Show password confirmation"
+                    onclick="togglePassword('confirmPassword', this)"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePassword('confirmPassword',this)}"
+                >visibility</span>
+            </div>
+    
+            <div
+                id="passwordMessage"
+                class="modal-message"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+    
+            <div class="modal-buttons">
+                <button
+                    class="modal-button modal-primary"
+                    id="passwordSubmitButton"
+                    type="button"
+                    onclick="changePassword()"
+                >Update Password</button>
+    
+                <button
+                    class="modal-button"
+                    type="button"
+                    onclick="closePasswordChange()"
+                >Cancel</button>
+            </div>
+    
+            <p class="modal-footer-note">CHOPSTICKS HUB · ACCOUNT SECURITY</p>
         </div>
-
-
-
-
-        <div class="password-box">
-
-            <input
-            id="newPassword"
-            type="password"
-            placeholder="New Password">
-
-
-            <span
-            class="material-symbols-rounded password-toggle"
-            onclick="togglePassword('newPassword', this)">
-
-                visibility
-
-            </span>
-
-
-        </div>
-
-
-
-
-        <div class="password-box">
-
-            <input
-            id="confirmPassword"
-            type="password"
-            placeholder="Confirm Password">
-
-
-            <span
-            class="material-symbols-rounded password-toggle"
-            onclick="togglePassword('confirmPassword', this)">
-
-                visibility
-
-            </span>
-
-
-        </div>
-
-
-
-
-        <div class="modal-buttons">
-
-
-            <button
-            class="modal-button"
-            onclick="changePassword()">
-
-                Change
-
-            </button>
-
-
-
-            <button
-            class="modal-button"
-            onclick="closePasswordChange()">
-
-                Cancel
-
-            </button>
-
-
-        </div>
-
-
     </div>
-
-
-</div>
-
-<header class="home-hero">
-
-    <div class="hero-badge">
-        OFFICIAL COMPANION
-    </div>
-
-    <h1>
-        🥢 Chopsticks Hub
-    </h1>
-
-    <p>
-        The official companion website
-    </p>
-
-</header>
-
-
-<!-- ACCOUNT AREA -->
-
-<div class="account-bar" id="accountBar"></div>
-
-
-<!-- ANNOUNCEMENTS -->
-
-<section class="notification-bar home-panel">
-
-    <div class="announcement-header">
-
-        <div class="section-heading">
-
-            <span class="section-icon">
-                📢
-            </span>
-
-            <div>
-
-                <span class="section-label">
-                    LATEST
-                </span>
-
-                <h2>
-                    Announcements
-                </h2>
-
-            </div>
-
+    
+    <header class="home-hero">
+    
+        <div class="hero-badge">
+            OFFICIAL COMPANION
         </div>
-
-
-        <div class="announcement-status">
-
-            <span class="status-dot"></span>
-
-            LIVE
-
+    
+        <h1>
+            🥢 Chopsticks Hub
+        </h1>
+    
+        <p>
+            The official companion website
+        </p>
+    
+    </header>
+    
+    
+    <!-- ACCOUNT AREA -->
+    
+    <div class="account-bar" id="accountBar"></div>
+    
+    
+    <!-- ANNOUNCEMENTS -->
+    
+    <section class="notification-bar home-panel">
+    
+        <div class="announcement-header">
+    
+            <div class="section-heading">
+    
+                <span class="section-icon">
+                    📢
+                </span>
+    
+                <div>
+    
+                    <span class="section-label">
+                        LATEST
+                    </span>
+    
+                    <h2>
+                        Announcements
+                    </h2>
+    
+                </div>
+    
+            </div>
+    
+    
+            <div class="announcement-status">
+    
+                <span class="status-dot"></span>
+    
+                LIVE
+    
+            </div>
+    
         </div>
-
-    </div>
-
-
-    <div class="announcement-content">
-
-        <div class="announcement-message"
-             id="notification-text">
+    
+    
+        <div class="announcement-content">
+    
+            <div class="announcement-message"
+                 id="notification-text">
+            </div>
+    
         </div>
-
-    </div>
-
-
-    <div class="announcement-footer">
-
-        <span>
-            CHOPSTICKS HUB
-        </span>
-
-        <span>
-            ●
-        </span>
-
-        <span>
-            LATEST UPDATE
-        </span>
-
-    </div>
-
-</section>
-
-
-<!-- UPCOMING EVENTS -->
-
-<section id="upcoming-events" class="home-panel">
-
-    <div class="section-heading">
-
-        <span class="section-icon">
-            📅
-        </span>
-
-        <div>
-
-            <span class="section-label">
-                WHAT'S COMING
-            </span>
-
-            <h2>
-                Upcoming Events
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="events-grid">
-
-
-        <!-- HARVEST SHOWCASE -->
-
-        <div class="event-card">
-
-            <div class="event-card-top">
-
-                <span class="event-type">
-                    BAND / STRINGS CONCERT
-                </span>
-
-                <span class="event-date">
-                    OCT 02
-                </span>
-
-            </div>
-
-            <div class="event-card-body">
-
-                <h3>
-                    Harvest Showcase
-                </h3>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- FNF -->
-
-        <div class="event-card">
-
-            <div class="event-card-top">
-
-                <span class="event-type">
-                    FNF
-                </span>
-
-                <span class="event-date">
-                    OCT 02
-                </span>
-
-            </div>
-
-            <div class="event-card-body">
-
-                <h3>
-                    FNF
-                </h3>
-
-                <p>
-                    Details TBD
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- OCTOBER BREAK -->
-
-        <div class="event-card">
-
-            <div class="event-card-top">
-
-                <span class="event-type">
-                    SCHOOL
-                </span>
-
-                <span class="event-date">
-                    OCT 12–16
-                </span>
-
-            </div>
-
-            <div class="event-card-body">
-
-                <h3>
-                    Break
-                </h3>
-
-                <p>
-                    October Break
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- IGNITE CAMP -->
-
-        <div class="event-card">
-
-            <div class="event-card-top">
-
-                <span class="event-type">
-                    CAMP
-                </span>
-
-                <span class="event-date">
-                    OCT 22–24
-                </span>
-
-            </div>
-
-            <div class="event-card-body">
-
-                <h3>
-                    IGNITE CAMP
-                </h3>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- EXPLORE -->
-
-<section class="home-explore">
-
-    <div class="home-section-header">
-
-        <div>
-
-            <span class="section-label">
+    
+    
+        <div class="announcement-footer">
+    
+            <span>
                 CHOPSTICKS HUB
             </span>
-
-            <h2>
-                Explore Chopsticks
-            </h2>
-
-            <p>
-                Everything you need to explore the game.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- GAME -->
-
-    <div class="explore-category">
-
-        <div class="explore-category-header">
-
-            <span class="category-icon">
-                🎮
+    
+            <span>
+                ●
             </span>
-
-            <div>
-
-                <span class="category-label">
-                    GAME
-                </span>
-
-                <h3>
-                    Explore the Game
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="home-grid">
-
-
-            <a href="fish.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    🎣
-                </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Fish Library
-                    </h2>
-
-                    <p>
-                        Discover every fish.
-                    </p>
-
-                </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a href="cards.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    🃏
-                </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Card Library
-                    </h2>
-
-                    <p>
-                        Browse available cards.
-                    </p>
-
-                </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a href="shop.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    🛒
-                </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Shops
-                    </h2>
-
-                    <p>
-                        Browse available items.
-                    </p>
-
-                </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- COMMUNITY -->
-
-    <div class="explore-category">
-
-        <div class="explore-category-header">
-
-            <span class="category-icon">
-                👥
+    
+            <span>
+                LATEST UPDATE
             </span>
-
-            <div>
-
-                <span class="category-label">
-                    COMMUNITY
-                </span>
-
-                <h3>
-                    Community
-                </h3>
-
-            </div>
-
+    
         </div>
-
-
-        <div class="home-grid">
-
-
-            <a href="leaderboard.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    🏆
-                </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Leaderboard
-                    </h2>
-
-                    <p>
-                        See who's at the top.
-                    </p>
-
-                </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a href="commands.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    📜
-                </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Commands
-                    </h2>
-
-                    <p>
-                        View all Chopsticks commands.
-                    </p>
-
-                </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- INFORMATION -->
-
-    <div class="explore-category">
-
-        <div class="explore-category-header">
-
-            <span class="category-icon">
-                ℹ️
+    
+    </section>
+    
+    
+    <!-- UPCOMING EVENTS -->
+    
+    <section id="upcoming-events" class="home-panel">
+    
+        <div class="section-heading">
+    
+            <span class="section-icon">
+                📅
             </span>
-
+    
             <div>
-
-                <span class="category-label">
-                    INFORMATION
+    
+                <span class="section-label">
+                    WHAT'S COMING
                 </span>
-
-                <h3>
-                    Chopsticks Info
-                </h3>
-
+    
+                <h2>
+                    Upcoming Events
+                </h2>
+    
             </div>
-
+    
         </div>
-
-
-        <div class="home-grid">
-
-
-            <a href="releases.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    📢
+    
+    
+        <div class="events-grid">
+    
+    
+            <!-- HARVEST SHOWCASE -->
+    
+            <div class="event-card">
+    
+                <div class="event-card-top">
+    
+                    <span class="event-type">
+                        BAND / STRINGS CONCERT
+                    </span>
+    
+                    <span class="event-date">
+                        OCT 02
+                    </span>
+    
                 </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Release Notes
-                    </h2>
-
+    
+                <div class="event-card-body">
+    
+                    <h3>
+                        Harvest Showcase
+                    </h3>
+    
+                </div>
+    
+            </div>
+    
+    
+    
+            <!-- FNF -->
+    
+            <div class="event-card">
+    
+                <div class="event-card-top">
+    
+                    <span class="event-type">
+                        FNF
+                    </span>
+    
+                    <span class="event-date">
+                        OCT 02
+                    </span>
+    
+                </div>
+    
+                <div class="event-card-body">
+    
+                    <h3>
+                        FNF
+                    </h3>
+    
                     <p>
-                        See the latest updates.
+                        Details TBD
                     </p>
-
+    
                 </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-
-            <a href="credits.html" class="card home-card">
-
-                <div class="home-card-icon">
-                    🎬
+    
+            </div>
+    
+    
+    
+            <!-- OCTOBER BREAK -->
+    
+            <div class="event-card">
+    
+                <div class="event-card-top">
+    
+                    <span class="event-type">
+                        SCHOOL
+                    </span>
+    
+                    <span class="event-date">
+                        OCT 12–16
+                    </span>
+    
                 </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Credits
-                    </h2>
-
+    
+                <div class="event-card-body">
+    
+                    <h3>
+                        Break
+                    </h3>
+    
                     <p>
-                        Meet the people behind Chopsticks.
+                        October Break
                     </p>
-
+    
                 </div>
-
-                <span class="card-arrow">
-                    →
-                </span>
-
-            </a>
-
-
+    
+            </div>
+    
+    
+    
+            <!-- IGNITE CAMP -->
+    
+            <div class="event-card">
+    
+                <div class="event-card-top">
+    
+                    <span class="event-type">
+                        CAMP
+                    </span>
+    
+                    <span class="event-date">
+                        OCT 22–24
+                    </span>
+    
+                </div>
+    
+                <div class="event-card-body">
+    
+                    <h3>
+                        IGNITE CAMP
+                    </h3>
+    
+                </div>
+    
+            </div>
+    
+    
         </div>
-
-    </div>
-
-
-
-    <!-- SYSTEM -->
-
-    <div class="explore-category">
-
-        <div class="explore-category-header">
-
-            <span class="category-icon">
-                ⚙️
-            </span>
-
+    
+    </section>
+    
+    
+    <!-- EXPLORE -->
+    
+    <section class="home-explore">
+    
+        <div class="home-section-header">
+    
             <div>
-
-                <span class="category-label">
-                    SYSTEM
+    
+                <span class="section-label">
+                    CHOPSTICKS HUB
                 </span>
-
-                <h3>
-                    Settings
-                </h3>
-
+    
+                <h2>
+                    Explore Chopsticks
+                </h2>
+    
+                <p>
+                    Everything you need to explore the game.
+                </p>
+    
             </div>
-
+    
         </div>
-
-
-        <div class="home-grid">
-
-
-            <a
-                href="settings.html"
-                class="card home-card home-card-settings"
-            >
-
-                <div class="home-card-icon">
+    
+    
+        <!-- GAME -->
+    
+        <div class="explore-category">
+    
+            <div class="explore-category-header">
+    
+                <span class="category-icon">
+                    🎮
+                </span>
+    
+                <div>
+    
+                    <span class="category-label">
+                        GAME
+                    </span>
+    
+                    <h3>
+                        Explore the Game
+                    </h3>
+    
+                </div>
+    
+            </div>
+    
+    
+            <div class="home-grid">
+    
+    
+                <a href="fish.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        🎣
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Fish Library
+                        </h2>
+    
+                        <p>
+                            Discover every fish.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+                <a href="cards.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        🃏
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Card Library
+                        </h2>
+    
+                        <p>
+                            Browse available cards.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+                <a href="shop.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        🛒
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Shops
+                        </h2>
+    
+                        <p>
+                            Browse available items.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+            </div>
+    
+        </div>
+    
+    
+    
+        <!-- COMMUNITY -->
+    
+        <div class="explore-category">
+    
+            <div class="explore-category-header">
+    
+                <span class="category-icon">
+                    👥
+                </span>
+    
+                <div>
+    
+                    <span class="category-label">
+                        COMMUNITY
+                    </span>
+    
+                    <h3>
+                        Community
+                    </h3>
+    
+                </div>
+    
+            </div>
+    
+    
+            <div class="home-grid">
+    
+    
+                <a href="leaderboard.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        🏆
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Leaderboard
+                        </h2>
+    
+                        <p>
+                            See who's at the top.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+                <a href="commands.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        📜
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Commands
+                        </h2>
+    
+                        <p>
+                            View all Chopsticks commands.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+            </div>
+    
+        </div>
+    
+    
+    
+        <!-- INFORMATION -->
+    
+        <div class="explore-category">
+    
+            <div class="explore-category-header">
+    
+                <span class="category-icon">
+                    ℹ️
+                </span>
+    
+                <div>
+    
+                    <span class="category-label">
+                        INFORMATION
+                    </span>
+    
+                    <h3>
+                        Chopsticks Info
+                    </h3>
+    
+                </div>
+    
+            </div>
+    
+    
+            <div class="home-grid">
+    
+    
+                <a href="releases.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        📢
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Release Notes
+                        </h2>
+    
+                        <p>
+                            See the latest updates.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+                <a href="credits.html" class="card home-card">
+    
+                    <div class="home-card-icon">
+                        🎬
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Credits
+                        </h2>
+    
+                        <p>
+                            Meet the people behind Chopsticks.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+            </div>
+    
+        </div>
+    
+    
+    
+        <!-- SYSTEM -->
+    
+        <div class="explore-category">
+    
+            <div class="explore-category-header">
+    
+                <span class="category-icon">
                     ⚙️
-                </div>
-
-                <div class="home-card-content">
-
-                    <h2>
-                        Settings
-                    </h2>
-
-                    <p>
-                        Customize your Chopsticks Hub experience.
-                    </p>
-
-                </div>
-
-                <span class="card-arrow">
-                    →
                 </span>
-
-            </a>
-
-
+    
+                <div>
+    
+                    <span class="category-label">
+                        SYSTEM
+                    </span>
+    
+                    <h3>
+                        Settings
+                    </h3>
+    
+                </div>
+    
+            </div>
+    
+    
+            <div class="home-grid">
+    
+    
+                <a
+                    href="settings.html"
+                    class="card home-card home-card-settings"
+                >
+    
+                    <div class="home-card-icon">
+                        ⚙️
+                    </div>
+    
+                    <div class="home-card-content">
+    
+                        <h2>
+                            Settings
+                        </h2>
+    
+                        <p>
+                            Customize your Chopsticks Hub experience.
+                        </p>
+    
+                    </div>
+    
+                    <span class="card-arrow">
+                        →
+                    </span>
+    
+                </a>
+    
+    
+            </div>
+    
         </div>
-
-    </div>
-
-</section>
+    
+    </section>
 
 </body>
 
