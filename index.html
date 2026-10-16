@@ -173,6 +173,51 @@
             </div>
         </div>
     </div>
+
+    <!-- SIGN OUT CONFIRMATION MODAL -->
+
+    <div id="logoutModal" class="modal">
+        <div class="modal-content logout-modal-content">
+    
+            <div class="modal-heading-icon logout-icon">↗</div>
+    
+            <span class="modal-eyebrow">CHOPSTICKS ACCOUNT</span>
+    
+            <h2>Sign out?</h2>
+    
+            <p class="modal-description">
+                Are you sure you want to sign out of your Chopsticks account?
+                Your account data will remain saved.
+            </p>
+    
+            <div
+                id="logoutMessage"
+                class="modal-message"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+    
+            <div class="modal-buttons">
+                <button
+                    class="modal-button modal-primary"
+                    id="confirmLogoutButton"
+                    type="button"
+                    onclick="confirmLogout()"
+                >
+                    Yes, sign out
+                </button>
+    
+                <button
+                    class="modal-button"
+                    type="button"
+                    onclick="closeLogoutModal()"
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
     
     <header class="home-hero">
     
