@@ -7603,6 +7603,102 @@ html.light-theme .action-button {
     }
 }
 
+/* =========================================================
+   LOGIN MODAL — MORE BREATHING ROOM
+========================================================= */
+
+#loginModal .modal-content {
+    padding: 36px 34px 28px;
+    gap: 0;
+}
+
+/* Space out the heading and description */
+#loginModal .modal-heading-icon {
+    margin-bottom: 18px;
+}
+
+#loginModal .modal-eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+#loginModal h2 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    line-height: 1.25;
+}
+
+#loginModal .modal-description {
+    margin: 0 0 28px;
+    line-height: 1.7;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+/* Give the email and password fields more room */
+#loginModal input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 16px;
+    margin: 0 0 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Keep password input aligned with its visibility toggle */
+#loginModal .password-box {
+    margin-bottom: 12px;
+}
+
+#loginModal .password-box input {
+    margin-bottom: 0;
+    padding-right: 48px;
+}
+
+/* More separation before the action buttons */
+#loginModal .modal-message {
+    margin: 4px 0 16px;
+    line-height: 1.5;
+}
+
+#loginModal .modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+#loginModal .modal-button {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* Footer breathing room */
+#loginModal .modal-footer-note {
+    margin: 22px 0 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Smaller screens */
+@media (max-width: 480px) {
+    #loginModal .modal-content {
+        padding: 28px 22px 24px;
+    }
+
+    #loginModal h2 {
+        font-size: 25px;
+    }
+}
+
 /* =========================================
    SIGN OUT CONFIRMATION MODAL
 ========================================= */
