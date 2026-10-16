@@ -7603,6 +7603,39 @@ html.light-theme .action-button {
     }
 }
 
+/* =========================================
+   SIGN OUT CONFIRMATION MODAL
+========================================= */
+
+#logoutModal .logout-modal-content {
+    width: min(420px, calc(100vw - 32px));
+}
+
+#logoutModal .logout-icon {
+    color: #ffb0b8;
+    background: rgba(255, 86, 110, 0.10);
+    border-color: rgba(255, 105, 125, 0.24);
+    font-size: 30px;
+}
+
+#logoutModal .modal-eyebrow {
+    color: #ff9ba8;
+}
+
+#logoutModal .modal-primary {
+    background: linear-gradient(135deg, #ff9aa8, #ff657d);
+    color: #251016;
+    box-shadow: 0 5px 20px rgba(255, 80, 110, 0.12);
+}
+
+#logoutModal .modal-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ffbdc6, #ff8798);
+}
+
+#logoutModal .modal-button:not(.modal-primary) {
+    background: rgba(255, 255, 255, 0.06);
+}
+
 /* ==========================
    MOBILE
 ========================== */
