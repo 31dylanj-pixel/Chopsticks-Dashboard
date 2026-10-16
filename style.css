@@ -7296,6 +7296,313 @@ html.light-theme .action-button {
 
 }
 
+/* =========================================
+   ACCOUNT MODAL REDESIGN
+   Scoped to login and password modals
+========================================= */
+
+#loginModal .modal-content,
+#passwordModal .modal-content {
+    width: min(440px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    padding: 36px;
+    border-radius: 26px;
+    text-align: center;
+    color: #fff;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(49, 142, 255, 0.18),
+            transparent 48%
+        ),
+        rgba(9, 20, 38, 0.96);
+
+    border: 1px solid rgba(125, 211, 255, 0.22);
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.42),
+        0 0 35px rgba(38, 132, 255, 0.08);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+#loginModal .modal-heading-icon,
+#passwordModal .modal-heading-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 18px;
+    font-size: 27px;
+    background: rgba(72, 158, 255, 0.12);
+    border: 1px solid rgba(125, 211, 255, 0.2);
+}
+
+#loginModal .modal-eyebrow,
+#passwordModal .modal-eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    color: #7dd3ff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#loginModal .modal-content h2,
+#passwordModal .modal-content h2 {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+#loginModal .modal-description,
+#passwordModal .modal-description {
+    margin: 12px 0 24px;
+    color: rgba(235, 243, 255, 0.66);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Inputs */
+
+#loginModal .modal-content > input,
+#loginModal .password-box,
+#passwordModal .password-box {
+    width: 100%;
+    margin: 0 0 14px;
+}
+
+#loginModal .modal-content input,
+#passwordModal .modal-content input {
+    width: 100%;
+    min-width: 0;
+    height: 51px;
+    margin: 0;
+    padding: 0 17px;
+    box-sizing: border-box;
+
+    border-radius: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.055);
+
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#loginModal .password-box input,
+#passwordModal .password-box input {
+    padding-right: 52px;
+}
+
+#loginModal .modal-content input::placeholder,
+#passwordModal .modal-content input::placeholder {
+    color: rgba(230, 239, 255, 0.42);
+}
+
+#loginModal .modal-content input:focus,
+#passwordModal .modal-content input:focus {
+    border-color: rgba(85, 174, 255, 0.8);
+    background: rgba(58, 132, 220, 0.09);
+    box-shadow: 0 0 0 3px rgba(65, 151, 255, 0.11);
+}
+
+#loginModal .password-toggle,
+#passwordModal .password-toggle {
+    right: 15px;
+    color: rgba(220, 235, 255, 0.55);
+    font-size: 21px;
+    user-select: none;
+}
+
+#loginModal .password-toggle:hover,
+#passwordModal .password-toggle:hover {
+    color: #7dd3ff;
+}
+
+#loginModal .password-toggle:focus-visible,
+#passwordModal .password-toggle:focus-visible {
+    outline: 2px solid #7dd3ff;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Inline feedback */
+
+#loginModal .modal-message,
+#passwordModal .modal-message {
+    margin: 2px 0 16px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#loginModal .modal-message[hidden],
+#passwordModal .modal-message[hidden] {
+    display: none;
+}
+
+#loginModal .modal-message.error,
+#passwordModal .modal-message.error {
+    color: #ffb4bc;
+    background: rgba(255, 69, 91, 0.09);
+    border: 1px solid rgba(255, 100, 120, 0.24);
+}
+
+#loginModal .modal-message.success,
+#passwordModal .modal-message.success {
+    color: #9bf0bc;
+    background: rgba(57, 211, 125, 0.09);
+    border: 1px solid rgba(57, 211, 125, 0.23);
+}
+
+#loginModal .modal-message.info,
+#passwordModal .modal-message.info {
+    color: #a8dcff;
+    background: rgba(65, 151, 255, 0.09);
+    border: 1px solid rgba(65, 151, 255, 0.22);
+}
+
+/* Buttons */
+
+#loginModal .modal-buttons,
+#passwordModal .modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#loginModal .modal-button,
+#passwordModal .modal-button {
+    flex: 1;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px 16px;
+    border-radius: 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.055);
+    color: rgba(255, 255, 255, 0.8);
+
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+#loginModal .modal-button:hover:not(:disabled),
+#passwordModal .modal-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+#loginModal .modal-button:active:not(:disabled),
+#passwordModal .modal-button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+#loginModal .modal-button.modal-primary,
+#passwordModal .modal-button.modal-primary {
+    color: #07111f;
+    background: linear-gradient(135deg, #8be0ff, #579bff);
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(69, 151, 255, 0.18);
+}
+
+#loginModal .modal-button.modal-primary:hover:not(:disabled),
+#passwordModal .modal-button.modal-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #b0eaff, #78b2ff);
+}
+
+#loginModal .modal-button:disabled,
+#passwordModal .modal-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+/* Spinner appears before the loading button text */
+
+#loginModal .modal-button.is-loading::before,
+#passwordModal .modal-button.is-loading::before {
+    content: "";
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 9px;
+    vertical-align: -2px;
+    border: 2px solid rgba(7, 17, 31, 0.25);
+    border-top-color: #07111f;
+    border-radius: 50%;
+    animation: chopsticks-modal-spin 0.7s linear infinite;
+}
+
+@keyframes chopsticks-modal-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#loginModal .modal-footer-note,
+#passwordModal .modal-footer-note {
+    margin: 24px 0 0;
+    color: rgba(220, 235, 255, 0.32);
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 480px) {
+    #loginModal .modal-content,
+    #passwordModal .modal-content {
+        padding: 27px 21px;
+        border-radius: 22px;
+    }
+
+    #loginModal .modal-content h2,
+    #passwordModal .modal-content h2 {
+        font-size: 22px;
+    }
+
+    #loginModal .modal-buttons,
+    #passwordModal .modal-buttons {
+        gap: 8px;
+    }
+
+    #loginModal .modal-button,
+    #passwordModal .modal-button {
+        padding: 11px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #loginModal .modal-button.is-loading::before,
+    #passwordModal .modal-button.is-loading::before {
+        animation-duration: 1.8s;
+    }
+}
+
 /* ==========================
    MOBILE
 ========================== */
