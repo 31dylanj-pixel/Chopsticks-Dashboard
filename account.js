@@ -224,18 +224,7 @@ function updateAccount(){
         document
         .getElementById("logoutButton")
         .onclick = () => {
-
-            currentUser = null;
-
-            localStorage.removeItem("currentUser");
-            localStorage.removeItem("access_token");
-            localStorage.removeItem("auth_id");
-            localStorage.removeItem("currentEmail");
-            localStorage.removeItem("coins");
-            localStorage.removeItem("streak");
-
-            updateAccount();
-
+            openLogoutModal();
         };
 
     }
@@ -833,6 +822,43 @@ window.changePassword = async function () {
             "Update Password"
         );
     }
+};
+
+/* ==========================
+   SIGN OUT CONFIRMATION
+========================== */
+
+window.openLogoutModal = function () {
+    setModalMessage("logoutMessage");
+
+    document.getElementById("logoutModal")
+        .classList.add("active");
+};
+
+window.closeLogoutModal = function () {
+    document.getElementById("logoutModal")
+        .classList.remove("active");
+
+    setModalMessage("logoutMessage");
+};
+
+window.confirmLogout = function () {
+    currentUser = null;
+
+    [
+        "currentUser",
+        "access_token",
+        "refresh_token",
+        "auth_id",
+        "currentEmail",
+        "coins",
+        "streak",
+        "prestige_points",
+        "streak_freezes"
+    ].forEach(key => localStorage.removeItem(key));
+
+    closeLogoutModal();
+    updateAccount();
 };
 
 // ==========================
