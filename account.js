@@ -91,7 +91,7 @@ function updateAccount(){
                     </span>
 
                     <h2>
-                        ${currentUser}
+                        ${CH.escapeHtml(currentUser)}
                     </h2>
 
                     <p>
@@ -326,7 +326,6 @@ async function loadPlayerData(){
         players[0];
 
 
-    console.log(player);
 
 
     currentUser =
