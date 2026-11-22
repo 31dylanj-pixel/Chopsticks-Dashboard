@@ -75,6 +75,7 @@ function buildNav() {
         </ul>
 
         <div class="nav-actions">
+            <div id="navAccount" class="nav-account-slot"></div>
             <button class="icon-btn" id="navTheme" type="button" aria-label="Toggle light and dark theme"></button>
             <button class="icon-btn nav-toggle" id="navToggle" type="button"
                     aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">${ICON_MENU}</button>
