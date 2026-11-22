@@ -10,9 +10,10 @@
     <script src="common.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
 
 <header class="page-hero">
+    <a class="back-home" href="index.html"><span aria-hidden="true">&larr;</span> Back to home</a>
     <span class="eyebrow">CHOPSTICKS HUB</span>
     <h1>Leaderboard</h1>
     <p>See who's leading the game. Click a player for their stats.</p>
@@ -32,10 +33,16 @@
     </div>
 
     <div id="leaderboard" aria-live="polite"></div>
+
+    <div class="page-footer">
+        <a class="btn" href="index.html"><span aria-hidden="true">&larr;</span> Back to home</a>
+        <a class="btn" href="#top">Back to top</a>
+    </div>
 </main>
 
 <script src="leaderboard.js"></script>
 
+<script src="account.js" defer></script>
 <script src="ocean.js" defer></script>
 </body>
 </html>
