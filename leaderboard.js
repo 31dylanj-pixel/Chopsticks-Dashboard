@@ -1,334 +1,104 @@
-const SUPABASE_URL =
-"https://rualkoaojvjiqsudzgah.supabase.co";
+/* Leaderboard - live data from the bot (Supabase), refreshed every 15 seconds */
 
-const SUPABASE_KEY =
-"sb_publishable_oxTVjZfp9wvrrmG60Qm-cg_WsBD1pIE";
+const lbEl = document.getElementById("leaderboard");
+const lbSearch = document.getElementById("lb-search");
+const lbCount = document.getElementById("lb-count");
+const lbUpdated = document.getElementById("lb-updated");
 
+let players = [];
+let openName = null;
 
-/* ========================================
-   FORMAT COINS
-======================================== */
-
-function formatCoins(amount) {
-
-    const units = [
-        { value: 1e18, symbol: "Qi" },
-        { value: 1e15, symbol: "Qa" },
-        { value: 1e12, symbol: "T" },
-        { value: 1e9, symbol: "B" },
-        { value: 1e6, symbol: "M" },
-        { value: 1e3, symbol: "K" }
-    ];
-
-    for (const unit of units) {
-
-        if (amount >= unit.value) {
-
-            return (amount / unit.value)
-                .toFixed(1)
-                .replace(".0", "")
-                + unit.symbol;
-
-        }
-
-    }
-
-    return amount.toString();
-
+function showSkeleton() {
+    lbEl.innerHTML = Array.from({ length: 6 }, () => `<div class="skeleton"></div>`).join("");
 }
 
-
-/* ========================================
-   FULL COIN FORMAT
-======================================== */
-
-function fullCoins(amount) {
-
-    return Number(amount).toLocaleString();
-
+function showError(message) {
+    lbEl.innerHTML = `
+        <div class="empty-state">
+            <strong>Leaderboard unavailable</strong>
+            ${CH.escapeHtml(message)}<br><br>
+            <button class="btn" type="button" id="lb-retry">Try again</button>
+        </div>`;
+    document.getElementById("lb-retry").addEventListener("click", () => { showSkeleton(); loadLeaderboard(); });
+    lbCount.textContent = "";
 }
-
-
-/* ========================================
-   LOAD LEADERBOARD
-======================================== */
 
 async function loadLeaderboard() {
-
-    const response = await fetch(
-        `${SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak,stats&order=prestige.desc,coins.desc&limit=50`,
-        {
-            headers: {
-                apikey: SUPABASE_KEY,
-                Authorization:
-                `Bearer ${SUPABASE_KEY}`
-            }
-        }
-    );
-
-
-    console.log("Status:", response.status);
-
-
-    const players = await response.json();
-
-
-    console.log("Players:", players);
-
-
-    const container =
-        document.getElementById("leaderboard");
-
-
-    if (!container) {
-
-        console.error(
-            "Leaderboard container missing!"
+    try {
+        const response = await fetch(
+            `${CH.SUPABASE_URL}/rest/v1/players?select=username,coins,title,prestige,daily_streak,stats&order=prestige.desc,coins.desc&limit=50`,
+            { headers: { apikey: CH.SUPABASE_KEY, Authorization: `Bearer ${CH.SUPABASE_KEY}` } }
         );
+        if (!response.ok) throw new Error(`The server answered with status ${response.status}.`);
 
-        return;
+        const data = await response.json();
+        if (!Array.isArray(data)) throw new Error("Unexpected response from the server.");
 
+        players = data;
+        lbUpdated.textContent = `Updated ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" })}`;
+        renderLeaderboard();
+    } catch (error) {
+        /* keep showing old data if we already have some */
+        if (!players.length) showError(error.message || "Could not reach the server.");
+        else lbUpdated.textContent = "Offline - showing last known data";
     }
-
-
-    container.innerHTML = "";
-
-
-    players.forEach((player, index) => {
-
-        /* ==========================
-           RANK
-        ========================== */
-
-        let rankDisplay =
-            `${index + 1}`;
-
-
-        if (index === 0) {
-
-            rankDisplay = "🥇";
-
-        }
-
-        else if (index === 1) {
-
-            rankDisplay = "🥈";
-
-        }
-
-        else if (index === 2) {
-
-            rankDisplay = "🥉";
-
-        }
-
-
-        /* ==========================
-           SAFE VALUES
-        ========================== */
-
-        const coins =
-            Number(player.coins) || 0;
-
-
-        const streak =
-            Number(player.daily_streak) || 0;
-
-
-        const prestige =
-            Number(player.prestige) || 0;
-
-
-        const fishCaught =
-            Number(player.stats?.fish_caught) || 0;
-
-
-        const slotsPlayed =
-            Number(player.stats?.slots_played) || 0;
-
-
-        const coinsEarned =
-            Number(player.stats?.coins_earned) || 0;
-
-
-        const title =
-            player.title || "Rookie";
-
-
-        /* ==========================
-           PRESTIGE
-        ========================== */
-
-        const prestigeDisplay =
-            prestige > 0
-                ? `PRESTIGE ${prestige}`
-                : "NO PRESTIGE";
-
-
-        /* ==========================
-           CARD
-        ========================== */
-
-        container.innerHTML += `
-
-        <div class="card leaderboard-card ${
-            index === 0 ? "top-one" :
-            index === 1 ? "top-two" :
-            index === 2 ? "top-three" :
-            ""
-        }">
-
-            <div class="leaderboard-main">
-
-                <div class="leaderboard-rank">
-                    ${rankDisplay}
-                </div>
-
-
-                <div class="leaderboard-player">
-
-                    <span class="leaderboard-title">
-                        ${title}
-                    </span>
-
-                    <h2>
-                        ${player.username}
-                    </h2>
-
-                </div>
-
-
-                <div class="leaderboard-prestige">
-                    ${prestigeDisplay}
-                </div>
-
-            </div>
-
-
-            <div class="leaderboard-stats">
-
-                <!-- COINS -->
-
-                <div class="leaderboard-stat">
-
-                    <div class="leaderboard-stat-icon">
-                        💰
-                    </div>
-
-                    <div>
-
-                        <span>
-                            COINS
-                        </span>
-
-                        <strong>
-                            ${fullCoins(coins)}
-                        </strong>
-
-                        <small>
-                            ${formatCoins(coins)}
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <!-- STREAK -->
-
-                <div class="leaderboard-stat">
-
-                    <div class="leaderboard-stat-icon">
-                        🔥
-                    </div>
-
-                    <div>
-
-                        <span>
-                            DAILY STREAK
-                        </span>
-
-                        <strong>
-                            ${streak}
-                        </strong>
-
-                        <small>
-                            ${streak === 1 ? "day" : "days"}
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="player-details">
-
-                <div class="detail-stat">
-
-                    <span>
-                        🎣 FISH CAUGHT
-                    </span>
-
-                    <strong>
-                        ${fullCoins(fishCaught)}
-                    </strong>
-
-                </div>
-
-
-                <div class="detail-stat">
-
-                    <span>
-                        🎰 SLOTS PLAYED
-                    </span>
-
-                    <strong>
-                        ${fullCoins(slotsPlayed)}
-                    </strong>
-
-                </div>
-
-
-                <div class="detail-stat">
-
-                    <span>
-                        💰 COINS EARNED
-                    </span>
-
-                    <strong>
-                      ${fullCoins(coinsEarned)}
-                      <small>
-                          (${formatCoins(coinsEarned)})
-                      </small>
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
 }
 
+function renderLeaderboard() {
+    const query = lbSearch.value.toLowerCase().trim();
+    const medals = ["🥇", "🥈", "🥉"];
+    const rows = players
+        .map((player, index) => ({ player, rank: index + 1 }))
+        .filter(({ player }) => !query || String(player.username).toLowerCase().includes(query));
 
-/* ========================================
-   INITIAL LOAD
-======================================== */
+    lbCount.textContent = `${rows.length} player${rows.length === 1 ? "" : "s"}`;
 
+    if (!rows.length) {
+        lbEl.innerHTML = `<div class="empty-state"><strong>${players.length ? "No players match" : "No players yet"}</strong>${players.length ? "Try a different name." : "Be the first to earn coins!"}</div>`;
+        return;
+    }
+
+    lbEl.innerHTML = rows.map(({ player, rank }) => {
+        const coins = Number(player.coins) || 0;
+        const streak = Number(player.daily_streak) || 0;
+        const prestige = Number(player.prestige) || 0;
+        const fish = Number(player.stats?.fish_caught) || 0;
+        const slots = Number(player.stats?.slots_played) || 0;
+        const earned = Number(player.stats?.coins_earned) || 0;
+        const name = String(player.username ?? "Unknown");
+        const open = openName === name;
+        const cls = rank === 1 ? "top-one" : rank === 2 ? "top-two" : rank === 3 ? "top-three" : "";
+
+        return `
+        <article class="lb-card ${cls} ${open ? "open" : ""}" data-name="${CH.escapeHtml(name)}">
+            <button class="lb-row" type="button" aria-expanded="${open}">
+                <span class="lb-rank">${medals[rank - 1] || "#" + rank}</span>
+                <span class="lb-name">
+                    <strong class="lb-title">${CH.escapeHtml(name)}</strong>
+                    <span>${CH.escapeHtml(player.title || "Rookie")}</span>
+                </span>
+                <span class="lb-prestige ${prestige > 0 ? "has" : ""}">${prestige > 0 ? "PRESTIGE " + prestige : "NO PRESTIGE"}</span>
+                <span class="lb-coins">💰 ${CH.full(coins)}<small>${CH.short(coins)}</small></span>
+            </button>
+            <div class="lb-details">
+                <div class="lb-detail"><span>🔥 DAILY STREAK</span><strong>${streak}</strong> <small>${streak === 1 ? "day" : "days"}</small></div>
+                <div class="lb-detail"><span>🎣 FISH CAUGHT</span><strong>${CH.full(fish)}</strong></div>
+                <div class="lb-detail"><span>🎰 SLOTS PLAYED</span><strong>${CH.full(slots)}</strong></div>
+                <div class="lb-detail"><span>💰 COINS EARNED</span><strong>${CH.full(earned)}</strong> <small>(${CH.short(earned)})</small></div>
+            </div>
+        </article>`;
+    }).join("");
+}
+
+lbEl.addEventListener("click", event => {
+    const card = event.target.closest(".lb-card");
+    if (!card || !event.target.closest(".lb-row")) return;
+    openName = openName === card.dataset.name ? null : card.dataset.name;
+    renderLeaderboard();
+});
+
+lbSearch.addEventListener("input", renderLeaderboard);
+
+showSkeleton();
 loadLeaderboard();
-
-
-/* ========================================
-   AUTO REFRESH
-======================================== */
-
-setInterval(
-    loadLeaderboard,
-    10000
-);
+setInterval(() => { if (!document.hidden) loadLeaderboard(); }, 15000);
