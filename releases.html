@@ -1,74 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Release Notes - Chopsticks Hub</title>
-
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <script src="theme.js" defer></script>
+    <script src="theme.js"></script>
+    <script src="common.js"></script>
     <script src="releases.js" defer></script>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
-
 <body class="release-page">
 
-
-<header class="release-header">
-
-    <div class="release-header-inner">
-
-        <span class="page-eyebrow">
-            CHOPSTICKS HUB
-        </span>
-
-        <h1>
-            Release Notes
-        </h1>
-
-        <p>
-            Track the latest updates, improvements, and milestones.
-        </p>
-
-        <a href="index.html" class="back-button">
-            ← Back to Home
-        </a>
-
-    </div>
-
+<header class="page-hero">
+    <span class="eyebrow">CHOPSTICKS HUB</span>
+    <h1>Release Notes</h1>
+    <p>Track the latest updates, improvements, and milestones.</p>
 </header>
 
+<main class="page-main">
 
 
-<main class="release-main">
-
-
-    <!-- SEARCH -->
-
-    <div class="release-search">
-
-        <div class="release-search-icon">
-            🔎
-        </div>
-
-        <input
-            type="text"
-            id="releaseSearch"
-            placeholder="Search versions or features..."
-            autocomplete="off"
-        >
-
+    <div class="toolbar">
+        <label class="search">
+            <span class="sr-only">Search versions or features</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="releaseSearch" placeholder="Search versions or features..." autocomplete="off">
+        </label>
     </div>
-
-
 
     <!-- WEBSITE -->
 
@@ -96,9 +55,43 @@
 
 
 
-        <!-- V3.0 -->
+        <!-- V3.1 -->
 
         <article class="release-card release-featured">
+            <div class="release-card-top">
+                <div>
+                    <span class="release-version">VERSION 3.1</span>
+                    <h3>The Deep Dive</h3>
+                </div>
+                <span class="release-badge">LATEST</span>
+            </div>
+
+            <div class="release-date">November 22nd, 2026</div>
+
+            <p class="release-intro">
+                A full visual refresh: a 3D ocean, a proper navigation bar,
+                and several unfinished features completed.
+            </p>
+
+            <div class="release-feature-grid">
+                <div class="release-feature"><span>🌊</span><div><strong>Scroll-driven home page</strong>
+                    <p>The home page is now a dive from the surface to the abyss, built with ScrollCraft and Three.js.</p></div></div>
+                <div class="release-feature"><span>🧭</span><div><strong>Navigation bar</strong>
+                    <p>A top bar on every page with a quick theme switch and a mobile menu.</p></div></div>
+                <div class="release-feature"><span>🔎</span><div><strong>Filters everywhere</strong>
+                    <p>Rarity, category and status filters plus result counts on Fish, Cards, Shop and Commands.</p></div></div>
+                <div class="release-feature"><span>🏆</span><div><strong>Leaderboard upgrade</strong>
+                    <p>Player search, expandable stats, loading and error states, and a live top&nbsp;3 on the home page.</p></div></div>
+                <div class="release-feature"><span>⚙️</span><div><strong>Settings completed</strong>
+                    <p>Toggle the 3D background, reduce motion, or reset everything.</p></div></div>
+                <div class="release-feature"><span>🗑️</span><div><strong>Credits page removed</strong>
+                    <p>The placeholder Credits page has been taken down for now.</p></div></div>
+            </div>
+        </article>
+
+        <!-- V3.0 -->
+
+        <article class="release-card">
 
             <div class="release-card-top">
 
@@ -114,9 +107,7 @@
 
                 </div>
 
-                <span class="release-badge">
-                    LATEST
-                </span>
+                
 
             </div>
 
@@ -918,6 +909,7 @@
 
 </main>
 
+<script src="ocean.js" defer></script>
 </body>
 
 </html>
