@@ -1,71 +1,47 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-    <title>Shop - Chopsticks</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Chopsticks Hub</title>
+    <meta name="description" content="Browse titles, upgrades, and items available in Chopsticks.">
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <script src="theme.js" defer></script>
-
+    <script src="theme.js"></script>
+    <script src="common.js"></script>
     <link rel="stylesheet" href="style.css">
-
 </head>
+<body>
 
-
-<body class="shop-page">
-
-
-<header>
-
-    <span class="page-eyebrow">
-        CHOPSTICKS HUB
-    </span>
-
-    <h1>
-        🛒 Chopsticks Shop
-    </h1>
-
-    <p>
-        Browse titles, upgrades, and items available in Chopsticks.
-    </p>
-
-    <a href="index.html" class="back-button">
-        Back to Home
-    </a>
-
+<header class="page-hero">
+    <span class="eyebrow">CHOPSTICKS HUB</span>
+    <h1>Chopsticks Shop</h1>
+    <p>Browse titles, upgrades, and items available in Chopsticks.</p>
 </header>
 
+<main class="page-main">
 
-<div class="shop-search-wrap">
-
-    <div class="shop-search">
-
-        <span class="shop-search-icon">
-            🔍
-        </span>
-
-        <input
-            type="text"
-            id="shop-search"
-            placeholder="Search shop items..."
-        >
-
+    <div class="toolbar">
+        <label class="search">
+            <span class="sr-only">Search shop items...</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="shop-search" placeholder="Search shop items..." autocomplete="off">
+        </label>
+        <div class="chips" id="shop-chips" role="group" aria-label="Filters"></div>
+        <span class="result-count" id="shop-count" aria-live="polite"></span>
     </div>
 
-</div>
+    <div id="shop-container"></div>
 
+    <div class="empty-state" id="emptyState" hidden>
+        <strong>Nothing found</strong>
+        Try a different search or filter.
+    </div>
 
-<main
-    id="shop-container"
-    class="shop-container">
 </main>
 
-
+<script src="data/shop.js"></script>
 <script src="shop.js"></script>
 
-
+<script src="ocean.js" defer></script>
 </body>
-
 </html>
