@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Leaderboard - Chopsticks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Chopsticks Hub</title>
+    <meta name="description" content="See who is leading the game.">
     <link rel="icon" type="image/png" href="favicon.png">
-    <script src="theme.js" defer></script>
+    <script src="theme.js"></script>
+    <script src="common.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="leaderboard-page">
-
-<header>
-
-    <span class="page-eyebrow">
-        CHOPSTICKS HUB
-    </span>
-
-    <h1>
-        🏆 Chopsticks Leaderboard
-    </h1>
-
-    <p>
-        See who's leading the game.
-    </p>
-
-    <a href="index.html" class="back-button">
-        Back to Home
-    </a>
-
+<header class="page-hero">
+    <span class="eyebrow">CHOPSTICKS HUB</span>
+    <h1>Leaderboard</h1>
+    <p>See who's leading the game. Click a player for their stats.</p>
 </header>
 
-<div class="container">
+<main class="page-main">
+    <div class="toolbar">
+        <label class="search">
+            <span class="sr-only">Search players</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="lb-search" placeholder="Search players..." autocomplete="off">
+        </label>
+        <div class="lb-status">
+            <span class="result-count" id="lb-count" aria-live="polite"></span>
+            <span class="result-count" id="lb-updated"></span>
+        </div>
+    </div>
 
-    <div id="leaderboard"></div>
-
-</div>
-
+    <div id="leaderboard" aria-live="polite"></div>
+</main>
 
 <script src="leaderboard.js"></script>
 
+<script src="ocean.js" defer></script>
 </body>
 </html>
