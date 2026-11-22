@@ -578,3 +578,102 @@ html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{an
 @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* ==========================================================
+   v3.2 FIXES
+   - back-to-home links, account button, readable pages over the 3D water
+========================================================== */
+
+/* water canvas sits below a soft veil so text stays readable on inner pages */
+#ocean-canvas{z-index:-2}
+body:not(.home-page)::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 25%,transparent),color-mix(in srgb,var(--bg) 55%,transparent));
+}
+
+/* back links */
+.back-home{
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+    padding:9px 16px;border-radius:999px;
+    background:var(--panel);border:1px solid var(--line-strong);
+    color:var(--text);text-decoration:none;
+    font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    transition:border-color .2s,transform .2s,background .2s;
+}
+.back-home:hover{border-color:var(--accent);background:var(--panel-hover);transform:translateX(-3px)}
+.page-footer{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
+
+/* cards, tiles and toolbars: solid enough to read over moving water */
+.tile,.event-card,.podium-card,.feature-card,.search input,.chip{
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.tile{background:color-mix(in srgb,var(--panel-solid) 78%,transparent)}
+button.tile:hover,.tile.hoverable:hover{background:color-mix(in srgb,var(--panel-solid) 92%,transparent)}
+.tile .meta{line-height:1.5}
+.tile h3{overflow-wrap:anywhere}
+.grid{align-items:stretch}
+.toolbar{
+    padding:16px;border-radius:var(--radius);
+    background:color-mix(in srgb,var(--panel-solid) 70%,transparent);
+    border:1px solid var(--line);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.search{width:100%}
+.block-head{
+    padding:14px 16px;border-radius:14px;border-bottom:0;
+    background:color-mix(in srgb,var(--panel-solid) 60%,transparent);
+    border:1px solid var(--line);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.page-hero h1,.page-hero p,.page-hero .eyebrow{text-shadow:0 2px 18px color-mix(in srgb,var(--bg) 80%,transparent)}
+.empty-state{background:color-mix(in srgb,var(--panel-solid) 70%,transparent)}
+.fish-modal-image{background:color-mix(in srgb,var(--bg) 60%,transparent)}
+.fish-profile-image{height:260px;object-fit:contain;background:#0000}
+
+/* navigation: account button + earlier collapse so nothing wraps */
+.nav-account-slot{display:flex}
+.nav-account{
+    display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;
+    background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);cursor:pointer;
+    font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    text-decoration:none;white-space:nowrap;transition:transform .2s;
+}
+.nav-account:hover{transform:translateY(-1px)}
+.nav-account.is-in{background:var(--panel);color:var(--text);border-color:var(--line-strong)}
+.nav-account.is-in:hover{border-color:var(--accent)}
+.nav-account[aria-current="page"]{border-color:var(--accent)}
+.nav-account-name{max-width:110px;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:1240px){
+    .nav-toggle{display:grid}
+    .nav-links{
+        position:fixed;top:var(--nav-h);left:0;right:0;
+        flex-direction:column;align-items:stretch;gap:4px;
+        padding:14px clamp(14px,3vw,34px) 20px;
+        background:var(--panel-solid);border-bottom:1px solid var(--line);box-shadow:var(--shadow);
+        transform:translateY(-12px);opacity:0;visibility:hidden;
+        transition:opacity .2s,transform .2s,visibility .2s;
+    }
+    .nav-links.open{transform:none;opacity:1;visibility:visible}
+    .nav-links a{padding:13px 16px;font-size:13px;border-radius:12px}
+}
+@media (max-width:480px){.nav-account-name{display:none}.nav-brand span:last-child{display:none}}
+
+/* account forms */
+form.modal-content{margin:0}
+.modal-switch{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;
+    margin:18px 0 0;font-size:13px;color:var(--muted);
+}
+.link-btn{
+    background:none;border:0;padding:0;cursor:pointer;
+    color:var(--accent);font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px;
+}
+.password-toggle{
+    top:50%;right:8px;transform:translateY(calc(-50% - 6px));
+    background:none;border:0;padding:6px 8px;border-radius:8px;
+    font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.password-toggle:focus-visible{outline:2px solid var(--accent)}
+.unlinked-note{flex:1;min-width:220px;color:var(--muted);font-size:14px;padding:12px 16px;border:1px dashed var(--line-strong);border-radius:12px}
+#account{min-height:120px}
